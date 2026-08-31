@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/box-shadow-generator.html
+     Purpose: Compose layered CSS box-shadows visually, with a live preview.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>CSS Box Shadow Generator: Layered and Inset Shadows</title>
+<meta name="description" content="Compose CSS box-shadows visually with multiple stacked layers, inset support and a live preview. Copy the generated CSS or a Tailwind class.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/box-shadow-generator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Box Shadow Generator | 123MiniApps">
+<meta property="og:description" content="Compose CSS box-shadows visually with multiple stacked layers, inset support and a live preview. Copy the generated CSS or a Tailwind class.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/box-shadow-generator.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Box Shadow Generator | 123MiniApps">
+<meta name="twitter:description" content="Compose CSS box-shadows visually with multiple stacked layers, inset support and a live preview. Copy the generated CSS or a Tailwind class.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Design Tools", "item": "https://www.123miniapps.online/#category-design" },
+        { "@type": "ListItem", "position": 3, "name": "Box Shadow Generator", "item": "https://www.123miniapps.online/tools/box-shadow-generator.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Box Shadow Generator",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Compose CSS box-shadows visually with multiple stacked layers, inset support and a live preview. Copy the generated CSS or a Tailwind class."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/box-shadow-generator.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Box Shadow Generator free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Box Shadow Generator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Box Shadow Generator do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Box Shadow Generator covers unlimited stacked shadow layers, inset shadows for inner depth, independent colour and opacity per layer, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Box Shadow Generator work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A single box-shadow reads as artificial because real shadows are not uniform. Light scatters, so an object close to a surface casts a tight dark shadow while ambient light produces a much softer, wider one. Stacking two or three layers, one tight and slightly opaque, one broad and very faint, mimics that and is what every mature design system does. Material Design's elevation levels are all multi-layer for exactly this reason."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Box Shadow Generator work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/box-shadow-generator.html#howto",
+      "name": "How to use Box Shadow Generator",
+      "description": "Compose layered CSS box-shadows visually, with a live preview.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Start from a preset, or add layers manually",
+                  "text": "Start from a preset, or add layers manually.",
+                  "url": "https://www.123miniapps.online/tools/box-shadow-generator.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Adjust offset, blur, spread and colour per layer",
+                  "text": "Adjust offset, blur, spread and colour per layer.",
+                  "url": "https://www.123miniapps.online/tools/box-shadow-generator.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Watch the live preview",
+                  "text": "Watch the live preview.",
+                  "url": "https://www.123miniapps.online/tools/box-shadow-generator.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Copy the CSS into your stylesheet",
+                  "text": "Copy the CSS into your stylesheet.",
+                  "url": "https://www.123miniapps.online/tools/box-shadow-generator.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-design">Design Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Box Shadow Generator</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🌑</div>
+      <div>
+        <h1>Box Shadow Generator</h1>
+        <p>Compose layered CSS box-shadows visually, with a live preview.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Box shadow generator">
+ <div class="field">
+ <span class="field__label"><span>Shadow layers</span><span class="field__hint">Stack several for realistic depth</span></span>
+ <div id="layers"></div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--secondary" id="add" type="button">Add a layer</button>
+      <button class="btn btn--secondary" id="preset-soft" type="button">Soft</button>
+      <button class="btn btn--secondary" id="preset-material" type="button">Material</button>
+      <button class="btn btn--secondary" id="preset-hard" type="button">Hard</button>
+      <button class="btn btn--secondary" id="preset-glow" type="button">Glow</button>
+    </div>
+
+    <hr class="hr">
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="bg"><span>Preview background</span></label>
+      <input class="input" id="bg" type="color" value="#131842" style="height:52px;padding:6px;cursor:pointer">
+    </div>
+    <div class="field">
+      <label class="field__label" for="box"><span>Box colour</span></label>
+      <input class="input" id="box" type="color" value="#1A1F4E" style="height:52px;padding:6px;cursor:pointer">
+    </div>
+    <div class="field">
+      <label class="field__label" for="radius">
+        <span>Corner radius</span>
+        <span class="field__hint"><strong id="radius-value">22</strong> px</span>
+      </label>
+      <input class="range" id="radius" type="range" min="0" max="60" value="22" step="2">
+    </div>
+    </div>
+
+ <div class="preview-surface" id="surface">
+ <div id="preview-box" style="width:180px;height:120px"></div>
+ </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Adjust the layers to build your shadow.</p>
+
+    <div class="field">
+      <label class="field__label" for="css">
+        <span>CSS</span>
+      </label>
+      <div class="output output--empty" id="css">The CSS will appear here.</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy CSS</button>
+      <button class="btn btn--secondary" id="copy-tailwind" type="button">Copy Tailwind class</button>
+      <button class="btn btn--secondary" id="download" type="button">Download</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Unlimited stacked shadow layers</li>
+        <li>Inset shadows for inner depth</li>
+        <li>Independent colour and opacity per layer</li>
+        <li>Four starting presets</li>
+        <li>Copies plain CSS or a Tailwind arbitrary value</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Start from a preset, or add layers manually.</li>
+        <li>Adjust offset, blur, spread and colour per layer.</li>
+        <li>Watch the live preview.</li>
+        <li>Copy the CSS into your stylesheet.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Why one shadow rarely looks right</h2>
+      <p class="text-sm text-muted">A single box-shadow reads as artificial because real shadows are not uniform. Light scatters, so an object close to a surface casts a tight dark shadow while ambient light produces a much softer, wider one. Stacking two or three layers, one tight and slightly opaque, one broad and very faint, mimics that and is what every mature design system does. Material Design's elevation levels are all multi-layer for exactly this reason.</p>
+      <p class="text-sm text-muted mt-3">The four values are offset-x, offset-y, blur and spread. Blur softens the edge and roughly doubles the visual size of the shadow; spread grows or shrinks it before blurring. A common mistake is a large blur with no vertical offset, which produces a glow rather than a shadow because it implies light coming from directly in front. Real interfaces usually assume light from above, so the vertical offset should exceed the horizontal.</p>
+      <p class="text-sm text-muted mt-3">Two practical notes. Shadow colour should rarely be pure black at high opacity, a very dark tint of the background hue at 10% to 25% opacity looks far more natural, which is why the presets here use rgba rather than solid values. And box-shadow is expensive to animate, since it forces a repaint on every frame. If you need a shadow to change on hover, animate the <code>opacity</code> of a pseudo-element carrying the larger shadow instead, which stays on the compositor.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Box Shadow Generator free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Box Shadow Generator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Box Shadow Generator do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Box Shadow Generator covers unlimited stacked shadow layers, inset shadows for inner depth, independent colour and opacity per layer, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Box Shadow Generator work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">A single box-shadow reads as artificial because real shadows are not uniform. Light scatters, so an object close to a surface casts a tight dark shadow while ambient light produces a much softer, wider one. Stacking two or three layers, one tight and slightly opaque, one broad and very faint, mimics that and is what every mature design system does. Material Design&#x27;s elevation levels are all multi-layer for exactly this reason.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Box Shadow Generator work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/css-box-shadow-explained.html">CSS Box Shadow Explained: Adding Depth and Elevation</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const PRESETS = {
+ soft: [
+ { x: 0, y: 4, blur: 12, spread: 0, colour: '#000000', alpha: 12, inset: false },
+ { x: 0, y: 12, blur: 32, spread: -8, colour: '#000000', alpha: 18, inset: false }
+ ],
+ material: [
+ { x: 0, y: 2, blur: 4, spread: -1, colour: '#000000', alpha: 20, inset: false },
+ { x: 0, y: 4, blur: 5, spread: 0, colour: '#000000', alpha: 14, inset: false },
+ { x: 0, y: 1, blur: 10, spread: 0, colour: '#000000', alpha: 12, inset: false }
+ ],
+ hard: [
+ { x: 6, y: 6, blur: 0, spread: 0, colour: '#00D4FF', alpha: 100, inset: false }
+ ],
+ glow: [
+ { x: 0, y: 0, blur: 24, spread: 2, colour: '#00D4FF', alpha: 45, inset: false },
+ { x: 0, y: 0, blur: 60, spread: 8, colour: '#7B61FF', alpha: 25, inset: false }
+ ]
+ };
+
+ let layers = JSON.parse(JSON.stringify(PRESETS.soft));
+
+ function rgba(hex, alpha) {
+ const rgb = T.hexToRgb(hex) || { r: 0, g: 0, b: 0 };
+ return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${(alpha / 100).toFixed(2)})`;
+ }
+
+ function shadowCSS() {
+ if (!layers.length) return 'none';
+ return layers.map((l) =>
+ `${l.inset ? 'inset ' : ''}${l.x}px ${l.y}px ${l.blur}px ${l.spread}px ${rgba(l.colour, l.alpha)}`
+ ).join(', ');
+ }
+
+ function renderLayers() {
+ const mount = T.$('layers');
+ mount.innerHTML = '';
+
+ layers.forEach((layer, index) => {
+ const panel = el('div', {
+ className: 'info-panel mb-3',
+ style: { padding: 'var(--space-4)' }
+ });
+
+ const head = el('div', { className: 'flex items-center justify-between mb-3' }, [
+ el('strong', { className: 'text-sm', text: `Layer ${index + 1}` })
+ ]);
+
+ const remove = el('button', {
+ className: 'btn btn--ghost btn--sm',
+ attrs: { type: 'button', 'aria-label': `Remove layer ${index + 1}` },
+ text: '✕'
+ });
+ remove.addEventListener('click', () => {
+ layers.splice(index, 1);
+ renderLayers();
+ render();
+ });
+ head.append(remove);
+ panel.append(head);
+
+ const grid = el('div', { className: 'workspace__row' });
+
+ const slider = (key, label, min, max) => {
+ const wrap = el('div', { className: 'field' });
+ const value = el('span', { className: 'field__hint', text: layer[key] + 'px' });
+
+ const input = el('input', {
+ className: 'range',
+ attrs: { type: 'range', min: String(min), max: String(max),
+ value: String(layer[key]), 'aria-label': `${label} for layer ${index + 1}` }
+ });
+ input.addEventListener('input', () => {
+ layer[key] = Number(input.value);
+ value.textContent = layer[key] + 'px';
+ render();
+ });
+
+ wrap.append(
+ el('span', { className: 'field__label' }, [el('span', { text: label }), value]),
+ input
+ );
+ return wrap;
+ };
+
+ grid.append(
+ slider('x', 'Offset X', -60, 60),
+ slider('y', 'Offset Y', -60, 60),
+ slider('blur', 'Blur', 0, 120),
+ slider('spread', 'Spread', -40, 60)
+ );
+
+ const bottom = el('div', { className: 'workspace__row' });
+
+ const colourWrap = el('div', { className: 'field' });
+ const colour = el('input', {
+ className: 'input',
+ attrs: { type: 'color', value: layer.colour, 'aria-label': `Colour for layer ${index + 1}` },
+ style: { height: '44px', padding: '4px', cursor: 'pointer' }
+ });
+ colour.addEventListener('input', () => { layer.colour = colour.value; render(); });
+ colourWrap.append(el('span', { className: 'field__label' }, [el('span', { text: 'Colour' })]), colour);
+
+ const alphaWrap = el('div', { className: 'field' });
+ const alphaValue = el('span', { className: 'field__hint', text: layer.alpha + '%' });
+ const alpha = el('input', {
+ className: 'range',
+ attrs: { type: 'range', min: '0', max: '100', value: String(layer.alpha),
+ 'aria-label': `Opacity for layer ${index + 1}` }
+ });
+ alpha.addEventListener('input', () => {
+ layer.alpha = Number(alpha.value);
+ alphaValue.textContent = layer.alpha + '%';
+ render();
+ });
+ alphaWrap.append(
+ el('span', { className: 'field__label' }, [el('span', { text: 'Opacity' }), alphaValue]),
+ alpha
+ );
+
+ const insetWrap = el('label', { className: 'switch' });
+ const inset = el('input', {
+ className: 'switch__input',
+ attrs: { type: 'checkbox', 'aria-label': `Inset for layer ${index + 1}` }
+ });
+ inset.checked = layer.inset;
+ inset.addEventListener('change', () => { layer.inset = inset.checked; render(); });
+ insetWrap.append(
+ inset,
+ el('span', { className: 'switch__track' }, [el('span', { className: 'switch__thumb' })]),
+ el('span', { text: 'Inset' })
+ );
+
+ bottom.append(colourWrap, alphaWrap, insetWrap);
+ panel.append(grid, bottom);
+ mount.append(panel);
+ });
+ }
+
+ function render() {
+ const css = shadowCSS();
+
+ T.$('surface').style.background = T.$('bg').value;
+ // The colour input is #box; the preview element is #preview-box.
+ // Sharing one id meant the preview never picked up the colour.
+ const box = T.$('preview-box');
+ box.style.background = T.$('box').value;
+ box.style.borderRadius = T.$('radius').value + 'px';
+ box.style.boxShadow = css;
+
+ T.$('radius-value').textContent = T.$('radius').value;
+ T.setOutput('css', `box-shadow: ${css};`);
+
+ T.status('status', `${layers.length} layer(s).`, 'ok');
+ if (window.Analytics) Analytics.trackToolUse('box-shadow-generator');
+ }
+
+ T.$('add').addEventListener('click', () => {
+ layers.push({ x: 0, y: 8, blur: 24, spread: 0, colour: '#000000', alpha: 20, inset: false });
+ renderLayers();
+ render();
+ });
+
+ Object.keys(PRESETS).forEach((name) => {
+ T.$('preset-' + name).addEventListener('click', () => {
+ layers = JSON.parse(JSON.stringify(PRESETS[name]));
+ renderLayers();
+ render();
+ });
+ });
+
+ T.on(['bg', 'box'], render, 'input');
+ T.$('radius').addEventListener('input', render);
+
+ T.$('copy').addEventListener('click', () =>
+ copyToClipboard(`box-shadow: ${shadowCSS()};`, 'CSS copied'));
+
+ T.$('copy-tailwind').addEventListener('click', () =>
+ copyToClipboard(`shadow-[${shadowCSS().replace(/\s+/g, '_')}]`, 'Tailwind class copied'));
+
+ T.$('download').addEventListener('click', () =>
+ downloadFile(`.shadow {\n box-shadow: ${shadowCSS()};\n}\n`, 'shadow.css', 'text/css'));
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Box Shadow Generator | 123MiniApps' }));
+
+ renderLayers();
+ render();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('box-shadow-generator');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

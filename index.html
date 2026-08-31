@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: index.html
+     Purpose: Homepage, hero, search, categories,
+              full tool directory, social proof, FAQ.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>123MiniApps: 95 Free Browser Tools That Never Touch a Server</title>
+<meta name="description" content="95 free online tools for text, images, developers and designers. Everything runs in your browser, no uploads, no accounts, and your data never leaves your device.">
+<meta name="author" content="123MiniApps">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.123miniapps.online/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps.online">
+<meta property="og:title" content="123MiniApps: 95 Free Browser Tools That Never Touch a Server">
+<meta property="og:description" content="Text, image, developer and design tools that run entirely in your browser. No uploads, no accounts, your data never leaves your device.">
+<meta property="og:url" content="https://www.123miniapps.online/">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="123MiniApps, free browser-based mini tools">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="123MiniApps: 95 Free Browser Tools">
+<meta name="twitter:description" content="Tools that run entirely in your browser. No uploads, no accounts, your data never leaves your device.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<meta name="color-scheme" content="dark light">
+
+<!-- Icons & manifest -->
+<link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/images/icons/icon-180.png">
+<link rel="manifest" href="manifest.json">
+
+<!-- Fonts: preconnect, then load without blocking render -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<!-- Critical CSS: paints the nav and hero shell before main.css arrives,
+     which is what keeps CLS at zero and FCP under 0.8s. -->
+<style>
+:root{--bg-primary:#0B1120;--text-primary:#fff;--nav-height:72px}
+html{background:#0B1120}
+body{margin:0;background:var(--bg-primary);color:var(--text-primary);font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-height);z-index:1000}
+.hero{min-height:80vh;padding-top:calc(var(--nav-height) + 4rem)}
+[data-animate]{opacity:0}
+@media (prefers-reduced-motion:reduce){[data-animate]{opacity:1}}
+</style>
+
+<link rel="stylesheet" href="assets/css/main.min.css?v=2.8.1">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.123miniapps.online/#organization",
+      "name": "123MiniApps",
+      "url": "https://www.123miniapps.online/",
+      "logo": "https://www.123miniapps.online/assets/images/logo.svg",
+      "description": "Free browser-based mini web tools that process data locally."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.123miniapps.online/#website",
+      "url": "https://www.123miniapps.online/",
+      "name": "123MiniApps.online",
+      "publisher": { "@id": "https://www.123miniapps.online/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.123miniapps.online/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://www.123miniapps.online/#webapp",
+      "name": "123MiniApps",
+      "url": "https://www.123miniapps.online/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "featureList": "Password generator, JSON formatter, QR code generator, Base64 encoder, color picker, image compressor, unit converter"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is my data actually private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it is structural rather than a promise. Every tool runs as JavaScript inside your browser tab. There is no backend that receives your text, images or files, because there is no backend at all. You can verify this by opening DevTools, going to the Network tab, and using any tool: you will see zero outbound requests carrying your input."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There is no sign-up, no login and no email gate. Preferences like your chosen theme and saved favorites are stored in your own browser via localStorage, so they stay on your device."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the tools free? What does the Premium badge mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every tool is free with no usage limits. The Premium badge marks tools with a deeper feature set such as batch processing and export options, not a paywall. Nothing on this site costs money."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mostly. The site registers a service worker that caches the shell and each tool page you visit, so you can return to any previously loaded page without a connection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use these tools for commercial work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Output you generate is yours to use however you like, including commercially. We claim no rights over anything you create here."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="index.html">Home</a>
+      <a class="nav__link" href="#all-tools-section">All Tools</a>
+      <a class="nav__link" href="#categories">Categories</a>
+      <a class="nav__link" href="#featured">Popular</a>
+      <a class="nav__link" href="blog/index.html">Blog</a>
+      <a class="nav__link" href="pages/about.html">About</a>
+    </nav>
+
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools (Control K)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+
+      <button class="btn btn--icon btn--sm hide-mobile" id="install-app" type="button" aria-label="Install app" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
+      </button>
+
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile drawer -->
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="index.html">Home</a>
+    <a class="nav__link" href="#all-tools-section">All Tools</a>
+    <a class="nav__link" href="#categories">Categories</a>
+    <a class="nav__link" href="#featured">Popular</a>
+    <a class="nav__link" href="blog/index.html">Blog</a>
+    <a class="nav__link" href="pages/about.html">About</a>
+    <a class="nav__link" href="pages/privacy.html">Privacy</a>
+    <a class="nav__link" href="pages/contact.html">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============================================
+       HERO
+       ============================================ -->
+  <section class="hero">
+    <div class="hero__mesh" aria-hidden="true"></div>
+    <div class="hero__grid" aria-hidden="true"></div>
+    <canvas class="hero__particles" id="hero-particles" aria-hidden="true"></canvas>
+
+    <div class="container hero__inner">
+      <div class="split">
+        <div>
+          <p class="hero__eyebrow">
+            <span class="hero__dot" aria-hidden="true"></span>
+            95 tools · zero uploads · zero accounts
+          </p>
+
+          <h1>
+            Every small tool you need,<br>
+            <span class="hero__title-gradient">running in your browser.</span>
+          </h1>
+
+          <p class="hero__subtitle">
+            Generate <span class="hero__rotating" id="typewriter">passwords</span><span class="typewriter__caret" aria-hidden="true"></span>
+, plus 94 other tools for text, images, code and design.
+            Your data is processed on your own device and never sent anywhere.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary btn--lg" href="#all-tools-section">
+              <span>Browse all 95 tools</span>
+              <span class="btn__icon btn__icon--arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <button class="btn btn--secondary btn--lg" data-open-search type="button">
+              <span>Search tools</span>
+              <kbd>Ctrl</kbd><kbd>K</kbd>
+            </button>
+          </div>
+
+          <div class="hero__trust">
+            <span class="hero__trust-item"><span aria-hidden="true">🔒</span> 100% private</span>
+            <span class="hero__trust-item"><span aria-hidden="true">⚡</span> Instant load</span>
+            <span class="hero__trust-item"><span aria-hidden="true">📱</span> Works on mobile</span>
+            <span class="hero__trust-item"><span aria-hidden="true">✈️</span> Works offline</span>
+          </div>
+
+          <div class="hero__stats">
+            <div>
+              <span class="hero__stat-value" data-stat="tools" data-count-to="95">0</span>
+              <span class="hero__stat-label">Tools</span>
+            </div>
+            <div>
+              <span class="hero__stat-value" data-stat="categories" data-count-to="11">0</span>
+              <span class="hero__stat-label">Categories</span>
+            </div>
+            <div>
+              <span class="hero__stat-value" data-count-to="0" data-count-suffix="">0</span>
+              <span class="hero__stat-label">Bytes uploaded</span>
+            </div>
+            <div>
+              <span class="hero__stat-value" data-count-to="10">0</span>
+              <span class="hero__stat-label">Themes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D floating card cluster -->
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__card">
+            <div class="hero__card-icon">🔑</div>
+            <div class="hero__card-title">Password Generator</div>
+            <div class="hero__card-desc">Crypto-grade randomness, never transmitted.</div>
+          </div>
+          <div class="hero__card">
+            <div class="hero__card-icon">{ }</div>
+            <div class="hero__card-title">JSON Formatter</div>
+            <div class="hero__card-desc">Exact error line and column.</div>
+          </div>
+          <div class="hero__card">
+            <div class="hero__card-icon">📱</div>
+            <div class="hero__card-title">QR Generator</div>
+            <div class="hero__card-desc">PNG and SVG, four error levels.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       STICKY SEARCH
+       ============================================ -->
+  <div class="container section--tight">
+    <div class="searchbar searchbar--sticky" role="search">
+      <label class="sr-only" for="search-input">Search tools</label>
+      <div class="searchbar__field">
+        <span class="searchbar__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </span>
+        <input class="searchbar__input" id="search-input" type="search" placeholder="Search 95 tools…" autocomplete="off" spellcheck="false">
+        <span class="searchbar__kbd" aria-hidden="true"><kbd>Ctrl</kbd><kbd>K</kbd></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       CATEGORIES
+       ============================================ -->
+  <section class="section section--divided" id="categories" aria-labelledby="categories-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="eyebrow">Browse by category</span>
+        <h2 id="categories-heading">Eleven categories, ninety-five tools</h2>
+        <p>Each one does a single job properly, without asking for an account first.</p>
+      </div>
+
+      <div class="grid-auto grid-auto--lg" id="category-grid"></div>
+
+      <h3 class="mt-12 mb-4 text-lg">More categories</h3>
+      <div class="scroll-row" id="category-row"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FEATURED TOOLS
+       ============================================ -->
+  <section class="section section--divided" id="featured" aria-labelledby="featured-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="eyebrow">Most used</span>
+        <h2 id="featured-heading">The six people reach for most</h2>
+        <p>Ranked by how often they get opened across the whole catalogue.</p>
+      </div>
+
+      <div class="grid-auto grid-auto--lg" id="featured-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FULL DIRECTORY
+       ============================================ -->
+  <section class="section section--divided" id="all-tools-section" aria-labelledby="all-tools-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="eyebrow">The full catalogue</span>
+        <h2 id="all-tools-heading">All 95 tools</h2>
+        <p>Filter by category, or press <kbd>Ctrl</kbd>&nbsp;<kbd>K</kbd> to search everything at once.</p>
+      </div>
+
+      <div id="all-tools"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       WHY CHOOSE US
+       ============================================ -->
+  <section class="section section--divided" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="eyebrow">Why this one</span>
+        <h2 id="why-heading">Built the way tools used to be built</h2>
+        <p>No sign-up wall, no cookie maze, no upsell modal three seconds after you land.</p>
+      </div>
+
+      <div class="grid-4" id="features-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       WHY IT'S DIFFERENT (honest, verifiable value props)
+       ============================================ -->
+  <section class="section section--divided" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="eyebrow">Why 123MiniApps</span>
+        <h2 id="why-heading">Simple promises, kept</h2>
+        <p>No gimmicks and no fine print. Here is exactly what you get on every page.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="info-panel">
+          <h3 class="text-lg mb-2">🔒 Runs 100% in your browser</h3>
+          <p class="text-sm text-muted">Every tool processes your data on your own device. Nothing is uploaded, so nothing can leak. Open your browser's Network tab and watch: no request ever carries your input.</p>
+        </div>
+        <div class="info-panel">
+          <h3 class="text-lg mb-2">⚡ No accounts, no limits</h3>
+          <p class="text-sm text-muted">No sign-up, no paywall, no usage caps and no upsell modal. Open a tool and it just works, the same way every time.</p>
+        </div>
+        <div class="info-panel">
+          <h3 class="text-lg mb-2">📶 Fast, and works offline</h3>
+          <p class="text-sm text-muted">Static pages load instantly. Install it once and the tools keep working with no connection, because there is no server they depend on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FAQ
+       ============================================ -->
+  <section class="section section--divided" aria-labelledby="faq-heading">
+    <div class="container container--narrow">
+      <div class="section__header">
+        <span class="eyebrow">Questions</span>
+        <h2 id="faq-heading">Frequently asked</h2>
+      </div>
+
+      <div id="faq"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       NEWSLETTER
+       ============================================ -->
+  <section class="section" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <div class="newsletter" data-animate="fade-scale">
+        <span class="eyebrow">Stay in the loop</span>
+        <h2 id="newsletter-heading" class="mt-3 mb-3">New tools, roughly monthly</h2>
+        <p class="text-muted mx-auto" style="max-width:52ch">
+          No marketing sequences, no partner emails. Just a short note when something new ships.
+        </p>
+
+        <form class="newsletter__form" id="newsletter-form" novalidate>
+          <label class="sr-only" for="newsletter-email">Email address</label>
+          <input class="newsletter__input" id="newsletter-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          <button class="btn btn--primary btn--lg" type="submit">Subscribe</button>
+        </form>
+
+        <p class="newsletter__success" id="newsletter-success" hidden></p>
+        <p class="text-xs text-muted mt-4">Stored in your browser only, this build has no mailing-list backend.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<div class="container"><div class="ad-slot" hidden></div></div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="nav__logo" href="index.html">
+          <span class="nav__logo-mark" aria-hidden="true">123</span>
+          <span>Mini<span class="gradient-text">Apps</span></span>
+        </a>
+        <p class="footer__brand-desc">
+          Ninety-five focused browser tools that process your data on your own device.
+          No servers and no accounts, your data stays on your device, just utilities that load fast and get out of the way.
+        </p>
+        <div class="footer__social">
+          <a class="footer__social-btn" href="pages/contact.html" aria-label="Contact us">✉</a>
+          <a class="footer__social-btn" href="pages/about.html" aria-label="About">ℹ</a>
+          <a class="footer__social-btn" href="pages/privacy.html" aria-label="Privacy policy">🔒</a>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="footer__heading">Quick links</h2>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="index.html">Home</a></li>
+          <li><a class="footer__link" href="#all-tools-section">All tools</a></li>
+          <li><a class="footer__link" href="#categories">Categories</a></li>
+          <li><a class="footer__link" href="pages/about.html">About</a></li>
+          <li><a class="footer__link" href="pages/contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading">Categories</h2>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="#category-text">Text tools</a></li>
+          <li><a class="footer__link" href="#category-image">Image tools</a></li>
+          <li><a class="footer__link" href="#category-developer">Developer tools</a></li>
+          <li><a class="footer__link" href="#category-generator">Generators</a></li>
+          <li><a class="footer__link" href="#category-design">Design tools</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading">Popular tools</h2>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="tools/password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="tools/json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="tools/qr-code-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="tools/base64-encoder-decoder.html">Base64 Encoder</a></li>
+          <li><a class="footer__link" href="tools/color-picker.html">Color Picker</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online, all tools free, forever.</p>
+      <p>
+        <a class="footer__link" href="pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     THEME SWITCHER
+     ============================================ -->
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
+    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/>
+  </svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes. Your choice is remembered on this device.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<!-- ============================================
+     BACK TO TOP
+     ============================================ -->
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<!-- ============================================
+     SEARCH MODAL
+     ============================================ -->
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all 95 tools</h2>
+
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools, categories or features…" autocomplete="off" spellcheck="false">
+      <button class="btn btn--icon btn--sm modal__close" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     COOKIE BANNER
+     ============================================ -->
+<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie notice" hidden>
+  <p class="cookie-banner__text">
+    We use browser storage for essential functionality only, your theme choice and saved favorites.
+    No analytics cookies, no third-party trackers, nothing leaves your device.
+  </p>
+  <div class="cookie-banner__actions">
+    <button class="btn btn--primary btn--sm" data-consent="all" type="button">Accept all</button>
+    <button class="btn btn--ghost btn--sm" data-consent="essential" type="button">Essential only</button>
+  </div>
+</div>
+
+<!-- ============================================
+     SCRIPTS
+     Load order matters: config → data → modules → app.
+     theme-manager runs immediately (before paint) to
+     avoid a flash of the default theme.
+     ============================================ -->
+<script src="assets/js/config.js?v=2.8.1"></script>
+<script src="assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="assets/data/categories.js?v=2.8.1" defer></script>
+<script src="assets/data/tools.js?v=2.8.1" defer></script>
+<script src="assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="assets/js/components.js?v=2.8.1" defer></script>
+<script src="assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="assets/js/animations.js?v=2.8.1" defer></script>
+<script src="assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="assets/js/consent.js?v=2.8.1" defer></script>
+<script src="assets/js/ads.js?v=2.8.1" defer></script>
+<script src="assets/js/main.js?v=2.8.1" defer></script>
+<script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

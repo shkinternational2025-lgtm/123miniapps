@@ -1,0 +1,24 @@
+# Dependencies / build junk (never commit these)
+node_modules/
+node_modules
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
+
+# Local secrets — NEVER commit these
+deploy_key
+deploy_key.pub
+*.pem
+.env
+
+# Local scratch / logs
+*.log
+/outputs/

@@ -1,0 +1,109 @@
+/* ============================================
+ 123MiniApps.online v2.0
+ File: themes.css
+ Purpose: Cross-fade behaviour when switching
+ between the 10 themes.
+
+ Strategy: we do NOT put a permanent transition on
+ `color` / `background-color` for every element, 
+ that would tax the compositor on every hover.
+ Instead theme-manager.js adds .theme-transitioning
+ to <html> for exactly one 500ms window while the
+ data-theme attribute flips, then removes it.
+ ============================================ */
+
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+ transition:
+ background-color var(--duration-slow) var(--ease-default),
+ background-image var(--duration-slow) var(--ease-default),
+ border-color var(--duration-slow) var(--ease-default),
+ color var(--duration-slow) var(--ease-default),
+ fill var(--duration-slow) var(--ease-default),
+ stroke var(--duration-slow) var(--ease-default),
+ box-shadow var(--duration-slow) var(--ease-default) !important;
+ transition-delay: 0s !important;
+}
+
+/* Never animate layout-affecting properties during a
+ theme swap, this is what guarantees CLS stays at 0. */
+html.theme-transitioning * {
+ animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+ html.theme-transitioning,
+ html.theme-transitioning *,
+ html.theme-transitioning *::before,
+ html.theme-transitioning *::after {
+ transition-duration: 0.01ms !important;
+ }
+}
+
+/* --------------------------------------------
+ Theme swatch preview gradients
+ Each dot in the theme panel renders the actual
+ accent gradient of the theme it represents, on
+ top of that theme's own background color.
+ -------------------------------------------- */
+.theme-swatch__dot[data-preview='indigo-nova'] {
+ background: linear-gradient(135deg, #4f46e5, #7c3aed 55%, #3b82f6);
+ outline: 3px solid #0b1120;
+ outline-offset: -3px;
+}
+
+.theme-swatch__dot[data-preview='azure-trust'] {
+ background: linear-gradient(135deg, #2563eb, #06b6d4);
+ outline: 3px solid #f8fafc;
+ outline-offset: -3px;
+}
+
+.theme-swatch__dot[data-preview='graphite-minimal'] {
+ background: linear-gradient(135deg, #111827, #2563eb);
+ outline: 3px solid #ffffff;
+ outline-offset: -3px;
+}
+
+.theme-swatch__dot[data-preview='violet-dream'] {
+ background: linear-gradient(135deg, #9333ea, #a855f7 55%, #c084fc);
+ outline: 3px solid #18181b;
+ outline-offset: -3px;
+}
+
+.theme-swatch__dot[data-preview='emerald-fresh'] {
+ background: linear-gradient(135deg, #059669, #2563eb);
+ outline: 3px solid #ecfdf5;
+ outline-offset: -3px;
+}
+
+.theme-swatch__dot[data-preview='navy-cyan'] {
+ background: linear-gradient(135deg, #1e3a8a, #0ea5e9 60%, #38bdf8);
+ outline: 3px solid #0a1834;
+ outline-offset: -3px;
+}
+
+.theme-swatch__dot[data-preview='sunburst'] {
+ background: linear-gradient(135deg, #f97316, #4f46e5);
+ outline: 3px solid #fff7ed;
+ outline-offset: -3px;
+}
+
+.theme-swatch__dot[data-preview='teal-clean'] {
+ background: linear-gradient(135deg, #0d9488, #2563eb);
+ outline: 3px solid #f0fdfa;
+ outline-offset: -3px;
+}
+
+.theme-swatch__dot[data-preview='violet-noir'] {
+ background: linear-gradient(135deg, #7c3aed, #a78bfa);
+ outline: 3px solid #0f0f14;
+ outline-offset: -3px;
+}
+
+.theme-swatch__dot[data-preview='crimson-edge'] {
+ background: linear-gradient(135deg, #dc2626, #ef4444 60%, #f87171);
+ outline: 3px solid #0f0f0f;
+ outline-offset: -3px;
+}

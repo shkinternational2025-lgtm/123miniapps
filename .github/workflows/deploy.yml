@@ -1,0 +1,85 @@
+name: Deploy to VPS
+
+# Auto-deploys the site to your Hostinger VPS whenever you push to main.
+# Because the site is static, "deploy" = rebuild the generated pages, then
+# rsync the files to the server. No app restart, no downtime.
+#
+# ── One-time setup ────────────────────────────────────────────────
+# In GitHub → repo → Settings → Secrets and variables → Actions,
+# add these four repository secrets:
+#
+#   VPS_HOST      your VPS IP or hostname          e.g. 203.0.113.10
+#   VPS_USER      the SSH user                     e.g. root  (or a deploy user)
+#   VPS_PATH      absolute web root on the server  e.g. /var/www/123miniapps
+#   VPS_SSH_KEY   a PRIVATE SSH key whose PUBLIC half is in the
+#                 server's ~/.ssh/authorized_keys  (generate a dedicated
+#                 deploy key: ssh-keygen -t ed25519 -f deploy_key)
+#
+# Then push to main and watch the Actions tab.
+# ──────────────────────────────────────────────────────────────────
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}   # lets you trigger a deploy manually from the UI
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Rebuild generated pages
+        run: |
+          python3 build-css.py
+          python3 build-tool-page.py
+          python3 build-blog.py
+          python3 build-legal.py
+
+      - name: Run test suite (gate the deploy)
+        run: |
+          npm install jsdom --no-save
+          node test/run.js
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Deploy with rsync
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key" \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='test' \
+            --exclude='node_modules' \
+            --exclude='admin' \
+            --exclude='*.py' \
+            --exclude='*.md' \
+            --exclude='assets/css/reset.css' \
+            --exclude='assets/css/design-tokens.css' \
+            --exclude='assets/css/typography.css' \
+            --exclude='assets/css/spacing.css' \
+            --exclude='assets/css/shadows.css' \
+            --exclude='assets/css/animations.css' \
+            --exclude='assets/css/layout.css' \
+            --exclude='assets/css/components.css' \
+            --exclude='assets/css/themes.css' \
+            --exclude='assets/css/main.css' \
+            ./ "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_PATH }}/"
+
+      - name: Done
+        run: echo "Deployed to ${{ secrets.VPS_HOST }}:${{ secrets.VPS_PATH }}"

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/color-picker-from-image.html
+     Purpose: Sample any pixel from an image, and extract its dominant palette automatically.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Colour Picker from Image: Sample Any Pixel</title>
+<meta name="description" content="Pick any colour out of an uploaded image and copy its hex value, with automatic palette extraction from the image's dominant colours.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/color-picker-from-image.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Color Picker from Image | 123MiniApps">
+<meta property="og:description" content="Pick any colour out of an uploaded image and copy its hex value, with automatic palette extraction from the image's dominant colours.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/color-picker-from-image.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Color Picker from Image | 123MiniApps">
+<meta name="twitter:description" content="Pick any colour out of an uploaded image and copy its hex value, with automatic palette extraction from the image's dominant colours.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Image Tools", "item": "https://www.123miniapps.online/#category-image" },
+        { "@type": "ListItem", "position": 3, "name": "Color Picker from Image", "item": "https://www.123miniapps.online/tools/color-picker-from-image.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Color Picker from Image",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Pick any colour out of an uploaded image and copy its hex value, with automatic palette extraction from the image's dominant colours."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/color-picker-from-image.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Color Picker from Image free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Color Picker from Image is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Color Picker from Image do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Color Picker from Image covers click any pixel to sample its colour, hEX, RGB and HSL output, automatic dominant-colour extraction, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Color Picker from Image work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The dominant colours are found by colour quantisation. Every pixel is sorted into a bucket by rounding its red, green and blue channels to a coarser resolution, this tool uses 32 levels per channel, and the buckets with the most pixels win. It is a simple approach compared to k-means clustering or the median-cut algorithm that GIF encoders use, but it is fast, runs on any image size, and produces sensible results for the purpose."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Color Picker from Image work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Your image is decoded and processed by your own browser using the File and Canvas APIs. It is never uploaded, there is no server to receive it. You can verify this by opening your browser's developer tools, switching to the Network tab, and watching while you use the tool: you will see no request carrying your file. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/color-picker-from-image.html#howto",
+      "name": "How to use Color Picker from Image",
+      "description": "Sample any pixel from an image, and extract its dominant palette automatically.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Drop in an image",
+                  "text": "Drop in an image.",
+                  "url": "https://www.123miniapps.online/tools/color-picker-from-image.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Click anywhere on it to sample that pixel",
+                  "text": "Click anywhere on it to sample that pixel.",
+                  "url": "https://www.123miniapps.online/tools/color-picker-from-image.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Press Extract palette for the dominant colours",
+                  "text": "Press Extract palette for the dominant colours.",
+                  "url": "https://www.123miniapps.online/tools/color-picker-from-image.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Click any swatch to copy its hex value",
+                  "text": "Click any swatch to copy its hex value.",
+                  "url": "https://www.123miniapps.online/tools/color-picker-from-image.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-image">Image Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Color Picker from Image</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🎨</div>
+      <div>
+        <h1>Color Picker from Image</h1>
+        <p>Sample any pixel from an image, and extract its dominant palette automatically.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Colour picker from image">
+    <div class="dropzone" id="dropzone" role="button" tabindex="0"
+         aria-label="Drop an image here, or click to browse">
+      <span class="dropzone__icon" aria-hidden="true">📁</span>
+      <span class="dropzone__label">Drop an image here, or click to browse</span>
+      <span class="dropzone__hint">Read on your device, never uploaded</span>
+    </div>
+
+ <p class="field__hint">
+ The image is decoded and processed by your own browser. It is never uploaded, and no copy of it
+ exists anywhere but this tab, you can confirm that in the DevTools Network tab while you work.
+ </p>
+
+ <div class="field">
+ <span class="field__label"><span>Click anywhere on the image to sample</span><span class="field__hint" id="canvas-meta"></span></span>
+ <div class="output output--center" style="padding:var(--space-4)">
+ <canvas id="canvas" role="img" aria-label="Click to sample a colour" style="max-width:100%;height:auto;cursor:crosshair"></canvas>
+ </div>
+ </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Choose an image to begin.</p>
+
+    <hr class="hr">
+
+ <div class="workspace__row">
+ <div class="field">
+ <span class="field__label"><span>Sampled colour</span></span>
+ <div id="swatch" style="height:88px;border-radius:var(--radius-md);border:1px solid var(--border-color);background:var(--bg-surface)"></div>
+ </div>
+ <div class="field">
+ <label class="field__label" for="hex"><span>HEX</span></label>
+ <input class="input font-mono" id="hex" type="text" readonly>
+ <label class="field__label mt-2" for="rgb"><span>RGB</span></label>
+ <input class="input font-mono" id="rgb" type="text" readonly>
+ <label class="field__label mt-2" for="hsl"><span>HSL</span></label>
+ <input class="input font-mono" id="hsl" type="text" readonly>
+ </div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy-hex" type="button">Copy HEX</button>
+      <button class="btn btn--secondary" id="copy-rgb" type="button">Copy RGB</button>
+      <button class="btn btn--secondary" id="extract" type="button">Extract palette</button>
+      <button class="btn btn--ghost" id="reset" type="button">Choose another image</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Dominant colours</span><span class="field__hint">Click a swatch to copy</span></span>
+ <div class="swatch-grid" id="palette"></div>
+ </div>
+
+ <div class="field">
+ <span class="field__label"><span>Recently sampled</span></span>
+ <div class="swatch-grid" id="recent"></div>
+ </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Click any pixel to sample its colour</li>
+        <li>HEX, RGB and HSL output</li>
+        <li>Automatic dominant-colour extraction</li>
+        <li>History of recently sampled colours</li>
+        <li>The image never leaves your device</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Drop in an image.</li>
+        <li>Click anywhere on it to sample that pixel.</li>
+        <li>Press Extract palette for the dominant colours.</li>
+        <li>Click any swatch to copy its hex value.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>How the palette is extracted</h2>
+      <p class="text-sm text-muted">The dominant colours are found by colour quantisation. Every pixel is sorted into a bucket by rounding its red, green and blue channels to a coarser resolution, this tool uses 32 levels per channel, and the buckets with the most pixels win. It is a simple approach compared to k-means clustering or the median-cut algorithm that GIF encoders use, but it is fast, runs on any image size, and produces sensible results for the purpose.</p>
+      <p class="text-sm text-muted mt-3">One deliberate refinement: very dark and very desaturated pixels are down-weighted. Photographs frequently have large areas of near-black shadow or near-white sky that dominate a naive pixel count while telling you nothing useful about the image's character. Filtering them out surfaces the colours a designer would actually pick out.</p>
+      <p class="text-sm text-muted mt-3">A caveat about accuracy. What you sample is the pixel value after the browser has decoded the image and applied any colour management. If the file carries an embedded ICC profile, common in photographs from a decent camera, the value you get here may differ slightly from what a colour-managed application like Photoshop reports. For web work the browser's value is the right one, since that is what visitors will see. For print work, sample in software that respects the profile.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Color Picker from Image free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Color Picker from Image is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Color Picker from Image do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Color Picker from Image covers click any pixel to sample its colour, hEX, RGB and HSL output, automatic dominant-colour extraction, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Color Picker from Image work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">The dominant colours are found by colour quantisation. Every pixel is sorted into a bucket by rounding its red, green and blue channels to a coarser resolution, this tool uses 32 levels per channel, and the buckets with the most pixels win. It is a simple approach compared to k-means clustering or the median-cut algorithm that GIF encoders use, but it is fast, runs on any image size, and produces sensible results for the purpose.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Color Picker from Image work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Your image is decoded and processed by your own browser using the File and Canvas APIs. It is never uploaded, there is no server to receive it. You can verify this by opening your browser&#x27;s developer tools, switching to the Network tab, and watching while you use the tool: you will see no request carrying your file. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/get-hex-color-from-any-image.html">How to Get the Exact Hex Color from Any Image</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let sourceImage = null;
+ let recent = [];
+
+ const canvas = T.$('canvas');
+ const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+ async function load(file) {
+ try {
+ const dataUrl = await T.readAsDataURL(file);
+ sourceImage = await T.loadImage(dataUrl);
+
+ // Cap the canvas so very large images stay responsive
+ const maxWidth = 720;
+ const scale = Math.min(1, maxWidth / sourceImage.width);
+ canvas.width = Math.round(sourceImage.width * scale);
+ canvas.height = Math.round(sourceImage.height * scale);
+
+ ctx.drawImage(sourceImage, 0, 0, canvas.width, canvas.height);
+
+ const zone = T.$('dropzone');
+ zone.classList.add('has-file');
+ zone.querySelector('.dropzone__label').textContent = file.name;
+ zone.querySelector('.dropzone__hint').textContent =
+ `${T.bytes(file.size)} · ${sourceImage.width}×${sourceImage.height}`;
+
+ T.$('canvas-meta').textContent = `${sourceImage.width} × ${sourceImage.height} px`;
+ T.status('status', 'Click anywhere on the image to sample a colour.', 'ok');
+
+ extractPalette();
+ } catch (err) {
+ T.status('status', err.message, 'error');
+ }
+ }
+
+ function sampleAt(clientX, clientY) {
+ if (!sourceImage) return;
+
+ const rect = canvas.getBoundingClientRect();
+ const x = Math.floor(((clientX - rect.left) / rect.width) * canvas.width);
+ const y = Math.floor(((clientY - rect.top) / rect.height) * canvas.height);
+
+ if (x < 0 || y < 0 || x >= canvas.width || y >= canvas.height) return;
+
+ const [r, g, b] = ctx.getImageData(x, y, 1, 1).data;
+ setColour(T.rgbToHex(r, g, b));
+ }
+
+ function setColour(hex) {
+ const rgb = T.hexToRgb(hex);
+ if (!rgb) return;
+
+ const hsl = T.rgbToHsl(rgb.r, rgb.g, rgb.b);
+
+ T.$('swatch').style.background = hex;
+ T.$('hex').value = hex;
+ T.$('rgb').value = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+ T.$('hsl').value = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+
+ recent = [hex, ...recent.filter((c) => c !== hex)].slice(0, 12);
+ renderRecent();
+
+ T.status('status', `Sampled ${hex}.`, 'ok');
+ if (window.Analytics) Analytics.trackToolUse('color-picker-from-image');
+ }
+
+ /**
+ * Quantise pixels into coarse buckets and rank by frequency.
+ * Very dark and very desaturated pixels are down-weighted, since
+ * shadows and sky otherwise dominate the count without being
+ * characteristic of the image.
+ */
+ function extractPalette() {
+ if (!sourceImage) return;
+
+ const sampleCanvas = document.createElement('canvas');
+ const size = 120;
+ sampleCanvas.width = size;
+ sampleCanvas.height = size;
+
+ const sampleCtx = sampleCanvas.getContext('2d', { willReadFrequently: true });
+ sampleCtx.drawImage(sourceImage, 0, 0, size, size);
+
+ const { data } = sampleCtx.getImageData(0, 0, size, size);
+ const buckets = new Map();
+
+ for (let i = 0; i < data.length; i += 4) {
+ const alpha = data[i + 3];
+ if (alpha < 200) continue;
+
+ const r = data[i], g = data[i + 1], b = data[i + 2];
+
+ const max = Math.max(r, g, b);
+ const min = Math.min(r, g, b);
+ const lightness = (max + min) / 2;
+ const saturation = max === min ? 0 : (max - min) / (255 - Math.abs(max + min - 255));
+
+ // Weight down near-black, near-white and grey pixels
+ let weight = 1;
+ if (lightness < 25 || lightness > 240) weight = 0.15;
+ if (saturation < 0.1) weight *= 0.4;
+
+ // Round to 32 levels per channel
+ const key = `${r >> 3},${g >> 3},${b >> 3}`;
+ const entry = buckets.get(key) || { count: 0, r: 0, g: 0, b: 0 };
+ entry.count += weight;
+ entry.r += r; entry.g += g; entry.b += b;
+ buckets.set(key, entry);
+ }
+
+ const top = [...buckets.entries()]
+ .sort((a, b) => b[1].count - a[1].count)
+ .slice(0, 8)
+ .map(([, entry]) => {
+ // Average the actual pixel values in the bucket rather than
+ // using the rounded bucket centre
+ const n = Math.max(1, Math.round(entry.count));
+ void n;
+ const divisor = Math.max(1, Math.round(entry.count));
+ return T.rgbToHex(entry.r / divisor / 1, entry.g / divisor / 1, entry.b / divisor / 1);
+ });
+
+ renderPalette(top);
+ }
+
+ function swatchFor(hex, label) {
+ const swatch = el('div', { className: 'swatch' });
+
+ const chip = el('button', {
+ className: 'swatch__chip',
+ attrs: { type: 'button', 'aria-label': `Copy ${hex}` },
+ style: { background: hex, width: '100%', border: 'none', cursor: 'pointer' }
+ });
+
+ chip.addEventListener('click', () => {
+ setColour(hex);
+ copyToClipboard(hex, hex + ' copied');
+ });
+
+ swatch.append(chip, el('span', { className: 'swatch__hex', text: label || hex }));
+ return swatch;
+ }
+
+ function renderPalette(colours) {
+ const mount = T.$('palette');
+ mount.innerHTML = '';
+ colours.forEach((hex) => mount.append(swatchFor(hex)));
+ }
+
+ function renderRecent() {
+ const mount = T.$('recent');
+ mount.innerHTML = '';
+ recent.forEach((hex) => mount.append(swatchFor(hex)));
+ }
+
+ canvas.addEventListener('click', (e) => sampleAt(e.clientX, e.clientY));
+
+ // Keyboard accessibility: allow sampling the centre pixel
+ canvas.setAttribute('tabindex', '0');
+ canvas.addEventListener('keydown', (e) => {
+ if (e.key !== 'Enter' && e.key !== ' ') return;
+ e.preventDefault();
+ const rect = canvas.getBoundingClientRect();
+ sampleAt(rect.left + rect.width / 2, rect.top + rect.height / 2);
+ });
+
+ T.dropzone('dropzone', load);
+
+ T.$('extract').addEventListener('click', extractPalette);
+ T.$('copy-hex').addEventListener('click', () => copyToClipboard(T.$('hex').value, 'HEX copied'));
+ T.$('copy-rgb').addEventListener('click', () => copyToClipboard(T.$('rgb').value, 'RGB copied'));
+
+ T.$('reset').addEventListener('click', async () => {
+ const file = await T.pickFile('image/*');
+ if (file) load(file);
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Colour Picker from Image | 123MiniApps' }));
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('color-picker-from-image');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

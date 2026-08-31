@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/timestamp-converter.html
+     Purpose: Convert Unix timestamps to dates and back, seconds, milliseconds, any timezone.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Unix Timestamp Converter: Epoch to Date and Back</title>
+<meta name="description" content="Convert Unix timestamps to readable dates and back. Seconds or milliseconds, any timezone, ISO 8601 output and a live current timestamp.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/timestamp-converter.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Timestamp Converter | 123MiniApps">
+<meta property="og:description" content="Convert Unix timestamps to readable dates and back. Seconds or milliseconds, any timezone, ISO 8601 output and a live current timestamp.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/timestamp-converter.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Timestamp Converter | 123MiniApps">
+<meta name="twitter:description" content="Convert Unix timestamps to readable dates and back. Seconds or milliseconds, any timezone, ISO 8601 output and a live current timestamp.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Converters", "item": "https://www.123miniapps.online/#category-converter" },
+        { "@type": "ListItem", "position": 3, "name": "Timestamp Converter", "item": "https://www.123miniapps.online/tools/timestamp-converter.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Timestamp Converter",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Convert Unix timestamps to readable dates and back. Seconds or milliseconds, any timezone, ISO 8601 output and a live current timestamp."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/timestamp-converter.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Timestamp Converter free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Timestamp Converter is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Timestamp Converter do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Timestamp Converter covers live current timestamp in seconds and milliseconds, automatic detection of seconds versus milliseconds, local timezone or UTC, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Timestamp Converter work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A Unix timestamp counts the seconds since 1 January 1970 at 00:00:00 UTC, a moment called the epoch. Because it is a single integer anchored to UTC, it sidesteps timezones, daylight saving and calendar formatting entirely, which is exactly why it remains the default way to store an instant in databases, log files and APIs."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Timestamp Converter work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/timestamp-converter.html#howto",
+      "name": "How to use Timestamp Converter",
+      "description": "Convert Unix timestamps to dates and back, seconds, milliseconds, any timezone.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Paste a Unix timestamp into the first box",
+                  "text": "Paste a Unix timestamp into the first box.",
+                  "url": "https://www.123miniapps.online/tools/timestamp-converter.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Or pick a date and time to get its timestamp",
+                  "text": "Or pick a date and time to get its timestamp.",
+                  "url": "https://www.123miniapps.online/tools/timestamp-converter.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Switch between your timezone and UTC",
+                  "text": "Switch between your timezone and UTC.",
+                  "url": "https://www.123miniapps.online/tools/timestamp-converter.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Copy every format at once from the button below",
+                  "text": "Copy every format at once from the button below.",
+                  "url": "https://www.123miniapps.online/tools/timestamp-converter.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-converter">Converters</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Timestamp Converter</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🕐</div>
+      <div>
+        <h1>Timestamp Converter</h1>
+        <p>Convert Unix timestamps to dates and back, seconds, milliseconds, any timezone.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Timestamp converter">
+ <div class="result-grid">
+ <div class="result result--primary"><span class="result__value" id="now-s" style="font-size:var(--text-2xl)">, </span><span class="result__label">Current timestamp (s)</span></div>
+ <div class="result"><span class="result__value" id="now-ms" style="font-size:var(--text-2xl)">, </span><span class="result__label">Current timestamp (ms)</span></div>
+ </div>
+
+    <hr class="hr">
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="timestamp"><span>Unix timestamp</span></label>
+      <input class="input" id="timestamp" type="text" value="" placeholder="1735689600" >
+    </div>
+    <div class="field">
+      <label class="field__label" for="unit"><span>Units</span></label>
+      <select class="select" id="unit">
+        <option value="auto" selected>Detect automatically</option>
+        <option value="s">Seconds</option>
+        <option value="ms">Milliseconds</option>
+      </select>
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="datetime"><span>Date and time</span></label>
+      <input class="input" id="datetime" type="datetime-local" value="" placeholder="2025-01-01T00:00" >
+    </div>
+    <div class="field">
+      <label class="field__label" for="timezone"><span>Timezone</span></label>
+      <select class="select" id="timezone">
+        <option value="local" selected>Your local timezone</option>
+        <option value="UTC">UTC</option>
+      </select>
+    </div>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Enter a timestamp or pick a date.</p>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>All formats</span></span>
+ <div class="table-scroll"><div id="formats"></div></div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="use-now" type="button">Use current time</button>
+      <button class="btn btn--secondary" id="copy" type="button">Copy all formats</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Live current timestamp in seconds and milliseconds</li>
+        <li>Automatic detection of seconds versus milliseconds</li>
+        <li>Local timezone or UTC</li>
+        <li>ISO 8601, RFC 2822 and relative-time output</li>
+        <li>Relative description such as “3 days ago”</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Paste a Unix timestamp into the first box.</li>
+        <li>Or pick a date and time to get its timestamp.</li>
+        <li>Switch between your timezone and UTC.</li>
+        <li>Copy every format at once from the button below.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Understanding Unix time</h2>
+      <p class="text-sm text-muted">A Unix timestamp counts the seconds since 1 January 1970 at 00:00:00 UTC, a moment called the epoch. Because it is a single integer anchored to UTC, it sidesteps timezones, daylight saving and calendar formatting entirely, which is exactly why it remains the default way to store an instant in databases, log files and APIs.</p>
+      <p class="text-sm text-muted mt-3">The main confusion is seconds versus milliseconds. Unix tooling, most databases and JSON APIs use seconds; JavaScript's <code>Date.now()</code> returns milliseconds. A millisecond value interpreted as seconds lands roughly 50,000 years in the future, which is a common and very visible bug. This tool detects the difference by magnitude: values above about 100 billion are almost certainly milliseconds.</p>
+      <p class="text-sm text-muted mt-3">Two edge cases are worth knowing. Unix time deliberately ignores leap seconds, so it is not a true count of elapsed SI seconds since the epoch, a leap second repeats the same timestamp value. And systems storing timestamps in a signed 32-bit integer overflow on 19 January 2038, the Year 2038 problem. Most modern systems have moved to 64-bit, but embedded and legacy code has not always followed.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Timestamp Converter free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Timestamp Converter is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Timestamp Converter do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Timestamp Converter covers live current timestamp in seconds and milliseconds, automatic detection of seconds versus milliseconds, local timezone or UTC, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Timestamp Converter work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">A Unix timestamp counts the seconds since 1 January 1970 at 00:00:00 UTC, a moment called the epoch. Because it is a single integer anchored to UTC, it sidesteps timezones, daylight saving and calendar formatting entirely, which is exactly why it remains the default way to store an instant in databases, log files and APIs.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Timestamp Converter work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/unix-timestamps-epoch-time-explained.html">Unix Timestamps Explained: Converting Epoch Time to a Date</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let clockTimer = null;
+
+ function tickClock() {
+ const now = Date.now();
+ T.$('now-s').textContent = Math.floor(now / 1000).toLocaleString('en-US', { useGrouping: false });
+ T.$('now-ms').textContent = String(now);
+ }
+
+ /** Interpret the entered timestamp, honouring the units setting. */
+ function parseTimestamp(raw) {
+ const n = Number(String(raw).trim());
+ if (!isFinite(n)) return null;
+
+ const unit = T.$('unit').value;
+ if (unit === 's') return n * 1000;
+ if (unit === 'ms') return n;
+
+ // Auto: anything past ~5138 AD in seconds is really milliseconds
+ return Math.abs(n) > 1e11 ? n : n * 1000;
+ }
+
+ /** Human-readable "3 days ago" / "in 2 hours". */
+ function relative(ms) {
+ const diff = ms - Date.now();
+ const abs = Math.abs(diff);
+ const units = [
+ ['year', 31536000000], ['month', 2592000000], ['day', 86400000],
+ ['hour', 3600000], ['minute', 60000], ['second', 1000]
+ ];
+
+ for (const [name, size] of units) {
+ if (abs >= size || name === 'second') {
+ const n = Math.round(abs / size);
+ const plural = n === 1 ? '' : 's';
+ return diff < 0 ? `${n} ${name}${plural} ago` : `in ${n} ${name}${plural}`;
+ }
+ }
+ return 'now';
+ }
+
+ function render(ms, source) {
+ if (!isFinite(ms)) {
+ T.status('status', 'That is not a valid timestamp.', 'error');
+ return;
+ }
+
+ const date = new Date(ms);
+ if (isNaN(date.getTime())) {
+ T.status('status', 'That timestamp is out of range.', 'error');
+ return;
+ }
+
+ const utc = T.$('timezone').value === 'UTC';
+ const opts = utc ? { timeZone: 'UTC' } : {};
+
+ // Sync whichever field the user did not edit
+ if (source !== 'timestamp') {
+ T.$('timestamp').value = String(Math.floor(ms / 1000));
+ }
+ if (source !== 'datetime') {
+ const iso = new Date(ms - (utc ? 0 : date.getTimezoneOffset() * 60000)).toISOString();
+ T.$('datetime').value = iso.slice(0, 16);
+ }
+
+ const rows = [
+ ['Unix seconds', String(Math.floor(ms / 1000))],
+ ['Unix milliseconds', String(ms)],
+ ['ISO 8601 (UTC)', date.toISOString()],
+ ['RFC 2822', date.toUTCString()],
+ ['Local string', date.toLocaleString(undefined, opts)],
+ ['Date only', date.toLocaleDateString(undefined, opts)],
+ ['Time only', date.toLocaleTimeString(undefined, opts)],
+ ['Day of week', date.toLocaleDateString(undefined, { ...opts, weekday: 'long' })],
+ ['Relative', relative(ms)]
+ ];
+
+ const mount = T.$('formats');
+ mount.innerHTML = '';
+ mount.append(T.table(['Format', 'Value'], rows));
+
+ T.status('status', `${date.toISOString()}, ${relative(ms)}`, 'ok');
+ }
+
+ T.$('timestamp').addEventListener('input', () => {
+ const ms = parseTimestamp(T.$('timestamp').value);
+ if (ms !== null) render(ms, 'timestamp');
+ });
+
+ T.$('datetime').addEventListener('input', () => {
+ const v = T.$('datetime').value;
+ if (!v) return;
+ const ms = T.$('timezone').value === 'UTC'
+ ? Date.parse(v + ':00Z')
+ : new Date(v).getTime();
+ if (isFinite(ms)) render(ms, 'datetime');
+ });
+
+ T.on(['unit', 'timezone'], () => {
+ const ms = parseTimestamp(T.$('timestamp').value);
+ if (ms !== null) render(ms, 'timestamp');
+ }, 'change');
+
+ T.$('use-now').addEventListener('click', () => {
+ T.$('timestamp').value = String(Math.floor(Date.now() / 1000));
+ render(Date.now(), 'timestamp');
+ });
+
+ T.$('copy').addEventListener('click', () => {
+ const rows = T.$$('#formats tbody tr').map((tr) =>
+ [...tr.children].map((td) => td.textContent).join(': '));
+ copyToClipboard(rows.join('\n'), 'All formats copied');
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Timestamp Converter | 123MiniApps' }));
+
+ tickClock();
+ clockTimer = setInterval(tickClock, 1000);
+ window.addEventListener('beforeunload', () => clearInterval(clockTimer));
+
+ render(Date.now(), null);
+ if (window.Analytics) Analytics.trackToolUse('timestamp-converter');
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('timestamp-converter');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

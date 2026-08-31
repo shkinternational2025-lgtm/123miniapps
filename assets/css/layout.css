@@ -1,0 +1,217 @@
+/* ============================================
+ 123MiniApps.online v2.0
+ File: layout.css
+ Purpose: Containers, grids, flex helpers,
+ section rhythm, responsive primitives.
+ ============================================ */
+
+/* --------------------------------------------
+ Containers
+ -------------------------------------------- */
+.container {
+ width: 100%;
+ max-width: var(--container-max);
+ margin-inline: auto;
+ padding-inline: var(--container-pad);
+}
+
+.container--wide {
+ max-width: var(--container-wide);
+}
+
+.container--narrow {
+ max-width: 860px;
+}
+
+/* --------------------------------------------
+ Sections
+ -------------------------------------------- */
+.section {
+ position: relative;
+ padding-block: var(--section-padding);
+}
+
+.section--tight {
+ padding-block: clamp(2rem, 1rem + 3vw, 3.5rem);
+}
+
+.section__header {
+ max-width: 720px;
+ margin-inline: auto;
+ margin-bottom: var(--space-12);
+ text-align: center;
+}
+
+.section__header .eyebrow {
+ margin-bottom: var(--space-3);
+}
+
+.section__header h2 {
+ margin-bottom: var(--space-4);
+}
+
+.section__header p {
+ color: var(--text-muted);
+ font-size: var(--text-lg);
+}
+
+/* Subtle divider between sections */
+.section--divided::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 50%;
+ transform: translateX(-50%);
+ width: min(100%, var(--container-max));
+ height: 1px;
+ background: linear-gradient(
+ 90deg,
+ transparent,
+ var(--border-color),
+ transparent
+ );
+}
+
+/* --------------------------------------------
+ Flex helpers
+ -------------------------------------------- */
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-end { justify-content: flex-end; }
+.flex-1 { flex: 1 1 0%; }
+.grow { flex-grow: 1; }
+.shrink-0 { flex-shrink: 0; }
+
+/* --------------------------------------------
+ Grid systems
+ -------------------------------------------- */
+.grid { display: grid; }
+
+/* Auto-fitting card grids, the workhorse layout */
+.grid-auto {
+ display: grid;
+ gap: var(--space-6);
+ grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+}
+
+.grid-auto--lg {
+ grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+}
+
+.grid-auto--sm {
+ gap: var(--space-4);
+ grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+}
+
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-6); }
+
+@media (max-width: 1024px) {
+ .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+ .grid-2,
+ .grid-3,
+ .grid-4 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Horizontally scrolling row (secondary categories, tabs) */
+.scroll-row {
+ display: flex;
+ gap: var(--space-4);
+ overflow-x: auto;
+ scroll-snap-type: x mandatory;
+ scrollbar-width: thin;
+ padding-bottom: var(--space-3);
+ -webkit-overflow-scrolling: touch;
+}
+
+.scroll-row > * {
+ scroll-snap-align: start;
+ flex: 0 0 auto;
+}
+
+/* --------------------------------------------
+ Positioning helpers
+ -------------------------------------------- */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.sticky { position: sticky; }
+.inset-0 { inset: 0; }
+
+.overflow-hidden { overflow: hidden; }
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+/* Performance: isolate card painting */
+.contain-card {
+ contain: layout style paint;
+}
+
+/* --------------------------------------------
+ Two-column split (hero, about)
+ -------------------------------------------- */
+.split {
+ display: grid;
+ gap: var(--space-12);
+ align-items: center;
+ grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+}
+
+@media (max-width: 1024px) {
+ .split {
+ grid-template-columns: minmax(0, 1fr);
+ gap: var(--space-10);
+ }
+}
+
+/* --------------------------------------------
+ Visibility helpers
+ -------------------------------------------- */
+@media (max-width: 900px) {
+ .hide-mobile { display: none !important; }
+}
+
+@media (min-width: 901px) {
+ .hide-desktop { display: none !important; }
+}
+
+/* --------------------------------------------
+ Responsive tiers, mobile / tablet / desktop / ultrawide
+ The auto-fit grids already adapt to container width; these
+ rules make each device tier feel deliberate.
+ -------------------------------------------- */
+
+/* Large desktop & 1080p: denser card grids to fill the wider container */
+@media (min-width: 1600px) {
+ .grid-auto { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: var(--space-8); }
+ .grid-auto--lg { grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: var(--space-8); }
+ .grid-auto--sm { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+}
+
+/* Ultrawide: allow an extra column so 1920px+ never looks sparse */
+@media (min-width: 1920px) {
+ .grid-auto { grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); }
+}
+
+/* Tablet (portrait ~768px): comfortable two-up rather than cramped */
+@media (min-width: 641px) and (max-width: 1024px) {
+ .grid-2.grid-3.grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Small phones: tighten gaps so cards keep breathing room */
+@media (max-width: 480px) {
+ .grid-auto.grid-auto--lg.grid-auto--sm { gap: var(--space-4); }
+}

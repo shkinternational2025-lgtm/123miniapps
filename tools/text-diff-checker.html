@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/text-diff-checker.html
+     Purpose: Compare two texts and see exactly what was added, removed and kept.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Text Diff Checker: Compare Two Texts and Highlight Changes</title>
+<meta name="description" content="Compare two blocks of text side by side and highlight every addition and deletion. Word or line granularity, with an optional whitespace-insensitive mode.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/text-diff-checker.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Text Diff Checker | 123MiniApps">
+<meta property="og:description" content="Compare two blocks of text side by side and highlight every addition and deletion. Word or line granularity, with an optional whitespace-insensitive mode.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/text-diff-checker.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Text Diff Checker | 123MiniApps">
+<meta name="twitter:description" content="Compare two blocks of text side by side and highlight every addition and deletion. Word or line granularity, with an optional whitespace-insensitive mode.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Text Tools", "item": "https://www.123miniapps.online/#category-text" },
+        { "@type": "ListItem", "position": 3, "name": "Text Diff Checker", "item": "https://www.123miniapps.online/tools/text-diff-checker.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Text Diff Checker",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Compare two blocks of text side by side and highlight every addition and deletion. Word or line granularity, with an optional whitespace-insensitive mode."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/text-diff-checker.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Text Diff Checker free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Text Diff Checker is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Text Diff Checker do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Text Diff Checker covers word-level or line-level comparison, additions and deletions colour-coded inline, optional whitespace and case insensitivity, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Text Diff Checker work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "This uses a longest common subsequence algorithm, the same foundation as diff and Git. It finds the longest sequence of tokens appearing in both texts in the same order, then treats everything else as either an insertion or a deletion. That produces a minimal, readable set of changes rather than simply reporting that everything after the first difference changed."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Text Diff Checker work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/text-diff-checker.html#howto",
+      "name": "How to use Text Diff Checker",
+      "description": "Compare two texts and see exactly what was added, removed and kept.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Paste the original version on the left",
+                  "text": "Paste the original version on the left.",
+                  "url": "https://www.123miniapps.online/tools/text-diff-checker.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Paste the changed version on the right",
+                  "text": "Paste the changed version on the right.",
+                  "url": "https://www.123miniapps.online/tools/text-diff-checker.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Choose word or line granularity",
+                  "text": "Choose word or line granularity.",
+                  "url": "https://www.123miniapps.online/tools/text-diff-checker.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Green marks additions, struck-through red marks deletions",
+                  "text": "Green marks additions, struck-through red marks deletions.",
+                  "url": "https://www.123miniapps.online/tools/text-diff-checker.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-text">Text Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Text Diff Checker</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🔍</div>
+      <div>
+        <h1>Text Diff Checker</h1>
+        <p>Compare two texts and see exactly what was added, removed and kept.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Text diff checker">
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="left">
+        <span>Original</span>
+      </label>
+      <textarea class="textarea" id="left" style="min-height:200px" spellcheck="false" placeholder="Paste the original text…"></textarea>
+    </div>
+    <div class="field">
+      <label class="field__label" for="right">
+        <span>Changed</span>
+      </label>
+      <textarea class="textarea" id="right" style="min-height:200px" spellcheck="false" placeholder="Paste the changed text…"></textarea>
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="mode"><span>Compare by</span></label>
+      <select class="select" id="mode">
+        <option value="word" selected>Words</option>
+        <option value="line">Lines</option>
+      </select>
+    </div>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="ignore-ws" checked>
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Ignore whitespace differences</span>
+    </label>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="ignore-case">
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Ignore capitalisation</span>
+    </label>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Paste text into both boxes to compare.</p>
+
+    <hr class="hr">
+
+ <div class="result-grid">
+ <div class="result"><span class="result__value" id="r-added" style="color:var(--success)">0</span><span class="result__label">Added</span></div>
+ <div class="result"><span class="result__value" id="r-removed" style="color:var(--danger)">0</span><span class="result__label">Removed</span></div>
+ <div class="result"><span class="result__value" id="r-same">0</span><span class="result__label">Unchanged</span></div>
+ <div class="result result--primary"><span class="result__value" id="r-similarity">100%</span><span class="result__label">Similarity</span></div>
+ </div>
+
+    <div class="field">
+      <label class="field__label" for="output">
+        <span>Differences</span>
+      </label>
+      <div class="output output--empty" id="output">The comparison will appear here.</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy result</button>
+      <button class="btn btn--secondary" id="swap" type="button">Swap sides</button>
+      <button class="btn btn--ghost" id="clear" type="button">Clear both</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Word-level or line-level comparison</li>
+        <li>Additions and deletions colour-coded inline</li>
+        <li>Optional whitespace and case insensitivity</li>
+        <li>Similarity percentage and change counts</li>
+        <li>Copy a plain-text unified summary</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Paste the original version on the left.</li>
+        <li>Paste the changed version on the right.</li>
+        <li>Choose word or line granularity.</li>
+        <li>Green marks additions, struck-through red marks deletions.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>How the comparison works</h2>
+      <p class="text-sm text-muted">This uses a longest common subsequence algorithm, the same foundation as <code>diff</code> and Git. It finds the longest sequence of tokens appearing in both texts in the same order, then treats everything else as either an insertion or a deletion. That produces a minimal, readable set of changes rather than simply reporting that everything after the first difference changed.</p>
+      <p class="text-sm text-muted mt-3">Word granularity is best for prose, where a single edited word inside a long paragraph should not mark the whole paragraph as changed. Line granularity matches how code review tools work and is better for source files, configuration and any text where line boundaries carry meaning.</p>
+      <p class="text-sm text-muted mt-3">The similarity percentage is the proportion of tokens unchanged relative to the longer of the two texts. It is a rough guide rather than a precise measure of semantic similarity, reordering two paragraphs produces a low score even though nothing was truly added or removed. For large inputs the algorithm is capped at 4,000 tokens per side, since LCS cost grows with the product of both lengths.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Text Diff Checker free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Text Diff Checker is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Text Diff Checker do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Text Diff Checker covers word-level or line-level comparison, additions and deletions colour-coded inline, optional whitespace and case insensitivity, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Text Diff Checker work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">This uses a longest common subsequence algorithm, the same foundation as diff and Git. It finds the longest sequence of tokens appearing in both texts in the same order, then treats everything else as either an insertion or a deletion. That produces a minimal, readable set of changes rather than simply reporting that everything after the first difference changed.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Text Diff Checker work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/compare-two-texts-find-differences.html">How to Compare Two Texts and Spot Every Difference</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const MAX_TOKENS = 4000;
+ let lastResult = '';
+
+ /** Tokenise according to the current mode and normalisation options. */
+ function tokenise(text) {
+ const byLine = T.$('mode').value === 'line';
+ let tokens = byLine ? text.split(/\r?\n/) : text.split(/(\s+)/).filter((t) => t !== '');
+ return tokens.slice(0, MAX_TOKENS);
+ }
+
+ /** The comparison key, what "equal" means given the toggles. */
+ function key(token) {
+ let k = token;
+ if (T.$('ignore-ws').checked) k = k.replace(/\s+/g, ' ').trim();
+ if (T.$('ignore-case').checked) k = k.toLowerCase();
+ return k;
+ }
+
+ /**
+ * Longest common subsequence, returned as an edit script.
+ * @returns {{type: 'same'|'add'|'del', value: string}[]}
+ */
+ function diff(a, b) {
+ const n = a.length, m = b.length;
+
+ // DP table of LCS lengths, Uint32Array keeps a 4000x4000 grid manageable
+ const rows = n + 1, cols = m + 1;
+ const dp = new Uint32Array(rows * cols);
+
+ for (let i = n - 1; i >= 0; i--) {
+ for (let j = m - 1; j >= 0; j--) {
+ dp[i * cols + j] = key(a[i]) === key(b[j])
+ ? dp[(i + 1) * cols + (j + 1)] + 1
+ : Math.max(dp[(i + 1) * cols + j], dp[i * cols + (j + 1)]);
+ }
+ }
+
+ const out = [];
+ let i = 0, j = 0;
+ while (i < n && j < m) {
+ if (key(a[i]) === key(b[j])) {
+ out.push({ type: 'same', value: a[i] }); i++; j++;
+ } else if (dp[(i + 1) * cols + j] >= dp[i * cols + (j + 1)]) {
+ out.push({ type: 'del', value: a[i] }); i++;
+ } else {
+ out.push({ type: 'add', value: b[j] }); j++;
+ }
+ }
+ while (i < n) out.push({ type: 'del', value: a[i++] });
+ while (j < m) out.push({ type: 'add', value: b[j++] });
+
+ return out;
+ }
+
+ function run() {
+ const leftText = T.$('left').value;
+ const rightText = T.$('right').value;
+
+ if (!leftText.trim() && !rightText.trim()) {
+ T.setOutput('output', '', 'The comparison will appear here.');
+ T.status('status', 'Paste text into both boxes to compare.', 'muted');
+ return;
+ }
+
+ const a = tokenise(leftText);
+ const b = tokenise(rightText);
+
+ if (a.length >= MAX_TOKENS || b.length >= MAX_TOKENS) {
+ T.status('status', `Input truncated to ${MAX_TOKENS.toLocaleString()} tokens per side.`, 'warn');
+ }
+
+ const script = diff(a, b);
+ const byLine = T.$('mode').value === 'line';
+
+ let added = 0, removed = 0, same = 0;
+ const html = [];
+ const plain = [];
+
+ for (const part of script) {
+ const safe = T.esc(part.value) + (byLine ? '\n' : '');
+ if (part.type === 'add') {
+ added++;
+ html.push(`<span class="diff-add">${safe}</span>`);
+ plain.push('+ ' + part.value);
+ } else if (part.type === 'del') {
+ removed++;
+ html.push(`<span class="diff-del">${safe}</span>`);
+ plain.push('- ' + part.value);
+ } else {
+ same++;
+ html.push(safe);
+ if (byLine) plain.push(' ' + part.value);
+ }
+ }
+
+ T.setOutputHTML('output', html.join(''));
+ lastResult = plain.join(byLine ? '\n' : ' ');
+
+ T.$('r-added').textContent = added.toLocaleString();
+ T.$('r-removed').textContent = removed.toLocaleString();
+ T.$('r-same').textContent = same.toLocaleString();
+
+ const total = Math.max(a.length, b.length, 1);
+ T.$('r-similarity').textContent = Math.round((same / total) * 100) + '%';
+
+ if (!added && !removed) T.status('status', 'The two texts are identical.', 'ok');
+ else T.status('status', `${added} addition(s), ${removed} deletion(s).`, 'ok');
+ }
+
+ T.on(['left', 'right'], debounce(run, 300));
+ T.on(['mode', 'ignore-ws', 'ignore-case'], run, 'change');
+
+ T.$('swap').addEventListener('click', () => {
+ const tmp = T.$('left').value;
+ T.$('left').value = T.$('right').value;
+ T.$('right').value = tmp;
+ run();
+ });
+
+ T.$('clear').addEventListener('click', () => {
+ T.$('left').value = '';
+ T.$('right').value = '';
+ run();
+ });
+
+ T.wireActions({ slug: 'text-diff-checker', getResult: () => lastResult, filename: 'diff.txt' });
+ run();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('text-diff-checker');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

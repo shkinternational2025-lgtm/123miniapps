@@ -1,0 +1,27 @@
+# ============================================
+# 123MiniApps.online v2.0
+# File: robots.txt
+# ============================================
+
+User-agent: *
+Allow: /
+
+# Build-time utilities and templates — no value in the index
+Disallow: /admin/
+Disallow: /tools/_template.html
+Disallow: /theme-debug.html
+Disallow: /offline.html
+Disallow: /build-tool-page.py
+Disallow: /toolkit.py
+Disallow: /pages_data.py
+Disallow: /tools_*.py
+Disallow: /test/
+
+# Be polite to aggressive crawlers rather than blocking them
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+Sitemap: https://www.123miniapps.online/sitemap.xml

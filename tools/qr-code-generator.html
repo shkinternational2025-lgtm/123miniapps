@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/qr-code-generator.html
+     Purpose: Generate QR codes for links, text, Wi-Fi and contact cards.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>QR Code Generator: Links, Wi-Fi and vCards, PNG & SVG | 123MiniApps</title>
+<meta name="description" content="Generate QR codes for URLs, text, Wi-Fi or contact cards. Four error-correction levels, custom colors, PNG and SVG download. Encoded locally.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/qr-code-generator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="QR Code Generator, PNG & SVG | 123MiniApps">
+<meta property="og:description" content="Generate QR codes for URLs, text, Wi-Fi or contact cards. Four error-correction levels, custom colors, PNG and SVG download. Encoded locally.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/qr-code-generator.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="QR Code Generator, PNG & SVG | 123MiniApps">
+<meta name="twitter:description" content="Generate QR codes for URLs, text, Wi-Fi or contact cards. Four error-correction levels, custom colors, PNG and SVG download. Encoded locally.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Generators", "item": "https://www.123miniapps.online/#category-generator" },
+        { "@type": "ListItem", "position": 3, "name": "QR Code Generator", "item": "https://www.123miniapps.online/tools/qr-code-generator.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "QR Code Generator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Generate QR codes for URLs, text, Wi-Fi or contact cards. Four error-correction levels, custom colors, PNG and SVG download. Encoded locally."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/qr-code-generator.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is this QR code generator free, and do the codes expire?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, free with no limits, and no, the codes never expire. Many QR generators create a short redirect URL that points through their servers, which means the code stops working if they shut down or start charging. This tool encodes your data directly into the QR pattern, so the image is permanent and depends on nobody."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data sent anywhere when I generate a code?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. The QR encoder is written in-house and runs entirely in your browser, there is no API call. This matters for the Wi-Fi option in particular, since the password is encoded locally and never transmitted. Bear in mind though that anyone who scans or photographs the resulting image can read that password, so share the picture carefully."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Which error correction level should I choose?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "QR codes carry redundant data so they still scan when partly obscured. Level L tolerates around 7% damage and produces the smallest code; H tolerates about 30% but needs noticeably more modules for the same payload. M is the sensible default for anything displayed on a screen. Choose Q or H when the code will be printed on packaging, used outdoors, or has a logo overlaid on it."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What is the difference between the PNG and SVG download?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "PNG is a fixed-resolution raster image, which is right for websites, emails and slides. SVG is vector, so it stays perfectly sharp at any size, use it for anything going to print, on signage, or on a large format where a PNG would show pixel edges."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/qr-code-generator.html#howto",
+      "name": "How to use QR Code Generator",
+      "description": "Turn a link, Wi-Fi password or contact card into a QR code, encoded locally, never uploaded.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Pick what you are encoding from the dropdown",
+                  "text": "Pick what you are encoding from the dropdown.",
+                  "url": "https://www.123miniapps.online/tools/qr-code-generator.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Fill in the fields, the code redraws as you type",
+                  "text": "Fill in the fields, the code redraws as you type.",
+                  "url": "https://www.123miniapps.online/tools/qr-code-generator.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Adjust size, colours and correction level",
+                  "text": "Adjust size, colours and correction level.",
+                  "url": "https://www.123miniapps.online/tools/qr-code-generator.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Download as PNG for the web, or SVG for print",
+                  "text": "Download as PNG for the web, or SVG for print.",
+                  "url": "https://www.123miniapps.online/tools/qr-code-generator.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-generator">Generators</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">QR Code Generator</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">📱</div>
+      <div>
+        <h1>QR Code Generator</h1>
+        <p>Turn a link, Wi-Fi password or contact card into a QR code, encoded locally, never uploaded.</p>
+      </div>
+    </div>
+
+ <section class="workspace" aria-label="QR code generator">
+ <div class="field">
+ <label class="field__label" for="type"><span>What are you encoding?</span></label>
+ <select class="select" id="type">
+ <option value="url" selected>Link (URL)</option>
+ <option value="text">Plain text</option>
+ <option value="wifi">Wi-Fi network</option>
+ <option value="vcard">Contact card (vCard)</option>
+ <option value="email">Email address</option>
+ </select>
+ </div>
+
+ <!-- URL / text -->
+ <div class="field" data-panel="url text">
+ <label class="field__label" for="content">
+ <span id="content-label">Link</span>
+ <span class="field__hint" id="content-stats"></span>
+ </label>
+ <textarea class="textarea" id="content" style="min-height:110px" spellcheck="false"
+ placeholder="https://www.123miniapps.online/">https://www.123miniapps.online/</textarea>
+ </div>
+
+ <!-- Wi-Fi -->
+ <div data-panel="wifi" hidden>
+ <div class="workspace__row">
+ <div class="field">
+ <label class="field__label" for="wifi-ssid"><span>Network name (SSID)</span></label>
+ <input class="input" id="wifi-ssid" type="text" placeholder="MyNetwork">
+ </div>
+ <div class="field">
+ <label class="field__label" for="wifi-pass"><span>Password</span></label>
+ <input class="input" id="wifi-pass" type="text" placeholder="••••••••" autocomplete="off">
+ </div>
+ <div class="field">
+ <label class="field__label" for="wifi-enc"><span>Security</span></label>
+ <select class="select" id="wifi-enc">
+ <option value="WPA" selected>WPA / WPA2 / WPA3</option>
+ <option value="WEP">WEP</option>
+ <option value="nopass">Open (no password)</option>
+ </select>
+ </div>
+ </div>
+ <p class="field__hint">The password is encoded into the QR image on this device. It is never sent anywhere, but anyone who scans or photographs the code can read it, so share the image carefully.</p>
+ </div>
+
+ <!-- vCard -->
+ <div data-panel="vcard" hidden>
+ <div class="workspace__row">
+ <div class="field">
+ <label class="field__label" for="vc-name"><span>Full name</span></label>
+ <input class="input" id="vc-name" type="text" placeholder="Ada Lovelace">
+ </div>
+ <div class="field">
+ <label class="field__label" for="vc-phone"><span>Phone</span></label>
+ <input class="input" id="vc-phone" type="tel" placeholder="+1 555 0100">
+ </div>
+ <div class="field">
+ <label class="field__label" for="vc-email"><span>Email</span></label>
+ <input class="input" id="vc-email" type="email" placeholder="ada@example.com">
+ </div>
+ <div class="field">
+ <label class="field__label" for="vc-org"><span>Organisation</span></label>
+ <input class="input" id="vc-org" type="text" placeholder="Analytical Engines Ltd">
+ </div>
+ </div>
+ </div>
+
+ <!-- Email -->
+ <div data-panel="email" hidden>
+ <div class="workspace__row">
+ <div class="field">
+ <label class="field__label" for="em-to"><span>To</span></label>
+ <input class="input" id="em-to" type="email" placeholder="hello@example.com">
+ </div>
+ <div class="field">
+ <label class="field__label" for="em-subject"><span>Subject</span></label>
+ <input class="input" id="em-subject" type="text" placeholder="Hello">
+ </div>
+ </div>
+ </div>
+
+ <hr class="hr">
+
+ <div class="workspace__row">
+ <div class="field">
+ <label class="field__label" for="ecl">
+ <span>Error correction</span>
+ </label>
+ <select class="select" id="ecl">
+ <option value="L">L, recovers ~7% damage (smallest code)</option>
+ <option value="M" selected>M, recovers ~15% (balanced)</option>
+ <option value="Q">Q, recovers ~25%</option>
+ <option value="H">H, recovers ~30% (largest code)</option>
+ </select>
+ </div>
+
+ <div class="field">
+ <label class="field__label" for="size">
+ <span>Image size</span>
+ <span class="field__hint"><strong id="size-value">320</strong> px</span>
+ </label>
+ <input class="range" id="size" type="range" min="128" max="1024" step="32" value="320">
+ </div>
+
+ <div class="field">
+ <label class="field__label" for="margin">
+ <span>Quiet zone</span>
+ <span class="field__hint"><strong id="margin-value">4</strong> modules</span>
+ </label>
+ <input class="range" id="margin" type="range" min="0" max="8" step="1" value="4">
+ </div>
+ </div>
+
+ <div class="workspace__row">
+ <div class="field">
+ <label class="field__label" for="fg"><span>Foreground</span></label>
+ <input class="input" id="fg" type="color" value="#000000" style="height:52px;padding:6px;cursor:pointer">
+ </div>
+ <div class="field">
+ <label class="field__label" for="bg"><span>Background</span></label>
+ <input class="input" id="bg" type="color" value="#FFFFFF" style="height:52px;padding:6px;cursor:pointer">
+ </div>
+ </div>
+
+ <p id="status" class="field__hint" role="status" aria-live="polite">The code updates as you type.</p>
+ <p id="contrast-warning" class="field__hint" style="color:var(--warning)" hidden></p>
+
+ <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Your QR code</span><span class="field__hint" id="qr-meta"></span></span>
+ <div class="output output--center" style="padding:var(--space-6)">
+ <canvas id="canvas" role="img" aria-label="Generated QR code"></canvas>
+ </div>
+ </div>
+
+ <div class="actions">
+ <button class="btn btn--primary" id="download-png" type="button">Download PNG</button>
+ <button class="btn btn--secondary" id="download-svg" type="button">Download SVG</button>
+ <button class="btn btn--secondary" id="copy-img" type="button">Copy image</button>
+ <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+ </div>
+ </section>
+
+ <div class="info-grid">
+ <section class="info-panel">
+ <h2>Features</h2>
+ <ul>
+ <li>Five payload types: URL, text, Wi-Fi, vCard and email</li>
+ <li>All four error-correction levels</li>
+ <li>Custom foreground and background colors</li>
+ <li>PNG raster and SVG vector download</li>
+ <li>Encoder written in-house, no external requests</li>
+ </ul>
+ </section>
+
+ <section class="info-panel">
+ <h2>How to use it</h2>
+ <ol>
+ <li>Pick what you're encoding from the dropdown.</li>
+ <li>Fill in the fields, the code redraws as you type.</li>
+ <li>Adjust size, colors and correction level.</li>
+ <li>Download as PNG for the web, or SVG for print.</li>
+ </ol>
+ </section>
+
+ <section class="info-panel">
+ <h2>Choosing an error correction level</h2>
+ <p class="text-sm text-muted">
+ QR codes carry redundant data so they still scan when partly obscured. Level L tolerates
+ around 7% damage and produces the smallest code; H tolerates about 30% but needs noticeably
+ more modules for the same payload. M is the sensible default for anything displayed on a
+ screen.
+ </p>
+ <p class="text-sm text-muted mt-3">
+ Reach for Q or H when the code will be printed on packaging, placed outdoors, or has a logo
+ overlaid on it, all situations where part of the pattern may be lost. Two other things
+ matter more than people expect: keep the quiet zone (the blank margin) at four modules or
+ more, and keep strong contrast between foreground and background. A light-on-dark inverted
+ code will fail on many scanners regardless of correction level.
+ </p>
+ </section>
+ </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is this QR code generator free, and do the codes expire?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, free with no limits, and no, the codes never expire. Many QR generators create a short redirect URL that points through their servers, which means the code stops working if they shut down or start charging. This tool encodes your data directly into the QR pattern, so the image is permanent and depends on nobody.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>Is my data sent anywhere when I generate a code?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">No. The QR encoder is written in-house and runs entirely in your browser, there is no API call. This matters for the Wi-Fi option in particular, since the password is encoded locally and never transmitted. Bear in mind though that anyone who scans or photographs the resulting image can read that password, so share the picture carefully.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>Which error correction level should I choose?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">QR codes carry redundant data so they still scan when partly obscured. Level L tolerates around 7% damage and produces the smallest code; H tolerates about 30% but needs noticeably more modules for the same payload. M is the sensible default for anything displayed on a screen. Choose Q or H when the code will be printed on packaging, used outdoors, or has a logo overlaid on it.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>What is the difference between the PNG and SVG download?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">PNG is a fixed-resolution raster image, which is right for websites, emails and slides. SVG is vector, so it stays perfectly sharp at any size, use it for anything going to print, on signage, or on a large format where a PNG would show pixel edges.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/how-qr-codes-work-and-how-to-make-one.html">How QR Codes Work and How to Make One</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+<script src="../assets/js/vendor/qr-encoder.js" defer></script>
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const canvas = $('canvas');
+ const ctx = canvas.getContext('2d');
+ const status = $('status');
+ let current = null;
+
+ /** Escape the characters that carry meaning in a Wi-Fi QR payload. */
+ const escapeWifi = (s) => String(s).replace(/([\\; ":])/g, '\\$1');
+
+ /**
+ * Assemble the payload string for the selected type.
+ * @returns {string}
+ */
+ function buildPayload() {
+ const type = $('type').value;
+
+ if (type === 'url' || type === 'text') {
+ return $('content').value.trim();
+ }
+
+ if (type === 'wifi') {
+ const ssid = $('wifi-ssid').value.trim();
+ if (!ssid) return '';
+ const enc = $('wifi-enc').value;
+ const pass = enc === 'nopass' ? '' : $('wifi-pass').value;
+ return 'WIFI:T:' + enc + ';S:' + escapeWifi(ssid) + ';P:' + escapeWifi(pass) + ';;';
+ }
+
+ if (type === 'vcard') {
+ const name = $('vc-name').value.trim();
+ if (!name) return '';
+ const lines = ['BEGIN:VCARD', 'VERSION:3.0', 'FN:' + name];
+ if ($('vc-org').value.trim()) lines.push('ORG:' + $('vc-org').value.trim());
+ if ($('vc-phone').value.trim()) lines.push('TEL:' + $('vc-phone').value.trim());
+ if ($('vc-email').value.trim()) lines.push('EMAIL:' + $('vc-email').value.trim());
+ lines.push('END:VCARD');
+ return lines.join('\n');
+ }
+
+ if (type === 'email') {
+ const to = $('em-to').value.trim();
+ if (!to) return '';
+ const subject = $('em-subject').value.trim();
+ return 'mailto:' + to + (subject ? '?subject=' + encodeURIComponent(subject) : '');
+ }
+
+ return '';
+ }
+
+ function setStatus(message, kind) {
+ status.textContent = message;
+ status.style.color = kind === 'error' ? 'var(--danger)'
+ : kind === 'ok' ? 'var(--success)'
+ : 'var(--text-muted)';
+ }
+
+ /** Relative luminance, for the contrast warning. */
+ function luminance(hex) {
+ const h = hex.replace('#', '');
+ const rgb = [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16) / 255);
+ const lin = rgb.map((c) => (c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)));
+ return 0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2];
+ }
+
+ /** Warn when the chosen colors will defeat real-world scanners. */
+ function checkContrast() {
+ const fg = $('fg').value;
+ const bg = $('bg').value;
+ const l1 = luminance(fg);
+ const l2 = luminance(bg);
+ const ratio = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+ const warning = $('contrast-warning');
+
+ if (ratio < 3) {
+ warning.hidden = false;
+ warning.textContent = 'Low contrast (' + ratio.toFixed(1) + ':1), many scanners will fail to read this. Aim for 7:1 or higher.';
+ } else if (l1 > l2) {
+ warning.hidden = false;
+ warning.textContent = 'This code is inverted (light on dark). Some scanners will not read it.';
+ } else {
+ warning.hidden = true;
+ }
+ }
+
+ /** Render the current payload to the canvas. */
+ function render() {
+ const payload = buildPayload();
+ $('content-stats').textContent = payload ? payload.length + ' characters' : '';
+
+ if (!payload) {
+ ctx.clearRect(0, 0, canvas.width, canvas.height);
+ current = null;
+ $('qr-meta').textContent = '';
+ setStatus('Fill in the fields above to generate a code.', 'muted');
+ return;
+ }
+
+ let result;
+ try {
+ result = QREncoder.encode(payload, { ecl: $('ecl').value });
+ } catch (err) {
+ current = null;
+ setStatus(err.message, 'error');
+ $('qr-meta').textContent = '';
+ ctx.clearRect(0, 0, canvas.width, canvas.height);
+ return;
+ }
+
+ current = result;
+
+ const pixelSize = Number($('size').value);
+ const margin = Number($('margin').value);
+ const total = result.size + margin * 2;
+ const scale = Math.max(1, Math.floor(pixelSize / total));
+ const dimension = total * scale;
+
+ canvas.width = dimension;
+ canvas.height = dimension;
+ canvas.style.width = Math.min(dimension, 360) + 'px';
+ canvas.style.height = Math.min(dimension, 360) + 'px';
+
+ ctx.fillStyle = $('bg').value;
+ ctx.fillRect(0, 0, dimension, dimension);
+ ctx.fillStyle = $('fg').value;
+
+ for (let y = 0; y < result.size; y++) {
+ for (let x = 0; x < result.size; x++) {
+ if (result.modules[y][x]) {
+ ctx.fillRect((x + margin) * scale, (y + margin) * scale, scale, scale);
+ }
+ }
+ }
+
+ $('qr-meta').textContent = 'Version ' + result.version + ' · ' + result.size + '×' + result.size +
+ ' modules · level ' + result.ecl;
+ setStatus('Generated ' + dimension + '×' + dimension + ' px.', 'ok');
+ checkContrast();
+
+ if (window.Analytics) Analytics.trackToolUse('qr-code-generator');
+ }
+
+ /** Build an SVG string from the current matrix, crisp at any print size. */
+ function toSVG() {
+ if (!current) return '';
+
+ const margin = Number($('margin').value);
+ const total = current.size + margin * 2;
+ const paths = [];
+
+ for (let y = 0; y < current.size; y++) {
+ for (let x = 0; x < current.size; x++) {
+ if (current.modules[y][x]) {
+ paths.push('M' + (x + margin) + ' ' + (y + margin) + 'h1v1h-1z');
+ }
+ }
+ }
+
+ return '<?xml version="1.0" encoding="UTF-8"?>\n' +
+ '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + total + ' ' + total + '" ' +
+ 'width="' + $('size').value + '" height="' + $('size').value + '" shape-rendering="crispEdges">' +
+ '<rect width="' + total + '" height="' + total + '" fill="' + $('bg').value + '"/>' +
+ '<path d="' + paths.join('') + '" fill="' + $('fg').value + '"/>' +
+ '</svg>';
+ }
+
+ /* ---- Panel switching ---- */
+ function showPanels() {
+ const type = $('type').value;
+ document.querySelectorAll('[data-panel]').forEach((panel) => {
+ panel.hidden = !panel.dataset.panel.split(' ').includes(type);
+ });
+ $('content-label').textContent = type === 'url' ? 'Link' : 'Text';
+ render();
+ }
+
+ /* ---- Wiring ---- */
+ $('type').addEventListener('change', showPanels);
+
+ ['content', 'wifi-ssid', 'wifi-pass', 'vc-name', 'vc-phone', 'vc-email', 'vc-org', 'em-to', 'em-subject']
+ .forEach((id) => $(id).addEventListener('input', debounce(render, 250)));
+
+ ['ecl', 'wifi-enc', 'fg', 'bg'].forEach((id) => $(id).addEventListener('input', render));
+
+ $('size').addEventListener('input', () => {
+ $('size-value').textContent = $('size').value;
+ render();
+ });
+
+ $('margin').addEventListener('input', () => {
+ $('margin-value').textContent = $('margin').value;
+ render();
+ });
+
+ $('download-png').addEventListener('click', () => {
+ if (!current) {
+ toast({ type: 'warning', title: 'Nothing to download', message: 'Generate a code first.' });
+ return;
+ }
+ canvas.toBlob((blob) => downloadFile(blob, 'qr-code.png', 'image/png'), 'image/png');
+ });
+
+ $('download-svg').addEventListener('click', () => {
+ if (!current) {
+ toast({ type: 'warning', title: 'Nothing to download', message: 'Generate a code first.' });
+ return;
+ }
+ downloadFile(toSVG(), 'qr-code.svg', 'image/svg+xml');
+ });
+
+ $('copy-img').addEventListener('click', async () => {
+ if (!current) return;
+
+ // ClipboardItem isn't available everywhere, fall back to the SVG source
+ if (!navigator.clipboard || !window.ClipboardItem) {
+ copyToClipboard(toSVG(), 'SVG source copied');
+ return;
+ }
+
+ canvas.toBlob(async (blob) => {
+ try {
+ await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+ toast({ type: 'success', title: 'Image copied' });
+ } catch {
+ copyToClipboard(toSVG(), 'SVG source copied instead');
+ }
+ }, 'image/png');
+ });
+
+ $('share').addEventListener('click', () => shareLink({ title: 'QR Code Generator | 123MiniApps' }));
+
+ showPanels();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('qr-code-generator');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

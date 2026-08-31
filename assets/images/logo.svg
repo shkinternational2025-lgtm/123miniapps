@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: logo.svg
+     Purpose: Site mark. Doubles as the favicon and
+              the PWA icon (sizes="any").
+     ============================================ -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="123MiniApps">
+  <defs>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="100%" stop-color="#7B61FF"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="15" fill="url(#mark)"/>
+  <rect width="64" height="32" rx="15" fill="url(#sheen)"/>
+
+  <!-- Three squares: the "mini apps" grid -->
+  <g fill="#0A0E27" opacity="0.92">
+    <rect x="14" y="14" width="15" height="15" rx="4"/>
+    <rect x="35" y="14" width="15" height="15" rx="4"/>
+    <rect x="14" y="35" width="15" height="15" rx="4"/>
+  </g>
+
+  <!-- Fourth slot left open, with a plus: room for more tools -->
+  <g stroke="#0A0E27" stroke-width="3.2" stroke-linecap="round" opacity="0.92">
+    <path d="M42.5 38.5v8"/>
+    <path d="M38.5 42.5h8"/>
+  </g>
+</svg>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/dice-roller.html
+     Purpose: Roll full dice notation, 3d6+2, advantage, exploding dice and all.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Dice Roller: Full Dice Notation with Modifiers</title>
+<meta name="description" content="Roll any dice notation from d4 to d100 with modifiers, advantage and disadvantage, exploding dice and a running roll history.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/dice-roller.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Dice Roller | 123MiniApps">
+<meta property="og:description" content="Roll any dice notation from d4 to d100 with modifiers, advantage and disadvantage, exploding dice and a running roll history.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/dice-roller.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dice Roller | 123MiniApps">
+<meta name="twitter:description" content="Roll any dice notation from d4 to d100 with modifiers, advantage and disadvantage, exploding dice and a running roll history.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Fun Tools", "item": "https://www.123miniapps.online/#category-fun" },
+        { "@type": "ListItem", "position": 3, "name": "Dice Roller", "item": "https://www.123miniapps.online/tools/dice-roller.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Dice Roller",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Roll any dice notation from d4 to d100 with modifiers, advantage and disadvantage, exploding dice and a running roll history."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/dice-roller.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Dice Roller free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Dice Roller is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Dice Roller do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Dice Roller covers full dice notation including keep-highest and keep-lowest, advantage and disadvantage, exploding dice, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Dice Roller work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The basic form is NdS: N dice with S sides each. 3d6 rolls three six-sided dice and sums them. Modifiers are added after: 3d6+2 adds two to the total, 1d20-1 subtracts one. This is the notation Dungeons &amp; Dragons popularised and it is now near-universal across tabletop games."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Dice Roller work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/dice-roller.html#howto",
+      "name": "How to use Dice Roller",
+      "description": "Roll full dice notation, 3d6+2, advantage, exploding dice and all.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Type notation such as 3d6+2, or tap a preset",
+                  "text": "Type notation such as 3d6+2, or tap a preset.",
+                  "url": "https://www.123miniapps.online/tools/dice-roller.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Choose advantage or disadvantage if you need it",
+                  "text": "Choose advantage or disadvantage if you need it.",
+                  "url": "https://www.123miniapps.online/tools/dice-roller.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Press Roll",
+                  "text": "Press Roll.",
+                  "url": "https://www.123miniapps.online/tools/dice-roller.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Individual die results are shown beneath the total",
+                  "text": "Individual die results are shown beneath the total.",
+                  "url": "https://www.123miniapps.online/tools/dice-roller.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-fun">Fun Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Dice Roller</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🎲</div>
+      <div>
+        <h1>Dice Roller</h1>
+        <p>Roll full dice notation, 3d6+2, advantage, exploding dice and all.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Dice roller">
+ <div class="field">
+ <label class="field__label" for="notation">
+ <span>Dice notation</span>
+ <span class="field__hint">e.g. 3d6+2, 2d20, 4d6kh3</span>
+ </label>
+ <input class="input font-mono" id="notation" type="text" value="1d20"
+ style="font-size:var(--text-xl);height:60px" autocomplete="off" spellcheck="false">
+ </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="mode"><span>Roll mode</span></label>
+      <select class="select" id="mode">
+        <option value="normal" selected>Normal</option>
+        <option value="advantage">Advantage, roll twice, keep highest</option>
+        <option value="disadvantage">Disadvantage, roll twice, keep lowest</option>
+      </select>
+    </div>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="explode">
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Exploding dice, max roll rolls again</span>
+    </label>
+    </div>
+
+ <div class="display" id="display">
+ <span class="display__value" id="total">, </span>
+ <span class="display__label" id="breakdown">Press Roll</span>
+ </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Enter dice notation and press Roll.</p>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="roll" type="button">Roll</button>
+      <button class="btn btn--secondary" id="reroll" type="button">Roll again</button>
+      <button class="btn btn--ghost" id="clear" type="button">Clear history</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Common dice</span></span>
+ <div class="chip-grid" id="presets"></div>
+ </div>
+
+ <div class="result-grid">
+ <div class="result"><span class="result__value" id="r-rolls" style="font-size:var(--text-2xl)">0</span><span class="result__label">Rolls this session</span></div>
+ <div class="result"><span class="result__value" id="r-average" style="font-size:var(--text-2xl)">, </span><span class="result__label">Average total</span></div>
+ <div class="result"><span class="result__value" id="r-highest" style="font-size:var(--text-2xl)">, </span><span class="result__label">Highest</span></div>
+ <div class="result"><span class="result__value" id="r-lowest" style="font-size:var(--text-2xl)">, </span><span class="result__label">Lowest</span></div>
+ </div>
+
+ <div class="field">
+ <span class="field__label"><span>Roll history</span></span>
+ <div class="table-scroll"><div id="history"></div></div>
+ </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Full dice notation including keep-highest and keep-lowest</li>
+        <li>Advantage and disadvantage</li>
+        <li>Exploding dice</li>
+        <li>Session statistics and roll history</li>
+        <li>Cryptographic randomness, not Math.random</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Type notation such as 3d6+2, or tap a preset.</li>
+        <li>Choose advantage or disadvantage if you need it.</li>
+        <li>Press Roll.</li>
+        <li>Individual die results are shown beneath the total.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Reading dice notation</h2>
+      <p class="text-sm text-muted">The basic form is <code>NdS</code>: N dice with S sides each. <code>3d6</code> rolls three six-sided dice and sums them. Modifiers are added after: <code>3d6+2</code> adds two to the total, <code>1d20-1</code> subtracts one. This is the notation Dungeons &amp; Dragons popularised and it is now near-universal across tabletop games.</p>
+      <p class="text-sm text-muted mt-3">The keep notation handles the common case of rolling extra dice and discarding some. <code>4d6kh3</code> rolls four six-sided dice and keeps the highest three, the standard method for generating D&amp;D ability scores, because discarding the lowest die shifts the average from 10.5 up to about 12.24. <code>2d20kl1</code> keeps the lowest of two, which is what disadvantage does.</p>
+      <p class="text-sm text-muted mt-3">Multiple dice produce a bell curve, and this matters more than people expect. A single d20 is flat: every result from 1 to 20 is equally likely. Three d6 sum to between 3 and 18 but cluster heavily around 10 and 11, with a 1-in-216 chance of either extreme. Games that use 3d6 instead of 1d20 are choosing predictability, the average outcome dominates and dramatic swings are rare.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Dice Roller free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Dice Roller is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Dice Roller do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Dice Roller covers full dice notation including keep-highest and keep-lowest, advantage and disadvantage, exploding dice, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Dice Roller work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">The basic form is NdS: N dice with S sides each. 3d6 rolls three six-sided dice and sums them. Modifiers are added after: 3d6+2 adds two to the total, 1d20-1 subtracts one. This is the notation Dungeons &amp;amp; Dragons popularised and it is now near-universal across tabletop games.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Dice Roller work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/dice-notation-explained.html">What does 4d6kh3 mean? Dice notation explained</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let history = [];
+
+ const PRESETS = ['1d4', '1d6', '1d8', '1d10', '1d12', '1d20', '1d100',
+ '2d6', '3d6', '4d6kh3', '2d20kh1', '1d20+5'];
+
+ /**
+ * Parse dice notation into a structured roll.
+ * Supports NdS, +/- modifiers, and khN / klN keep clauses.
+ * @returns {{count: number, sides: number, modifier: number, keep: ?{mode: string, n: number}}|null}
+ */
+ function parse(notation) {
+ const cleaned = String(notation).trim().toLowerCase().replace(/\s+/g, '');
+ const match = cleaned.match(/^(\d*)d(\d+)((?:kh|kl)\d+)?([+-]\d+)?$/);
+ if (!match) return null;
+
+ const count = match[1] ? Number(match[1]) : 1;
+ const sides = Number(match[2]);
+ const modifier = match[4] ? Number(match[4]) : 0;
+
+ let keep = null;
+ if (match[3]) {
+ keep = { mode: match[3].slice(0, 2), n: Number(match[3].slice(2)) };
+ if (keep.n > count || keep.n < 1) return null;
+ }
+
+ if (count < 1 || count > 200) return null;
+ // d1 is degenerate but valid notation and common parsers accept it,
+ // so allow anything from 1 upward rather than rejecting it.
+ if (sides < 1 || sides > 1000) return null;
+
+ return { count, sides, modifier, keep };
+ }
+
+ /** Roll one die, exploding on a maximum result if enabled. */
+ function rollDie(sides) {
+ let total = T.randomInt(1, sides);
+ const parts = [total];
+
+ if (T.$('explode').checked) {
+ let guard = 0;
+ while (parts[parts.length - 1] === sides && guard < 20) {
+ const extra = T.randomInt(1, sides);
+ parts.push(extra);
+ total += extra;
+ guard++;
+ }
+ }
+
+ return { total, parts };
+ }
+
+ function rollOnce(spec) {
+ const dice = Array.from({ length: spec.count }, () => rollDie(spec.sides));
+ let values = dice.map((d) => d.total);
+ let kept = [...values];
+ let dropped = [];
+
+ if (spec.keep) {
+ const sorted = [...values].sort((a, b) => spec.keep.mode === 'kh' ? b - a : a - b);
+ kept = sorted.slice(0, spec.keep.n);
+ dropped = sorted.slice(spec.keep.n);
+ }
+
+ const total = kept.reduce((sum, v) => sum + v, 0) + spec.modifier;
+ return { total, values, kept, dropped, dice };
+ }
+
+ function roll() {
+ const notation = T.$('notation').value;
+ const spec = parse(notation);
+
+ if (!spec) {
+ T.status('status',
+ 'Could not read that notation. Try something like 3d6+2 or 4d6kh3.', 'error');
+ return;
+ }
+
+ const mode = T.$('mode').value;
+ let result;
+ let modeNote = '';
+
+ if (mode === 'normal') {
+ result = rollOnce(spec);
+ } else {
+ // Advantage and disadvantage roll the whole expression twice
+ const a = rollOnce(spec);
+ const b = rollOnce(spec);
+ const takeHigher = mode === 'advantage';
+ result = (takeHigher ? a.total >= b.total : a.total <= b.total) ? a : b;
+ modeNote = ` (${mode}: ${a.total} vs ${b.total})`;
+ }
+
+ T.$('total').textContent = String(result.total);
+
+ const parts = [];
+ parts.push(`Dice: [${result.values.join(', ')}]`);
+ if (result.dropped.length) parts.push(`dropped [${result.dropped.join(', ')}]`);
+ if (spec.modifier) parts.push(`${spec.modifier > 0 ? '+' : ''}${spec.modifier}`);
+
+ T.$('breakdown').textContent = parts.join(' · ') + modeNote;
+
+ // Highlight natural maximum and minimum on a single die
+ if (spec.count === 1 && !spec.keep) {
+ if (result.values[0] === spec.sides) {
+ T.$('total').style.color = 'var(--success)';
+ T.$('breakdown').textContent += ', natural maximum!';
+ } else if (result.values[0] === 1) {
+ T.$('total').style.color = 'var(--danger)';
+ T.$('breakdown').textContent += ', natural 1.';
+ } else {
+ T.$('total').style.color = '';
+ }
+ } else {
+ T.$('total').style.color = '';
+ }
+
+ history.unshift({
+ at: Date.now(),
+ notation: notation.trim(),
+ total: result.total,
+ detail: `[${result.values.join(', ')}]${spec.modifier ? ` ${spec.modifier > 0 ? '+' : ''}${spec.modifier}` : ''}`
+ });
+ history = history.slice(0, 30);
+
+ renderHistory();
+ renderStats(spec);
+
+ T.status('status', `Rolled ${notation.trim()} for ${result.total}.`, 'ok');
+ if (window.Analytics) Analytics.trackToolUse('dice-roller');
+ }
+
+ function renderStats(spec) {
+ const totals = history.map((h) => h.total);
+
+ T.$('r-rolls').textContent = String(history.length);
+ T.$('r-average').textContent = totals.length
+ ? T.fmt(totals.reduce((a, b) => a + b, 0) / totals.length, 1)
+ : ', ';
+ T.$('r-highest').textContent = totals.length ? String(Math.max(...totals)) : ', ';
+ T.$('r-lowest').textContent = totals.length ? String(Math.min(...totals)) : ', ';
+ void spec;
+ }
+
+ function renderHistory() {
+ const mount = T.$('history');
+ mount.innerHTML = '';
+ if (!history.length) return;
+
+ mount.append(T.table(
+ ['Time', 'Notation', 'Result', 'Detail'],
+ history.map((h) => [
+ new Date(h.at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+ h.notation,
+ h.total,
+ h.detail
+ ])
+ ));
+ }
+
+ T.$('roll').addEventListener('click', roll);
+ T.$('reroll').addEventListener('click', roll);
+
+ T.$('notation').addEventListener('keydown', (e) => {
+ if (e.key === 'Enter') { e.preventDefault(); roll(); }
+ });
+
+ T.$('clear').addEventListener('click', () => {
+ history = [];
+ renderHistory();
+ renderStats();
+ T.status('status', 'History cleared.', 'muted');
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Dice Roller | 123MiniApps' }));
+
+ const presetMount = T.$('presets');
+ PRESETS.forEach((notation) => {
+ const chip = el('button', { className: 'chip font-mono', attrs: { type: 'button' }, text: notation });
+ chip.addEventListener('click', () => {
+ T.$('notation').value = notation;
+ roll();
+ });
+ presetMount.append(chip);
+ });
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('dice-roller');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

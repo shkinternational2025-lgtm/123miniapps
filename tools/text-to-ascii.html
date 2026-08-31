@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/text-to-ascii.html
+     Purpose: Convert text to code points in any notation, and decode them back again.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Text to ASCII Converter: Code Points, Hex and Binary</title>
+<meta name="description" content="Convert text to ASCII and Unicode code points in decimal, hex, binary or escape notation, and decode them back. Per-character inspection table.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/text-to-ascii.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Text to ASCII | 123MiniApps">
+<meta property="og:description" content="Convert text to ASCII and Unicode code points in decimal, hex, binary or escape notation, and decode them back. Per-character inspection table.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/text-to-ascii.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Text to ASCII | 123MiniApps">
+<meta name="twitter:description" content="Convert text to ASCII and Unicode code points in decimal, hex, binary or escape notation, and decode them back. Per-character inspection table.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Converters", "item": "https://www.123miniapps.online/#category-converter" },
+        { "@type": "ListItem", "position": 3, "name": "Text to ASCII", "item": "https://www.123miniapps.online/tools/text-to-ascii.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Text to ASCII",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Convert text to ASCII and Unicode code points in decimal, hex, binary or escape notation, and decode them back. Per-character inspection table."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/text-to-ascii.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Text to ASCII free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Text to ASCII is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Text to ASCII do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Text to ASCII covers six output notations including JS and HTML escapes, decodes every notation back to text, per-character table with code point, hex and UTF-8 length, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Text to ASCII work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "ASCII defines 128 characters numbered 0 to 127, the English alphabet, digits, common punctuation and a set of control codes. It was designed for teleprinters in the early 1960s, which is why it contains oddities like the bell character and why carriage return and line feed are separate. Everything in that range still has the same number today, which is why ASCII text is valid in essentially every encoding in use."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Text to ASCII work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/text-to-ascii.html#howto",
+      "name": "How to use Text to ASCII",
+      "description": "Convert text to code points in any notation, and decode them back again.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Choose whether you are encoding or decoding",
+                  "text": "Choose whether you are encoding or decoding.",
+                  "url": "https://www.123miniapps.online/tools/text-to-ascii.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Type or paste your input",
+                  "text": "Type or paste your input.",
+                  "url": "https://www.123miniapps.online/tools/text-to-ascii.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Pick the notation you need",
+                  "text": "Pick the notation you need.",
+                  "url": "https://www.123miniapps.online/tools/text-to-ascii.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Copy the result or study the breakdown table",
+                  "text": "Copy the result or study the breakdown table.",
+                  "url": "https://www.123miniapps.online/tools/text-to-ascii.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-converter">Converters</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Text to ASCII</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🔡</div>
+      <div>
+        <h1>Text to ASCII</h1>
+        <p>Convert text to code points in any notation, and decode them back again.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Text to ASCII converter">
+    <div class="field">
+      <label class="field__label" for="direction"><span>Direction</span></label>
+      <select class="select" id="direction">
+        <option value="encode" selected>Text → code points</option>
+        <option value="decode">Code points → text</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="input">
+        <span>Input</span>
+        <span class="field__hint" id="input-stats"></span>
+      </label>
+      <textarea class="textarea" id="input" style="min-height:130px" spellcheck="false" placeholder="Hello 🌍"></textarea>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="format"><span>Notation</span></label>
+      <select class="select" id="format">
+        <option value="dec" selected>Decimal, 72 101 108</option>
+        <option value="hex">Hexadecimal, 48 65 6C</option>
+        <option value="bin">Binary, 01001000</option>
+        <option value="uni">Unicode, U+0048</option>
+        <option value="esc">JS escape, \u0048</option>
+        <option value="html">HTML entity, &amp;#72;</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="separator"><span>Separator</span></label>
+      <input class="input" id="separator" type="text" value=" " placeholder="space" >
+    </div>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Output updates as you type.</p>
+
+    <hr class="hr">
+
+    <div class="field">
+      <label class="field__label" for="output">
+        <span>Result</span>
+        <span class="field__hint" id="output-stats"></span>
+      </label>
+      <div class="output output--empty" id="output">Result will appear here.</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy result</button>
+      <button class="btn btn--secondary" id="download" type="button">Download</button>
+      <button class="btn btn--secondary" id="swap" type="button">Swap direction</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Character breakdown</span><span class="field__hint">First 60 characters</span></span>
+ <div class="table-scroll"><div id="breakdown"></div></div>
+ </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Six output notations including JS and HTML escapes</li>
+        <li>Decodes every notation back to text</li>
+        <li>Per-character table with code point, hex and UTF-8 length</li>
+        <li>Correct handling of emoji and astral-plane characters</li>
+        <li>Custom separator between values</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Choose whether you are encoding or decoding.</li>
+        <li>Type or paste your input.</li>
+        <li>Pick the notation you need.</li>
+        <li>Copy the result or study the breakdown table.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>ASCII, Unicode and the difference between them</h2>
+      <p class="text-sm text-muted">ASCII defines 128 characters numbered 0 to 127, the English alphabet, digits, common punctuation and a set of control codes. It was designed for teleprinters in the early 1960s, which is why it contains oddities like the bell character and why carriage return and line feed are separate. Everything in that range still has the same number today, which is why ASCII text is valid in essentially every encoding in use.</p>
+      <p class="text-sm text-muted mt-3">Unicode extends that to over 150,000 characters covering every living script, historical alphabets, mathematical symbols and emoji. A Unicode code point is written <code>U+</code> followed by hex, so <code>U+0041</code> is the letter A and <code>U+1F30D</code> is the Earth globe emoji. Code points above U+FFFF are the astral planes, and they are where naive string handling falls over.</p>
+      <p class="text-sm text-muted mt-3">The distinction that causes most bugs is between code points and encoded bytes. UTF-8 stores a code point in one to four bytes, ASCII characters take one, most European accented letters two, most CJK characters three, and emoji four. JavaScript strings, meanwhile, are UTF-16, storing astral characters as two 16-bit surrogates. So a single emoji has one code point, four UTF-8 bytes, and a JavaScript <code>.length</code> of 2. The table below shows all three so the discrepancy is visible.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Text to ASCII free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Text to ASCII is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Text to ASCII do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Text to ASCII covers six output notations including JS and HTML escapes, decodes every notation back to text, per-character table with code point, hex and UTF-8 length, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Text to ASCII work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">ASCII defines 128 characters numbered 0 to 127, the English alphabet, digits, common punctuation and a set of control codes. It was designed for teleprinters in the early 1960s, which is why it contains oddities like the bell character and why carriage return and line feed are separate. Everything in that range still has the same number today, which is why ASCII text is valid in essentially every encoding in use.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Text to ASCII work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/what-is-ascii-text-to-character-codes.html">What Is ASCII? Converting Text to Character Codes</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let lastResult = '';
+
+ function separator() {
+ const raw = T.$('separator').value;
+ if (raw === 'space' || raw === '') return ' ';
+ if (raw === '\\n') return '\n';
+ return raw;
+ }
+
+ const ENCODERS = {
+ dec: (cp) => String(cp),
+ hex: (cp) => cp.toString(16).toUpperCase().padStart(2, '0'),
+ bin: (cp) => cp.toString(2).padStart(8, '0'),
+ uni: (cp) => 'U+' + cp.toString(16).toUpperCase().padStart(4, '0'),
+ esc: (cp) => cp > 0xffff
+ ? '\\u{' + cp.toString(16).toUpperCase() + '}'
+ : '\\u' + cp.toString(16).toUpperCase().padStart(4, '0'),
+ html: (cp) => '&#' + cp + ';'
+ };
+
+ /**
+ * Self-delimiting notations, HTML entities and JS escapes carry
+ * their own start and end markers, so they are often written with
+ * no separator at all ("&#72;&#105;"). Splitting those on
+ * whitespace or semicolons would tear them apart, so match them
+ * directly first and only fall back to separator-splitting when
+ * the input is a plain list of numbers.
+ */
+ const STRUCTURED = /&#x[0-9a-f]+;|&#\d+;|\\u\{[0-9a-f]+\}|\\u[0-9a-f]{4}|U\+[0-9a-f]+/gi;
+
+ /** Decode any of the supported notations back to text. */
+ function decode(input) {
+ const structured = input.match(STRUCTURED);
+
+ // Use structured tokens only if they account for the whole input,
+ // ignoring whitespace and separators between them.
+ const remainder = input.replace(STRUCTURED, '').replace(/[\s;]+/g, '');
+ const tokens = structured && remainder === ''
+ ? structured
+ : input.trim().split(/[\s;]+/).filter(Boolean);
+
+ const chars = [];
+
+ for (const raw of tokens) {
+ let cp = NaN;
+ const t = raw.trim();
+
+ if (/^U\+[0-9a-f]+$/i.test(t)) cp = parseInt(t.slice(2), 16);
+ else if (/^\\u\{[0-9a-f]+\}$/i.test(t)) cp = parseInt(t.slice(3, -1), 16);
+ else if (/^\\u[0-9a-f]{4}$/i.test(t)) cp = parseInt(t.slice(2), 16);
+ else if (/^&#x[0-9a-f]+;$/i.test(t)) cp = parseInt(t.slice(3, -1), 16);
+ else if (/^&#\d+;$/.test(t)) cp = parseInt(t.slice(2, -1), 10);
+ else if (/^0x[0-9a-f]+$/i.test(t)) cp = parseInt(t.slice(2), 16);
+ else if (/^[01]{8,}$/.test(t)) cp = parseInt(t, 2);
+ else if (/^\d+$/.test(t)) cp = parseInt(t, 10);
+ else if (/^[0-9a-f]+$/i.test(t)) cp = parseInt(t, 16);
+
+ if (isNaN(cp) || cp < 0 || cp > 0x10ffff) {
+ throw new Error(`“${t}” is not a recognised code point.`);
+ }
+ chars.push(String.fromCodePoint(cp));
+ }
+
+ return chars.join('');
+ }
+
+ /** UTF-8 byte length of a single code point. */
+ function utf8Length(cp) {
+ if (cp < 0x80) return 1;
+ if (cp < 0x800) return 2;
+ if (cp < 0x10000) return 3;
+ return 4;
+ }
+
+ function run() {
+ const input = T.$('input').value;
+ T.$('input-stats').textContent = input.length.toLocaleString() + ' UTF-16 units';
+
+ if (!input) {
+ lastResult = '';
+ T.setOutput('output', '');
+ T.$('output-stats').textContent = '';
+ T.$('breakdown').innerHTML = '';
+ T.status('status', 'Output updates as you type.', 'muted');
+ return;
+ }
+
+ const encoding = T.$('direction').value === 'encode';
+
+ try {
+ if (encoding) {
+ const encoder = ENCODERS[T.$('format').value];
+ const points = [...input].map((ch) => ch.codePointAt(0));
+ lastResult = points.map(encoder).join(separator());
+
+ const bytes = points.reduce((n, cp) => n + utf8Length(cp), 0);
+ T.status('status',
+ `${points.length} code point(s) · ${bytes} UTF-8 byte(s) · ${input.length} UTF-16 unit(s).`, 'ok');
+
+ renderBreakdown([...input]);
+ } else {
+ lastResult = decode(input);
+ T.status('status', `Decoded to ${[...lastResult].length} character(s).`, 'ok');
+ renderBreakdown([...lastResult]);
+ }
+
+ T.setOutput('output', lastResult);
+ T.$('output-stats').textContent = lastResult.length.toLocaleString() + ' characters';
+ } catch (err) {
+ lastResult = '';
+ T.setOutput('output', '');
+ T.$('breakdown').innerHTML = '';
+ T.status('status', err.message, 'error');
+ }
+ }
+
+ function renderBreakdown(chars) {
+ const mount = T.$('breakdown');
+ mount.innerHTML = '';
+ if (!chars.length) return;
+
+ const rows = chars.slice(0, 60).map((ch) => {
+ const cp = ch.codePointAt(0);
+ const printable = cp < 32 ? '(control)' : ch;
+ return [
+ printable,
+ String(cp),
+ 'U+' + cp.toString(16).toUpperCase().padStart(4, '0'),
+ cp.toString(2).padStart(8, '0'),
+ utf8Length(cp) + ' byte' + (utf8Length(cp) === 1 ? '' : 's'),
+ ch.length + ' unit' + (ch.length === 1 ? '' : 's')
+ ];
+ });
+
+ mount.append(T.table(
+ ['Char', 'Decimal', 'Unicode', 'Binary', 'UTF-8', 'UTF-16'],
+ rows
+ ));
+ }
+
+ T.$('input').addEventListener('input', debounce(run, 250));
+ T.on(['direction', 'format'], run, 'change');
+ T.$('separator').addEventListener('input', debounce(run, 250));
+
+ T.$('swap').addEventListener('click', () => {
+ if (!lastResult) return;
+ T.$('input').value = lastResult;
+ T.$('direction').value = T.$('direction').value === 'encode' ? 'decode' : 'encode';
+ run();
+ });
+
+ T.wireActions({ slug: 'text-to-ascii', getResult: () => lastResult, filename: 'codepoints.txt' });
+ run();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('text-to-ascii');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

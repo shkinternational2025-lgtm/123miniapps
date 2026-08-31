@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/keyword-density-checker.html
+     Purpose: See which words and phrases dominate your text, and whether you have overdone it.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Keyword Density Checker: Word and Phrase Frequency</title>
+<meta name="description" content="Find your most-used words and phrases with density percentages, stop-word filtering and an over-optimisation warning for keyword stuffing.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/keyword-density-checker.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Keyword Density Checker | 123MiniApps">
+<meta property="og:description" content="Find your most-used words and phrases with density percentages, stop-word filtering and an over-optimisation warning for keyword stuffing.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/keyword-density-checker.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Keyword Density Checker | 123MiniApps">
+<meta name="twitter:description" content="Find your most-used words and phrases with density percentages, stop-word filtering and an over-optimisation warning for keyword stuffing.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Content Tools", "item": "https://www.123miniapps.online/#category-content" },
+        { "@type": "ListItem", "position": 3, "name": "Keyword Density Checker", "item": "https://www.123miniapps.online/tools/keyword-density-checker.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Keyword Density Checker",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Find your most-used words and phrases with density percentages, stop-word filtering and an over-optimisation warning for keyword stuffing."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/keyword-density-checker.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Keyword Density Checker free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Keyword Density Checker is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Keyword Density Checker do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Keyword Density Checker covers single words, two-word and three-word phrases, stop-word filtering, density percentages against total word count, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Keyword Density Checker work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "There is no optimal keyword density, and there has not been one for well over a decade. Google's algorithms moved to semantic understanding with Hummingbird in 2013 and BERT in 2019, which means they interpret what a page is about from context rather than counting term repetitions. Any guide quoting a magic figure like 2.5% is repeating advice that stopped being true a long time ago."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Keyword Density Checker work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/keyword-density-checker.html#howto",
+      "name": "How to use Keyword Density Checker",
+      "description": "See which words and phrases dominate your text, and whether you have overdone it.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Paste your content into the box",
+                  "text": "Paste your content into the box.",
+                  "url": "https://www.123miniapps.online/tools/keyword-density-checker.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Choose whether to look at words or phrases",
+                  "text": "Choose whether to look at words or phrases.",
+                  "url": "https://www.123miniapps.online/tools/keyword-density-checker.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Enter a focus keyword to track it specifically",
+                  "text": "Enter a focus keyword to track it specifically.",
+                  "url": "https://www.123miniapps.online/tools/keyword-density-checker.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Check the assessment for stuffing warnings",
+                  "text": "Check the assessment for stuffing warnings.",
+                  "url": "https://www.123miniapps.online/tools/keyword-density-checker.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-content">Content Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Keyword Density Checker</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">📊</div>
+      <div>
+        <h1>Keyword Density Checker</h1>
+        <p>See which words and phrases dominate your text, and whether you have overdone it.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Keyword density checker">
+    <div class="field">
+      <label class="field__label" for="input">
+        <span>Your text</span>
+        <span class="field__hint" id="input-stats"></span>
+      </label>
+      <textarea class="textarea" id="input" style="min-height:220px" spellcheck="false" placeholder="Paste your content here…"></textarea>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="ngram"><span>Phrase length</span></label>
+      <select class="select" id="ngram">
+        <option value="1" selected>Single words</option>
+        <option value="2">Two-word phrases</option>
+        <option value="3">Three-word phrases</option>
+        <option value="all">All lengths</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="min-count"><span>Minimum occurrences</span></label>
+      <input class="input" id="min-count" type="number" value="2" placeholder="2" step="1" min="1" inputmode="decimal">
+    </div>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="stopwords" checked>
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Ignore common stop words</span>
+    </label>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="focus"><span>Focus keyword (optional)</span></label>
+      <input class="input" id="focus" type="text" value="" placeholder="Check density for one specific term" >
+    </div>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="case">
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Case sensitive</span>
+    </label>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Paste text to analyse it.</p>
+
+    <hr class="hr">
+
+ <div class="result-grid">
+ <div class="result"><span class="result__value" id="r-words" style="font-size:var(--text-2xl)">, </span><span class="result__label">Total words</span></div>
+ <div class="result"><span class="result__value" id="r-unique" style="font-size:var(--text-2xl)">, </span><span class="result__label">Unique words</span></div>
+ <div class="result"><span class="result__value" id="r-variety" style="font-size:var(--text-2xl)">, </span><span class="result__label">Lexical variety</span></div>
+ <div class="result result--primary"><span class="result__value" id="r-focus" style="font-size:var(--text-2xl)">, </span><span class="result__label">Focus keyword</span></div>
+ </div>
+
+ <div class="field">
+ <span class="field__label"><span>Frequency table</span><span class="field__hint">Sorted by count</span></span>
+ <div class="table-scroll"><div id="table"></div></div>
+ </div>
+
+ <div class="field">
+ <span class="field__label"><span>Assessment</span></span>
+ <div id="assessment"></div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy table</button>
+      <button class="btn btn--secondary" id="download" type="button">Download CSV</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Single words, two-word and three-word phrases</li>
+        <li>Stop-word filtering</li>
+        <li>Density percentages against total word count</li>
+        <li>Focus keyword tracking</li>
+        <li>Over-optimisation warning</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Paste your content into the box.</li>
+        <li>Choose whether to look at words or phrases.</li>
+        <li>Enter a focus keyword to track it specifically.</li>
+        <li>Check the assessment for stuffing warnings.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Keyword density is a diagnostic, not a target</h2>
+      <p class="text-sm text-muted">There is no optimal keyword density, and there has not been one for well over a decade. Google's algorithms moved to semantic understanding with Hummingbird in 2013 and BERT in 2019, which means they interpret what a page is about from context rather than counting term repetitions. Any guide quoting a magic figure like 2.5% is repeating advice that stopped being true a long time ago.</p>
+      <p class="text-sm text-muted mt-3">Where density remains useful is as a diagnostic. If your target term appears zero times, the page probably is not clearly about it. If it appears 40 times in 500 words, the writing is almost certainly unnatural, and that is a real risk, Google's spam policies explicitly name keyword stuffing, and the penalty is applied to pages that read as written for a crawler rather than a person.</p>
+      <p class="text-sm text-muted mt-3">The more useful signal in this table is the phrase list rather than the single-word one. Two and three-word phrases show what your content actually covers, and they often reveal that a page is unfocused, if the top phrases have nothing to do with each other, the page is trying to be about too many things. Modern SEO rewards covering a topic thoroughly with natural language, including related terms and synonyms, over hitting any repetition count.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Keyword Density Checker free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Keyword Density Checker is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Keyword Density Checker do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Keyword Density Checker covers single words, two-word and three-word phrases, stop-word filtering, density percentages against total word count, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Keyword Density Checker work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">There is no optimal keyword density, and there has not been one for well over a decade. Google&#x27;s algorithms moved to semantic understanding with Hummingbird in 2013 and BERT in 2019, which means they interpret what a page is about from context rather than counting term repetitions. Any guide quoting a magic figure like 2.5% is repeating advice that stopped being true a long time ago.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Keyword Density Checker work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/keyword-density-and-why-stuffing-backfires.html">Keyword Density: What It Is and Why Stuffing Backfires</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const STOP_WORDS = new Set(('a about above after again against all am an and any are as at be because been ' +
+ 'before being below between both but by can cannot could did do does doing down during each few for ' +
+ 'from further had has have having he her here hers herself him himself his how i if in into is it its ' +
+ 'itself me more most my myself no nor not of off on once only or other ought our ours ourselves out ' +
+ 'over own same she should so some such than that the their theirs them themselves then there these ' +
+ 'they this those through to too under until up very was we were what when where which while who whom ' +
+ 'why with would you your yours yourself yourselves will just also').split(' '));
+
+ let rows = [];
+
+ function tokenise(text) {
+ const caseSensitive = T.$('case').checked;
+ const words = T.words(text).map((word) => (caseSensitive ? word : word.toLowerCase()));
+ return words;
+ }
+
+ function buildNgrams(words, n) {
+ const counts = new Map();
+
+ for (let i = 0; i <= words.length - n; i++) {
+ const gram = words.slice(i, i + n);
+
+ // For single words, drop stop words. For phrases, drop only
+ // those made entirely of stop words, "state of the art" is
+ // a real phrase even though three of its words are stop words.
+ if (T.$('stopwords').checked) {
+ const lowered = gram.map((g) => g.toLowerCase());
+ if (n === 1 && STOP_WORDS.has(lowered[0])) continue;
+ if (n > 1 && lowered.every((g) => STOP_WORDS.has(g))) continue;
+ }
+
+ if (n === 1 && gram[0].length < 2) continue;
+
+ const key = gram.join(' ');
+ counts.set(key, (counts.get(key) || 0) + 1);
+ }
+
+ return counts;
+ }
+
+ function analyse() {
+ const text = T.$('input').value;
+ const words = tokenise(text);
+
+ T.$('input-stats').textContent = words.length
+ ? `${words.length.toLocaleString()} words`
+ : '';
+
+ if (words.length < 10) {
+ ['r-words', 'r-unique', 'r-variety', 'r-focus'].forEach((id) => { T.$(id).textContent = ', '; });
+ T.$('table').innerHTML = '';
+ T.$('assessment').innerHTML = '';
+ T.status('status', 'Paste at least ten words to analyse.', 'muted');
+ return;
+ }
+
+ const minCount = Math.max(1, Math.floor(T.num(T.$('min-count').value) || 1));
+ const selection = T.$('ngram').value;
+ const lengths = selection === 'all' ? [1, 2, 3] : [Number(selection)];
+
+ const collected = [];
+ lengths.forEach((n) => {
+ buildNgrams(words, n).forEach((count, phrase) => {
+ if (count < minCount) return;
+ collected.push({
+ phrase,
+ length: n,
+ count,
+ density: (count / words.length) * 100
+ });
+ });
+ });
+
+ collected.sort((a, b) => b.count - a.count || a.phrase.localeCompare(b.phrase));
+ rows = collected.slice(0, 40);
+
+ const unique = new Set(words.map((word) => word.toLowerCase())).size;
+
+ T.$('r-words').textContent = words.length.toLocaleString();
+ T.$('r-unique').textContent = unique.toLocaleString();
+ T.$('r-variety').textContent = ((unique / words.length) * 100).toFixed(1) + '%';
+
+ // Focus keyword
+ const focus = T.$('focus').value.trim().toLowerCase();
+ if (focus) {
+ const focusWords = focus.split(/\s+/).length;
+ const focusCount = buildFocusCount(words, focus, focusWords);
+ const density = (focusCount / words.length) * 100;
+ T.$('r-focus').textContent = focusCount
+ ? `${focusCount}× (${density.toFixed(1)}%)`
+ : 'Not found';
+ T.$('r-focus').style.color = !focusCount ? 'var(--danger)'
+ : density > 4 ? 'var(--danger)' : 'var(--success)';
+ } else {
+ T.$('r-focus').textContent = ', ';
+ T.$('r-focus').style.color = '';
+ }
+
+ renderTable();
+ renderAssessment(words, rows, focus);
+
+ T.status('status', `${rows.length} term(s) appearing at least ${minCount} time(s).`, 'ok');
+
+ if (window.Analytics) Analytics.trackToolUse('keyword-density-checker');
+ }
+
+ function buildFocusCount(words, focus, focusWords) {
+ const joined = words.map((word) => word.toLowerCase()).join(' ');
+ // Count non-overlapping occurrences of the phrase
+ let count = 0;
+ let index = 0;
+ while ((index = joined.indexOf(focus, index)) !== -1) {
+ count++;
+ index += focus.length;
+ }
+ void focusWords;
+ return count;
+ }
+
+ function renderTable() {
+ const mount = T.$('table');
+ mount.innerHTML = '';
+ if (!rows.length) return;
+
+ const table = T.table(
+ ['Term', 'Words', 'Count', 'Density'],
+ rows.map((r) => [r.phrase, r.length, r.count, r.density.toFixed(2) + '%'])
+ );
+
+ // Flag anything above 4%, which reads as stuffing
+ [...table.querySelectorAll('tbody tr')].forEach((tr, i) => {
+ if (rows[i].density > 4 && rows[i].length === 1) {
+ tr.style.background = 'color-mix(in srgb, var(--danger) 12%, transparent)';
+ }
+ });
+
+ mount.append(table);
+ }
+
+ function renderAssessment(words, list, focus) {
+ const mount = T.$('assessment');
+ mount.innerHTML = '';
+
+ const notes = [];
+ const topSingle = list.filter((r) => r.length === 1)[0];
+
+ if (topSingle && topSingle.density > 5) {
+ notes.push(['Possible keyword stuffing',
+ `“${topSingle.phrase}” makes up ${topSingle.density.toFixed(1)}% of the text. Above about 4% usually reads as unnatural to a human, which is the real test.`,
+ 'var(--danger)']);
+ }
+
+ if (words.length < 300) {
+ notes.push(['Short content',
+ `${words.length} words. Density figures are unstable on short text, a single extra mention moves the percentage substantially.`,
+ 'var(--warning)']);
+ }
+
+ const unique = new Set(words.map((w) => w.toLowerCase())).size;
+ const variety = (unique / words.length) * 100;
+ if (variety < 30 && words.length > 200) {
+ notes.push(['Low lexical variety',
+ `Only ${variety.toFixed(0)}% of words are distinct. Repetitive phrasing is harder to read and offers search engines less context.`,
+ 'var(--warning)']);
+ }
+
+ if (focus) {
+ const found = list.find((r) => r.phrase.toLowerCase() === focus);
+ if (!found) {
+ notes.push(['Focus keyword not prominent',
+ `“${focus}” does not appear often enough to reach the frequency table. If the page is about this topic, it should probably appear in the title, first paragraph and at least one heading.`,
+ 'var(--warning)']);
+ }
+ }
+
+ if (!notes.length) {
+ mount.append(el('p', {
+ className: 'text-sm',
+ text: '✓ Nothing concerning, the distribution looks natural.',
+ style: { color: 'var(--success)' }
+ }));
+ return;
+ }
+
+ const container = el('div', { className: 'stack' });
+ notes.forEach(([heading, detail, colour]) => {
+ container.append(el('div', { className: 'info-panel' }, [
+ el('strong', { className: 'text-sm', text: heading, style: { color: colour } }),
+ el('p', { className: 'text-sm text-muted mt-2', text: detail })
+ ]));
+ });
+ mount.append(container);
+ }
+
+ T.$('input').addEventListener('input', debounce(analyse, 350));
+ T.on(['focus', 'min-count'], debounce(analyse, 300));
+ T.on(['ngram', 'stopwords', 'case'], analyse, 'change');
+
+ T.$('copy').addEventListener('click', () => {
+ copyToClipboard(
+ rows.map((r) => `${r.phrase}\t${r.count}\t${r.density.toFixed(2)}%`).join('\n'),
+ 'Table copied');
+ });
+
+ T.$('download').addEventListener('click', () => {
+ if (!rows.length) { toast({ type: 'warning', title: 'Nothing to download' }); return; }
+ const csv = ['Term,Words,Count,Density']
+ .concat(rows.map((r) => `"${r.phrase.replace(/"/g, '""')}",${r.length},${r.count},${r.density.toFixed(2)}`))
+ .join('\n');
+ downloadFile(csv, 'keyword-density.csv', 'text/csv');
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Keyword Density Checker | 123MiniApps' }));
+
+ analyse();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('keyword-density-checker');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/image-watermark.html
+     Purpose: Add a text or logo watermark before sharing, placed or tiled, all done locally.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Image Watermark: Text or Logo, Tiled or Placed</title>
+<meta name="description" content="Stamp a text or logo watermark across your images before sharing them. Adjustable opacity, rotation, tiling and nine placement positions.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/image-watermark.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Image Watermark | 123MiniApps">
+<meta property="og:description" content="Stamp a text or logo watermark across your images before sharing them. Adjustable opacity, rotation, tiling and nine placement positions.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/image-watermark.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Watermark | 123MiniApps">
+<meta name="twitter:description" content="Stamp a text or logo watermark across your images before sharing them. Adjustable opacity, rotation, tiling and nine placement positions.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Image Tools", "item": "https://www.123miniapps.online/#category-image" },
+        { "@type": "ListItem", "position": 3, "name": "Image Watermark", "item": "https://www.123miniapps.online/tools/image-watermark.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Image Watermark",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Stamp a text or logo watermark across your images before sharing them. Adjustable opacity, rotation, tiling and nine placement positions."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/image-watermark.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Image Watermark free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Image Watermark is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Image Watermark do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Image Watermark covers text or logo image watermarks, seven placements plus full tiling, adjustable opacity, size and rotation, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Image Watermark work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A watermark deters casual copying and makes attribution travel with the image when it gets reposted. That is genuinely useful, and it is the realistic goal. What it does not do is prevent theft, a corner watermark can be cropped out in seconds, and content-aware fill in Photoshop or any of the numerous automated watermark removers will clear a semi-transparent overlay with reasonable results."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Image Watermark work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Your image is decoded and processed by your own browser using the File and Canvas APIs. It is never uploaded, there is no server to receive it. You can verify this by opening your browser's developer tools, switching to the Network tab, and watching while you use the tool: you will see no request carrying your file. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/image-watermark.html#howto",
+      "name": "How to use Image Watermark",
+      "description": "Add a text or logo watermark before sharing, placed or tiled, all done locally.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Drop in the image you want to watermark",
+                  "text": "Drop in the image you want to watermark.",
+                  "url": "https://www.123miniapps.online/tools/image-watermark.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Type your text, or switch to logo mode and add a PNG",
+                  "text": "Type your text, or switch to logo mode and add a PNG.",
+                  "url": "https://www.123miniapps.online/tools/image-watermark.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Choose a position, tiled is hardest to remove",
+                  "text": "Choose a position, tiled is hardest to remove.",
+                  "url": "https://www.123miniapps.online/tools/image-watermark.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Download the watermarked image",
+                  "text": "Download the watermarked image.",
+                  "url": "https://www.123miniapps.online/tools/image-watermark.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-image">Image Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Image Watermark</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">💧</div>
+      <div>
+        <h1>Image Watermark</h1>
+        <p>Add a text or logo watermark before sharing, placed or tiled, all done locally.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Image watermark">
+    <div class="dropzone" id="dropzone" role="button" tabindex="0"
+         aria-label="Drop the image to watermark">
+      <span class="dropzone__icon" aria-hidden="true">📁</span>
+      <span class="dropzone__label">Drop the image to watermark</span>
+      <span class="dropzone__hint">Processed on your device, never uploaded</span>
+    </div>
+
+ <p class="field__hint">
+ The image is decoded and processed by your own browser. It is never uploaded, and no copy of it
+ exists anywhere but this tab, you can confirm that in the DevTools Network tab while you work.
+ </p>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="type"><span>Watermark type</span></label>
+      <select class="select" id="type">
+        <option value="text" selected>Text</option>
+        <option value="image">Logo image</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="text"><span>Watermark text</span></label>
+      <input class="input" id="text" type="text" value="© Your Name 2026" placeholder="© Your Name 2026" >
+    </div>
+    </div>
+
+ <div class="field" id="logo-field" hidden>
+ <div class="dropzone" id="logo-dropzone" role="button" tabindex="0"
+ aria-label="Choose a logo image" style="min-height:120px">
+ <span class="dropzone__icon" aria-hidden="true">🖼️</span>
+ <span class="dropzone__label">Drop your logo here</span>
+ <span class="dropzone__hint">A transparent PNG works best</span>
+ </div>
+ </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="position"><span>Position</span></label>
+      <select class="select" id="position">
+        <option value="tile">Tiled across the whole image</option>
+        <option value="bottom-right" selected>Bottom right</option>
+        <option value="bottom-left">Bottom left</option>
+        <option value="top-right">Top right</option>
+        <option value="top-left">Top left</option>
+        <option value="center">Centre</option>
+        <option value="bottom-center">Bottom centre</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="opacity">
+        <span>Opacity</span>
+        <span class="field__hint"><strong id="opacity-value">40</strong> %</span>
+      </label>
+      <input class="range" id="opacity" type="range" min="5" max="100" value="40" step="5">
+    </div>
+    <div class="field">
+      <label class="field__label" for="scale">
+        <span>Size</span>
+        <span class="field__hint"><strong id="scale-value">6</strong> %</span>
+      </label>
+      <input class="range" id="scale" type="range" min="2" max="30" value="6" step="1">
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="rotation">
+        <span>Rotation</span>
+        <span class="field__hint"><strong id="rotation-value">0</strong> °</span>
+      </label>
+      <input class="range" id="rotation" type="range" min="-90" max="90" value="0" step="5">
+    </div>
+    <div class="field">
+      <label class="field__label" for="spacing">
+        <span>Tile spacing</span>
+        <span class="field__hint"><strong id="spacing-value">200</strong> %</span>
+      </label>
+      <input class="range" id="spacing" type="range" min="100" max="400" value="200" step="20">
+    </div>
+    <div class="field">
+      <label class="field__label" for="colour"><span>Text colour</span></label>
+      <input class="input" id="colour" type="color" value="#FFFFFF" style="height:52px;padding:6px;cursor:pointer">
+    </div>
+    </div>
+
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="shadow" checked>
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Add a shadow for legibility</span>
+    </label>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Choose an image to begin.</p>
+
+    <hr class="hr">
+
+    <div class="field">
+      <span class="field__label"><span>Watermarked preview</span><span class="field__hint" id="canvas-meta"></span></span>
+      <div class="output output--center" style="padding:var(--space-6)">
+        <canvas id="canvas" role="img" aria-label="Watermarked preview"></canvas>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="download" type="button">Download watermarked</button>
+      <button class="btn btn--ghost" id="reset" type="button">Choose another image</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Text or logo image watermarks</li>
+        <li>Seven placements plus full tiling</li>
+        <li>Adjustable opacity, size and rotation</li>
+        <li>Optional shadow for legibility over busy images</li>
+        <li>Nothing is uploaded</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Drop in the image you want to watermark.</li>
+        <li>Type your text, or switch to logo mode and add a PNG.</li>
+        <li>Choose a position, tiled is hardest to remove.</li>
+        <li>Download the watermarked image.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>What a watermark can and cannot do</h2>
+      <p class="text-sm text-muted">A watermark deters casual copying and makes attribution travel with the image when it gets reposted. That is genuinely useful, and it is the realistic goal. What it does not do is prevent theft, a corner watermark can be cropped out in seconds, and content-aware fill in Photoshop or any of the numerous automated watermark removers will clear a semi-transparent overlay with reasonable results.</p>
+      <p class="text-sm text-muted mt-3">The trade-off is visibility against intrusiveness. A tiled watermark across the whole image is far harder to remove cleanly, because reconstructing the image underneath requires inpainting every affected region rather than cropping one corner. It is also considerably more intrusive to look at. Photographers often use a light tiled watermark on preview images and supply clean files on purchase, which gets both properties.</p>
+      <p class="text-sm text-muted mt-3">Two things worth knowing. Watermarks are not a substitute for copyright registration, in a dispute, registration and the original raw file with its EXIF metadata carry far more weight than a visible mark. And be aware that many platforms strip EXIF data on upload, so if metadata is part of your provenance strategy, keep the originals yourself rather than relying on what the platform preserves.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Image Watermark free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Image Watermark is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Image Watermark do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Image Watermark covers text or logo image watermarks, seven placements plus full tiling, adjustable opacity, size and rotation, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Image Watermark work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">A watermark deters casual copying and makes attribution travel with the image when it gets reposted. That is genuinely useful, and it is the realistic goal. What it does not do is prevent theft, a corner watermark can be cropped out in seconds, and content-aware fill in Photoshop or any of the numerous automated watermark removers will clear a semi-transparent overlay with reasonable results.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Image Watermark work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Your image is decoded and processed by your own browser using the File and Canvas APIs. It is never uploaded, there is no server to receive it. You can verify this by opening your browser&#x27;s developer tools, switching to the Network tab, and watching while you use the tool: you will see no request carrying your file. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/watermark-images-to-protect-your-work.html">How to Watermark Images to Protect Your Work</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let sourceImage = null;
+ let sourceFile = null;
+ let logoImage = null;
+ let outputBlob = null;
+
+ const canvas = T.$('canvas');
+ const ctx = canvas.getContext('2d');
+
+ async function loadSource(file) {
+ sourceFile = file;
+
+ try {
+ const dataUrl = await T.readAsDataURL(file);
+ sourceImage = await T.loadImage(dataUrl);
+
+ const zone = T.$('dropzone');
+ zone.classList.add('has-file');
+ zone.querySelector('.dropzone__label').textContent = file.name;
+ zone.querySelector('.dropzone__hint').textContent =
+ `${T.bytes(file.size)} · ${sourceImage.width}×${sourceImage.height}`;
+
+ render();
+ } catch (err) {
+ T.status('status', err.message, 'error');
+ }
+ }
+
+ async function loadLogo(file) {
+ try {
+ const dataUrl = await T.readAsDataURL(file);
+ logoImage = await T.loadImage(dataUrl);
+
+ const zone = T.$('logo-dropzone');
+ zone.classList.add('has-file');
+ zone.querySelector('.dropzone__label').textContent = file.name;
+ zone.querySelector('.dropzone__hint').textContent =
+ `${logoImage.width}×${logoImage.height}`;
+
+ render();
+ } catch (err) {
+ T.status('status', err.message, 'error');
+ }
+ }
+
+ /** Draw one watermark instance centred at the given point. */
+ function drawMark(centreX, centreY) {
+ const scale = Number(T.$('scale').value) / 100;
+ const rotation = (Number(T.$('rotation').value) * Math.PI) / 180;
+
+ ctx.save();
+ ctx.translate(centreX, centreY);
+ ctx.rotate(rotation);
+
+ if (T.$('shadow').checked) {
+ ctx.shadowColor = 'rgba(0, 0, 0, 0.55)';
+ ctx.shadowBlur = Math.max(2, canvas.width * 0.004);
+ ctx.shadowOffsetX = 1;
+ ctx.shadowOffsetY = 1;
+ }
+
+ if (T.$('type').value === 'image' && logoImage) {
+ const width = canvas.width * scale * 3;
+ const height = width * (logoImage.height / logoImage.width);
+ ctx.drawImage(logoImage, -width / 2, -height / 2, width, height);
+ } else {
+ const fontSize = canvas.width * scale;
+ ctx.font = `600 ${fontSize}px Inter, system-ui, sans-serif`;
+ ctx.fillStyle = T.$('colour').value;
+ ctx.textAlign = 'center';
+ ctx.textBaseline = 'middle';
+ ctx.fillText(T.$('text').value || '© Watermark', 0, 0);
+ }
+
+ ctx.restore();
+ }
+
+ function render() {
+ ['opacity', 'scale', 'rotation', 'spacing'].forEach((id) => {
+ T.$(id + '-value').textContent = T.$(id).value;
+ });
+
+ if (!sourceImage) return;
+
+ canvas.width = sourceImage.width;
+ canvas.height = sourceImage.height;
+ canvas.style.maxWidth = '100%';
+ canvas.style.maxHeight = '460px';
+ canvas.style.height = 'auto';
+
+ ctx.clearRect(0, 0, canvas.width, canvas.height);
+ ctx.drawImage(sourceImage, 0, 0);
+
+ ctx.globalAlpha = Number(T.$('opacity').value) / 100;
+
+ const position = T.$('position').value;
+ const inset = canvas.width * 0.05;
+
+ if (position === 'tile') {
+ // Measure one instance so the tiling grid can be spaced sensibly
+ const scale = Number(T.$('scale').value) / 100;
+ let markWidth;
+
+ if (T.$('type').value === 'image' && logoImage) {
+ markWidth = canvas.width * scale * 3;
+ } else {
+ ctx.font = `600 ${canvas.width * scale}px Inter, system-ui, sans-serif`;
+ markWidth = ctx.measureText(T.$('text').value || '© Watermark').width;
+ }
+
+ const step = Math.max(40, markWidth * (Number(T.$('spacing').value) / 100));
+
+ // Overshoot the bounds so rotated marks still cover the corners
+ for (let y = -step; y < canvas.height + step; y += step) {
+ for (let x = -step; x < canvas.width + step; x += step) {
+ drawMark(x, y);
+ }
+ }
+ } else {
+ const positions = {
+ 'bottom-right': [canvas.width - inset, canvas.height - inset],
+ 'bottom-left': [inset, canvas.height - inset],
+ 'top-right': [canvas.width - inset, inset],
+ 'top-left': [inset, inset],
+ 'center': [canvas.width / 2, canvas.height / 2],
+ 'bottom-center': [canvas.width / 2, canvas.height - inset]
+ };
+
+ let [x, y] = positions[position] || positions['bottom-right'];
+
+ // Nudge inward so an edge-anchored mark is not clipped
+ if (T.$('type').value !== 'image') {
+ ctx.font = `600 ${canvas.width * (Number(T.$('scale').value) / 100)}px Inter, system-ui, sans-serif`;
+ const halfWidth = ctx.measureText(T.$('text').value || '© Watermark').width / 2;
+ if (position.includes('right')) x -= halfWidth;
+ if (position.includes('left')) x += halfWidth;
+ }
+
+ drawMark(x, y);
+ }
+
+ ctx.globalAlpha = 1;
+ T.$('canvas-meta').textContent = `${canvas.width} × ${canvas.height} px`;
+
+ canvas.toBlob((blob) => {
+ if (!blob) return;
+ outputBlob = blob;
+ T.status('status',
+ position === 'tile'
+ ? `Tiled watermark applied, harder to remove than a corner mark. ${T.bytes(blob.size)}.`
+ : `Watermark applied. ${T.bytes(blob.size)}.`,
+ 'ok');
+ }, 'image/png');
+
+ if (window.Analytics) Analytics.trackToolUse('image-watermark');
+ }
+
+ function syncType() {
+ const isImage = T.$('type').value === 'image';
+ T.$('logo-field').hidden = !isImage;
+ T.$('text').closest('.field').style.display = isImage ? 'none' : '';
+ T.$('colour').closest('.field').style.opacity = isImage ? '0.45' : '1';
+ render();
+ }
+
+ T.dropzone('dropzone', loadSource);
+ T.dropzone('logo-dropzone', loadLogo);
+
+ T.$('text').addEventListener('input', debounce(render, 200));
+ T.on(['opacity', 'scale', 'rotation', 'spacing'], debounce(render, 80));
+ T.on(['position', 'shadow'], render, 'change');
+ T.on(['colour'], render, 'input');
+ T.$('type').addEventListener('change', syncType);
+
+ T.$('download').addEventListener('click', () => {
+ if (!outputBlob) { toast({ type: 'warning', title: 'Choose an image first' }); return; }
+ const base = (sourceFile.name || 'image').replace(/\.[^.]+$/, '');
+ downloadFile(outputBlob, `${base}-watermarked.png`, 'image/png');
+ });
+
+ T.$('reset').addEventListener('click', async () => {
+ const file = await T.pickFile('image/*');
+ if (file) loadSource(file);
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Image Watermark | 123MiniApps' }));
+
+ syncType();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('image-watermark');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

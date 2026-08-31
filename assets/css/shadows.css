@@ -1,0 +1,71 @@
+/* ============================================
+ 123MiniApps.online v2.0
+ File: shadows.css
+ Purpose: Elevation utilities, glow effects,
+ glass morphism surface primitives.
+ ============================================ */
+
+.shadow-none { box-shadow: none; }
+.shadow-xs { box-shadow: var(--shadow-xs); }
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+.shadow-card { box-shadow: var(--shadow-card); }
+
+.glow-sm { box-shadow: var(--glow-sm); }
+.glow-md { box-shadow: var(--glow-md); }
+.glow-lg { box-shadow: var(--glow-lg); }
+
+/* --------------------------------------------
+ Glass morphism surface
+ Used by: nav, cards, modals, theme panel, toasts
+ -------------------------------------------- */
+.glass {
+ background: var(--glass-bg);
+ border: 1px solid var(--glass-border);
+ -webkit-backdrop-filter: blur(20px) saturate(160%);
+ backdrop-filter: blur(20px) saturate(160%);
+}
+
+/* Solid fallback where backdrop-filter is unsupported (older Firefox) */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+ .glass {
+ background: var(--bg-card);
+ }
+}
+
+/* --------------------------------------------
+ Animated gradient border
+ Implemented with a pseudo-element + mask so the
+ border can carry a gradient without a wrapper div.
+ -------------------------------------------- */
+.gradient-border {
+ position: relative;
+ isolation: isolate;
+}
+
+.gradient-border::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ border-radius: inherit;
+ padding: 1px;
+ background: var(--accent-gradient);
+ -webkit-mask:
+ linear-gradient(#000 0 0) content-box,
+ linear-gradient(#000 0 0);
+ mask:
+ linear-gradient(#000 0 0) content-box,
+ linear-gradient(#000 0 0);
+ -webkit-mask-composite: xor;
+ mask-composite: exclude;
+ opacity: 0;
+ transition: opacity var(--duration-normal) var(--ease-default);
+ pointer-events: none;
+}
+
+.gradient-border:hover::before,
+.gradient-border:focus-within::before {
+ opacity: 1;
+}

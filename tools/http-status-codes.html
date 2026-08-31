@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/http-status-codes.html
+     Purpose: Every HTTP status code, searchable, with guidance on when to use each one.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>HTTP Status Codes: Searchable Reference with Guidance</title>
+<meta name="description" content="A searchable reference for every HTTP status code, with what each means, when to use it, and the RFC that defines it.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/http-status-codes.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="HTTP Status Codes | 123MiniApps">
+<meta property="og:description" content="A searchable reference for every HTTP status code, with what each means, when to use it, and the RFC that defines it.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/http-status-codes.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HTTP Status Codes | 123MiniApps">
+<meta name="twitter:description" content="A searchable reference for every HTTP status code, with what each means, when to use it, and the RFC that defines it.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://www.123miniapps.online/#category-developer" },
+        { "@type": "ListItem", "position": 3, "name": "HTTP Status Codes", "item": "https://www.123miniapps.online/tools/http-status-codes.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "HTTP Status Codes",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "A searchable reference for every HTTP status code, with what each means, when to use it, and the RFC that defines it."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/http-status-codes.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is HTTP Status Codes free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. HTTP Status Codes is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can HTTP Status Codes do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "HTTP Status Codes covers every registered status code across all five classes, instant filtering by code, name or description, guidance on when each code is appropriate, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does HTTP Status Codes work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The 401 and 403 distinction is the most frequently muddled. 401 Unauthorized actually means unauthenticated, the request lacks valid credentials, and retrying with credentials might work. 403 Forbidden means the server knows who you are and you still may not have it; retrying with the same credentials will not help. A 401 response is required to include a WWW-Authenticate header telling the client how to authenticate."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does HTTP Status Codes work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything is processed in your browser. Code, tokens and payloads you paste in never leave your device, which matters when you are debugging something that contains real credentials or customer data. Check the Network tab if you want to confirm it. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/http-status-codes.html#howto",
+      "name": "How to use HTTP Status Codes",
+      "description": "Every HTTP status code, searchable, with guidance on when to use each one.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Type a code or a word into the search box",
+                  "text": "Type a code or a word into the search box.",
+                  "url": "https://www.123miniapps.online/tools/http-status-codes.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Or filter by class using the buttons",
+                  "text": "Or filter by class using the buttons.",
+                  "url": "https://www.123miniapps.online/tools/http-status-codes.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Read the description and the usage guidance",
+                  "text": "Read the description and the usage guidance.",
+                  "url": "https://www.123miniapps.online/tools/http-status-codes.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Copy the filtered list if you need it elsewhere",
+                  "text": "Copy the filtered list if you need it elsewhere.",
+                  "url": "https://www.123miniapps.online/tools/http-status-codes.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-developer">Developer Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">HTTP Status Codes</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">📡</div>
+      <div>
+        <h1>HTTP Status Codes</h1>
+        <p>Every HTTP status code, searchable, with guidance on when to use each one.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="HTTP status code reference">
+ <div class="searchbar" style="max-width:none;margin-bottom:var(--space-5)">
+ <label class="sr-only" for="search">Search status codes</label>
+ <div class="searchbar__field">
+ <span class="searchbar__icon" aria-hidden="true">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+ </span>
+ <input class="searchbar__input" id="search" type="search" placeholder="Search by code, name or meaning, try 404, redirect, or teapot" autocomplete="off">
+ </div>
+ </div>
+
+ <div class="chip-grid" id="classes" style="margin-bottom:var(--space-5)"></div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite"></p>
+
+ <div id="results"></div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy visible codes</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Every registered status code across all five classes</li>
+        <li>Instant filtering by code, name or description</li>
+        <li>Guidance on when each code is appropriate</li>
+        <li>Class filters for 1xx through 5xx</li>
+        <li>Works offline once the page is cached</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Type a code or a word into the search box.</li>
+        <li>Or filter by class using the buttons.</li>
+        <li>Read the description and the usage guidance.</li>
+        <li>Copy the filtered list if you need it elsewhere.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Status codes people commonly get wrong</h2>
+      <p class="text-sm text-muted">The 401 and 403 distinction is the most frequently muddled. <strong>401 Unauthorized</strong> actually means unauthenticated, the request lacks valid credentials, and retrying with credentials might work. <strong>403 Forbidden</strong> means the server knows who you are and you still may not have it; retrying with the same credentials will not help. A 401 response is required to include a <code>WWW-Authenticate</code> header telling the client how to authenticate.</p>
+      <p class="text-sm text-muted mt-3">Redirects have a subtlety that breaks form submissions. <strong>301</strong> and <strong>302</strong> historically allowed clients to change a POST into a GET when following the redirect, and most browsers do exactly that. <strong>307</strong> and <strong>308</strong> were introduced to guarantee the method and body are preserved. If you are redirecting anything other than a GET, use 307 or 308.</p>
+      <p class="text-sm text-muted mt-3">Two more worth knowing. <strong>422 Unprocessable Content</strong> is the right code when a request is syntactically valid but semantically wrong, well-formed JSON that fails validation, where many APIs incorrectly return 400. And <strong>429 Too Many Requests</strong> should always be accompanied by a <code>Retry-After</code> header; without it, clients have no way to back off sensibly and will usually just hammer you again.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is HTTP Status Codes free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. HTTP Status Codes is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can HTTP Status Codes do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">HTTP Status Codes covers every registered status code across all five classes, instant filtering by code, name or description, guidance on when each code is appropriate, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does HTTP Status Codes work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">The 401 and 403 distinction is the most frequently muddled. 401 Unauthorized actually means unauthenticated, the request lacks valid credentials, and retrying with credentials might work. 403 Forbidden means the server knows who you are and you still may not have it; retrying with the same credentials will not help. A 401 response is required to include a WWW-Authenticate header telling the client how to authenticate.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does HTTP Status Codes work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything is processed in your browser. Code, tokens and payloads you paste in never leave your device, which matters when you are debugging something that contains real credentials or customer data. Check the Network tab if you want to confirm it. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/http-status-codes-explained.html">HTTP Status Codes Explained: What 404, 301 and 500 Really Mean</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const CODES = [
+ [100, 'Continue', '1xx', 'The client should continue with its request. Sent in response to an Expect: 100-continue header.', 'Rarely set manually, servers handle this automatically.'],
+ [101, 'Switching Protocols', '1xx', 'The server is switching protocols as requested, typically to WebSocket.', 'Sent by WebSocket handshakes.'],
+ [102, 'Processing', '1xx', 'The server has received the request and is working on it, but no response is available yet.', 'WebDAV. Largely superseded by 103.'],
+ [103, 'Early Hints', '1xx', 'Sends preliminary headers, usually Link headers for preloading, before the final response.', 'Useful for preloading critical assets while the server prepares the page.'],
+
+ [200, 'OK', '2xx', 'The request succeeded. The meaning of success depends on the method.', 'The default success response for GET, PUT and PATCH.'],
+ [201, 'Created', '2xx', 'The request succeeded and a new resource was created.', 'Use for POST that creates a resource. Include a Location header pointing at it.'],
+ [202, 'Accepted', '2xx', 'The request was accepted for processing but has not been completed.', 'Use for asynchronous jobs. Give the client a way to poll for the result.'],
+ [204, 'No Content', '2xx', 'The request succeeded and there is deliberately no response body.', 'Ideal for DELETE, and for PUT where returning the resource adds nothing.'],
+ [206, 'Partial Content', '2xx', 'The server is delivering part of the resource, as requested by a Range header.', 'Video streaming and resumable downloads.'],
+
+ [301, 'Moved Permanently', '3xx', 'The resource has permanently moved to a new URL.', 'Use when changing a URL for good, search engines transfer ranking. May turn POST into GET.'],
+ [302, 'Found', '3xx', 'The resource is temporarily at a different URL.', 'Temporary redirects. May turn POST into GET; prefer 307 if that matters.'],
+ [303, 'See Other', '3xx', 'The response can be found at another URL, which should be fetched with GET.', 'The correct redirect after a successful POST, to prevent double submission.'],
+ [304, 'Not Modified', '3xx', 'The cached version is still current, so no body is sent.', 'Sent in response to conditional requests using If-None-Match or If-Modified-Since.'],
+ [307, 'Temporary Redirect', '3xx', 'Temporary redirect that preserves the request method and body.', 'Use instead of 302 when redirecting a POST, PUT or DELETE.'],
+ [308, 'Permanent Redirect', '3xx', 'Permanent redirect that preserves the request method and body.', 'Use instead of 301 when redirecting a non-GET request.'],
+
+ [400, 'Bad Request', '4xx', 'The server cannot process the request because it is malformed.', 'Use for syntax errors. If the syntax is fine but the content is invalid, 422 is more precise.'],
+ [401, 'Unauthorized', '4xx', 'Authentication is required and has failed or not been provided.', 'Really means "unauthenticated". Must include a WWW-Authenticate header.'],
+ [402, 'Payment Required', '4xx', 'Reserved for future use; occasionally used for quota or billing failures.', 'Some APIs use it when a subscription has lapsed.'],
+ [403, 'Forbidden', '4xx', 'The server understood the request but refuses to authorise it.', 'The client is authenticated but lacks permission. Retrying will not help.'],
+ [404, 'Not Found', '4xx', 'The server cannot find the requested resource.', 'Also used to hide the existence of a resource from unauthorised clients.'],
+ [405, 'Method Not Allowed', '4xx', 'The method is known but not supported for this resource.', 'Must include an Allow header listing the methods that are supported.'],
+ [406, 'Not Acceptable', '4xx', 'No representation matches the client’s Accept headers.', 'Rare in practice; most servers return their default format instead.'],
+ [408, 'Request Timeout', '4xx', 'The server timed out waiting for the request.', 'Usually a slow or stalled client connection.'],
+ [409, 'Conflict', '4xx', 'The request conflicts with the current state of the resource.', 'Edit conflicts, duplicate unique keys, or version mismatches.'],
+ [410, 'Gone', '4xx', 'The resource was deliberately removed and will not return.', 'More informative than 404 when you know something was deleted permanently.'],
+ [413, 'Content Too Large', '4xx', 'The request body is larger than the server will accept.', 'File upload limits. Tell the client the maximum size.'],
+ [415, 'Unsupported Media Type', '4xx', 'The request body format is not supported.', 'Wrong Content-Type, for example XML sent to a JSON-only endpoint.'],
+ [418, 'I’m a teapot', '4xx', 'The server refuses to brew coffee because it is, permanently, a teapot.', 'An April Fools joke from RFC 2324 that survives in many frameworks.'],
+ [422, 'Unprocessable Content', '4xx', 'The request is well-formed but semantically invalid.', 'The right code for validation failures on syntactically valid JSON.'],
+ [429, 'Too Many Requests', '4xx', 'The client has sent too many requests in a given period.', 'Rate limiting. Always include a Retry-After header.'],
+ [451, 'Unavailable For Legal Reasons', '4xx', 'Access is denied for legal reasons such as a court order.', 'The number references Fahrenheit 451.'],
+
+ [500, 'Internal Server Error', '5xx', 'The server hit an unexpected condition it cannot handle.', 'The catch-all for unhandled exceptions. Never leak stack traces in the body.'],
+ [501, 'Not Implemented', '5xx', 'The server does not support the functionality required.', 'The method is not recognised at all.'],
+ [502, 'Bad Gateway', '5xx', 'A server acting as a gateway received an invalid upstream response.', 'Usually a crashed or unreachable backend behind a proxy.'],
+ [503, 'Service Unavailable', '5xx', 'The server is temporarily unable to handle the request.', 'Maintenance or overload. Include Retry-After if you know how long.'],
+ [504, 'Gateway Timeout', '5xx', 'A gateway did not receive a timely upstream response.', 'The backend is too slow, or a timeout is set too low.'],
+ [507, 'Insufficient Storage', '5xx', 'The server cannot store the representation needed to complete the request.', 'WebDAV, and occasionally disk-full conditions.'],
+ [511, 'Network Authentication Required', '5xx', 'The client must authenticate to gain network access.', 'Captive portals on public wifi.']
+ ];
+
+ const CLASS_INFO = {
+ '1xx': ['Informational', 'The request was received and the process is continuing.'],
+ '2xx': ['Success', 'The request was received, understood and accepted.'],
+ '3xx': ['Redirection', 'Further action is needed to complete the request.'],
+ '4xx': ['Client error', 'The request contains bad syntax or cannot be fulfilled.'],
+ '5xx': ['Server error', 'The server failed to fulfil a valid request.']
+ };
+
+ let activeClass = 'all';
+
+ function visible() {
+ const query = T.$('search').value.trim().toLowerCase();
+
+ return CODES.filter(([code, name, cls, description, guidance]) => {
+ if (activeClass !== 'all' && cls !== activeClass) return false;
+ if (!query) return true;
+ return String(code).includes(query) ||
+ name.toLowerCase().includes(query) ||
+ description.toLowerCase().includes(query) ||
+ guidance.toLowerCase().includes(query) ||
+ cls === query;
+ });
+ }
+
+ function colourFor(cls) {
+ return { '1xx': 'var(--info)', '2xx': 'var(--success)', '3xx': 'var(--warning)',
+ '4xx': 'var(--danger)', '5xx': 'var(--danger)' }[cls];
+ }
+
+ function render() {
+ const mount = T.$('results');
+ mount.innerHTML = '';
+
+ const list = visible();
+
+ if (!list.length) {
+ mount.append(el('div', { className: 'empty-state' }, [
+ el('div', { className: 'empty-state__icon', text: '🔍', attrs: { 'aria-hidden': 'true' } }),
+ el('p', { text: 'No status codes match that search.' })
+ ]));
+ T.status('status', 'No matches.', 'warn');
+ return;
+ }
+
+ let currentClass = null;
+
+ list.forEach(([code, name, cls, description, guidance]) => {
+ if (cls !== currentClass) {
+ currentClass = cls;
+ const [label, blurb] = CLASS_INFO[cls];
+ mount.append(el('h3', {
+ className: 'mt-8 mb-3',
+ text: `${cls}, ${label}`,
+ style: { color: colourFor(cls) }
+ }));
+ mount.append(el('p', { className: 'text-sm text-muted mb-4', text: blurb }));
+ }
+
+ const card = el('div', { className: 'info-panel mb-3' }, [
+ el('div', { className: 'flex items-center gap-3 mb-2' }, [
+ el('span', {
+ className: 'result__value',
+ text: String(code),
+ style: { fontSize: 'var(--text-2xl)', color: colourFor(cls) }
+ }),
+ el('strong', { text: name, style: { fontSize: 'var(--text-lg)' } })
+ ]),
+ el('p', { className: 'text-sm', text: description }),
+ el('p', { className: 'text-sm text-muted mt-2', text: '→ ' + guidance })
+ ]);
+
+ mount.append(card);
+ });
+
+ T.status('status', `Showing ${list.length} of ${CODES.length} status codes.`, 'ok');
+ }
+
+ function renderClasses() {
+ const mount = T.$('classes');
+ mount.innerHTML = '';
+
+ [['all', 'All codes'], ...Object.entries(CLASS_INFO).map(([k, v]) => [k, `${k} ${v[0]}`])]
+ .forEach(([key, label]) => {
+ const chip = el('button', { className: 'chip', attrs: { type: 'button' }, text: label });
+
+ if (key === activeClass) {
+ chip.style.borderColor = 'var(--accent-primary)';
+ chip.style.color = 'var(--accent-primary)';
+ }
+
+ chip.addEventListener('click', () => {
+ activeClass = key;
+ renderClasses();
+ render();
+ });
+
+ mount.append(chip);
+ });
+ }
+
+ T.$('search').addEventListener('input', debounce(render, 150));
+
+ T.$('copy').addEventListener('click', () => {
+ const text = visible().map(([code, name, description]) =>
+ `${code} ${name}, ${description}`).join('\n');
+ copyToClipboard(text, 'Status codes copied');
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'HTTP Status Codes | 123MiniApps' }));
+
+ renderClasses();
+ render();
+ if (window.Analytics) Analytics.trackToolUse('http-status-codes');
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('http-status-codes');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/pomodoro-timer.html
+     Purpose: Focused work blocks with automatic breaks, accurate even in a background tab.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Pomodoro Timer: Focused Work Blocks with Automatic Breaks</title>
+<meta name="description" content="Run focused work blocks with automatic break cycles. Custom durations, audio alerts, session counting and a title-bar countdown that survives tab switching.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/pomodoro-timer.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Pomodoro Timer | 123MiniApps">
+<meta property="og:description" content="Run focused work blocks with automatic break cycles. Custom durations, audio alerts, session counting and a title-bar countdown that survives tab switching.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/pomodoro-timer.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pomodoro Timer | 123MiniApps">
+<meta name="twitter:description" content="Run focused work blocks with automatic break cycles. Custom durations, audio alerts, session counting and a title-bar countdown that survives tab switching.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Productivity Tools", "item": "https://www.123miniapps.online/#category-productivity" },
+        { "@type": "ListItem", "position": 3, "name": "Pomodoro Timer", "item": "https://www.123miniapps.online/tools/pomodoro-timer.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Pomodoro Timer",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Run focused work blocks with automatic break cycles. Custom durations, audio alerts, session counting and a title-bar countdown that survives tab switching."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/pomodoro-timer.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Pomodoro Timer free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Pomodoro Timer is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Pomodoro Timer do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Pomodoro Timer covers custom work, short break and long break durations, automatic cycling with a long break every N blocks, countdown in the browser tab title, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Pomodoro Timer work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Francesco Cirillo developed the Pomodoro Technique as a university student in the late 1980s, naming it after a tomato-shaped kitchen timer. The structure is deliberately rigid: work for one block, take a short break, and after four blocks take a longer one. The rigidity is the point, the fixed commitment makes starting easier, and the enforced break prevents the diminishing returns of grinding through fatigue."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Pomodoro Timer work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Your data is stored in your browser's localStorage, which lives on your device and is readable only by this site in this browser. Nothing syncs and nothing is uploaded. The trade-off is that clearing your browser data will erase it, so export anything important. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/pomodoro-timer.html#howto",
+      "name": "How to use Pomodoro Timer",
+      "description": "Focused work blocks with automatic breaks, accurate even in a background tab.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Set your work and break durations",
+                  "text": "Set your work and break durations.",
+                  "url": "https://www.123miniapps.online/tools/pomodoro-timer.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Optionally name what you are working on",
+                  "text": "Optionally name what you are working on.",
+                  "url": "https://www.123miniapps.online/tools/pomodoro-timer.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Press Start and leave the tab in the background",
+                  "text": "Press Start and leave the tab in the background.",
+                  "url": "https://www.123miniapps.online/tools/pomodoro-timer.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "The title bar shows the countdown while you work",
+                  "text": "The title bar shows the countdown while you work.",
+                  "url": "https://www.123miniapps.online/tools/pomodoro-timer.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-productivity">Productivity Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Pomodoro Timer</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🍅</div>
+      <div>
+        <h1>Pomodoro Timer</h1>
+        <p>Focused work blocks with automatic breaks, accurate even in a background tab.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Pomodoro timer">
+ <div class="display" id="display">
+ <span class="display__value" id="time">25:00</span>
+ <span class="display__label" id="phase">Ready to focus</span>
+ </div>
+
+ <div class="meter" id="progress" role="img" aria-label="Session progress" style="margin-top:var(--space-4)">
+ <span class="meter__seg"></span><span class="meter__seg"></span>
+ <span class="meter__seg"></span><span class="meter__seg"></span>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="start" type="button">Start</button>
+      <button class="btn btn--secondary" id="pause" type="button">Pause</button>
+      <button class="btn btn--secondary" id="reset" type="button">Reset</button>
+      <button class="btn btn--ghost" id="skip" type="button">Skip phase</button>
+    </div>
+
+    <hr class="hr">
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="work">
+        <span>Work block</span>
+        <span class="field__hint"><strong id="work-value">25</strong> min</span>
+      </label>
+      <input class="range" id="work" type="range" min="5" max="60" value="25" step="5">
+    </div>
+    <div class="field">
+      <label class="field__label" for="short-break">
+        <span>Short break</span>
+        <span class="field__hint"><strong id="short-break-value">5</strong> min</span>
+      </label>
+      <input class="range" id="short-break" type="range" min="1" max="20" value="5" step="1">
+    </div>
+    <div class="field">
+      <label class="field__label" for="long-break">
+        <span>Long break</span>
+        <span class="field__hint"><strong id="long-break-value">15</strong> min</span>
+      </label>
+      <input class="range" id="long-break" type="range" min="5" max="45" value="15" step="5">
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="cycles">
+        <span>Blocks before a long break</span>
+        <span class="field__hint"><strong id="cycles-value">4</strong></span>
+      </label>
+      <input class="range" id="cycles" type="range" min="2" max="8" value="4" step="1">
+    </div>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="auto" checked>
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Start the next phase automatically</span>
+    </label>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="sound" checked>
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Play a sound when a phase ends</span>
+    </label>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="task"><span>What are you working on?</span></label>
+      <input class="input" id="task" type="text" value="" placeholder="Optional, shown during the session" >
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Set your durations and press Start.</p>
+
+    <hr class="hr">
+
+ <div class="result-grid">
+ <div class="result result--primary"><span class="result__value" id="r-completed" style="font-size:var(--text-3xl)">0</span><span class="result__label">Blocks completed today</span></div>
+ <div class="result"><span class="result__value" id="r-focus-time" style="font-size:var(--text-2xl)">0m</span><span class="result__label">Focus time today</span></div>
+ <div class="result"><span class="result__value" id="r-streak" style="font-size:var(--text-2xl)">0</span><span class="result__label">Current cycle</span></div>
+ </div>
+
+ <div class="field">
+ <span class="field__label"><span>Session log</span><span class="field__hint">Stored on this device only</span></span>
+ <div class="table-scroll"><div id="log"></div></div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--ghost" id="clear-log" type="button">Clear today&#x27;s log</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Custom work, short break and long break durations</li>
+        <li>Automatic cycling with a long break every N blocks</li>
+        <li>Countdown in the browser tab title</li>
+        <li>Audio alert generated in the browser, no file needed</li>
+        <li>Daily session log kept on your device</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Set your work and break durations.</li>
+        <li>Optionally name what you are working on.</li>
+        <li>Press Start and leave the tab in the background.</li>
+        <li>The title bar shows the countdown while you work.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>The technique, and why the timer is accurate</h2>
+      <p class="text-sm text-muted">Francesco Cirillo developed the Pomodoro Technique as a university student in the late 1980s, naming it after a tomato-shaped kitchen timer. The structure is deliberately rigid: work for one block, take a short break, and after four blocks take a longer one. The rigidity is the point, the fixed commitment makes starting easier, and the enforced break prevents the diminishing returns of grinding through fatigue.</p>
+      <p class="text-sm text-muted mt-3">Twenty-five minutes is a starting point rather than a rule. Deep technical work often benefits from 45 or 50-minute blocks, because the overhead of reloading context makes short blocks inefficient. Shallower work, email, admin, review, suits shorter blocks. The durations here are adjustable for that reason.</p>
+      <p class="text-sm text-muted mt-3">One technical detail worth explaining: browsers throttle <code>setInterval</code> in background tabs, often to once per minute, so a naive timer built by counting ticks drifts badly and can finish minutes late. This timer records the target end time when you press Start and computes the remaining time from the system clock on each tick. That means it stays accurate whether or not the tab is visible, and it recovers correctly if your machine sleeps mid-session.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Pomodoro Timer free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Pomodoro Timer is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Pomodoro Timer do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Pomodoro Timer covers custom work, short break and long break durations, automatic cycling with a long break every N blocks, countdown in the browser tab title, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Pomodoro Timer work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Francesco Cirillo developed the Pomodoro Technique as a university student in the late 1980s, naming it after a tomato-shaped kitchen timer. The structure is deliberately rigid: work for one block, take a short break, and after four blocks take a longer one. The rigidity is the point, the fixed commitment makes starting easier, and the enforced break prevents the diminishing returns of grinding through fatigue.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Pomodoro Timer work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Your data is stored in your browser&#x27;s localStorage, which lives on your device and is readable only by this site in this browser. Nothing syncs and nothing is uploaded. The trade-off is that clearing your browser data will erase it, so export anything important. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/the-pomodoro-technique-explained.html">The Pomodoro Technique: Why Working in 25-Minute Sprints Works</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const PHASES = { work: 'Focus', short: 'Short break', long: 'Long break' };
+
+ let phase = 'work';
+ let endTime = null; // absolute timestamp, not a tick count
+ let remaining = 0; // milliseconds, used while paused
+ let running = false;
+ let completedInCycle = 0;
+ let ticker = null;
+ const originalTitle = document.title;
+
+ function durationFor(which) {
+ const minutes = {
+ work: Number(T.$('work').value),
+ short: Number(T.$('short-break').value),
+ long: Number(T.$('long-break').value)
+ }[which];
+ return minutes * 60000;
+ }
+
+ function todayKey() {
+ return 'pomodoro-' + new Date().toISOString().slice(0, 10);
+ }
+
+ function loadLog() {
+ return T.store.get(todayKey(), []);
+ }
+
+ function saveSession(entry) {
+ const log = loadLog();
+ log.push(entry);
+ T.store.set(todayKey(), log);
+ renderLog();
+ }
+
+ function renderLog() {
+ const log = loadLog();
+ const mount = T.$('log');
+ mount.innerHTML = '';
+
+ const workSessions = log.filter((e) => e.phase === 'work');
+ const focusMinutes = workSessions.reduce((sum, e) => sum + e.minutes, 0);
+
+ T.$('r-completed').textContent = String(workSessions.length);
+ T.$('r-focus-time').textContent = focusMinutes >= 60
+ ? `${Math.floor(focusMinutes / 60)}h ${focusMinutes % 60}m`
+ : `${focusMinutes}m`;
+ T.$('r-streak').textContent = `${completedInCycle} / ${T.$('cycles').value}`;
+
+ if (!log.length) return;
+
+ mount.append(T.table(
+ ['Time', 'Phase', 'Length', 'Task'],
+ log.slice().reverse().slice(0, 20).map((e) => [
+ new Date(e.at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+ PHASES[e.phase],
+ e.minutes + ' min',
+ e.task || ', '
+ ])
+ ));
+ }
+
+ function updateDisplay() {
+ const ms = running ? Math.max(0, endTime - Date.now()) : remaining;
+ const totalSeconds = Math.ceil(ms / 1000);
+ const minutes = Math.floor(totalSeconds / 60);
+ const seconds = totalSeconds % 60;
+ const label = `${T.pad2(minutes)}:${T.pad2(seconds)}`;
+
+ T.$('time').textContent = label;
+
+ const task = T.$('task').value.trim();
+ T.$('phase').textContent = phase === 'work' && task
+ ? `${PHASES[phase]}, ${task}`
+ : PHASES[phase];
+
+ // Keep the countdown visible when the tab is in the background
+ document.title = running ? `${label} · ${PHASES[phase]}` : originalTitle;
+
+ // Progress meter fills as the phase elapses
+ const total = durationFor(phase);
+ const elapsed = 1 - ms / total;
+ const lit = Math.ceil(T.clamp(elapsed, 0, 1) * 4);
+ const key = phase === 'work' ? 'strong' : 'good';
+ T.$$('#progress .meter__seg').forEach((seg, i) => {
+ seg.className = 'meter__seg' + (i < lit ? ` is-on-${key}` : '');
+ });
+
+ if (running && ms <= 0) finishPhase();
+ }
+
+ /** A short two-tone chime, synthesised so no audio file is needed. */
+ function playChime() {
+ if (!T.$('sound').checked) return;
+
+ try {
+ const Ctx = window.AudioContext || window.webkitAudioContext;
+ if (!Ctx) return;
+
+ const ctx = new Ctx();
+ const now = ctx.currentTime;
+
+ [880, 1320].forEach((frequency, index) => {
+ const osc = ctx.createOscillator();
+ const gain = ctx.createGain();
+
+ osc.type = 'sine';
+ osc.frequency.value = frequency;
+
+ const start = now + index * 0.18;
+ gain.gain.setValueAtTime(0, start);
+ gain.gain.linearRampToValueAtTime(0.25, start + 0.02);
+ gain.gain.exponentialRampToValueAtTime(0.001, start + 0.35);
+
+ osc.connect(gain).connect(ctx.destination);
+ osc.start(start);
+ osc.stop(start + 0.4);
+ });
+
+ setTimeout(() => ctx.close(), 1200);
+ } catch {
+ /* Audio is a nicety, never let it break the timer */
+ }
+ }
+
+ function finishPhase() {
+ running = false;
+ clearInterval(ticker);
+ playChime();
+
+ saveSession({
+ at: Date.now(),
+ phase,
+ minutes: Math.round(durationFor(phase) / 60000),
+ task: T.$('task').value.trim()
+ });
+
+ if (phase === 'work') {
+ completedInCycle++;
+ const cycles = Number(T.$('cycles').value);
+ phase = completedInCycle >= cycles ? 'long' : 'short';
+ if (phase === 'long') completedInCycle = 0;
+ } else {
+ phase = 'work';
+ }
+
+ remaining = durationFor(phase);
+ updateDisplay();
+
+ T.status('status', `${PHASES[phase]} is next.`, 'ok');
+ toast({
+ type: 'success',
+ title: 'Phase complete',
+ message: `Time for a ${PHASES[phase].toLowerCase()}.`,
+ duration: 8000
+ });
+
+ if (T.$('auto').checked) start();
+ else renderLog();
+ }
+
+ function start() {
+ if (running) return;
+
+ if (remaining <= 0) remaining = durationFor(phase);
+ endTime = Date.now() + remaining;
+ running = true;
+
+ clearInterval(ticker);
+ // A 250ms tick keeps the display smooth; accuracy comes from
+ // comparing against endTime, not from counting ticks
+ ticker = setInterval(updateDisplay, 250);
+ updateDisplay();
+
+ T.status('status', `${PHASES[phase]} running.`, 'ok');
+ if (window.Analytics) Analytics.trackToolUse('pomodoro-timer');
+ }
+
+ function pause() {
+ if (!running) return;
+ remaining = Math.max(0, endTime - Date.now());
+ running = false;
+ clearInterval(ticker);
+ updateDisplay();
+ T.status('status', 'Paused.', 'warn');
+ }
+
+ function reset() {
+ running = false;
+ clearInterval(ticker);
+ phase = 'work';
+ completedInCycle = 0;
+ remaining = durationFor('work');
+ updateDisplay();
+ renderLog();
+ T.status('status', 'Reset. Set your durations and press Start.', 'muted');
+ }
+
+ function skip() {
+ if (running) { running = false; clearInterval(ticker); }
+ phase = phase === 'work' ? 'short' : 'work';
+ remaining = durationFor(phase);
+ updateDisplay();
+ T.status('status', `Skipped to ${PHASES[phase].toLowerCase()}.`, 'muted');
+ }
+
+ T.$('start').addEventListener('click', start);
+ T.$('pause').addEventListener('click', pause);
+ T.$('reset').addEventListener('click', reset);
+ T.$('skip').addEventListener('click', skip);
+
+ ['work', 'short-break', 'long-break', 'cycles'].forEach((id) => {
+ T.$(id).addEventListener('input', () => {
+ T.$(id + '-value').textContent = T.$(id).value;
+ if (!running) {
+ remaining = durationFor(phase);
+ updateDisplay();
+ }
+ renderLog();
+ });
+ });
+
+ T.$('task').addEventListener('input', updateDisplay);
+
+ T.$('clear-log').addEventListener('click', () => {
+ T.store.remove(todayKey());
+ completedInCycle = 0;
+ renderLog();
+ toast({ type: 'success', title: 'Log cleared' });
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Pomodoro Timer | 123MiniApps' }));
+
+ // Restore the title if the user navigates away mid-session
+ window.addEventListener('beforeunload', () => { document.title = originalTitle; });
+
+ remaining = durationFor('work');
+ updateDisplay();
+ renderLog();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('pomodoro-timer');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

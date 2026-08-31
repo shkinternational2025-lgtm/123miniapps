@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/meeting-cost-calculator.html
+     Purpose: Watch a meeting's cost tick upward in real time, and see what the recurring version costs annually.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Meeting Cost Calculator: Live Cost While You Sit There</title>
+<meta name="description" content="Watch what a meeting costs in real time based on attendee salaries, with an annualised projection for recurring meetings.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/meeting-cost-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Meeting Cost Calculator | 123MiniApps">
+<meta property="og:description" content="Watch what a meeting costs in real time based on attendee salaries, with an annualised projection for recurring meetings.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/meeting-cost-calculator.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meeting Cost Calculator | 123MiniApps">
+<meta name="twitter:description" content="Watch what a meeting costs in real time based on attendee salaries, with an annualised projection for recurring meetings.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Productivity Tools", "item": "https://www.123miniapps.online/#category-productivity" },
+        { "@type": "ListItem", "position": 3, "name": "Meeting Cost Calculator", "item": "https://www.123miniapps.online/tools/meeting-cost-calculator.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Meeting Cost Calculator",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Watch what a meeting costs in real time based on attendee salaries, with an annualised projection for recurring meetings."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/meeting-cost-calculator.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Meeting Cost Calculator free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Meeting Cost Calculator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Meeting Cost Calculator do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Meeting Cost Calculator covers live cost ticking upward during the meeting, overhead multiplier for true employment cost, annualised projection for recurring meetings, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Meeting Cost Calculator work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Salary alone understates what an employee costs. Employer pension contributions, national insurance or payroll taxes, equipment, software licences, office space and benefits typically add 25% to 40% on top, which is what the overhead multiplier accounts for. The default of 1.3 is a reasonable middle estimate for a knowledge worker; check your own finance team's figure if you have access to it."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Meeting Cost Calculator work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Your data is stored in your browser's localStorage, which lives on your device and is readable only by this site in this browser. Nothing syncs and nothing is uploaded. The trade-off is that clearing your browser data will erase it, so export anything important. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/meeting-cost-calculator.html#howto",
+      "name": "How to use Meeting Cost Calculator",
+      "description": "Watch a meeting's cost tick upward in real time, and see what the recurring version costs annually.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Enter how many people are attending and their average salary",
+                  "text": "Enter how many people are attending and their average salary.",
+                  "url": "https://www.123miniapps.online/tools/meeting-cost-calculator.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Press Start when the meeting actually begins",
+                  "text": "Press Start when the meeting actually begins.",
+                  "url": "https://www.123miniapps.online/tools/meeting-cost-calculator.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Watch the cost accumulate",
+                  "text": "Watch the cost accumulate.",
+                  "url": "https://www.123miniapps.online/tools/meeting-cost-calculator.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Check the annual figure if this meeting recurs",
+                  "text": "Check the annual figure if this meeting recurs.",
+                  "url": "https://www.123miniapps.online/tools/meeting-cost-calculator.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-productivity">Productivity Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Meeting Cost Calculator</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">💼</div>
+      <div>
+        <h1>Meeting Cost Calculator</h1>
+        <p>Watch a meeting's cost tick upward in real time, and see what the recurring version costs annually.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Meeting cost calculator">
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="attendees"><span>Attendees</span></label>
+      <input class="input" id="attendees" type="number" value="6" placeholder="6" step="1" min="1" max="500" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label class="field__label" for="salary"><span>Average annual salary</span></label>
+      <input class="input" id="salary" type="number" value="65000" placeholder="65000" step="any" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label class="field__label" for="currency"><span>Currency</span></label>
+      <select class="select" id="currency">
+        <option value="GBP" selected>GBP £</option>
+        <option value="USD">USD $</option>
+        <option value="EUR">EUR €</option>
+        <option value="AUD">AUD $</option>
+        <option value="CAD">CAD $</option>
+        <option value="INR">INR ₹</option>
+      </select>
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="hours-per-year"><span>Working hours per year</span></label>
+      <input class="input" id="hours-per-year" type="number" value="1800" placeholder="1800" step="any" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label class="field__label" for="overhead"><span>Overhead multiplier</span></label>
+      <input class="input" id="overhead" type="number" value="1.3" placeholder="1.3" step="any" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label class="field__label" for="duration"><span>Scheduled duration (minutes)</span></label>
+      <input class="input" id="duration" type="number" value="60" placeholder="60" step="5" inputmode="decimal">
+    </div>
+    </div>
+
+ <div class="display">
+ <span class="display__value" id="cost">, </span>
+ <span class="display__label" id="elapsed">Press Start when the meeting begins</span>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="start" type="button">Start</button>
+      <button class="btn btn--secondary" id="pause" type="button">Pause</button>
+      <button class="btn btn--secondary" id="reset" type="button">Reset</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Enter the attendee count and average salary.</p>
+
+    <hr class="hr">
+
+ <div class="result-grid">
+ <div class="result"><span class="result__value" id="r-rate" style="font-size:var(--text-2xl)">, </span><span class="result__label">Cost per minute</span></div>
+ <div class="result"><span class="result__value" id="r-scheduled" style="font-size:var(--text-2xl)">, </span><span class="result__label">Scheduled cost</span></div>
+ <div class="result"><span class="result__value" id="r-weekly" style="font-size:var(--text-2xl)">, </span><span class="result__label">If weekly, per year</span></div>
+ <div class="result"><span class="result__value" id="r-hours" style="font-size:var(--text-2xl)">, </span><span class="result__label">Person-hours consumed</span></div>
+ </div>
+
+ <div class="field">
+ <span class="field__label"><span>Comparison</span></span>
+ <div class="table-scroll"><div id="comparison"></div></div>
+ </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Live cost ticking upward during the meeting</li>
+        <li>Overhead multiplier for true employment cost</li>
+        <li>Annualised projection for recurring meetings</li>
+        <li>Six currencies</li>
+        <li>Comparison against the scheduled duration</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Enter how many people are attending and their average salary.</li>
+        <li>Press Start when the meeting actually begins.</li>
+        <li>Watch the cost accumulate.</li>
+        <li>Check the annual figure if this meeting recurs.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Reading these numbers honestly</h2>
+      <p class="text-sm text-muted">Salary alone understates what an employee costs. Employer pension contributions, national insurance or payroll taxes, equipment, software licences, office space and benefits typically add 25% to 40% on top, which is what the overhead multiplier accounts for. The default of 1.3 is a reasonable middle estimate for a knowledge worker; check your own finance team's figure if you have access to it.</p>
+      <p class="text-sm text-muted mt-3">The annualised number is usually the one that changes behaviour. A weekly hour-long meeting with eight people is not an hour, it is over 400 person-hours a year, which is a quarter of a full-time role. That framing tends to prompt better questions than the per-meeting figure: does everyone need to be there, could it be fortnightly, could the status update be a written summary?</p>
+      <p class="text-sm text-muted mt-3">One caveat worth stating plainly. Cost is not the same as value, and a tool like this can encourage a false precision. Meetings that build alignment, surface a problem early or resolve something that would otherwise take a week of asynchronous back-and-forth are often worth far more than they cost. The useful application is spotting the recurring meeting nobody can justify, not treating every conversation as an expense to be minimised.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Meeting Cost Calculator free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Meeting Cost Calculator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Meeting Cost Calculator do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Meeting Cost Calculator covers live cost ticking upward during the meeting, overhead multiplier for true employment cost, annualised projection for recurring meetings, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Meeting Cost Calculator work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Salary alone understates what an employee costs. Employer pension contributions, national insurance or payroll taxes, equipment, software licences, office space and benefits typically add 25% to 40% on top, which is what the overhead multiplier accounts for. The default of 1.3 is a reasonable middle estimate for a knowledge worker; check your own finance team&#x27;s figure if you have access to it.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Meeting Cost Calculator work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Your data is stored in your browser&#x27;s localStorage, which lives on your device and is readable only by this site in this browser. Nothing syncs and nothing is uploaded. The trade-off is that clearing your browser data will erase it, so export anything important. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/the-real-cost-of-meetings.html">The Real Cost of Meetings (and How to Calculate It)</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let startedAt = null;
+ let accumulated = 0; // milliseconds of elapsed meeting time
+ let running = false;
+ let ticker = null;
+
+ function currency() { return T.$('currency').value; }
+
+ function money(value) {
+ try {
+ return Number(value).toLocaleString(undefined, {
+ style: 'currency', currency: currency(), maximumFractionDigits: 2
+ });
+ } catch {
+ return T.fmt(value, 2);
+ }
+ }
+
+ /** Fully-loaded cost per minute for the whole room. */
+ function costPerMinute() {
+ const attendees = Math.max(1, Math.floor(T.num(T.$('attendees').value) || 1));
+ const salary = T.num(T.$('salary').value) || 0;
+ const hoursPerYear = Math.max(1, T.num(T.$('hours-per-year').value) || 1800);
+ const overhead = T.num(T.$('overhead').value) || 1;
+
+ const hourlyPerPerson = (salary * overhead) / hoursPerYear;
+ return (hourlyPerPerson * attendees) / 60;
+ }
+
+ function elapsedMs() {
+ return running ? accumulated + (Date.now() - startedAt) : accumulated;
+ }
+
+ function update() {
+ const perMinute = costPerMinute();
+ const ms = elapsedMs();
+ const minutes = ms / 60000;
+
+ T.$('cost').textContent = money(perMinute * minutes);
+
+ const seconds = Math.floor(ms / 1000);
+ T.$('elapsed').textContent = running || ms > 0
+ ? `${T.pad2(Math.floor(seconds / 3600))}:${T.pad2(Math.floor((seconds % 3600) / 60))}:${T.pad2(seconds % 60)} elapsed`
+ : 'Press Start when the meeting begins';
+
+ T.$('r-rate').textContent = money(perMinute);
+
+ const scheduled = T.num(T.$('duration').value) || 0;
+ T.$('r-scheduled').textContent = money(perMinute * scheduled);
+ T.$('r-weekly').textContent = money(perMinute * scheduled * 52);
+
+ const attendees = Math.max(1, Math.floor(T.num(T.$('attendees').value) || 1));
+ T.$('r-hours').textContent = T.fmt((minutes * attendees) / 60, 1);
+
+ // Flag when the meeting overruns
+ if (running && scheduled > 0 && minutes > scheduled) {
+ const over = minutes - scheduled;
+ T.status('status',
+ `Running ${Math.round(over)} minute(s) over, that overrun alone has cost ${money(perMinute * over)}.`,
+ 'warn');
+ T.$('cost').style.color = 'var(--danger)';
+ } else if (running) {
+ T.$('cost').style.color = '';
+ }
+
+ renderComparison(perMinute, scheduled, attendees);
+ }
+
+ function renderComparison(perMinute, scheduled, attendees) {
+ const mount = T.$('comparison');
+ mount.innerHTML = '';
+
+ const rows = [
+ ['This meeting, as scheduled', `${scheduled} min`, money(perMinute * scheduled)],
+ ['If it runs 15 minutes over', `${scheduled + 15} min`, money(perMinute * (scheduled + 15))],
+ ['If you cut it to 30 minutes', '30 min', money(perMinute * 30)],
+ ['If two people skip it', `${scheduled} min`,
+ money((perMinute / attendees) * Math.max(1, attendees - 2) * scheduled)],
+ ['Weekly for a year', `${scheduled * 52} min`, money(perMinute * scheduled * 52)],
+ ['Daily for a year (250 days)', `${scheduled * 250} min`, money(perMinute * scheduled * 250)]
+ ];
+
+ mount.append(T.table(['Scenario', 'Duration', 'Cost'], rows));
+ }
+
+ function start() {
+ if (running) return;
+ startedAt = Date.now();
+ running = true;
+ clearInterval(ticker);
+ ticker = setInterval(update, 200);
+ update();
+ T.status('status', 'Counting. The cost updates every fifth of a second.', 'ok');
+ if (window.Analytics) Analytics.trackToolUse('meeting-cost-calculator');
+ }
+
+ function pause() {
+ if (!running) return;
+ accumulated += Date.now() - startedAt;
+ running = false;
+ clearInterval(ticker);
+ update();
+ T.status('status', `Paused at ${money(costPerMinute() * (accumulated / 60000))}.`, 'warn');
+ }
+
+ function reset() {
+ running = false;
+ clearInterval(ticker);
+ accumulated = 0;
+ startedAt = null;
+ T.$('cost').style.color = '';
+ update();
+ T.status('status', 'Reset.', 'muted');
+ }
+
+ T.$('start').addEventListener('click', start);
+ T.$('pause').addEventListener('click', pause);
+ T.$('reset').addEventListener('click', reset);
+
+ T.on(['attendees', 'salary', 'hours-per-year', 'overhead', 'duration'], update);
+ T.on(['currency'], update, 'change');
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Meeting Cost Calculator | 123MiniApps' }));
+
+ update();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('meeting-cost-calculator');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/currency-converter.html
+     Purpose: Convert currencies using rates you set, repeatable, offline and private.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Currency Converter: Offline, With Rates You Control</title>
+<meta name="description" content="Convert between currencies using rates you enter yourself. No live feed and no tracking, useful when you need a repeatable rate rather than today's.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/currency-converter.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Currency Converter | 123MiniApps">
+<meta property="og:description" content="Convert between currencies using rates you enter yourself. No live feed and no tracking, useful when you need a repeatable rate rather than today's.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/currency-converter.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Currency Converter | 123MiniApps">
+<meta name="twitter:description" content="Convert between currencies using rates you enter yourself. No live feed and no tracking, useful when you need a repeatable rate rather than today's.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Converters", "item": "https://www.123miniapps.online/#category-converter" },
+        { "@type": "ListItem", "position": 3, "name": "Currency Converter", "item": "https://www.123miniapps.online/tools/currency-converter.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Currency Converter",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Convert between currencies using rates you enter yourself. No live feed and no tracking, useful when you need a repeatable rate rather than today's."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/currency-converter.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Currency Converter free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Currency Converter is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Currency Converter do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Currency Converter covers 35 major currencies with correct symbols and decimal places, you control the rate, results are reproducible, automatic inverse rate calculation, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Currency Converter work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The rate quoted on financial news sites is the interbank mid-market rate, the midpoint between what buyers bid and sellers ask in the wholesale market. Almost nobody transacting retail amounts receives it. Banks and card networks apply a spread on top, then sometimes a separate fee, so the effective rate is typically 1% to 4% worse than the mid-market figure."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Currency Converter work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/currency-converter.html#howto",
+      "name": "How to use Currency Converter",
+      "description": "Convert currencies using rates you set, repeatable, offline and private.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Pick the two currencies and enter an amount",
+                  "text": "Pick the two currencies and enter an amount.",
+                  "url": "https://www.123miniapps.online/tools/currency-converter.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Enter the rate from your bank or accounting system",
+                  "text": "Enter the rate from your bank or accounting system.",
+                  "url": "https://www.123miniapps.online/tools/currency-converter.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Read the converted amount below",
+                  "text": "Read the converted amount below.",
+                  "url": "https://www.123miniapps.online/tools/currency-converter.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Save the rate if you will use it again",
+                  "text": "Save the rate if you will use it again.",
+                  "url": "https://www.123miniapps.online/tools/currency-converter.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-converter">Converters</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Currency Converter</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">💱</div>
+      <div>
+        <h1>Currency Converter</h1>
+        <p>Convert currencies using rates you set, repeatable, offline and private.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Currency converter">
+ <p class="field__hint" style="color:var(--warning)">
+ This tool does <strong>not</strong> fetch live exchange rates. Doing so would mean calling an external
+ service on every keystroke, which would break the promise that nothing leaves your device.
+ Instead you enter the rate yourself, from your bank, your accounting system, or the rate agreed
+ for a contract. That also makes results reproducible, which live rates are not.
+ </p>
+
+    <hr class="hr">
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="amount"><span>Amount</span></label>
+      <input class="input" id="amount" type="number" value="100" placeholder="100" step="any" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label class="field__label" for="from"><span>From</span></label>
+      <select class="select" id="from">
+
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="to"><span>To</span></label>
+      <select class="select" id="to">
+
+      </select>
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="rate"><span>Rate, 1 unit of “From” equals</span></label>
+      <input class="input" id="rate" type="number" value="0.85" placeholder="0.85" step="any" inputmode="decimal">
+    </div>
+ <div class="field">
+ <span class="field__label"><span>Inverse rate</span></span>
+ <input class="input font-mono" id="inverse" type="text" readonly
+ aria-label="Inverse exchange rate">
+ </div>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Enter an amount and a rate.</p>
+
+    <hr class="hr">
+
+ <div class="result-grid">
+ <div class="result result--primary"><span class="result__value" id="r-out">, </span><span class="result__label">Converted amount</span></div>
+ <div class="result"><span class="result__value" id="r-fee" style="font-size:var(--text-2xl)">, </span><span class="result__label">After a 2.5% fee</span></div>
+ </div>
+
+ <div class="field">
+ <span class="field__label"><span>Saved rates</span><span class="field__hint">Stored on this device only</span></span>
+ <div class="chip-grid" id="saved"></div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="save" type="button">Save this rate</button>
+      <button class="btn btn--secondary" id="swap" type="button">Swap currencies</button>
+      <button class="btn btn--secondary" id="copy" type="button">Copy result</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>35 major currencies with correct symbols and decimal places</li>
+        <li>You control the rate, results are reproducible</li>
+        <li>Automatic inverse rate calculation</li>
+        <li>Shows the effect of a typical 2.5% conversion fee</li>
+        <li>Save frequently used rates on your device</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Pick the two currencies and enter an amount.</li>
+        <li>Enter the rate from your bank or accounting system.</li>
+        <li>Read the converted amount below.</li>
+        <li>Save the rate if you will use it again.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Why the headline rate is not what you get</h2>
+      <p class="text-sm text-muted">The rate quoted on financial news sites is the interbank mid-market rate, the midpoint between what buyers bid and sellers ask in the wholesale market. Almost nobody transacting retail amounts receives it. Banks and card networks apply a spread on top, then sometimes a separate fee, so the effective rate is typically 1% to 4% worse than the mid-market figure.</p>
+      <p class="text-sm text-muted mt-3">Dynamic currency conversion is the version worth actively refusing. When a foreign card terminal offers to charge you in your home currency, it is applying its own rate with a markup often exceeding 5%. Choosing the local currency and letting your own bank convert is nearly always cheaper.</p>
+      <p class="text-sm text-muted mt-3">For accounting purposes the date matters as much as the rate. Most jurisdictions require you to record a transaction at the rate on the transaction date, not the date you noticed it, and many tax authorities publish official monthly or annual rates that must be used instead of market ones. Entering the rate manually, rather than pulling whatever is live right now, is what makes this tool usable for that.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Currency Converter free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Currency Converter is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Currency Converter do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Currency Converter covers 35 major currencies with correct symbols and decimal places, you control the rate, results are reproducible, automatic inverse rate calculation, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Currency Converter work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">The rate quoted on financial news sites is the interbank mid-market rate, the midpoint between what buyers bid and sellers ask in the wholesale market. Almost nobody transacting retail amounts receives it. Banks and card networks apply a spread on top, then sometimes a separate fee, so the effective rate is typically 1% to 4% worse than the mid-market figure.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Currency Converter work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/how-currency-conversion-works.html">How Currency Conversion Works (and Why Rates Keep Moving)</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const CURRENCIES = [
+ ['USD', 'US Dollar', '$', 2], ['EUR', 'Euro', '€', 2], ['GBP', 'British Pound', '£', 2],
+ ['JPY', 'Japanese Yen', '¥', 0], ['CNY', 'Chinese Yuan', '¥', 2], ['INR', 'Indian Rupee', '₹', 2],
+ ['AUD', 'Australian Dollar', 'A$', 2], ['CAD', 'Canadian Dollar', 'C$', 2],
+ ['CHF', 'Swiss Franc', 'CHF', 2], ['HKD', 'Hong Kong Dollar', 'HK$', 2],
+ ['SGD', 'Singapore Dollar', 'S$', 2], ['SEK', 'Swedish Krona', 'kr', 2],
+ ['NOK', 'Norwegian Krone', 'kr', 2], ['DKK', 'Danish Krone', 'kr', 2],
+ ['NZD', 'New Zealand Dollar', 'NZ$', 2], ['KRW', 'South Korean Won', '₩', 0],
+ ['MXN', 'Mexican Peso', '$', 2], ['BRL', 'Brazilian Real', 'R$', 2],
+ ['ZAR', 'South African Rand', 'R', 2], ['RUB', 'Russian Ruble', '₽', 2],
+ ['TRY', 'Turkish Lira', '₺', 2], ['PLN', 'Polish Zloty', 'zł', 2],
+ ['THB', 'Thai Baht', '฿', 2], ['IDR', 'Indonesian Rupiah', 'Rp', 0],
+ ['MYR', 'Malaysian Ringgit', 'RM', 2], ['PHP', 'Philippine Peso', '₱', 2],
+ ['AED', 'UAE Dirham', 'د.إ', 2], ['SAR', 'Saudi Riyal', '﷼', 2],
+ ['PKR', 'Pakistani Rupee', '₨', 2], ['BDT', 'Bangladeshi Taka', '৳', 2],
+ ['EGP', 'Egyptian Pound', 'E£', 2], ['NGN', 'Nigerian Naira', '₦', 2],
+ ['VND', 'Vietnamese Dong', '₫', 0], ['ILS', 'Israeli Shekel', '₪', 2],
+ ['CZK', 'Czech Koruna', 'Kč', 2]
+ ];
+
+ const byCode = Object.fromEntries(CURRENCIES.map((c) => [c[0], c]));
+
+ function populate() {
+ ['from', 'to'].forEach((id, i) => {
+ const sel = T.$(id);
+ sel.innerHTML = '';
+ CURRENCIES.forEach(([code, name, symbol]) => {
+ const opt = document.createElement('option');
+ opt.value = code;
+ opt.textContent = `${code}, ${name} (${symbol})`;
+ if (code === (i === 0 ? 'USD' : 'EUR')) opt.selected = true;
+ sel.append(opt);
+ });
+ });
+ }
+
+ /** Format with the target currency's conventional decimal places. */
+ function format(value, code) {
+ const [,, symbol, places] = byCode[code] || ['', '', '', 2];
+ return symbol + value.toLocaleString(undefined, {
+ minimumFractionDigits: places,
+ maximumFractionDigits: places
+ });
+ }
+
+ function convert() {
+ const amount = T.num(T.$('amount').value);
+ const rate = T.num(T.$('rate').value);
+ const from = T.$('from').value;
+ const to = T.$('to').value;
+
+ T.$('inverse').value = isNaN(rate) || rate === 0
+ ? ''
+ : `1 ${to} = ${(1 / rate).toFixed(6)} ${from}`;
+
+ if (isNaN(amount) || isNaN(rate)) {
+ T.$('r-out').textContent = ', ';
+ T.$('r-fee').textContent = ', ';
+ T.status('status', 'Enter an amount and a rate.', 'muted');
+ return;
+ }
+
+ if (rate <= 0) {
+ T.status('status', 'The rate must be greater than zero.', 'error');
+ return;
+ }
+
+ const converted = amount * rate;
+ const afterFee = converted * 0.975;
+
+ T.$('r-out').textContent = format(converted, to);
+ T.$('r-fee').textContent = format(afterFee, to);
+
+ T.status('status',
+ `${format(amount, from)} × ${rate} = ${format(converted, to)}`, 'ok');
+ }
+
+ /* ---- Saved rates ---- */
+ function renderSaved() {
+ const saved = T.store.get('currency-rates', {});
+ const mount = T.$('saved');
+ mount.innerHTML = '';
+
+ const entries = Object.entries(saved);
+ if (!entries.length) {
+ mount.append(el('span', { className: 'text-xs text-muted', text: 'No saved rates yet.' }));
+ return;
+ }
+
+ entries.forEach(([pair, rate]) => {
+ const chip = el('button', {
+ className: 'chip',
+ attrs: { type: 'button', title: 'Click to use, shift-click to delete' },
+ text: `${pair} @ ${rate}`
+ });
+
+ chip.addEventListener('click', (e) => {
+ if (e.shiftKey) {
+ const next = T.store.get('currency-rates', {});
+ delete next[pair];
+ T.store.set('currency-rates', next);
+ renderSaved();
+ return;
+ }
+ const [from, to] = pair.split('/');
+ T.$('from').value = from;
+ T.$('to').value = to;
+ T.$('rate').value = rate;
+ convert();
+ });
+
+ mount.append(chip);
+ });
+ }
+
+ T.on(['amount', 'rate'], convert);
+ T.on(['from', 'to'], convert, 'change');
+
+ T.$('swap').addEventListener('click', () => {
+ const from = T.$('from').value;
+ T.$('from').value = T.$('to').value;
+ T.$('to').value = from;
+
+ const rate = T.num(T.$('rate').value);
+ if (rate > 0) T.$('rate').value = String(Number((1 / rate).toFixed(6)));
+
+ convert();
+ });
+
+ T.$('save').addEventListener('click', () => {
+ const rate = T.num(T.$('rate').value);
+ if (isNaN(rate) || rate <= 0) {
+ toast({ type: 'error', title: 'Enter a valid rate first' });
+ return;
+ }
+ const pair = `${T.$('from').value}/${T.$('to').value}`;
+ const saved = T.store.get('currency-rates', {});
+ saved[pair] = rate;
+ T.store.set('currency-rates', saved);
+ renderSaved();
+ toast({ type: 'success', title: 'Rate saved', message: pair + ', on this device only.' });
+ });
+
+ T.$('copy').addEventListener('click', () =>
+ copyToClipboard(T.$('r-out').textContent, 'Result copied'));
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Currency Converter | 123MiniApps' }));
+
+ populate();
+ renderSaved();
+ convert();
+ if (window.Analytics) Analytics.trackToolUse('currency-converter');
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('currency-converter');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

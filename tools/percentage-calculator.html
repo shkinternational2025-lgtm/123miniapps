@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/percentage-calculator.html
+     Purpose: Five percentage calculations, each with the working shown.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Percentage Calculator: Increase, Decrease and Difference</title>
+<meta name="description" content="Work out percentages five ways: of a number, increase, decrease, what percent one number is of another, and reverse percentages.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/percentage-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Percentage Calculator | 123MiniApps">
+<meta property="og:description" content="Work out percentages five ways: of a number, increase, decrease, what percent one number is of another, and reverse percentages.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/percentage-calculator.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Percentage Calculator | 123MiniApps">
+<meta name="twitter:description" content="Work out percentages five ways: of a number, increase, decrease, what percent one number is of another, and reverse percentages.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://www.123miniapps.online/#category-calculator" },
+        { "@type": "ListItem", "position": 3, "name": "Percentage Calculator", "item": "https://www.123miniapps.online/tools/percentage-calculator.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Percentage Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Work out percentages five ways: of a number, increase, decrease, what percent one number is of another, and reverse percentages."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/percentage-calculator.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Percentage Calculator free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Percentage Calculator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Percentage Calculator do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Percentage Calculator covers six calculation modes covering every common case, step-by-step working shown for each result, handles negatives and decimals, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Percentage Calculator work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The most common percentage mistake is treating an increase and its matching decrease as symmetrical. They are not. A price rising from 100 to 150 is a 50% increase, but falling from 150 back to 100 is a 33.3% decrease, because the base changed. Percentage change is always relative to the starting value, so the direction matters."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Percentage Calculator work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/percentage-calculator.html#howto",
+      "name": "How to use Percentage Calculator",
+      "description": "Five percentage calculations, each with the working shown.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Choose which calculation you need",
+                  "text": "Choose which calculation you need.",
+                  "url": "https://www.123miniapps.online/tools/percentage-calculator.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Enter the two values",
+                  "text": "Enter the two values.",
+                  "url": "https://www.123miniapps.online/tools/percentage-calculator.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Read the result and the working below it",
+                  "text": "Read the result and the working below it.",
+                  "url": "https://www.123miniapps.online/tools/percentage-calculator.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Copy the answer when you are done",
+                  "text": "Copy the answer when you are done.",
+                  "url": "https://www.123miniapps.online/tools/percentage-calculator.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-calculator">Calculators</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Percentage Calculator</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">％</div>
+      <div>
+        <h1>Percentage Calculator</h1>
+        <p>Five percentage calculations, each with the working shown.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Percentage calculator">
+    <div class="field">
+      <label class="field__label" for="mode"><span>What do you want to work out?</span></label>
+      <select class="select" id="mode">
+        <option value="of" selected>What is X% of Y?</option>
+        <option value="what">X is what percent of Y?</option>
+        <option value="change">Percentage change from X to Y</option>
+        <option value="increase">Increase X by Y%</option>
+        <option value="decrease">Decrease X by Y%</option>
+        <option value="reverse">X is Y% of what number?</option>
+      </select>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="a"><span>First value</span></label>
+      <input class="input" id="a" type="number" value="25" placeholder="25" step="any" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label class="field__label" for="b"><span>Second value</span></label>
+      <input class="input" id="b" type="number" value="200" placeholder="200" step="any" inputmode="decimal">
+    </div>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Enter two values.</p>
+
+    <hr class="hr">
+
+ <div class="result-grid">
+ <div class="result result--primary"><span class="result__value" id="r-main">, </span><span class="result__label" id="r-label">Result</span></div>
+ </div>
+
+ <div class="field">
+ <span class="field__label"><span>Working</span></span>
+ <div class="output" id="working">The calculation will be shown here.</div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy result</button>
+      <button class="btn btn--secondary" id="swap" type="button">Swap values</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Six calculation modes covering every common case</li>
+        <li>Step-by-step working shown for each result</li>
+        <li>Handles negatives and decimals</li>
+        <li>Reverse percentages for working back from a total</li>
+        <li>Distinguishes percentage change from percentage points</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Choose which calculation you need.</li>
+        <li>Enter the two values.</li>
+        <li>Read the result and the working below it.</li>
+        <li>Copy the answer when you are done.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Percentage change and percentage points</h2>
+      <p class="text-sm text-muted">The most common percentage mistake is treating an increase and its matching decrease as symmetrical. They are not. A price rising from 100 to 150 is a 50% increase, but falling from 150 back to 100 is a 33.3% decrease, because the base changed. Percentage change is always relative to the starting value, so the direction matters.</p>
+      <p class="text-sm text-muted mt-3">Compounding decreases catches people the same way. Two successive 50% discounts do not make the item free; they make it 25% of the original price, since the second discount applies to the already-reduced amount. A 20% rise followed by a 20% fall leaves you at 96% of where you started, not 100%.</p>
+      <p class="text-sm text-muted mt-3">Percentage points are a separate unit and confusing them is a genuine error, not just imprecision. If an interest rate moves from 4% to 6%, that is a rise of 2 percentage points, but a 50% increase in the rate. News reports that conflate the two can overstate or understate a change by a large factor. When the quantity being measured is itself a percentage, always say which you mean.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Percentage Calculator free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Percentage Calculator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Percentage Calculator do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Percentage Calculator covers six calculation modes covering every common case, step-by-step working shown for each result, handles negatives and decimals, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Percentage Calculator work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">The most common percentage mistake is treating an increase and its matching decrease as symmetrical. They are not. A price rising from 100 to 150 is a 50% increase, but falling from 150 back to 100 is a 33.3% decrease, because the base changed. Percentage change is always relative to the starting value, so the direction matters.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Percentage Calculator work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/how-to-calculate-percentages.html">How to Calculate Percentages: Increase, Decrease and "Of"</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const MODES = {
+ of: {
+ labels: ['Percentage (%)', 'Of what number'],
+ result: 'Result',
+ calc: (a, b) => (a / 100) * b,
+ show: (a, b, r) => `${a}% of ${T.fmt(b)}\n= (${a} ÷ 100) × ${T.fmt(b)}\n= ${T.fmt(a / 100, 4)} × ${T.fmt(b)}\n= ${T.fmt(r)}`
+ },
+ what: {
+ labels: ['This number', 'Is what percent of'],
+ result: 'Percentage',
+ calc: (a, b) => (a / b) * 100,
+ suffix: '%',
+ show: (a, b, r) => `${T.fmt(a)} as a percentage of ${T.fmt(b)}\n= (${T.fmt(a)} ÷ ${T.fmt(b)}) × 100\n= ${T.fmt(r, 4)}%`
+ },
+ change: {
+ labels: ['From (original)', 'To (new)'],
+ result: 'Change',
+ calc: (a, b) => ((b - a) / Math.abs(a)) * 100,
+ suffix: '%',
+ show: (a, b, r) => {
+ const dir = r >= 0 ? 'increase' : 'decrease';
+ return `Change from ${T.fmt(a)} to ${T.fmt(b)}\n` +
+ `= ((${T.fmt(b)} − ${T.fmt(a)}) ÷ ${T.fmt(Math.abs(a))}) × 100\n` +
+ `= (${T.fmt(b - a)} ÷ ${T.fmt(Math.abs(a))}) × 100\n` +
+ `= ${T.fmt(Math.abs(r), 4)}% ${dir}`;
+ }
+ },
+ increase: {
+ labels: ['Starting value', 'Increase by (%)'],
+ result: 'New value',
+ calc: (a, b) => a * (1 + b / 100),
+ show: (a, b, r) => `${T.fmt(a)} increased by ${b}%\n= ${T.fmt(a)} × (1 + ${b} ÷ 100)\n= ${T.fmt(a)} × ${T.fmt(1 + b / 100, 4)}\n= ${T.fmt(r)}\n\nAmount added: ${T.fmt(r - a)}`
+ },
+ decrease: {
+ labels: ['Starting value', 'Decrease by (%)'],
+ result: 'New value',
+ calc: (a, b) => a * (1 - b / 100),
+ show: (a, b, r) => `${T.fmt(a)} decreased by ${b}%\n= ${T.fmt(a)} × (1 − ${b} ÷ 100)\n= ${T.fmt(a)} × ${T.fmt(1 - b / 100, 4)}\n= ${T.fmt(r)}\n\nAmount removed: ${T.fmt(a - r)}`
+ },
+ reverse: {
+ labels: ['This number', 'Is this percent (%)'],
+ result: 'Original number',
+ calc: (a, b) => (a / b) * 100,
+ show: (a, b, r) => `If ${T.fmt(a)} is ${b}% of a number\n= (${T.fmt(a)} ÷ ${b}) × 100\n= ${T.fmt(r)}\n\nCheck: ${b}% of ${T.fmt(r)} = ${T.fmt((b / 100) * r)}`
+ }
+ };
+
+ let lastResult = '';
+
+ function syncLabels() {
+ const mode = MODES[T.$('mode').value];
+ T.$('a').closest('.field').querySelector('span').textContent = mode.labels[0];
+ T.$('b').closest('.field').querySelector('span').textContent = mode.labels[1];
+ T.$('r-label').textContent = mode.result;
+ calculate();
+ }
+
+ function calculate() {
+ const a = T.num(T.$('a').value);
+ const b = T.num(T.$('b').value);
+ const mode = MODES[T.$('mode').value];
+
+ if (isNaN(a) || isNaN(b)) {
+ T.$('r-main').textContent = ', ';
+ T.setOutput('working', '', 'The calculation will be shown here.');
+ T.status('status', 'Enter two values.', 'muted');
+ return;
+ }
+
+ if (b === 0 && ['what', 'reverse'].includes(T.$('mode').value)) {
+ T.status('status', 'Cannot divide by zero.', 'error');
+ T.$('r-main').textContent = ', ';
+ return;
+ }
+
+ if (a === 0 && T.$('mode').value === 'change') {
+ T.status('status', 'Percentage change from zero is undefined.', 'error');
+ T.$('r-main').textContent = ', ';
+ return;
+ }
+
+ const result = mode.calc(a, b);
+ const suffix = mode.suffix || '';
+
+ lastResult = T.fmt(result, Math.abs(result) < 1 ? 4 : 2) + suffix;
+ T.$('r-main').textContent = lastResult;
+ T.setOutput('working', mode.show(a, b, result));
+ T.status('status', `${mode.result}: ${lastResult}`, 'ok');
+ }
+
+ T.on(['a', 'b'], calculate);
+ T.$('mode').addEventListener('change', syncLabels);
+
+ T.$('swap').addEventListener('click', () => {
+ const a = T.$('a').value;
+ T.$('a').value = T.$('b').value;
+ T.$('b').value = a;
+ calculate();
+ });
+
+ T.$('copy').addEventListener('click', () => copyToClipboard(lastResult, 'Result copied'));
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Percentage Calculator | 123MiniApps' }));
+
+ syncLabels();
+ if (window.Analytics) Analytics.trackToolUse('percentage-calculator');
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('percentage-calculator');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

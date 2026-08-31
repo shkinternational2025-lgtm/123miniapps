@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/emoji-picker.html
+     Purpose: Search emoji by name and copy with one click, recents remembered locally.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Emoji Picker: Search and Copy Emoji by Name</title>
+<meta name="description" content="Search hundreds of emoji by name or keyword, browse by category, and copy with one click. Recently used emoji are remembered on your device.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/emoji-picker.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Emoji Picker | 123MiniApps">
+<meta property="og:description" content="Search hundreds of emoji by name or keyword, browse by category, and copy with one click. Recently used emoji are remembered on your device.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/emoji-picker.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Emoji Picker | 123MiniApps">
+<meta name="twitter:description" content="Search hundreds of emoji by name or keyword, browse by category, and copy with one click. Recently used emoji are remembered on your device.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Fun Tools", "item": "https://www.123miniapps.online/#category-fun" },
+        { "@type": "ListItem", "position": 3, "name": "Emoji Picker", "item": "https://www.123miniapps.online/tools/emoji-picker.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Emoji Picker",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Search hundreds of emoji by name or keyword, browse by category, and copy with one click. Recently used emoji are remembered on your device."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/emoji-picker.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Emoji Picker free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Emoji Picker is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Emoji Picker do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Emoji Picker covers search by name and keyword, eight categories, recently used emoji remembered on your device, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Emoji Picker work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Emoji are Unicode characters, not images, which is why they can be typed, searched and copied like any other text. Each has a code point, the grinning face is U+1F600, and it is the font on your device that decides what it looks like. That is why the same emoji appears different on iOS, Android and Windows, and why an emoji occasionally shows as a hollow box: your system has the character but no glyph for it."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Emoji Picker work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/emoji-picker.html#howto",
+      "name": "How to use Emoji Picker",
+      "description": "Search emoji by name and copy with one click, recents remembered locally.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Type a word to search, or pick a category",
+                  "text": "Type a word to search, or pick a category.",
+                  "url": "https://www.123miniapps.online/tools/emoji-picker.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Click an emoji to copy it",
+                  "text": "Click an emoji to copy it.",
+                  "url": "https://www.123miniapps.online/tools/emoji-picker.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Shift-click to collect several, then copy them together",
+                  "text": "Shift-click to collect several, then copy them together.",
+                  "url": "https://www.123miniapps.online/tools/emoji-picker.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Recents build up as you use it",
+                  "text": "Recents build up as you use it.",
+                  "url": "https://www.123miniapps.online/tools/emoji-picker.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-fun">Fun Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Emoji Picker</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">😀</div>
+      <div>
+        <h1>Emoji Picker</h1>
+        <p>Search emoji by name and copy with one click, recents remembered locally.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Emoji picker">
+ <div class="searchbar" style="max-width:none;margin-bottom:var(--space-5)">
+ <label class="sr-only" for="search">Search emoji</label>
+ <div class="searchbar__field">
+ <span class="searchbar__icon" aria-hidden="true">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+ </span>
+ <input class="searchbar__input" id="search" type="search"
+ placeholder="Search by name, try heart, cat, party or thumbs" autocomplete="off">
+ </div>
+ </div>
+
+ <div class="chip-grid" id="categories" style="margin-bottom:var(--space-5)"></div>
+
+ <div class="field" id="recent-field" hidden>
+ <span class="field__label"><span>Recently used</span><span class="field__hint">Stored on this device</span></span>
+ <div id="recent" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:var(--space-2)"></div>
+ </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite"></p>
+
+ <div class="field">
+ <span class="field__label"><span>Emoji</span><span class="field__hint">Click to copy</span></span>
+ <div id="grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:var(--space-2)"></div>
+ </div>
+
+ <div class="field">
+ <label class="field__label" for="basket"><span>Collected emoji</span><span class="field__hint">Shift-click any emoji to add it here</span></label>
+ <input class="input" id="basket" type="text" readonly style="font-size:var(--text-xl);height:56px">
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy-basket" type="button">Copy collected</button>
+      <button class="btn btn--secondary" id="clear-basket" type="button">Clear collected</button>
+      <button class="btn btn--ghost" id="clear-recent" type="button">Clear recents</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Search by name and keyword</li>
+        <li>Eight categories</li>
+        <li>Recently used emoji remembered on your device</li>
+        <li>Shift-click to collect several at once</li>
+        <li>One-click copy</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Type a word to search, or pick a category.</li>
+        <li>Click an emoji to copy it.</li>
+        <li>Shift-click to collect several, then copy them together.</li>
+        <li>Recents build up as you use it.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>How emoji actually work</h2>
+      <p class="text-sm text-muted">Emoji are Unicode characters, not images, which is why they can be typed, searched and copied like any other text. Each has a code point, the grinning face is U+1F600, and it is the font on your device that decides what it looks like. That is why the same emoji appears different on iOS, Android and Windows, and why an emoji occasionally shows as a hollow box: your system has the character but no glyph for it.</p>
+      <p class="text-sm text-muted mt-3">Many emoji are not single characters at all. Skin-tone variants combine a base emoji with a modifier; the family emoji are sequences of person emoji joined by zero-width joiners; flags are pairs of regional indicator letters. This is why deleting one emoji sometimes takes several backspaces, and why naive string handling can tear a family emoji into its component people.</p>
+      <p class="text-sm text-muted mt-3">Support depends on the Unicode version your device has. New emoji are approved annually and take months to reach devices, so a recently added one may render on your phone but not on a colleague's older laptop. The set here sticks to widely supported emoji from established Unicode versions for that reason. If something shows as a box, it is your font, not the page.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Emoji Picker free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Emoji Picker is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Emoji Picker do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Emoji Picker covers search by name and keyword, eight categories, recently used emoji remembered on your device, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Emoji Picker work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Emoji are Unicode characters, not images, which is why they can be typed, searched and copied like any other text. Each has a code point, the grinning face is U+1F600, and it is the font on your device that decides what it looks like. That is why the same emoji appears different on iOS, Android and Windows, and why an emoji occasionally shows as a hollow box: your system has the character but no glyph for it.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Emoji Picker work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/how-emoji-work-and-how-to-use-them.html">How Emoji Actually Work (and How to Use Them Well)</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const EMOJI = {
+ 'Smileys': [
+ ['😀', 'grinning face happy smile'], ['😃', 'grinning big eyes happy'],
+ ['😄', 'grinning smiling eyes laugh'], ['😁', 'beaming grin smile'],
+ ['😆', 'laughing squinting haha'], ['😅', 'sweat smile nervous laugh'],
+ ['🤣', 'rolling floor laughing rofl'], ['😂', 'tears of joy crying laughing'],
+ ['🙂', 'slightly smiling face'], ['🙃', 'upside down sarcasm'],
+ ['😉', 'winking wink'], ['😊', 'smiling blush happy'],
+ ['😇', 'halo angel innocent'], ['🥰', 'smiling hearts love adore'],
+ ['😍', 'heart eyes love'], ['🤩', 'star struck excited amazed'],
+ ['😘', 'blowing kiss love'], ['😗', 'kissing'],
+ ['😋', 'savouring delicious yum tongue'], ['😛', 'tongue out playful'],
+ ['🤪', 'zany crazy silly'], ['🤔', 'thinking hmm consider'],
+ ['🤨', 'raised eyebrow sceptical doubt'], ['😐', 'neutral face blank'],
+ ['😑', 'expressionless unimpressed'], ['🙄', 'rolling eyes annoyed'],
+ ['😏', 'smirking smug'], ['😴', 'sleeping zzz tired'],
+ ['🤤', 'drooling'], ['😪', 'sleepy tired'],
+ ['😵', 'dizzy knocked out'], ['🤐', 'zipper mouth quiet secret'],
+ ['🥴', 'woozy drunk'], ['🤢', 'nauseated sick'],
+ ['🤧', 'sneezing ill'], ['😷', 'medical mask sick'],
+ ['🤒', 'thermometer ill fever'], ['😎', 'sunglasses cool'],
+ ['🤓', 'nerd glasses geek'], ['🧐', 'monocle inspect'],
+ ['😕', 'confused unsure'], ['😟', 'worried concerned'],
+ ['🙁', 'frowning sad'], ['😯', 'hushed surprised'],
+ ['😲', 'astonished shocked'], ['😳', 'flushed embarrassed'],
+ ['🥺', 'pleading begging puppy eyes'], ['😢', 'crying sad tear'],
+ ['😭', 'sobbing crying loudly'], ['😱', 'screaming fear scared'],
+ ['😖', 'confounded frustrated'], ['😣', 'persevering struggling'],
+ ['😞', 'disappointed sad'], ['😤', 'triumph steam angry'],
+ ['😠', 'angry mad'], ['😡', 'pouting rage furious'],
+ ['🤬', 'cursing swearing symbols'], ['😈', 'smiling devil mischief'],
+ ['💀', 'skull dead'], ['👻', 'ghost boo halloween'],
+ ['👽', 'alien extraterrestrial'], ['🤖', 'robot bot'],
+ ['🎃', 'jack o lantern pumpkin halloween'], ['😺', 'grinning cat'],
+ ['😻', 'heart eyes cat love'], ['🙈', 'see no evil monkey'],
+ ['🙉', 'hear no evil monkey'], ['🙊', 'speak no evil monkey']
+ ],
+ 'Gestures': [
+ ['👋', 'waving hand hello bye'], ['🤚', 'raised back of hand'],
+ ['✋', 'raised hand stop'], ['🖖', 'vulcan salute spock'],
+ ['👌', 'ok hand perfect'], ['🤌', 'pinched fingers italian'],
+ ['✌️', 'victory peace'], ['🤞', 'crossed fingers luck hope'],
+ ['🤟', 'love you gesture'], ['🤘', 'horns rock metal'],
+ ['👈', 'pointing left'], ['👉', 'pointing right'],
+ ['👆', 'pointing up'], ['👇', 'pointing down'],
+ ['☝️', 'index up one'], ['👍', 'thumbs up like yes good approve'],
+ ['👎', 'thumbs down dislike no bad'], ['✊', 'raised fist power'],
+ ['👊', 'fist bump punch'], ['👏', 'clapping applause bravo'],
+ ['🙌', 'raising hands celebration praise'], ['🤝', 'handshake deal agreement'],
+ ['🙏', 'folded hands please thanks pray'], ['💪', 'flexed biceps strong muscle'],
+ ['✍️', 'writing hand'], ['🤳', 'selfie']
+ ],
+ 'People': [
+ ['👶', 'baby infant'], ['🧒', 'child'], ['👦', 'boy'], ['👧', 'girl'],
+ ['🧑', 'person adult'], ['👨', 'man'], ['👩', 'woman'],
+ ['🧔', 'person beard'], ['👴', 'old man elderly'], ['👵', 'old woman elderly'],
+ ['👮', 'police officer'], ['👷', 'construction worker'],
+ ['💂', 'guard'], ['🕵️', 'detective spy investigate'],
+ ['👨‍⚕️', 'doctor health'], ['👩‍🏫', 'teacher school'],
+ ['👨‍💻', 'technologist developer programmer'], ['👩‍🔬', 'scientist research'],
+ ['👨‍🍳', 'cook chef'], ['🧑‍🚀', 'astronaut space'],
+ ['🤵', 'person in tuxedo'], ['👰', 'person with veil wedding'],
+ ['🤰', 'pregnant'], ['🎅', 'santa christmas'],
+ ['🧙', 'mage wizard'], ['🧚', 'fairy'], ['🦸', 'superhero'], ['🦹', 'supervillain']
+ ],
+ 'Animals': [
+ ['🐶', 'dog puppy'], ['🐱', 'cat kitten'], ['🐭', 'mouse'],
+ ['🐹', 'hamster'], ['🐰', 'rabbit bunny'], ['🦊', 'fox'],
+ ['🐻', 'bear'], ['🐼', 'panda'], ['🐨', 'koala'],
+ ['🐯', 'tiger'], ['🦁', 'lion'], ['🐮', 'cow'],
+ ['🐷', 'pig'], ['🐸', 'frog'], ['🐵', 'monkey'],
+ ['🐔', 'chicken'], ['🐧', 'penguin'], ['🐦', 'bird'],
+ ['🦆', 'duck'], ['🦅', 'eagle'], ['🦉', 'owl'],
+ ['🦇', 'bat'], ['🐺', 'wolf'], ['🐗', 'boar'],
+ ['🐴', 'horse'], ['🦄', 'unicorn'], ['🐝', 'bee honeybee'],
+ ['🐛', 'bug caterpillar'], ['🦋', 'butterfly'], ['🐌', 'snail'],
+ ['🐞', 'ladybird beetle'], ['🐜', 'ant'], ['🕷️', 'spider'],
+ ['🐢', 'turtle tortoise'], ['🐍', 'snake'], ['🦎', 'lizard'],
+ ['🐙', 'octopus'], ['🦑', 'squid'], ['🦐', 'shrimp'],
+ ['🐠', 'tropical fish'], ['🐟', 'fish'], ['🐬', 'dolphin'],
+ ['🐳', 'whale'], ['🦈', 'shark'], ['🐊', 'crocodile'],
+ ['🐘', 'elephant'], ['🦒', 'giraffe'], ['🦓', 'zebra']
+ ],
+ 'Food': [
+ ['🍏', 'green apple'], ['🍎', 'red apple'], ['🍐', 'pear'],
+ ['🍊', 'orange tangerine'], ['🍋', 'lemon'], ['🍌', 'banana'],
+ ['🍉', 'watermelon'], ['🍇', 'grapes'], ['🍓', 'strawberry'],
+ ['🫐', 'blueberries'], ['🍒', 'cherries'], ['🍑', 'peach'],
+ ['🥭', 'mango'], ['🍍', 'pineapple'], ['🥥', 'coconut'],
+ ['🥝', 'kiwi'], ['🍅', 'tomato'], ['🥑', 'avocado'],
+ ['🥦', 'broccoli'], ['🥕', 'carrot'], ['🌽', 'corn'],
+ ['🥔', 'potato'], ['🍞', 'bread'], ['🥐', 'croissant'],
+ ['🧀', 'cheese'], ['🥚', 'egg'], ['🥓', 'bacon'],
+ ['🍔', 'hamburger burger'], ['🍟', 'chips fries'], ['🍕', 'pizza'],
+ ['🌭', 'hot dog'], ['🌮', 'taco'], ['🌯', 'burrito'],
+ ['🥗', 'salad'], ['🍝', 'spaghetti pasta'], ['🍜', 'ramen noodles'],
+ ['🍣', 'sushi'], ['🍤', 'fried shrimp tempura'], ['🍚', 'rice'],
+ ['🍦', 'ice cream'], ['🍰', 'cake slice'], ['🎂', 'birthday cake'],
+ ['🍪', 'cookie biscuit'], ['🍫', 'chocolate'], ['🍬', 'sweet candy'],
+ ['☕', 'coffee hot drink tea'], ['🍵', 'green tea'], ['🍺', 'beer'],
+ ['🍷', 'wine'], ['🥂', 'clinking glasses cheers'], ['🍾', 'champagne celebrate']
+ ],
+ 'Objects': [
+ ['⌚', 'watch time'], ['📱', 'mobile phone'], ['💻', 'laptop computer'],
+ ['⌨️', 'keyboard'], ['🖥️', 'desktop computer'], ['🖨️', 'printer'],
+ ['🖱️', 'mouse computer'], ['💾', 'floppy disk save'], ['💿', 'cd disc'],
+ ['📷', 'camera photo'], ['📹', 'video camera'], ['🎥', 'movie camera film'],
+ ['📞', 'telephone call'], ['📺', 'television tv'], ['📻', 'radio'],
+ ['🎙️', 'microphone podcast'], ['⏰', 'alarm clock'], ['⏳', 'hourglass time'],
+ ['🔋', 'battery'], ['🔌', 'plug electric'], ['💡', 'light bulb idea'],
+ ['🔦', 'torch flashlight'], ['📚', 'books'], ['📖', 'open book'],
+ ['📝', 'memo note writing'], ['📌', 'pushpin'], ['📎', 'paperclip'],
+ ['✂️', 'scissors cut'], ['🔒', 'locked secure'], ['🔓', 'unlocked'],
+ ['🔑', 'key'], ['🔨', 'hammer'], ['🔧', 'wrench spanner'],
+ ['⚙️', 'gear settings cog'], ['🧲', 'magnet'], ['💊', 'pill medicine'],
+ ['🩺', 'stethoscope'], ['💰', 'money bag'], ['💳', 'credit card'],
+ ['📦', 'package box parcel'], ['✉️', 'envelope email'], ['📮', 'postbox']
+ ],
+ 'Symbols': [
+ ['❤️', 'red heart love'], ['🧡', 'orange heart'], ['💛', 'yellow heart'],
+ ['💚', 'green heart'], ['💙', 'blue heart'], ['💜', 'purple heart'],
+ ['🖤', 'black heart'], ['🤍', 'white heart'], ['💔', 'broken heart'],
+ ['💕', 'two hearts'], ['💖', 'sparkling heart'], ['💯', 'hundred points perfect'],
+ ['💢', 'anger symbol'], ['💥', 'collision boom'], ['💫', 'dizzy star'],
+ ['💦', 'sweat droplets water'], ['🔥', 'fire lit hot'], ['⭐', 'star'],
+ ['🌟', 'glowing star'], ['✨', 'sparkles'], ['⚡', 'high voltage lightning'],
+ ['☀️', 'sun sunny'], ['🌙', 'crescent moon night'], ['☁️', 'cloud'],
+ ['🌈', 'rainbow'], ['❄️', 'snowflake cold'], ['✅', 'check mark tick done'],
+ ['❌', 'cross mark no wrong'], ['⚠️', 'warning caution'], ['❓', 'question mark'],
+ ['❗', 'exclamation mark'], ['♻️', 'recycling'], ['🔔', 'bell notification'],
+ ['🔕', 'muted bell'], ['🎵', 'musical note'], ['🚫', 'prohibited no entry']
+ ],
+ 'Activities': [
+ ['⚽', 'football soccer'], ['🏀', 'basketball'], ['🏈', 'american football'],
+ ['⚾', 'baseball'], ['🎾', 'tennis'], ['🏐', 'volleyball'],
+ ['🏉', 'rugby'], ['🎱', 'pool billiards eight ball'], ['🏓', 'table tennis ping pong'],
+ ['🏸', 'badminton'], ['🥊', 'boxing glove'], ['⛳', 'golf'],
+ ['🎣', 'fishing'], ['🎿', 'ski'], ['🏂', 'snowboard'],
+ ['🏊', 'swimming'], ['🚴', 'cycling bike'], ['🏃', 'running'],
+ ['🎯', 'target bullseye dart'], ['🎮', 'video game controller'], ['🕹️', 'joystick'],
+ ['🎲', 'dice game'], ['🧩', 'jigsaw puzzle'], ['🎨', 'artist palette art'],
+ ['🎭', 'performing arts theatre'], ['🎪', 'circus tent'], ['🎬', 'clapper board film'],
+ ['🎤', 'microphone singing karaoke'], ['🎧', 'headphones music'], ['🎸', 'guitar'],
+ ['🎹', 'piano keyboard'], ['🥁', 'drum'], ['🏆', 'trophy winner'],
+ ['🥇', 'gold medal first'], ['🎉', 'party popper celebration'], ['🎊', 'confetti ball']
+ ]
+ };
+
+ const ALL = Object.entries(EMOJI).flatMap(([category, list]) =>
+ list.map(([emoji, keywords]) => ({ emoji, keywords, category })));
+
+ let activeCategory = 'all';
+ let recent = T.store.get('emoji-recent', []);
+ let basket = [];
+
+ function visible() {
+ const query = T.$('search').value.trim().toLowerCase();
+
+ return ALL.filter((item) => {
+ if (activeCategory !== 'all' && item.category !== activeCategory) return false;
+ if (!query) return true;
+ return item.keywords.includes(query) || item.emoji === query;
+ });
+ }
+
+ function emojiButton(emoji, keywords) {
+ const button = el('button', {
+ attrs: {
+ type: 'button',
+ title: keywords || emoji,
+ 'aria-label': `Copy ${keywords || emoji}`
+ },
+ text: emoji,
+ style: {
+ fontSize: '28px', lineHeight: '1', padding: 'var(--space-2)',
+ background: 'var(--bg-surface)', border: '1px solid var(--border-color)',
+ borderRadius: 'var(--radius-sm)', cursor: 'pointer', aspectRatio: '1'
+ }
+ });
+
+ button.addEventListener('click', (e) => {
+ if (e.shiftKey) {
+ basket.push(emoji);
+ T.$('basket').value = basket.join('');
+ T.status('status', `${basket.length} emoji collected.`, 'ok');
+ } else {
+ copyToClipboard(emoji, `${emoji} copied`);
+ }
+
+ recent = [emoji, ...recent.filter((r) => r !== emoji)].slice(0, 24);
+ T.store.set('emoji-recent', recent);
+ renderRecent();
+
+ if (window.Analytics) Analytics.trackToolUse('emoji-picker');
+ });
+
+ return button;
+ }
+
+ function render() {
+ const mount = T.$('grid');
+ mount.innerHTML = '';
+
+ const list = visible();
+
+ if (!list.length) {
+ mount.innerHTML = '';
+ mount.append(el('div', {
+ className: 'empty-state',
+ style: { gridColumn: '1 / -1' }
+ }, [
+ el('div', { className: 'empty-state__icon', text: '🔍', attrs: { 'aria-hidden': 'true' } }),
+ el('p', { text: 'No emoji match that search.' })
+ ]));
+ T.status('status', 'No matches.', 'warn');
+ return;
+ }
+
+ list.forEach((item) => mount.append(emojiButton(item.emoji, item.keywords)));
+ T.status('status', `Showing ${list.length} of ${ALL.length} emoji.`, 'ok');
+ }
+
+ function renderRecent() {
+ const field = T.$('recent-field');
+ const mount = T.$('recent');
+ mount.innerHTML = '';
+
+ if (!recent.length) {
+ field.hidden = true;
+ return;
+ }
+
+ field.hidden = false;
+ recent.forEach((emoji) => {
+ const found = ALL.find((item) => item.emoji === emoji);
+ mount.append(emojiButton(emoji, found ? found.keywords : ''));
+ });
+ }
+
+ function renderCategories() {
+ const mount = T.$('categories');
+ mount.innerHTML = '';
+
+ [['all', 'All'], ...Object.keys(EMOJI).map((c) => [c, c])].forEach(([key, label]) => {
+ const chip = el('button', { className: 'chip', attrs: { type: 'button' }, text: label });
+
+ if (key === activeCategory) {
+ chip.style.borderColor = 'var(--accent-primary)';
+ chip.style.color = 'var(--accent-primary)';
+ }
+
+ chip.addEventListener('click', () => {
+ activeCategory = key;
+ renderCategories();
+ render();
+ });
+
+ mount.append(chip);
+ });
+ }
+
+ T.$('search').addEventListener('input', debounce(render, 150));
+
+ T.$('copy-basket').addEventListener('click', () => {
+ if (!basket.length) { toast({ type: 'warning', title: 'Nothing collected yet', message: 'Shift-click emoji to collect them.' }); return; }
+ copyToClipboard(basket.join(''), 'Collected emoji copied');
+ });
+
+ T.$('clear-basket').addEventListener('click', () => {
+ basket = [];
+ T.$('basket').value = '';
+ T.status('status', 'Collection cleared.', 'muted');
+ });
+
+ T.$('clear-recent').addEventListener('click', () => {
+ recent = [];
+ T.store.set('emoji-recent', recent);
+ renderRecent();
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Emoji Picker | 123MiniApps' }));
+
+ renderCategories();
+ renderRecent();
+ render();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('emoji-picker');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{
+ "name": "123MiniApps, Free Browser Tools",
+ "short_name": "123MiniApps",
+ "description": "95 free mini web tools for text, images, developers and designers. Everything runs locally in your browser, no uploads, no accounts, no tracking.",
+ "id": "/",
+ "start_url": "/index.html",
+ "scope": "/",
+ "display": "standalone",
+ "display_override": ["window-controls-overlay", "standalone", "browser"],
+ "orientation": "any",
+ "background_color": "#0B1120",
+ "theme_color": "#0B1120",
+ "lang": "en",
+ "dir": "ltr",
+ "categories": ["utilities", "productivity", "developer"],
+ "icons": [
+ {
+ "src": "/assets/images/logo.svg",
+ "sizes": "any",
+ "type": "image/svg+xml",
+ "purpose": "any"
+ },
+ {
+ "src": "/assets/images/icons/icon-192.png",
+ "sizes": "192x192",
+ "type": "image/png",
+ "purpose": "any"
+ },
+ {
+ "src": "/assets/images/icons/icon-512.png",
+ "sizes": "512x512",
+ "type": "image/png",
+ "purpose": "any"
+ },
+ {
+ "src": "/assets/images/icons/icon-maskable-512.png",
+ "sizes": "512x512",
+ "type": "image/png",
+ "purpose": "maskable"
+ }
+ ],
+ "shortcuts": [
+ {
+ "name": "Password Generator",
+ "short_name": "Passwords",
+ "description": "Generate a strong random password",
+ "url": "/tools/password-generator.html"
+ },
+ {
+ "name": "JSON Formatter",
+ "short_name": "JSON",
+ "description": "Beautify and validate JSON",
+ "url": "/tools/json-formatter.html"
+ },
+ {
+ "name": "QR Code Generator",
+ "short_name": "QR Code",
+ "description": "Create a QR code",
+ "url": "/tools/qr-code-generator.html"
+ },
+ {
+ "name": "Color Picker",
+ "short_name": "Colors",
+ "description": "Pick colors and check contrast",
+ "url": "/tools/color-picker.html"
+ }
+ ],
+ "prefer_related_applications": false
+}

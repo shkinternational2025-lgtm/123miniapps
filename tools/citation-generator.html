@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/citation-generator.html
+     Purpose: Format references in four citation styles, and build a bibliography as you go.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Citation Generator: APA, MLA, Chicago and Harvard</title>
+<meta name="description" content="Format references in APA 7, MLA 9, Chicago and Harvard styles for books, journal articles, websites and more, with a bibliography builder.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/citation-generator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Citation Generator | 123MiniApps">
+<meta property="og:description" content="Format references in APA 7, MLA 9, Chicago and Harvard styles for books, journal articles, websites and more, with a bibliography builder.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/citation-generator.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Citation Generator | 123MiniApps">
+<meta name="twitter:description" content="Format references in APA 7, MLA 9, Chicago and Harvard styles for books, journal articles, websites and more, with a bibliography builder.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Content Tools", "item": "https://www.123miniapps.online/#category-content" },
+        { "@type": "ListItem", "position": 3, "name": "Citation Generator", "item": "https://www.123miniapps.online/tools/citation-generator.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Citation Generator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Format references in APA 7, MLA 9, Chicago and Harvard styles for books, journal articles, websites and more, with a bibliography builder."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/citation-generator.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Citation Generator free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Citation Generator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Citation Generator do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Citation Generator covers four major citation styles, five source types including chapters and news, reference list entry and in-text citation, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Citation Generator work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The styles encode different disciplinary priorities. APA puts the year immediately after the author because in the sciences the recency of a finding matters enormously. MLA omits the year from the in-text citation and gives a page number instead, because literary scholarship cares about locating a passage rather than dating a claim. Chicago's notes-bibliography system uses footnotes, which suits history where a citation often carries commentary as well as a source."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Citation Generator work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/citation-generator.html#howto",
+      "name": "How to use Citation Generator",
+      "description": "Format references in four citation styles, and build a bibliography as you go.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Choose a style and source type",
+                  "text": "Choose a style and source type.",
+                  "url": "https://www.123miniapps.online/tools/citation-generator.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Fill in the fields you have, blanks are omitted",
+                  "text": "Fill in the fields you have, blanks are omitted.",
+                  "url": "https://www.123miniapps.online/tools/citation-generator.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Copy the reference, or add it to the bibliography",
+                  "text": "Copy the reference, or add it to the bibliography.",
+                  "url": "https://www.123miniapps.online/tools/citation-generator.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Download the finished bibliography when done",
+                  "text": "Download the finished bibliography when done.",
+                  "url": "https://www.123miniapps.online/tools/citation-generator.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-content">Content Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Citation Generator</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">📚</div>
+      <div>
+        <h1>Citation Generator</h1>
+        <p>Format references in four citation styles, and build a bibliography as you go.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Citation generator">
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="style"><span>Citation style</span></label>
+      <select class="select" id="style">
+        <option value="apa" selected>APA 7th edition</option>
+        <option value="mla">MLA 9th edition</option>
+        <option value="chicago">Chicago 17th (notes-bibliography)</option>
+        <option value="harvard">Harvard</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="type"><span>Source type</span></label>
+      <select class="select" id="type">
+        <option value="book">Book</option>
+        <option value="journal" selected>Journal article</option>
+        <option value="website">Website</option>
+        <option value="chapter">Book chapter</option>
+        <option value="news">Newspaper article</option>
+      </select>
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="authors"><span>Author(s)</span></label>
+      <input class="input" id="authors" type="text" value="Lovelace, Ada" placeholder="Surname, First M.; Second, A." >
+    </div>
+    <div class="field">
+      <label class="field__label" for="year"><span>Year</span></label>
+      <input class="input" id="year" type="text" value="2026" placeholder="2026" >
+    </div>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="title"><span>Title</span></label>
+      <input class="input" id="title" type="text" value="Notes on the Analytical Engine" placeholder="Title of the work" >
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="container"><span>Journal / book / site name</span></label>
+      <input class="input" id="container" type="text" value="Scientific Memoirs" placeholder="Where it was published" >
+    </div>
+    <div class="field">
+      <label class="field__label" for="publisher"><span>Publisher</span></label>
+      <input class="input" id="publisher" type="text" value="" placeholder="Publisher name" >
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="volume"><span>Volume</span></label>
+      <input class="input" id="volume" type="text" value="" placeholder="3" >
+    </div>
+    <div class="field">
+      <label class="field__label" for="issue"><span>Issue</span></label>
+      <input class="input" id="issue" type="text" value="" placeholder="1" >
+    </div>
+    <div class="field">
+      <label class="field__label" for="pages"><span>Pages</span></label>
+      <input class="input" id="pages" type="text" value="" placeholder="666-731" >
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="url"><span>URL</span></label>
+      <input class="input" id="url" type="text" value="" placeholder="https://example.com/article" >
+    </div>
+    <div class="field">
+      <label class="field__label" for="doi"><span>DOI</span></label>
+      <input class="input" id="doi" type="text" value="" placeholder="10.1000/example" >
+    </div>
+    <div class="field">
+      <label class="field__label" for="accessed"><span>Date accessed</span></label>
+      <input class="input" id="accessed" type="date" value="" placeholder="" >
+    </div>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Fill in what you have, blank fields are omitted.</p>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Reference list entry</span></span>
+ <div class="output" id="output" style="font-family:var(--font-body)">, </div>
+ </div>
+
+ <div class="field">
+ <span class="field__label"><span>In-text citation</span></span>
+ <div class="output" id="intext" style="font-family:var(--font-body);min-height:52px">, </div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="add" type="button">Add to bibliography</button>
+      <button class="btn btn--secondary" id="copy" type="button">Copy reference</button>
+      <button class="btn btn--ghost" id="clear-form" type="button">Clear form</button>
+    </div>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Bibliography</span><span class="field__hint" id="bib-count"></span></span>
+ <div class="output output--empty" id="bibliography" style="font-family:var(--font-body)">Entries you add will appear here, sorted alphabetically.</div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy-bib" type="button">Copy bibliography</button>
+      <button class="btn btn--secondary" id="download" type="button">Download</button>
+      <button class="btn btn--ghost" id="clear-bib" type="button">Clear bibliography</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Four major citation styles</li>
+        <li>Five source types including chapters and news</li>
+        <li>Reference list entry and in-text citation</li>
+        <li>Bibliography builder with alphabetical sorting</li>
+        <li>Saved on your device between visits</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Choose a style and source type.</li>
+        <li>Fill in the fields you have, blanks are omitted.</li>
+        <li>Copy the reference, or add it to the bibliography.</li>
+        <li>Download the finished bibliography when done.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Which style, and why they differ</h2>
+      <p class="text-sm text-muted">The styles encode different disciplinary priorities. APA puts the year immediately after the author because in the sciences the recency of a finding matters enormously. MLA omits the year from the in-text citation and gives a page number instead, because literary scholarship cares about locating a passage rather than dating a claim. Chicago's notes-bibliography system uses footnotes, which suits history where a citation often carries commentary as well as a source.</p>
+      <p class="text-sm text-muted mt-3">Author formatting is where most errors creep in. APA uses initials only and an ampersand before the final author; MLA spells out first names and uses “and”; both invert only the first author's name. APA switched at the 7th edition to listing up to 20 authors before using an ellipsis, where the 6th edition stopped at seven, a change that still catches people using older templates.</p>
+      <p class="text-sm text-muted mt-3">Two practical points. Always prefer a DOI to a URL when one exists: DOIs are permanent identifiers that survive a journal moving its site, which URLs frequently do not. And treat any generated citation as a first draft, automated tools including this one cannot verify that the metadata you entered is correct, cannot know whether a source has been retracted, and handle unusual source types imperfectly. Check the output against your institution's style guide before submitting anything that is being marked.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Citation Generator free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Citation Generator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Citation Generator do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Citation Generator covers four major citation styles, five source types including chapters and news, reference list entry and in-text citation, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Citation Generator work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">The styles encode different disciplinary priorities. APA puts the year immediately after the author because in the sciences the recency of a finding matters enormously. MLA omits the year from the in-text citation and gives a page number instead, because literary scholarship cares about locating a passage rather than dating a claim. Chicago&#x27;s notes-bibliography system uses footnotes, which suits history where a citation often carries commentary as well as a source.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Citation Generator work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/how-to-cite-sources-apa-mla-chicago.html">How to Cite Sources: APA, MLA and Chicago Explained</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let bibliography = T.store.get('bibliography', []);
+
+ function fields() {
+ const get = (id) => T.$(id).value.trim();
+ return {
+ authors: get('authors'), year: get('year'), title: get('title'),
+ container: get('container'), publisher: get('publisher'),
+ volume: get('volume'), issue: get('issue'), pages: get('pages'),
+ url: get('url'), doi: get('doi'), accessed: get('accessed'),
+ type: T.$('type').value
+ };
+ }
+
+ /**
+ * Split the author field into structured names.
+ * Accepts "Surname, First M.; Second, A." or "Surname, First".
+ */
+ function parseAuthors(raw) {
+ if (!raw) return [];
+ return raw.split(/;|\band\b|&/)
+ .map((entry) => entry.trim())
+ .filter(Boolean)
+ .map((entry) => {
+ const [surname, given] = entry.split(',').map((part) => part.trim());
+ return { surname: surname || entry, given: given || '' };
+ });
+ }
+
+ const initials = (given) =>
+ given.split(/\s+/).filter(Boolean)
+ .map((part) => part[0].toUpperCase() + '.').join(' ');
+
+ /* ---------- Style formatters ---------- */
+
+ function apaAuthors(list) {
+ if (!list.length) return '';
+ const formatted = list.map((a) => a.given ? `${a.surname}, ${initials(a.given)}` : a.surname);
+ if (formatted.length === 1) return formatted[0];
+ if (formatted.length === 2) return `${formatted[0]}, & ${formatted[1]}`;
+ return formatted.slice(0, -1).join(', ') + ', & ' + formatted[formatted.length - 1];
+ }
+
+ function mlaAuthors(list) {
+ if (!list.length) return '';
+ const first = list[0].given ? `${list[0].surname}, ${list[0].given}` : list[0].surname;
+ if (list.length === 1) return first;
+ if (list.length === 2) {
+ const second = list[1].given ? `${list[1].given} ${list[1].surname}` : list[1].surname;
+ return `${first}, and ${second}`;
+ }
+ return `${first}, et al.`;
+ }
+
+ function harvardAuthors(list) {
+ if (!list.length) return '';
+ const formatted = list.map((a) => a.given ? `${a.surname}, ${initials(a.given)}` : a.surname);
+ if (formatted.length === 1) return formatted[0];
+ return formatted.slice(0, -1).join(', ') + ' and ' + formatted[formatted.length - 1];
+ }
+
+ const join = (parts, sep = ' ') => parts.filter(Boolean).join(sep);
+
+ function formatAPA(f, authors) {
+ const who = apaAuthors(authors) || '[No author]';
+ const when = f.year ? `(${f.year}).` : '(n.d.).';
+ const link = f.doi ? `https://doi.org/${f.doi}` : f.url;
+
+ if (f.type === 'journal') {
+ const vol = f.volume ? `${f.volume}${f.issue ? `(${f.issue})` : ''}` : '';
+ return join([who, when, `${f.title}.`,
+ f.container ? `${f.container}${vol ? ',' : '.'}` : '',
+ vol ? `${vol}${f.pages ? ',' : '.'}` : '',
+ f.pages ? `${f.pages}.` : '', link]);
+ }
+
+ if (f.type === 'website') {
+ return join([who, when, `${f.title}.`,
+ f.container ? `${f.container}.` : '', link]);
+ }
+
+ if (f.type === 'chapter') {
+ return join([who, when, `${f.title}.`,
+ f.container ? `In ${f.container}` : '',
+ f.pages ? `(pp. ${f.pages}).` : '',
+ f.publisher ? `${f.publisher}.` : '', link]);
+ }
+
+ return join([who, when, `${f.title}.`, f.publisher ? `${f.publisher}.` : '', link]);
+ }
+
+ function formatMLA(f, authors) {
+ const who = mlaAuthors(authors) || '';
+ const link = f.url || (f.doi ? `https://doi.org/${f.doi}` : '');
+ const accessed = f.accessed
+ ? `Accessed ${new Date(f.accessed).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}.`
+ : '';
+
+ if (f.type === 'journal') {
+ return join([who ? `${who}.` : '', `"${f.title}."`,
+ f.container ? `${f.container},` : '',
+ f.volume ? `vol. ${f.volume},` : '',
+ f.issue ? `no. ${f.issue},` : '',
+ f.year ? `${f.year},` : '',
+ f.pages ? `pp. ${f.pages}.` : '', link]);
+ }
+
+ if (f.type === 'website') {
+ return join([who ? `${who}.` : '', `"${f.title}."`,
+ f.container ? `${f.container},` : '',
+ f.year ? `${f.year},` : '', link ? `${link}.` : '', accessed]);
+ }
+
+ return join([who ? `${who}.` : '', `${f.title}.`,
+ f.publisher ? `${f.publisher},` : '', f.year ? `${f.year}.` : '']);
+ }
+
+ function formatChicago(f, authors) {
+ const who = authors.length
+ ? authors.map((a, i) => i === 0
+ ? (a.given ? `${a.surname}, ${a.given}` : a.surname)
+ : (a.given ? `${a.given} ${a.surname}` : a.surname)).join(', and ')
+ : '';
+ const link = f.doi ? `https://doi.org/${f.doi}` : f.url;
+
+ if (f.type === 'journal') {
+ return join([who ? `${who}.` : '', `"${f.title}."`,
+ f.container ? `${f.container}` : '',
+ f.volume ? `${f.volume},` : '',
+ f.issue ? `no. ${f.issue}` : '',
+ f.year ? `(${f.year}):` : '',
+ f.pages ? `${f.pages}.` : '', link]);
+ }
+
+ return join([who ? `${who}.` : '', `${f.title}.`,
+ f.publisher ? `${f.publisher},` : '', f.year ? `${f.year}.` : '', link]);
+ }
+
+ function formatHarvard(f, authors) {
+ const who = harvardAuthors(authors) || '[No author]';
+ const link = f.url || (f.doi ? `https://doi.org/${f.doi}` : '');
+ const accessed = f.accessed
+ ? `[Accessed ${new Date(f.accessed).toLocaleDateString('en-GB')}]`
+ : '';
+
+ if (f.type === 'journal') {
+ return join([`${who}`, f.year ? `(${f.year})` : '(n.d.)',
+ `'${f.title}',`, f.container ? `${f.container},` : '',
+ f.volume ? `${f.volume}${f.issue ? `(${f.issue})` : ''},` : '',
+ f.pages ? `pp. ${f.pages}.` : '', link]);
+ }
+
+ return join([`${who}`, f.year ? `(${f.year})` : '(n.d.)',
+ `${f.title}.`, f.publisher ? `${f.publisher}.` : '', link, accessed]);
+ }
+
+ function inTextCitation(f, authors) {
+ const style = T.$('style').value;
+ const surname = authors.length ? authors[0].surname : 'Author';
+ const etal = authors.length > 2 ? ' et al.' : authors.length === 2
+ ? ` ${style === 'apa' ? '&' : 'and'} ${authors[1].surname}` : '';
+
+ if (style === 'apa') return `(${surname}${etal}, ${f.year || 'n.d.'})`;
+ if (style === 'harvard') return `(${surname}${etal}, ${f.year || 'n.d.'})`;
+ if (style === 'mla') return `(${surname}${authors.length > 2 ? ' et al.' : ''} ${f.pages ? f.pages.split('-')[0] : ''})`.trim() + ')';
+ return `${surname}${etal}, "${f.title}," ${f.year || 'n.d.'}.`;
+ }
+
+ function generate() {
+ const f = fields();
+ const authors = parseAuthors(f.authors);
+
+ if (!f.title) {
+ T.setOutput('output', '', ', ');
+ T.setOutput('intext', '', ', ');
+ T.status('status', 'Enter at least a title.', 'muted');
+ return '';
+ }
+
+ const style = T.$('style').value;
+ const formatter = { apa: formatAPA, mla: formatMLA, chicago: formatChicago, harvard: formatHarvard }[style];
+ const reference = formatter(f, authors).replace(/\s+/g, ' ').replace(/\s([.])/g, '$1').trim();
+
+ T.setOutput('output', reference);
+ T.setOutput('intext', inTextCitation(f, authors));
+
+ const missing = [];
+ if (!authors.length) missing.push('author');
+ if (!f.year) missing.push('year');
+ if (f.type === 'journal' && !f.container) missing.push('journal name');
+ if (f.type === 'website' && !f.url) missing.push('URL');
+
+ T.status('status',
+ missing.length
+ ? `Generated, but missing: ${missing.join(', ')}. Check against your style guide.`
+ : 'Generated. Verify against your institution’s guide before submitting.',
+ missing.length ? 'warn' : 'ok');
+
+ if (window.Analytics) Analytics.trackToolUse('citation-generator');
+ return reference;
+ }
+
+ function renderBibliography() {
+ const mount = T.$('bibliography');
+ mount.innerHTML = '';
+
+ if (!bibliography.length) {
+ mount.textContent = 'Entries you add will appear here, sorted alphabetically.';
+ mount.classList.add('output--empty');
+ T.$('bib-count').textContent = '';
+ return;
+ }
+
+ mount.classList.remove('output--empty');
+ const sorted = [...bibliography].sort((a, b) => a.localeCompare(b));
+
+ sorted.forEach((entry) => {
+ mount.append(el('p', {
+ text: entry,
+ style: {
+ marginBottom: 'var(--space-3)',
+ paddingLeft: '2em',
+ textIndent: '-2em' // hanging indent, as every style requires
+ }
+ }));
+ });
+
+ T.$('bib-count').textContent = `${bibliography.length} entr${bibliography.length === 1 ? 'y' : 'ies'}`;
+ }
+
+ T.on(['authors', 'year', 'title', 'container', 'publisher', 'volume',
+ 'issue', 'pages', 'url', 'doi', 'accessed'], debounce(generate, 250));
+ T.on(['style', 'type'], generate, 'change');
+
+ T.$('add').addEventListener('click', () => {
+ const reference = generate();
+ if (!reference) {
+ toast({ type: 'warning', title: 'Nothing to add', message: 'Enter at least a title.' });
+ return;
+ }
+ if (bibliography.includes(reference)) {
+ toast({ type: 'warning', title: 'Already in the bibliography' });
+ return;
+ }
+ bibliography.push(reference);
+ T.store.set('bibliography', bibliography);
+ renderBibliography();
+ toast({ type: 'success', title: 'Added', message: 'Stored on this device only.' });
+ });
+
+ T.$('copy').addEventListener('click', () => copyToClipboard(T.$('output').textContent, 'Reference copied'));
+
+ T.$('copy-bib').addEventListener('click', () =>
+ copyToClipboard([...bibliography].sort().join('\n\n'), 'Bibliography copied'));
+
+ T.$('download').addEventListener('click', () => {
+ if (!bibliography.length) { toast({ type: 'warning', title: 'Bibliography is empty' }); return; }
+ downloadFile([...bibliography].sort().join('\n\n'), 'bibliography.txt');
+ });
+
+ T.$('clear-form').addEventListener('click', () => {
+ ['authors', 'year', 'title', 'container', 'publisher', 'volume',
+ 'issue', 'pages', 'url', 'doi', 'accessed'].forEach((id) => { T.$(id).value = ''; });
+ generate();
+ });
+
+ T.$('clear-bib').addEventListener('click', () => {
+ bibliography = [];
+ T.store.set('bibliography', bibliography);
+ renderBibliography();
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Citation Generator | 123MiniApps' }));
+
+ renderBibliography();
+ generate();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('citation-generator');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

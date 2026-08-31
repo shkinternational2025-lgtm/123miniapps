@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/csv-to-json.html
+     Purpose: Convert CSV to JSON and back, with correct handling of quoted fields and embedded commas.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>CSV to JSON Converter: Both Directions, Quoted Fields Handled</title>
+<meta name="description" content="Convert CSV data to structured JSON and back again. Handles quoted fields, embedded commas and custom delimiters. Runs entirely in your browser.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/csv-to-json.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="CSV to JSON | 123MiniApps">
+<meta property="og:description" content="Convert CSV data to structured JSON and back again. Handles quoted fields, embedded commas and custom delimiters. Runs entirely in your browser.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/csv-to-json.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CSV to JSON | 123MiniApps">
+<meta name="twitter:description" content="Convert CSV data to structured JSON and back again. Handles quoted fields, embedded commas and custom delimiters. Runs entirely in your browser.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Converters", "item": "https://www.123miniapps.online/#category-converter" },
+        { "@type": "ListItem", "position": 3, "name": "CSV to JSON", "item": "https://www.123miniapps.online/tools/csv-to-json.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "CSV to JSON",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Convert CSV data to structured JSON and back again. Handles quoted fields, embedded commas and custom delimiters. Runs entirely in your browser."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/csv-to-json.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is CSV to JSON free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. CSV to JSON is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can CSV to JSON do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "CSV to JSON covers both directions, CSV to JSON and JSON to CSV, rFC 4180 quoted fields with embedded commas and newlines, four delimiter options including tab-separated, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does CSV to JSON work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The naive approach, splitting each line on commas, breaks on the first field that contains one. RFC 4180 allows any field to be wrapped in double quotes, and a quoted field may contain commas, line breaks and even quotes, provided each embedded quote is doubled. So \"Wilmslow, Cheshire\" is one field, and \"She said \"\"hi\"\"\" is the single value She said \"hi\"."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does CSV to JSON work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/csv-to-json.html#howto",
+      "name": "How to use CSV to JSON",
+      "description": "Convert CSV to JSON and back, with correct handling of quoted fields and embedded commas.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Pick a direction and paste your data",
+                  "text": "Pick a direction and paste your data.",
+                  "url": "https://www.123miniapps.online/tools/csv-to-json.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Confirm the delimiter and whether row one is a header",
+                  "text": "Confirm the delimiter and whether row one is a header.",
+                  "url": "https://www.123miniapps.online/tools/csv-to-json.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Press Convert",
+                  "text": "Press Convert.",
+                  "url": "https://www.123miniapps.online/tools/csv-to-json.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Copy the result or download it as a file",
+                  "text": "Copy the result or download it as a file.",
+                  "url": "https://www.123miniapps.online/tools/csv-to-json.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-converter">Converters</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">CSV to JSON</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">📊</div>
+      <div>
+        <h1>CSV to JSON</h1>
+        <p>Convert CSV to JSON and back, with correct handling of quoted fields and embedded commas.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="CSV to JSON converter">
+    <div class="field">
+      <label class="field__label" for="direction"><span>Direction</span></label>
+      <select class="select" id="direction">
+        <option value="csv2json" selected>CSV → JSON</option>
+        <option value="json2csv">JSON → CSV</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="input">
+        <span>Input</span>
+        <span class="field__hint" id="input-stats"></span>
+      </label>
+      <textarea class="textarea" id="input" style="min-height:200px" spellcheck="false" placeholder="name,age,city
+Ada,36,London
+Alan,41,&quot;Wilmslow, Cheshire&quot;"></textarea>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="delimiter"><span>Delimiter</span></label>
+      <select class="select" id="delimiter">
+        <option value="," selected>Comma,</option>
+        <option value=";">Semicolon ;</option>
+        <option value="\t">Tab</option>
+        <option value="|">Pipe |</option>
+      </select>
+    </div>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="header" checked>
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>First row contains column names</span>
+    </label>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="typed" checked>
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Convert numbers and booleans automatically</span>
+    </label>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Paste CSV data to convert it.</p>
+
+    <hr class="hr">
+
+    <div class="field">
+      <label class="field__label" for="output">
+        <span>Result</span>
+        <span class="field__hint" id="output-stats"></span>
+      </label>
+      <div class="output output--empty" id="output">Result will appear here.</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="convert" type="button">Convert</button>
+      <button class="btn btn--secondary" id="sample" type="button">Load sample</button>
+      <button class="btn btn--secondary" id="copy" type="button">Copy result</button>
+      <button class="btn btn--secondary" id="download" type="button">Download</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Both directions, CSV to JSON and JSON to CSV</li>
+        <li>RFC 4180 quoted fields with embedded commas and newlines</li>
+        <li>Four delimiter options including tab-separated</li>
+        <li>Optional automatic type detection</li>
+        <li>Headerless mode produces arrays instead of objects</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Pick a direction and paste your data.</li>
+        <li>Confirm the delimiter and whether row one is a header.</li>
+        <li>Press Convert.</li>
+        <li>Copy the result or download it as a file.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Why CSV parsing is trickier than splitting on commas</h2>
+      <p class="text-sm text-muted">The naive approach, splitting each line on commas, breaks on the first field that contains one. RFC 4180 allows any field to be wrapped in double quotes, and a quoted field may contain commas, line breaks and even quotes, provided each embedded quote is doubled. So <code>"Wilmslow, Cheshire"</code> is one field, and <code>"She said ""hi"""</code> is the single value <code>She said "hi"</code>.</p>
+      <p class="text-sm text-muted mt-3">That last rule means you cannot process CSV line by line either. A quoted field containing a newline spans multiple physical lines while remaining one logical record. This parser walks the input character by character tracking whether it is inside quotes, which handles all of these cases correctly.</p>
+      <p class="text-sm text-muted mt-3">Type detection is convenient but occasionally destructive, which is why it is a toggle. Turning it on converts <code>42</code> to a number and <code>true</code> to a boolean, usually what you want. But it also converts a US zip code like <code>02134</code> to the number 2134, losing the leading zero, and can mangle long identifiers that exceed JavaScript's safe integer range. Turn it off when your columns contain codes rather than quantities.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is CSV to JSON free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. CSV to JSON is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can CSV to JSON do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">CSV to JSON covers both directions, CSV to JSON and JSON to CSV, rFC 4180 quoted fields with embedded commas and newlines, four delimiter options including tab-separated, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does CSV to JSON work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">The naive approach, splitting each line on commas, breaks on the first field that contains one. RFC 4180 allows any field to be wrapped in double quotes, and a quoted field may contain commas, line breaks and even quotes, provided each embedded quote is doubled. So &quot;Wilmslow, Cheshire&quot; is one field, and &quot;She said &quot;&quot;hi&quot;&quot;&quot; is the single value She said &quot;hi&quot;.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does CSV to JSON work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/how-to-convert-csv-to-json.html">How to Convert CSV to JSON (and Why the Structure Changes)</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let lastResult = '';
+
+ const SAMPLE_CSV = 'name,role,year,active\n' +
+ 'Ada Lovelace,Mathematician,1843,true\n' +
+ 'Alan Turing,Computer scientist,1936,true\n' +
+ '"Hopper, Grace",Rear Admiral,1952,false';
+
+ const SAMPLE_JSON = JSON.stringify([
+ { name: 'Ada Lovelace', role: 'Mathematician', year: 1843 },
+ { name: 'Alan Turing', role: 'Computer scientist', year: 1936 }
+ ], null, 2);
+
+ function delimiter() {
+ const v = T.$('delimiter').value;
+ return v === '\\t' ? '\t' : v;
+ }
+
+ /**
+ * Parse CSV per RFC 4180, character by character, so quoted
+ * fields containing delimiters and newlines survive intact.
+ * @param {string} text
+ * @param {string} sep
+ * @returns {string[][]}
+ */
+ function parseCSV(text, sep) {
+ const rows = [];
+ let row = [];
+ let field = '';
+ let inQuotes = false;
+
+ for (let i = 0; i < text.length; i++) {
+ const ch = text[i];
+
+ if (inQuotes) {
+ if (ch === '"') {
+ if (text[i + 1] === '"') { field += '"'; i++; } // escaped quote
+ else inQuotes = false;
+ } else {
+ field += ch;
+ }
+ continue;
+ }
+
+ if (ch === '"') { inQuotes = true; }
+ else if (ch === sep) { row.push(field); field = ''; }
+ else if (ch === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+ else if (ch === '\r') { /* handled by the \n branch */ }
+ else field += ch;
+ }
+
+ if (field !== '' || row.length) { row.push(field); rows.push(row); }
+ return rows.filter((r) => r.length && !(r.length === 1 && r[0] === ''));
+ }
+
+ /** Quote a field only when it needs it. */
+ function quote(value, sep) {
+ const s = value == null ? '' : String(value);
+ return /["\n\r]/.test(s) || s.includes(sep)
+ ? '"' + s.replace(/"/g, '""') + '"'
+ : s;
+ }
+
+ /** Best-effort type coercion for CSV cells. */
+ function coerce(v) {
+ if (!T.$('typed').checked) return v;
+ const s = v.trim();
+ if (s === '') return '';
+ if (s === 'true') return true;
+ if (s === 'false') return false;
+ if (s === 'null') return null;
+ // Only convert numbers that round-trip exactly, protects leading zeros
+ if (/^-?\d+(\.\d+)?$/.test(s) && String(Number(s)) === s) return Number(s);
+ return v;
+ }
+
+ function csvToJson() {
+ const rows = parseCSV(T.$('input').value.trim(), delimiter());
+ if (!rows.length) throw new Error('No rows found.');
+
+ if (!T.$('header').checked) {
+ return JSON.stringify(rows.map((r) => r.map(coerce)), null, 2);
+ }
+
+ const headers = rows[0].map((h) => h.trim());
+ const out = rows.slice(1).map((row) => {
+ const obj = {};
+ headers.forEach((h, i) => { obj[h] = coerce(row[i] === undefined ? '' : row[i]); });
+ return obj;
+ });
+
+ return JSON.stringify(out, null, 2);
+ }
+
+ function jsonToCsv() {
+ const data = JSON.parse(T.$('input').value);
+ const rows = Array.isArray(data) ? data : [data];
+ if (!rows.length) throw new Error('The array is empty.');
+
+ const sep = delimiter();
+
+ // Arrays of arrays convert straight across
+ if (Array.isArray(rows[0])) {
+ return rows.map((r) => r.map((c) => quote(c, sep)).join(sep)).join('\n');
+ }
+
+ // Union of keys across all objects, so sparse records still line up
+ const headers = [...new Set(rows.flatMap((r) => Object.keys(r)))];
+ const lines = [headers.map((h) => quote(h, sep)).join(sep)];
+
+ for (const row of rows) {
+ lines.push(headers.map((h) => {
+ const v = row[h];
+ return quote(v !== null && typeof v === 'object' ? JSON.stringify(v) : v, sep);
+ }).join(sep));
+ }
+
+ return lines.join('\n');
+ }
+
+ function convert() {
+ const raw = T.$('input').value.trim();
+ T.$('input-stats').textContent = raw ? raw.split(/\n/).length + ' lines' : '';
+
+ if (!raw) {
+ lastResult = '';
+ T.setOutput('output', '');
+ T.status('status', 'Paste data to convert it.', 'muted');
+ return;
+ }
+
+ const toJson = T.$('direction').value === 'csv2json';
+
+ try {
+ lastResult = toJson ? csvToJson() : jsonToCsv();
+ T.setOutput('output', lastResult);
+ T.$('output-stats').textContent = lastResult.length.toLocaleString() + ' characters';
+
+ const count = toJson
+ ? (JSON.parse(lastResult).length)
+ : lastResult.split('\n').length - (T.$('header').checked ? 1 : 0);
+ T.status('status', `Converted ${count} record(s).`, 'ok');
+ } catch (err) {
+ lastResult = '';
+ T.setOutput('output', '');
+ T.status('status', 'Could not convert: ' + err.message, 'error');
+ }
+ }
+
+ T.$('input').addEventListener('input', debounce(convert, 350));
+ T.on(['direction', 'delimiter', 'header', 'typed'], convert, 'change');
+ T.$('convert').addEventListener('click', convert);
+
+ T.$('sample').addEventListener('click', () => {
+ T.$('input').value = T.$('direction').value === 'csv2json' ? SAMPLE_CSV : SAMPLE_JSON;
+ convert();
+ });
+
+ T.wireActions({
+ slug: 'csv-to-json',
+ getResult: () => lastResult,
+ filename: 'converted.json'
+ });
+
+ convert();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('csv-to-json');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

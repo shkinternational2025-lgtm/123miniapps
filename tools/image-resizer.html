@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/image-resizer.html
+     Purpose: Resize to exact pixels or a percentage, with aspect ratio locked by default.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Image Resizer: Exact Pixels or Percentage Scaling</title>
+<meta name="description" content="Resize images to exact pixel dimensions or a percentage scale, with aspect ratio locking and presets for common social and web sizes.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/image-resizer.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Image Resizer | 123MiniApps">
+<meta property="og:description" content="Resize images to exact pixel dimensions or a percentage scale, with aspect ratio locking and presets for common social and web sizes.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/image-resizer.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Resizer | 123MiniApps">
+<meta name="twitter:description" content="Resize images to exact pixel dimensions or a percentage scale, with aspect ratio locking and presets for common social and web sizes.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Image Tools", "item": "https://www.123miniapps.online/#category-image" },
+        { "@type": "ListItem", "position": 3, "name": "Image Resizer", "item": "https://www.123miniapps.online/tools/image-resizer.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Image Resizer",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Resize images to exact pixel dimensions or a percentage scale, with aspect ratio locking and presets for common social and web sizes."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/image-resizer.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Image Resizer free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Image Resizer is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Image Resizer do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Image Resizer covers exact pixel dimensions or percentage scaling, aspect ratio locking, contain, cover and stretch fitting modes, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Image Resizer work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Downscaling discards information and generally looks fine. Upscaling invents it and generally does not, enlarging a 200-pixel image to 800 pixels cannot recover detail that was never captured, so the browser interpolates between existing pixels and the result looks soft. Machine-learning upscalers do better by hallucinating plausible detail, but that is a fundamentally different operation from what a canvas can do. If you need a larger image, start from a larger original."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Image Resizer work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Your image is decoded and processed by your own browser using the File and Canvas APIs. It is never uploaded, there is no server to receive it. You can verify this by opening your browser's developer tools, switching to the Network tab, and watching while you use the tool: you will see no request carrying your file. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/image-resizer.html#howto",
+      "name": "How to use Image Resizer",
+      "description": "Resize to exact pixels or a percentage, with aspect ratio locked by default.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Drop an image in",
+                  "text": "Drop an image in.",
+                  "url": "https://www.123miniapps.online/tools/image-resizer.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Enter a width, the height follows automatically",
+                  "text": "Enter a width, the height follows automatically.",
+                  "url": "https://www.123miniapps.online/tools/image-resizer.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Or pick a preset for a standard size",
+                  "text": "Or pick a preset for a standard size.",
+                  "url": "https://www.123miniapps.online/tools/image-resizer.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Download the result",
+                  "text": "Download the result.",
+                  "url": "https://www.123miniapps.online/tools/image-resizer.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-image">Image Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Image Resizer</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">📐</div>
+      <div>
+        <h1>Image Resizer</h1>
+        <p>Resize to exact pixels or a percentage, with aspect ratio locked by default.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Image resizer">
+    <div class="dropzone" id="dropzone" role="button" tabindex="0"
+         aria-label="Drop an image here, or click to browse">
+      <span class="dropzone__icon" aria-hidden="true">📁</span>
+      <span class="dropzone__label">Drop an image here, or click to browse</span>
+      <span class="dropzone__hint">Resized on your device, never uploaded</span>
+    </div>
+
+ <p class="field__hint">
+ The image is decoded and processed by your own browser. It is never uploaded, and no copy of it
+ exists anywhere but this tab, you can confirm that in the DevTools Network tab while you work.
+ </p>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="mode"><span>Resize by</span></label>
+      <select class="select" id="mode">
+        <option value="pixels" selected>Exact pixels</option>
+        <option value="percent">Percentage</option>
+      </select>
+    </div>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="lock" checked>
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Lock aspect ratio</span>
+    </label>
+    <div class="field">
+      <label class="field__label" for="fit"><span>When the ratio differs</span></label>
+      <select class="select" id="fit">
+        <option value="stretch">Stretch to fit</option>
+        <option value="contain" selected>Fit inside, pad the rest</option>
+        <option value="cover">Fill and crop</option>
+      </select>
+    </div>
+    </div>
+
+ <div class="workspace__row" id="pixel-fields">
+ <div class="field">
+ <label class="field__label" for="width"><span>Width (px)</span></label>
+ <input class="input" id="width" type="number" min="1" max="10000" step="1" inputmode="numeric">
+ </div>
+ <div class="field">
+ <label class="field__label" for="height"><span>Height (px)</span></label>
+ <input class="input" id="height" type="number" min="1" max="10000" step="1" inputmode="numeric">
+ </div>
+ </div>
+
+ <div class="field" id="percent-field" hidden>
+ <label class="field__label" for="percent"><span>Scale</span><span class="field__hint"><strong id="percent-value">50</strong>%</span></label>
+ <input class="range" id="percent" type="range" min="5" max="200" value="50" step="5">
+ </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="preset"><span>Or use a preset</span></label>
+      <select class="select" id="preset">
+        <option value="" selected>Custom…</option>
+        <option value="1920x1080">1920×1080, Full HD</option>
+        <option value="1280x720">1280×720, HD</option>
+        <option value="1200x630">1200×630, Open Graph / link preview</option>
+        <option value="1080x1080">1080×1080, Instagram square</option>
+        <option value="1080x1920">1080×1920, Story / Reel</option>
+        <option value="800x600">800×600, 4:3</option>
+        <option value="512x512">512×512, App icon</option>
+        <option value="256x256">256×256, Avatar</option>
+        <option value="64x64">64×64, Small icon</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="pad"><span>Padding colour</span></label>
+      <input class="input" id="pad" type="color" value="#FFFFFF" style="height:52px;padding:6px;cursor:pointer">
+    </div>
+    <div class="field">
+      <label class="field__label" for="format"><span>Output format</span></label>
+      <select class="select" id="format">
+        <option value="image/png" selected>PNG</option>
+        <option value="image/jpeg">JPEG</option>
+        <option value="image/webp">WebP</option>
+      </select>
+    </div>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Choose an image to begin.</p>
+
+    <hr class="hr">
+
+ <div class="result-grid">
+ <div class="result"><span class="result__value" id="r-original" style="font-size:var(--text-lg)">, </span><span class="result__label">Original</span></div>
+ <div class="result result--primary"><span class="result__value" id="r-new" style="font-size:var(--text-lg)">, </span><span class="result__label">New size</span></div>
+ <div class="result"><span class="result__value" id="r-filesize" style="font-size:var(--text-lg)">, </span><span class="result__label">File size</span></div>
+ </div>
+
+    <div class="field">
+      <span class="field__label"><span>Resized preview</span><span class="field__hint" id="canvas-meta"></span></span>
+      <div class="output output--center" style="padding:var(--space-6)">
+        <canvas id="canvas" role="img" aria-label="Resized preview"></canvas>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="download" type="button">Download</button>
+      <button class="btn btn--ghost" id="reset" type="button">Choose another image</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Exact pixel dimensions or percentage scaling</li>
+        <li>Aspect ratio locking</li>
+        <li>Contain, cover and stretch fitting modes</li>
+        <li>Nine presets for common web and social sizes</li>
+        <li>PNG, JPEG and WebP output</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Drop an image in.</li>
+        <li>Enter a width, the height follows automatically.</li>
+        <li>Or pick a preset for a standard size.</li>
+        <li>Download the result.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Upscaling, downscaling and the resampling problem</h2>
+      <p class="text-sm text-muted">Downscaling discards information and generally looks fine. Upscaling invents it and generally does not, enlarging a 200-pixel image to 800 pixels cannot recover detail that was never captured, so the browser interpolates between existing pixels and the result looks soft. Machine-learning upscalers do better by hallucinating plausible detail, but that is a fundamentally different operation from what a canvas can do. If you need a larger image, start from a larger original.</p>
+      <p class="text-sm text-muted mt-3">The three fitting modes solve different problems when the target ratio differs from the source. <em>Contain</em> fits the whole image inside the target box and pads the remainder, so nothing is lost but you get bars. <em>Cover</em> fills the box completely and crops the overflow, which is what you want for a thumbnail or hero image. <em>Stretch</em> distorts the image to fit exactly, which is almost never what anyone actually wants, it is included because occasionally you genuinely need exact dimensions and do not care.</p>
+      <p class="text-sm text-muted mt-3">One quality note: the browser's default image smoothing is bilinear, which is fine for modest reductions but produces visible aliasing when shrinking dramatically, reducing to under a third of the original in one step tends to look rough. Doing it in two or three successive halvings gives a noticeably cleaner result. This tool sets <code>imageSmoothingQuality</code> to high, which mitigates but does not eliminate the effect.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Image Resizer free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Image Resizer is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Image Resizer do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Image Resizer covers exact pixel dimensions or percentage scaling, aspect ratio locking, contain, cover and stretch fitting modes, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Image Resizer work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Downscaling discards information and generally looks fine. Upscaling invents it and generally does not, enlarging a 200-pixel image to 800 pixels cannot recover detail that was never captured, so the browser interpolates between existing pixels and the result looks soft. Machine-learning upscalers do better by hallucinating plausible detail, but that is a fundamentally different operation from what a canvas can do. If you need a larger image, start from a larger original.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Image Resizer work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Your image is decoded and processed by your own browser using the File and Canvas APIs. It is never uploaded, there is no server to receive it. You can verify this by opening your browser&#x27;s developer tools, switching to the Network tab, and watching while you use the tool: you will see no request carrying your file. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/resize-image-to-exact-dimensions.html">How to Resize an Image to Exact Dimensions Without Stretching It</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let sourceImage = null;
+ let sourceFile = null;
+ let outputBlob = null;
+
+ const canvas = T.$('canvas');
+ const ctx = canvas.getContext('2d');
+
+ async function load(file) {
+ sourceFile = file;
+
+ try {
+ const dataUrl = await T.readAsDataURL(file);
+ sourceImage = await T.loadImage(dataUrl);
+
+ T.$('width').value = String(sourceImage.width);
+ T.$('height').value = String(sourceImage.height);
+ T.$('r-original').textContent = `${sourceImage.width} × ${sourceImage.height}`;
+
+ const zone = T.$('dropzone');
+ zone.classList.add('has-file');
+ zone.querySelector('.dropzone__label').textContent = file.name;
+ zone.querySelector('.dropzone__hint').textContent =
+ `${T.bytes(file.size)} · ${sourceImage.width}×${sourceImage.height}`;
+
+ render();
+ } catch (err) {
+ T.status('status', err.message, 'error');
+ }
+ }
+
+ function targetSize() {
+ if (!sourceImage) return { width: 0, height: 0 };
+
+ if (T.$('mode').value === 'percent') {
+ const scale = Number(T.$('percent').value) / 100;
+ return {
+ width: Math.max(1, Math.round(sourceImage.width * scale)),
+ height: Math.max(1, Math.round(sourceImage.height * scale))
+ };
+ }
+
+ return {
+ width: T.clamp(Math.round(T.num(T.$('width').value) || 1), 1, 10000),
+ height: T.clamp(Math.round(T.num(T.$('height').value) || 1), 1, 10000)
+ };
+ }
+
+ function render() {
+ if (!sourceImage) return;
+
+ const { width, height } = targetSize();
+
+ canvas.width = width;
+ canvas.height = height;
+ canvas.style.maxWidth = '100%';
+ canvas.style.maxHeight = '400px';
+ canvas.style.height = 'auto';
+
+ ctx.clearRect(0, 0, width, height);
+ ctx.imageSmoothingEnabled = true;
+ ctx.imageSmoothingQuality = 'high';
+
+ const format = T.$('format').value;
+ const fit = T.$('fit').value;
+
+ // JPEG has no alpha, and contain mode needs a backdrop anyway
+ if (format === 'image/jpeg' || fit === 'contain') {
+ ctx.fillStyle = T.$('pad').value;
+ ctx.fillRect(0, 0, width, height);
+ }
+
+ const sourceRatio = sourceImage.width / sourceImage.height;
+ const targetRatio = width / height;
+
+ if (fit === 'stretch') {
+ ctx.drawImage(sourceImage, 0, 0, width, height);
+ } else if (fit === 'contain') {
+ const scale = sourceRatio > targetRatio ? width / sourceImage.width : height / sourceImage.height;
+ const drawWidth = sourceImage.width * scale;
+ const drawHeight = sourceImage.height * scale;
+ ctx.drawImage(sourceImage, (width - drawWidth) / 2, (height - drawHeight) / 2, drawWidth, drawHeight);
+ } else {
+ // cover: scale up to fill, then centre-crop the overflow
+ const scale = sourceRatio > targetRatio ? height / sourceImage.height : width / sourceImage.width;
+ const drawWidth = sourceImage.width * scale;
+ const drawHeight = sourceImage.height * scale;
+ ctx.drawImage(sourceImage, (width - drawWidth) / 2, (height - drawHeight) / 2, drawWidth, drawHeight);
+ }
+
+ T.$('r-new').textContent = `${width} × ${height}`;
+ T.$('canvas-meta').textContent = `${width} × ${height} px`;
+
+ canvas.toBlob((blob) => {
+ if (!blob) return;
+ outputBlob = blob;
+ T.$('r-filesize').textContent = T.bytes(blob.size);
+
+ const ratio = (width * height) / (sourceImage.width * sourceImage.height);
+ T.status('status',
+ ratio > 1
+ ? `Upscaled to ${(ratio * 100).toFixed(0)}% of the original pixel count, expect softness.`
+ : `Resized to ${(ratio * 100).toFixed(0)}% of the original pixel count.`,
+ ratio > 1 ? 'warn' : 'ok');
+ }, format, 0.92);
+
+ if (window.Analytics) Analytics.trackToolUse('image-resizer');
+ }
+
+ /** Keep the other dimension in step when the ratio is locked. */
+ function syncDimension(changed) {
+ if (!sourceImage || !T.$('lock').checked) { render(); return; }
+
+ const ratio = sourceImage.width / sourceImage.height;
+
+ if (changed === 'width') {
+ const width = T.num(T.$('width').value);
+ if (width > 0) T.$('height').value = String(Math.round(width / ratio));
+ } else {
+ const height = T.num(T.$('height').value);
+ if (height > 0) T.$('width').value = String(Math.round(height * ratio));
+ }
+
+ render();
+ }
+
+ function syncMode() {
+ const percent = T.$('mode').value === 'percent';
+ T.$('pixel-fields').hidden = percent;
+ T.$('percent-field').hidden = !percent;
+ render();
+ }
+
+ T.dropzone('dropzone', load);
+
+ T.$('width').addEventListener('input', debounce(() => syncDimension('width'), 200));
+ T.$('height').addEventListener('input', debounce(() => syncDimension('height'), 200));
+ T.$('percent').addEventListener('input', () => {
+ T.$('percent-value').textContent = T.$('percent').value;
+ render();
+ });
+
+ T.on(['mode'], syncMode, 'change');
+ T.on(['fit', 'format', 'lock'], render, 'change');
+ T.on(['pad'], render, 'input');
+
+ T.$('preset').addEventListener('change', () => {
+ const value = T.$('preset').value;
+ if (!value) return;
+ const [w, h] = value.split('x');
+ T.$('mode').value = 'pixels';
+ syncMode();
+ T.$('width').value = w;
+ T.$('height').value = h;
+ render();
+ });
+
+ T.$('download').addEventListener('click', () => {
+ if (!outputBlob) { toast({ type: 'warning', title: 'Choose an image first' }); return; }
+ const extension = { 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp' }[T.$('format').value];
+ const { width, height } = targetSize();
+ const base = (sourceFile.name || 'image').replace(/\.[^.]+$/, '');
+ downloadFile(outputBlob, `${base}-${width}x${height}.${extension}`, T.$('format').value);
+ });
+
+ T.$('reset').addEventListener('click', async () => {
+ const file = await T.pickFile('image/*');
+ if (file) load(file);
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Image Resizer | 123MiniApps' }));
+
+ syncMode();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('image-resizer');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

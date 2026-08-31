@@ -1,0 +1,501 @@
+/* ============================================
+ 123MiniApps.online v2.0
+ File: design-tokens.css
+ Purpose: Single source of truth for every visual
+ decision, colors (10 themes), type scale,
+ spacing, radius, shadows, motion, layout.
+
+ Theme set refreshed 2026 to the modern SaaS/AI
+ palette family (indigo, azure, violet, emerald,
+ navy-cyan, etc.). Every text/background/on-accent
+ pair is WCAG AA audited, see build-css.py notes and
+ the contrast-audit script.
+ ============================================ */
+
+/* --------------------------------------------
+ 1. NON-COLOR TOKENS (theme independent)
+ -------------------------------------------- */
+:root {
+ /* ---- Typography ---- */
+ --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+ --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+ --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+
+ --text-xs: 0.75rem; /* 12px, captions, badges */
+ --text-sm: 0.875rem; /* 14px, labels, small text */
+ --text-base: 1rem; /* 16px, body */
+ --text-lg: 1.125rem; /* 18px, large body */
+ --text-xl: 1.25rem; /* 20px, subheadings */
+ --text-2xl: 1.5rem; /* 24px, card titles */
+ --text-3xl: 1.875rem; /* 30px, section headings */
+ --text-4xl: 2.25rem; /* 36px, h2 */
+ --text-5xl: 3rem; /* 48px, h1 */
+ --text-6xl: 3.75rem; /* 60px, hero */
+ --text-7xl: 4.5rem; /* 72px, super display */
+
+ /* Fluid display sizes */
+ --text-hero: clamp(2.25rem, 1.2rem + 4.6vw, 4.5rem);
+ --text-section: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+
+ --weight-normal: 400;
+ --weight-medium: 500;
+ --weight-semibold: 600;
+ --weight-bold: 700;
+ --weight-extrabold: 800;
+
+ --leading-tight: 1.2;
+ --leading-snug: 1.375;
+ --leading-normal: 1.6;
+ --leading-relaxed: 1.75;
+
+ --tracking-tight: -0.02em;
+ --tracking-normal: 0;
+ --tracking-wide: 0.04em;
+ --tracking-wider: 0.09em;
+
+ /* ---- Spacing (8px grid) ---- */
+ --space-0: 0;
+ --space-1: 0.25rem; /* 4 */
+ --space-2: 0.5rem; /* 8 */
+ --space-3: 0.75rem; /* 12 */
+ --space-4: 1rem; /* 16 */
+ --space-5: 1.25rem; /* 20 */
+ --space-6: 1.5rem; /* 24 */
+ --space-8: 2rem; /* 32 */
+ --space-10: 2.5rem; /* 40 */
+ --space-12: 3rem; /* 48 */
+ --space-16: 4rem; /* 64 */
+ --space-20: 5rem; /* 80 */
+ --space-24: 6rem; /* 96 */
+ --space-32: 8rem; /* 128 */
+ --space-40: 10rem; /* 160 */
+
+ --section-padding: clamp(3rem, 1.5rem + 6vw, 7rem);
+
+ /* ---- Border radius ---- */
+ --radius-xs: 4px;
+ --radius-sm: 8px;
+ --radius-md: 14px;
+ --radius-lg: 22px;
+ --radius-xl: 28px;
+ --radius-2xl: 36px;
+ --radius-full: 9999px;
+
+ /* ---- Elevation ---- */
+ --shadow-xs: 0 2px 8px rgba(0, 0, 0, 0.15);
+ --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.18);
+ --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.28);
+ --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.40);
+ --shadow-xl: 0 28px 80px rgba(0, 0, 0, 0.50);
+
+ --glow-sm: 0 0 20px var(--border-glow);
+ --glow-md: 0 0 40px var(--border-glow);
+ --glow-lg: 0 0 60px var(--border-glow);
+
+ /* ---- Motion ---- */
+ --duration-fast: 150ms;
+ --duration-normal: 300ms;
+ --duration-slow: 500ms;
+ --duration-slower: 800ms;
+
+ --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+ --ease-in: cubic-bezier(0.4, 0, 1, 1);
+ --ease-out: cubic-bezier(0, 0, 0.2, 1);
+ --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+ --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+ /* ---- Layout ---- */
+ --container-max: 1280px;
+ --container-wide: 1440px;
+ --container-pad: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+ --nav-height: 72px;
+ --nav-height-mobile: 64px;
+
+ /* ---- Z-index scale ---- */
+ --z-base: 1;
+ --z-sticky: 100;
+ --z-fab: 900;
+ --z-nav: 1000;
+ --z-overlay: 1100;
+ --z-modal: 1200;
+ --z-toast: 1300;
+
+ /* ---- Breakpoints (reference only; used in media queries) ---- */
+ --bp-mobile: 480px;
+ --bp-tablet: 768px;
+ --bp-laptop: 1024px;
+ --bp-desktop: 1280px;
+ --bp-wide: 1440px;
+ --bp-ultrawide: 1920px;
+}
+
+/* ============================================================
+ COLOR THEMES (10), modern SaaS/AI palette family, 2026.
+ Contract each theme sets: bg-primary/surface/card/card-hover,
+ accent-primary/secondary/gradient, text-primary/secondary/muted,
+ border-color/glow, shadow-card/glow, glass-bg/border,
+ success/warning/danger/info, on-accent, mesh-1/mesh-2.
+ Light themes additionally soften the black elevation shadows.
+ ============================================================ */
+
+/* ---- THEME 1, INDIGO NOVA (default, dark) ----------------
+ Indigo + Purple + Electric Blue. The flagship brand theme.
+ Applied to :root so the site renders before JS runs. */
+:root,
+[data-theme='indigo-nova'] {
+ color-scheme: dark;
+ --bg-primary: #0b1120;
+ --bg-surface: #111827;
+ --bg-card: #161f36;
+ --bg-card-hover: #1e293b;
+ --accent-primary: #818cf8;
+ --accent-secondary: #a78bfa;
+ --accent-gradient: linear-gradient(135deg, #4f46e5, #7c3aed 55%, #3b82f6);
+ --text-primary: #f8fafc;
+ --text-secondary: #cbd5e1;
+ --text-muted: #94a3b8;
+ --border-color: rgba(99, 102, 241, 0.20);
+ --border-glow: rgba(79, 70, 229, 0.35);
+ --shadow-card: 0 8px 32px rgba(79, 70, 229, 0.18);
+ --shadow-glow: 0 0 40px rgba(79, 70, 229, 0.28);
+ --glass-bg: rgba(22, 31, 54, 0.82);
+ --glass-border: rgba(99, 102, 241, 0.25);
+ --success: #22c55e;
+ --warning: #f59e0b;
+ --danger: #ef4444;
+ --info: #3b82f6;
+ --on-accent: #0b1120;
+ --mesh-1: rgba(79, 70, 229, 0.24);
+ --mesh-2: rgba(59, 130, 246, 0.20);
+}
+
+/* ---- THEME 2, AZURE TRUST (light) -----------------------
+ Blue + Cyan + White. The trusted corporate palette. */
+[data-theme='azure-trust'] {
+ color-scheme: light;
+ --bg-primary: #f8fafc;
+ --bg-surface: #ffffff;
+ --bg-card: #ffffff;
+ --bg-card-hover: #f1f5f9;
+ --accent-primary: #2563eb;
+ --accent-secondary: #0e7490;
+ --accent-gradient: linear-gradient(135deg, #2563eb, #06b6d4);
+ --text-primary: #0f172a;
+ --text-secondary: #334155;
+ --text-muted: #5b6673;
+ --border-color: rgba(37, 99, 235, 0.16);
+ --border-glow: rgba(37, 99, 235, 0.22);
+ --shadow-card: 0 8px 32px rgba(37, 99, 235, 0.10);
+ --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.14);
+ --glass-bg: rgba(255, 255, 255, 0.82);
+ --glass-border: rgba(37, 99, 235, 0.16);
+ --success: #047857;
+ --warning: #b45309;
+ --danger: #dc2626;
+ --info: #2563eb;
+ --on-accent: #ffffff;
+ --shadow-xs: 0 2px 8px rgba(15, 23, 42, 0.06);
+ --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.08);
+ --shadow-md: 0 12px 40px rgba(15, 23, 42, 0.12);
+ --shadow-lg: 0 20px 60px rgba(15, 23, 42, 0.16);
+ --shadow-xl: 0 28px 80px rgba(15, 23, 42, 0.20);
+ --mesh-1: rgba(37, 99, 235, 0.14);
+ --mesh-2: rgba(6, 182, 212, 0.14);
+}
+
+/* ---- THEME 3, GRAPHITE MINIMAL (light) ------------------
+ Black + White + Gray. Premium minimal, blue accent. */
+[data-theme='graphite-minimal'] {
+ color-scheme: light;
+ --bg-primary: #ffffff;
+ --bg-surface: #ffffff;
+ --bg-card: #ffffff;
+ --bg-card-hover: #f9fafb;
+ --accent-primary: #2563eb;
+ --accent-secondary: #4b5563;
+ --accent-gradient: linear-gradient(135deg, #111827, #2563eb);
+ --text-primary: #111827;
+ --text-secondary: #374151;
+ --text-muted: #6b7280;
+ --border-color: rgba(17, 24, 39, 0.12);
+ --border-glow: rgba(37, 99, 235, 0.18);
+ --shadow-card: 0 8px 32px rgba(17, 24, 39, 0.08);
+ --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.12);
+ --glass-bg: rgba(255, 255, 255, 0.85);
+ --glass-border: rgba(17, 24, 39, 0.10);
+ --success: #047857;
+ --warning: #b45309;
+ --danger: #dc2626;
+ --info: #2563eb;
+ --on-accent: #ffffff;
+ --shadow-xs: 0 2px 8px rgba(17, 24, 39, 0.05);
+ --shadow-sm: 0 6px 18px rgba(17, 24, 39, 0.07);
+ --shadow-md: 0 12px 40px rgba(17, 24, 39, 0.10);
+ --shadow-lg: 0 20px 60px rgba(17, 24, 39, 0.14);
+ --shadow-xl: 0 28px 80px rgba(17, 24, 39, 0.18);
+ --mesh-1: rgba(37, 99, 235, 0.10);
+ --mesh-2: rgba(148, 163, 184, 0.14);
+}
+
+/* ---- THEME 4, VIOLET DREAM (dark) -----------------------
+ Purple + Pink + Indigo gradient. Futuristic. */
+[data-theme='violet-dream'] {
+ color-scheme: dark;
+ --bg-primary: #18181b;
+ --bg-surface: #201f27;
+ --bg-card: #29262f;
+ --bg-card-hover: #322e3b;
+ --accent-primary: #c084fc;
+ --accent-secondary: #d8b4fe;
+ --accent-gradient: linear-gradient(135deg, #9333ea, #a855f7 55%, #c084fc);
+ --text-primary: #faf5ff;
+ --text-secondary: #d8c9ec;
+ --text-muted: #a99cc0;
+ --border-color: rgba(168, 85, 247, 0.22);
+ --border-glow: rgba(147, 51, 234, 0.35);
+ --shadow-card: 0 8px 32px rgba(147, 51, 234, 0.18);
+ --shadow-glow: 0 0 40px rgba(147, 51, 234, 0.28);
+ --glass-bg: rgba(41, 38, 47, 0.82);
+ --glass-border: rgba(168, 85, 247, 0.25);
+ --success: #34d399;
+ --warning: #fbbf24;
+ --danger: #f87171;
+ --info: #a78bfa;
+ --on-accent: #1a0b2e;
+ --mesh-1: rgba(147, 51, 234, 0.24);
+ --mesh-2: rgba(192, 132, 252, 0.18);
+}
+
+/* ---- THEME 5, EMERALD FRESH (light) ---------------------
+ Emerald + Blue. Fresh and clean. */
+[data-theme='emerald-fresh'] {
+ color-scheme: light;
+ --bg-primary: #ecfdf5;
+ --bg-surface: #ffffff;
+ --bg-card: #ffffff;
+ --bg-card-hover: #f0fdf4;
+ --accent-primary: #047857;
+ --accent-secondary: #2563eb;
+ --accent-gradient: linear-gradient(135deg, #059669, #2563eb);
+ --text-primary: #0f172a;
+ --text-secondary: #334155;
+ --text-muted: #566b63;
+ --border-color: rgba(5, 150, 105, 0.18);
+ --border-glow: rgba(5, 150, 105, 0.22);
+ --shadow-card: 0 8px 32px rgba(5, 150, 105, 0.10);
+ --shadow-glow: 0 0 40px rgba(5, 150, 105, 0.14);
+ --glass-bg: rgba(255, 255, 255, 0.82);
+ --glass-border: rgba(5, 150, 105, 0.16);
+ --success: #047857;
+ --warning: #b45309;
+ --danger: #dc2626;
+ --info: #2563eb;
+ --on-accent: #ffffff;
+ --shadow-xs: 0 2px 8px rgba(6, 78, 59, 0.06);
+ --shadow-sm: 0 6px 18px rgba(6, 78, 59, 0.08);
+ --shadow-md: 0 12px 40px rgba(6, 78, 59, 0.12);
+ --shadow-lg: 0 20px 60px rgba(6, 78, 59, 0.16);
+ --shadow-xl: 0 28px 80px rgba(6, 78, 59, 0.20);
+ --mesh-1: rgba(5, 150, 105, 0.14);
+ --mesh-2: rgba(37, 99, 235, 0.12);
+}
+
+/* ---- THEME 6, NAVY CYAN (dark) --------------------------
+ Navy + Cyan. Professional enterprise feel. */
+[data-theme='navy-cyan'] {
+ color-scheme: dark;
+ --bg-primary: #0a1834;
+ --bg-surface: #0f2147;
+ --bg-card: #16294f;
+ --bg-card-hover: #1e3a6b;
+ --accent-primary: #38bdf8;
+ --accent-secondary: #0ea5e9;
+ --accent-gradient: linear-gradient(135deg, #1e3a8a, #0ea5e9 60%, #38bdf8);
+ --text-primary: #f0f9ff;
+ --text-secondary: #bcd6ee;
+ --text-muted: #8fa9c4;
+ --border-color: rgba(56, 189, 248, 0.20);
+ --border-glow: rgba(14, 165, 233, 0.32);
+ --shadow-card: 0 8px 32px rgba(14, 165, 233, 0.16);
+ --shadow-glow: 0 0 40px rgba(14, 165, 233, 0.26);
+ --glass-bg: rgba(22, 41, 79, 0.82);
+ --glass-border: rgba(56, 189, 248, 0.25);
+ --success: #34d399;
+ --warning: #fbbf24;
+ --danger: #f87171;
+ --info: #38bdf8;
+ --on-accent: #04121f;
+ --mesh-1: rgba(14, 165, 233, 0.22);
+ --mesh-2: rgba(30, 58, 138, 0.24);
+}
+
+/* ---- THEME 7, SUNBURST (light) --------------------------
+ Orange + Indigo. Energetic. Indigo drives interactive
+ surfaces (AA with white), orange is the identity accent. */
+[data-theme='sunburst'] {
+ color-scheme: light;
+ --bg-primary: #fff7ed;
+ --bg-surface: #ffffff;
+ --bg-card: #ffffff;
+ --bg-card-hover: #fff1e0;
+ --accent-primary: #4f46e5;
+ --accent-secondary: #c2410c;
+ --accent-gradient: linear-gradient(135deg, #f97316, #4f46e5);
+ --text-primary: #1c1917;
+ --text-secondary: #44403c;
+ --text-muted: #78716c;
+ --border-color: rgba(249, 115, 22, 0.22);
+ --border-glow: rgba(79, 70, 229, 0.22);
+ --shadow-card: 0 8px 32px rgba(249, 115, 22, 0.12);
+ --shadow-glow: 0 0 40px rgba(79, 70, 229, 0.14);
+ --glass-bg: rgba(255, 255, 255, 0.82);
+ --glass-border: rgba(249, 115, 22, 0.18);
+ --success: #15803d;
+ --warning: #c2410c;
+ --danger: #dc2626;
+ --info: #4f46e5;
+ --on-accent: #ffffff;
+ --shadow-xs: 0 2px 8px rgba(28, 25, 23, 0.06);
+ --shadow-sm: 0 6px 18px rgba(28, 25, 23, 0.08);
+ --shadow-md: 0 12px 40px rgba(28, 25, 23, 0.12);
+ --shadow-lg: 0 20px 60px rgba(28, 25, 23, 0.16);
+ --shadow-xl: 0 28px 80px rgba(28, 25, 23, 0.20);
+ --mesh-1: rgba(249, 115, 22, 0.16);
+ --mesh-2: rgba(79, 70, 229, 0.14);
+}
+
+/* ---- THEME 8, TEAL CLEAN (light) ------------------------
+ Teal + Blue + White. Modern and clean. */
+[data-theme='teal-clean'] {
+ color-scheme: light;
+ --bg-primary: #f0fdfa;
+ --bg-surface: #ffffff;
+ --bg-card: #ffffff;
+ --bg-card-hover: #ecfdf7;
+ --accent-primary: #0f766e;
+ --accent-secondary: #2563eb;
+ --accent-gradient: linear-gradient(135deg, #0d9488, #2563eb);
+ --text-primary: #0f172a;
+ --text-secondary: #334155;
+ --text-muted: #55706a;
+ --border-color: rgba(13, 148, 136, 0.18);
+ --border-glow: rgba(13, 148, 136, 0.22);
+ --shadow-card: 0 8px 32px rgba(13, 148, 136, 0.10);
+ --shadow-glow: 0 0 40px rgba(13, 148, 136, 0.14);
+ --glass-bg: rgba(255, 255, 255, 0.82);
+ --glass-border: rgba(13, 148, 136, 0.16);
+ --success: #047857;
+ --warning: #b45309;
+ --danger: #dc2626;
+ --info: #2563eb;
+ --on-accent: #ffffff;
+ --shadow-xs: 0 2px 8px rgba(15, 118, 110, 0.06);
+ --shadow-sm: 0 6px 18px rgba(15, 118, 110, 0.08);
+ --shadow-md: 0 12px 40px rgba(15, 118, 110, 0.12);
+ --shadow-lg: 0 20px 60px rgba(15, 118, 110, 0.16);
+ --shadow-xl: 0 28px 80px rgba(15, 118, 110, 0.20);
+ --mesh-1: rgba(13, 148, 136, 0.14);
+ --mesh-2: rgba(37, 99, 235, 0.12);
+}
+
+/* ---- THEME 9, VIOLET NOIR (dark) ------------------------
+ Violet + Black. Gaming / AI look. */
+[data-theme='violet-noir'] {
+ color-scheme: dark;
+ --bg-primary: #0f0f14;
+ --bg-surface: #18181f;
+ --bg-card: #1f1f28;
+ --bg-card-hover: #272733;
+ --accent-primary: #a78bfa;
+ --accent-secondary: #7c3aed;
+ --accent-gradient: linear-gradient(135deg, #7c3aed, #a78bfa);
+ --text-primary: #f5f3ff;
+ --text-secondary: #d0c9e8;
+ --text-muted: #a09bb5;
+ --border-color: rgba(167, 139, 250, 0.22);
+ --border-glow: rgba(124, 58, 237, 0.35);
+ --shadow-card: 0 8px 32px rgba(124, 58, 237, 0.18);
+ --shadow-glow: 0 0 40px rgba(124, 58, 237, 0.28);
+ --glass-bg: rgba(31, 31, 40, 0.82);
+ --glass-border: rgba(167, 139, 250, 0.25);
+ --success: #34d399;
+ --warning: #fbbf24;
+ --danger: #f87171;
+ --info: #a78bfa;
+ --on-accent: #14061f;
+ --mesh-1: rgba(124, 58, 237, 0.24);
+ --mesh-2: rgba(167, 139, 250, 0.18);
+}
+
+/* ---- THEME 10, CRIMSON EDGE (dark) ----------------------
+ Red + Black. Bold and striking. */
+[data-theme='crimson-edge'] {
+ color-scheme: dark;
+ --bg-primary: #0f0f0f;
+ --bg-surface: #171717;
+ --bg-card: #1e1e1e;
+ --bg-card-hover: #262626;
+ --accent-primary: #f87171;
+ --accent-secondary: #dc2626;
+ --accent-gradient: linear-gradient(135deg, #dc2626, #ef4444 60%, #f87171);
+ --text-primary: #fef2f2;
+ --text-secondary: #e5c9c9;
+ --text-muted: #b89a9a;
+ --border-color: rgba(248, 113, 113, 0.22);
+ --border-glow: rgba(220, 38, 38, 0.35);
+ --shadow-card: 0 8px 32px rgba(220, 38, 38, 0.18);
+ --shadow-glow: 0 0 40px rgba(220, 38, 38, 0.28);
+ --glass-bg: rgba(30, 30, 30, 0.85);
+ --glass-border: rgba(248, 113, 113, 0.25);
+ --success: #34d399;
+ --warning: #fbbf24;
+ --danger: #f87171;
+ --info: #60a5fa;
+ --on-accent: #1a0505;
+ --mesh-1: rgba(220, 38, 38, 0.20);
+ --mesh-2: rgba(248, 113, 113, 0.16);
+}
+
+/* ============================================================
+ LARGE-SCREEN / 16:9 DESKTOP OPTIMISATION
+ The base container maxes out at 1280px, which leaves wide
+ empty margins on a 1080p (1920px) monitor. Widen the
+ containers progressively on large screens so the layout
+ fills a 16:9 desktop, and let the auto-fit card grids show
+ more tools per row. Type and section rhythm scale up a touch
+ so the page feels composed rather than sparse.
+ ============================================================ */
+
+/* Laptops / small desktops (1440px class) */
+@media (min-width: 1440px) {
+ :root {
+ --container-max: 1360px;
+ --container-wide: 1560px;
+ }
+}
+
+/* 1080p desktops and 16:9 monitors (1600px+) */
+@media (min-width: 1600px) {
+ :root {
+ --container-max: 1480px;
+ --container-wide: 1720px;
+ --section-padding: clamp(4rem, 2rem + 6vw, 8rem);
+ }
+}
+
+/* True 1920-wide and ultrawide */
+@media (min-width: 1920px) {
+ :root {
+ --container-max: 1600px;
+ --container-wide: 1840px;
+ }
+ html { font-size: 17px; } /* gently scale the whole type system up on big screens */
+}
+
+@media (min-width: 2560px) {
+ :root {
+ --container-max: 1840px;
+ --container-wide: 2100px;
+ }
+ html { font-size: 18px; }
+}

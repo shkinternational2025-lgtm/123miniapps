@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/color-palette-generator.html
+     Purpose: Generate harmonious palettes from a base colour, with contrast checked for you.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Colour Palette Generator: Harmonies from a Base Colour</title>
+<meta name="description" content="Build harmonious colour palettes from a base colour using colour theory. Lock swatches, export CSS variables and check contrast automatically.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/color-palette-generator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Color Palette Generator | 123MiniApps">
+<meta property="og:description" content="Build harmonious colour palettes from a base colour using colour theory. Lock swatches, export CSS variables and check contrast automatically.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/color-palette-generator.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Color Palette Generator | 123MiniApps">
+<meta name="twitter:description" content="Build harmonious colour palettes from a base colour using colour theory. Lock swatches, export CSS variables and check contrast automatically.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Design Tools", "item": "https://www.123miniapps.online/#category-design" },
+        { "@type": "ListItem", "position": 3, "name": "Color Palette Generator", "item": "https://www.123miniapps.online/tools/color-palette-generator.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Color Palette Generator",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Build harmonious colour palettes from a base colour using colour theory. Lock swatches, export CSS variables and check contrast automatically."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/color-palette-generator.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Color Palette Generator free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Color Palette Generator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Color Palette Generator do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Color Palette Generator covers seven harmony schemes based on colour theory, lock individual swatches while regenerating the rest, wCAG contrast checked against white and black, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Color Palette Generator work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Harmony schemes come from positions on the colour wheel. Complementary colours sit opposite each other and produce maximum contrast, which is why they work for calls to action but clash in large areas. Analogous colours are neighbours and feel calm and cohesive, making them a safe choice for backgrounds. Triadic schemes take three evenly spaced hues for vibrancy without the tension of a direct complement."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Color Palette Generator work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/color-palette-generator.html#howto",
+      "name": "How to use Color Palette Generator",
+      "description": "Generate harmonious palettes from a base colour, with contrast checked for you.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Choose a base colour",
+                  "text": "Choose a base colour.",
+                  "url": "https://www.123miniapps.online/tools/color-palette-generator.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Pick a harmony scheme",
+                  "text": "Pick a harmony scheme.",
+                  "url": "https://www.123miniapps.online/tools/color-palette-generator.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Lock any swatch you want to keep, then randomise",
+                  "text": "Lock any swatch you want to keep, then randomise.",
+                  "url": "https://www.123miniapps.online/tools/color-palette-generator.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Copy the export in your preferred format",
+                  "text": "Copy the export in your preferred format.",
+                  "url": "https://www.123miniapps.online/tools/color-palette-generator.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-design">Design Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Color Palette Generator</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🖌️</div>
+      <div>
+        <h1>Color Palette Generator</h1>
+        <p>Generate harmonious palettes from a base colour, with contrast checked for you.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Colour palette generator">
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="base"><span>Base colour</span></label>
+      <input class="input" id="base" type="color" value="#00D4FF" style="height:52px;padding:6px;cursor:pointer">
+    </div>
+    <div class="field">
+      <label class="field__label" for="scheme"><span>Harmony</span></label>
+      <select class="select" id="scheme">
+        <option value="complementary">Complementary, opposite on the wheel</option>
+        <option value="analogous" selected>Analogous, neighbours</option>
+        <option value="triadic">Triadic, evenly spaced three</option>
+        <option value="tetradic">Tetradic, two complementary pairs</option>
+        <option value="split">Split complementary</option>
+        <option value="monochromatic">Monochromatic, one hue</option>
+        <option value="shades">Tints and shades</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="count">
+        <span>Swatches</span>
+        <span class="field__hint"><strong id="count-value">5</strong></span>
+      </label>
+      <input class="range" id="count" type="range" min="3" max="8" value="5" step="1">
+    </div>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Pick a base colour and a harmony.</p>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Palette</span><span class="field__hint">Click a swatch to copy · click the lock to keep it</span></span>
+ <div class="swatch-grid" id="palette"></div>
+ </div>
+
+ <div class="field">
+ <span class="field__label"><span>Contrast against white and black</span></span>
+ <div class="table-scroll"><div id="contrast"></div></div>
+ </div>
+
+    <div class="field">
+      <label class="field__label" for="css">
+        <span>Export</span>
+      </label>
+      <div class="output output--empty" id="css">The palette will export here.</div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="format"><span>Export format</span></label>
+      <select class="select" id="format">
+        <option value="css" selected>CSS custom properties</option>
+        <option value="scss">SCSS variables</option>
+        <option value="tailwind">Tailwind config</option>
+        <option value="json">JSON</option>
+        <option value="hex">Plain hex list</option>
+      </select>
+    </div>
+ <div class="field"><span class="field__label"><span>&nbsp;</span></span>
+ <button class="btn btn--secondary" id="randomise" type="button">Random palette</button>
+ </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy export</button>
+      <button class="btn btn--secondary" id="download" type="button">Download</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Seven harmony schemes based on colour theory</li>
+        <li>Lock individual swatches while regenerating the rest</li>
+        <li>WCAG contrast checked against white and black</li>
+        <li>Five export formats including Tailwind config</li>
+        <li>Three to eight swatches</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Choose a base colour.</li>
+        <li>Pick a harmony scheme.</li>
+        <li>Lock any swatch you want to keep, then randomise.</li>
+        <li>Copy the export in your preferred format.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Colour harmony, and where the theory falls short</h2>
+      <p class="text-sm text-muted">Harmony schemes come from positions on the colour wheel. Complementary colours sit opposite each other and produce maximum contrast, which is why they work for calls to action but clash in large areas. Analogous colours are neighbours and feel calm and cohesive, making them a safe choice for backgrounds. Triadic schemes take three evenly spaced hues for vibrancy without the tension of a direct complement.</p>
+      <p class="text-sm text-muted mt-3">The traditional wheel has a real flaw, though. It is based on HSL, where a fixed lightness value does not correspond to equal perceived brightness, yellow at 50% lightness looks far brighter than blue at 50% lightness. This is why a mathematically generated palette often contains one swatch that jumps out. Perceptual colour spaces like OKLCH fix this, and modern CSS supports them, though browser support is still uneven.</p>
+      <p class="text-sm text-muted mt-3">One practical rule beats most theory: the 60-30-10 split. Roughly 60% of a design should be a dominant neutral, 30% a secondary colour, and 10% an accent. Palettes fail more often from using every colour equally than from choosing the wrong hues. And whatever the wheel says, always verify contrast, a beautiful palette that fails WCAG AA is unusable for text, which is why the contrast table sits directly beneath the swatches here.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Color Palette Generator free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Color Palette Generator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Color Palette Generator do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Color Palette Generator covers seven harmony schemes based on colour theory, lock individual swatches while regenerating the rest, wCAG contrast checked against white and black, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Color Palette Generator work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Harmony schemes come from positions on the colour wheel. Complementary colours sit opposite each other and produce maximum contrast, which is why they work for calls to action but clash in large areas. Analogous colours are neighbours and feel calm and cohesive, making them a safe choice for backgrounds. Triadic schemes take three evenly spaced hues for vibrancy without the tension of a direct complement.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Color Palette Generator work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/how-to-build-a-color-palette.html">How to Build a Color Palette That Actually Works</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let palette = [];
+ let locked = new Set();
+
+ function baseHsl() {
+ const rgb = T.hexToRgb(T.$('base').value) || { r: 0, g: 212, b: 255 };
+ return T.rgbToHsl(rgb.r, rgb.g, rgb.b);
+ }
+
+ function hexFromHsl(h, s, l) {
+ const rgb = T.hslToRgb(h, T.clamp(s, 0, 100), T.clamp(l, 0, 100));
+ return T.rgbToHex(rgb.r, rgb.g, rgb.b);
+ }
+
+ /**
+ * Build the palette for the chosen scheme.
+ * Locked swatches keep their previous value.
+ */
+ function build() {
+ const { h, s, l } = baseHsl();
+ const count = Number(T.$('count').value);
+ const scheme = T.$('scheme').value;
+
+ const offsets = {
+ complementary: [0, 180],
+ analogous: [-40, -20, 0, 20, 40],
+ triadic: [0, 120, 240],
+ tetradic: [0, 90, 180, 270],
+ split: [0, 150, 210]
+ }[scheme];
+
+ const next = [];
+
+ for (let i = 0; i < count; i++) {
+ if (locked.has(i) && palette[i]) {
+ next.push(palette[i]);
+ continue;
+ }
+
+ if (scheme === 'monochromatic') {
+ // Vary saturation and lightness, hold the hue
+ next.push(hexFromHsl(h, T.clamp(s - 20 + i * 12, 15, 100), T.clamp(25 + i * (55 / count), 12, 92)));
+ } else if (scheme === 'shades') {
+ // Even ramp from dark to light through the base hue
+ next.push(hexFromHsl(h, s, 12 + (i * 76) / (count - 1 || 1)));
+ } else {
+ const offset = offsets[i % offsets.length];
+ // Vary lightness slightly on repeats so extra swatches differ
+ const cycle = Math.floor(i / offsets.length);
+ next.push(hexFromHsl(h + offset, s, T.clamp(l + cycle * 18 - 9, 18, 88)));
+ }
+ }
+
+ palette = next;
+ render();
+ }
+
+ function render() {
+ const mount = T.$('palette');
+ mount.innerHTML = '';
+
+ palette.forEach((hex, index) => {
+ const isLocked = locked.has(index);
+
+ const swatch = el('div', { className: 'swatch' });
+
+ const chip = el('button', {
+ className: 'swatch__chip',
+ attrs: { type: 'button', 'aria-label': `Copy ${hex}`, title: 'Click to copy' },
+ style: { background: hex, width: '100%', border: 'none', cursor: 'pointer' }
+ });
+ chip.addEventListener('click', () => copyToClipboard(hex, hex + ' copied'));
+
+ const label = el('span', { className: 'swatch__hex', text: hex });
+
+ const lock = el('button', {
+ className: 'btn btn--ghost btn--sm',
+ attrs: {
+ type: 'button',
+ 'aria-pressed': String(isLocked),
+ 'aria-label': `${isLocked ? 'Unlock' : 'Lock'} swatch ${index + 1}`
+ },
+ text: isLocked ? '🔒 Locked' : '🔓 Lock',
+ style: { fontSize: '10px', padding: '2px 6px', minHeight: '0' }
+ });
+ lock.addEventListener('click', () => {
+ locked.has(index) ? locked.delete(index) : locked.add(index);
+ render();
+ });
+
+ swatch.append(chip, label, lock);
+ mount.append(swatch);
+ });
+
+ renderContrast();
+ renderExport();
+
+ T.status('status',
+ `${palette.length} swatch(es)${locked.size ? `, ${locked.size} locked` : ''}.`, 'ok');
+ }
+
+ function renderContrast() {
+ const mount = T.$('contrast');
+ mount.innerHTML = '';
+
+ const white = { r: 255, g: 255, b: 255 };
+ const black = { r: 0, g: 0, b: 0 };
+
+ const rows = palette.map((hex) => {
+ const rgb = T.hexToRgb(hex);
+ const onWhite = T.contrast(rgb, white);
+ const onBlack = T.contrast(rgb, black);
+ const best = Math.max(onWhite, onBlack);
+
+ return [
+ hex,
+ onWhite.toFixed(2) + ':1',
+ onBlack.toFixed(2) + ':1',
+ best >= 4.5 ? '✓ AA for text' : best >= 3 ? 'Large text only' : '✗ Decorative only'
+ ];
+ });
+
+ mount.append(T.table(['Colour', 'On white', 'On black', 'Verdict'], rows));
+ }
+
+ function renderExport() {
+ const format = T.$('format').value;
+ let out;
+
+ if (format === 'css') {
+ out = ':root {\n' +
+ palette.map((c, i) => ` --colour-${i + 1}: ${c};`).join('\n') + '\n}';
+ } else if (format === 'scss') {
+ out = palette.map((c, i) => `$colour-${i + 1}: ${c};`).join('\n');
+ } else if (format === 'tailwind') {
+ out = 'module.exports = {\n theme: {\n extend: {\n colors: {\n' +
+ palette.map((c, i) => ` brand${i + 1}: '${c}',`).join('\n') +
+ '\n }\n }\n }\n};';
+ } else if (format === 'json') {
+ out = JSON.stringify(
+ Object.fromEntries(palette.map((c, i) => [`colour-${i + 1}`, c])), null, 2);
+ } else {
+ out = palette.join('\n');
+ }
+
+ T.setOutput('css', out);
+ }
+
+ T.on(['base'], build, 'input');
+ T.on(['scheme'], build, 'change');
+ T.on(['format'], renderExport, 'change');
+
+ T.$('count').addEventListener('input', () => {
+ T.$('count-value').textContent = T.$('count').value;
+ // Locks beyond the new length no longer apply
+ locked = new Set([...locked].filter((i) => i < Number(T.$('count').value)));
+ build();
+ });
+
+ T.$('randomise').addEventListener('click', () => {
+ const rgb = T.hslToRgb(T.randomInt(0, 359), T.randomInt(55, 95), T.randomInt(40, 65));
+ T.$('base').value = T.rgbToHex(rgb.r, rgb.g, rgb.b);
+ build();
+ });
+
+ T.wireActions({
+ slug: 'color-palette-generator',
+ getResult: () => T.$('css').textContent,
+ filename: 'palette.css',
+ mime: 'text/css'
+ });
+
+ build();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('color-palette-generator');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

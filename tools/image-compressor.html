@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/image-compressor.html
+     Purpose: Shrink images without a visible quality drop, processed entirely in your browser.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Image Compressor: Shrink JPG, PNG and WebP Locally</title>
+<meta name="description" content="Shrink JPG, PNG and WebP files without a visible quality drop. Adjustable quality, before-and-after comparison, and nothing is ever uploaded.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/image-compressor.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Image Compressor | 123MiniApps">
+<meta property="og:description" content="Shrink JPG, PNG and WebP files without a visible quality drop. Adjustable quality, before-and-after comparison, and nothing is ever uploaded.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/image-compressor.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Compressor | 123MiniApps">
+<meta name="twitter:description" content="Shrink JPG, PNG and WebP files without a visible quality drop. Adjustable quality, before-and-after comparison, and nothing is ever uploaded.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Image Tools", "item": "https://www.123miniapps.online/#category-image" },
+        { "@type": "ListItem", "position": 3, "name": "Image Compressor", "item": "https://www.123miniapps.online/tools/image-compressor.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Image Compressor",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Shrink JPG, PNG and WebP files without a visible quality drop. Adjustable quality, before-and-after comparison, and nothing is ever uploaded."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/image-compressor.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Image Compressor free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Image Compressor is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Image Compressor do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Image Compressor covers jPEG, WebP and PNG output, adjustable quality with a live size readout, optional maximum width, which usually saves more than quality does, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Image Compressor work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Resizing usually beats quality reduction. File size scales with pixel count, so halving an image's width quarters its pixels and typically cuts the file to around a quarter of its original size, with no visible loss at all if the image was larger than its display size. A 4000-pixel-wide photo displayed in a 800-pixel column is carrying 25 times more data than the screen can use. Check the width limit before reaching for aggressive quality settings."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Image Compressor work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Your image is decoded and processed by your own browser using the File and Canvas APIs. It is never uploaded, there is no server to receive it. You can verify this by opening your browser's developer tools, switching to the Network tab, and watching while you use the tool: you will see no request carrying your file. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/image-compressor.html#howto",
+      "name": "How to use Image Compressor",
+      "description": "Shrink images without a visible quality drop, processed entirely in your browser.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Drop an image, or click to browse",
+                  "text": "Drop an image, or click to browse.",
+                  "url": "https://www.123miniapps.online/tools/image-compressor.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Adjust the quality slider and watch the size change",
+                  "text": "Adjust the quality slider and watch the size change.",
+                  "url": "https://www.123miniapps.online/tools/image-compressor.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Limit the width if the image is larger than it needs to be",
+                  "text": "Limit the width if the image is larger than it needs to be.",
+                  "url": "https://www.123miniapps.online/tools/image-compressor.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Download when you are happy with the result",
+                  "text": "Download when you are happy with the result.",
+                  "url": "https://www.123miniapps.online/tools/image-compressor.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-image">Image Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Image Compressor</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🗜️</div>
+      <div>
+        <h1>Image Compressor</h1>
+        <p>Shrink images without a visible quality drop, processed entirely in your browser.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Image compressor">
+    <div class="dropzone" id="dropzone" role="button" tabindex="0"
+         aria-label="Drop an image here, or click to browse">
+      <span class="dropzone__icon" aria-hidden="true">📁</span>
+      <span class="dropzone__label">Drop an image here, or click to browse</span>
+      <span class="dropzone__hint">JPG, PNG, WebP or GIF, processed on your device</span>
+    </div>
+
+ <p class="field__hint">
+ The image is decoded and processed by your own browser. It is never uploaded, and no copy of it
+ exists anywhere but this tab, you can confirm that in the DevTools Network tab while you work.
+ </p>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="quality">
+        <span>Quality</span>
+        <span class="field__hint"><strong id="quality-value">80</strong> %</span>
+      </label>
+      <input class="range" id="quality" type="range" min="10" max="100" value="80" step="5">
+    </div>
+    <div class="field">
+      <label class="field__label" for="format"><span>Output format</span></label>
+      <select class="select" id="format">
+        <option value="image/jpeg" selected>JPEG, best for photos</option>
+        <option value="image/webp">WebP, smaller, modern</option>
+        <option value="image/png">PNG, lossless, keeps transparency</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="max-width">
+        <span>Limit width to</span>
+        <span class="field__hint"><strong id="max-width-value">4000</strong> px</span>
+      </label>
+      <input class="range" id="max-width" type="range" min="200" max="4000" value="4000" step="100">
+    </div>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Choose an image to begin.</p>
+
+    <hr class="hr">
+
+ <div class="result-grid">
+ <div class="result"><span class="result__value" id="r-before" style="font-size:var(--text-2xl)">, </span><span class="result__label">Original</span></div>
+ <div class="result result--primary"><span class="result__value" id="r-after" style="font-size:var(--text-2xl)">, </span><span class="result__label">Compressed</span></div>
+ <div class="result"><span class="result__value" id="r-saved" style="font-size:var(--text-2xl)">, </span><span class="result__label">Saved</span></div>
+ <div class="result"><span class="result__value" id="r-dims" style="font-size:var(--text-lg)">, </span><span class="result__label">Dimensions</span></div>
+ </div>
+
+ <div class="workspace__row">
+ <div class="field">
+ <span class="field__label"><span>Original</span></span>
+ <div class="output output--center" style="padding:var(--space-4)">
+ <img id="preview-before" alt="Original image preview" style="max-width:100%;max-height:320px;border-radius:var(--radius-sm)">
+ </div>
+ </div>
+ <div class="field">
+ <span class="field__label"><span>Compressed</span></span>
+ <div class="output output--center" style="padding:var(--space-4)">
+ <img id="preview-after" alt="Compressed image preview" style="max-width:100%;max-height:320px;border-radius:var(--radius-sm)">
+ </div>
+ </div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="download" type="button">Download compressed</button>
+      <button class="btn btn--ghost" id="reset" type="button">Choose another image</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>JPEG, WebP and PNG output</li>
+        <li>Adjustable quality with a live size readout</li>
+        <li>Optional maximum width, which usually saves more than quality does</li>
+        <li>Side-by-side before and after preview</li>
+        <li>Nothing is uploaded</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Drop an image, or click to browse.</li>
+        <li>Adjust the quality slider and watch the size change.</li>
+        <li>Limit the width if the image is larger than it needs to be.</li>
+        <li>Download when you are happy with the result.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Where the savings actually come from</h2>
+      <p class="text-sm text-muted">Resizing usually beats quality reduction. File size scales with pixel count, so halving an image's width quarters its pixels and typically cuts the file to around a quarter of its original size, with no visible loss at all if the image was larger than its display size. A 4000-pixel-wide photo displayed in a 800-pixel column is carrying 25 times more data than the screen can use. Check the width limit before reaching for aggressive quality settings.</p>
+      <p class="text-sm text-muted mt-3">JPEG quality is not a percentage of anything meaningful. It is an index into quantisation tables, and the relationship to file size is steeply non-linear: dropping from 100 to 85 often halves the file with no perceptible difference, while dropping from 50 to 35 saves comparatively little and looks noticeably worse. Somewhere between 75 and 85 is the sweet spot for most photographs.</p>
+      <p class="text-sm text-muted mt-3">Format matters more than either. WebP is typically 25% to 35% smaller than JPEG at equivalent visual quality and is now supported by every current browser. It also supports transparency, which JPEG does not. The one case for PNG is images with sharp edges and flat colour, screenshots, logos, diagrams, where JPEG's block-based compression produces visible artefacts around text. Never re-compress a JPEG repeatedly, since each pass discards more information permanently.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Image Compressor free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Image Compressor is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Image Compressor do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Image Compressor covers jPEG, WebP and PNG output, adjustable quality with a live size readout, optional maximum width, which usually saves more than quality does, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Image Compressor work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Resizing usually beats quality reduction. File size scales with pixel count, so halving an image&#x27;s width quarters its pixels and typically cuts the file to around a quarter of its original size, with no visible loss at all if the image was larger than its display size. A 4000-pixel-wide photo displayed in a 800-pixel column is carrying 25 times more data than the screen can use. Check the width limit before reaching for aggressive quality settings.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Image Compressor work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Your image is decoded and processed by your own browser using the File and Canvas APIs. It is never uploaded, there is no server to receive it. You can verify this by opening your browser&#x27;s developer tools, switching to the Network tab, and watching while you use the tool: you will see no request carrying your file. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/webp-vs-jpeg-vs-png.html">WebP, JPEG or PNG: which should you actually use?</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let sourceImage = null;
+ let sourceFile = null;
+ let outputBlob = null;
+
+ async function load(file) {
+ sourceFile = file;
+
+ try {
+ const dataUrl = await T.readAsDataURL(file);
+ sourceImage = await T.loadImage(dataUrl);
+
+ T.$('preview-before').src = dataUrl;
+ T.$('r-before').textContent = T.bytes(file.size);
+
+ // Default the width limit to the image's own width
+ const widthInput = T.$('max-width');
+ widthInput.max = String(Math.max(200, sourceImage.width));
+ widthInput.value = String(Math.min(Number(widthInput.max), sourceImage.width));
+ T.$('max-width-value').textContent = widthInput.value;
+
+ markDropzone(file);
+ compress();
+ } catch (err) {
+ T.status('status', err.message, 'error');
+ }
+ }
+
+ function markDropzone(file) {
+ const zone = T.$('dropzone');
+ zone.classList.add('has-file');
+ zone.querySelector('.dropzone__label').textContent = file.name;
+ zone.querySelector('.dropzone__hint').textContent =
+ `${T.bytes(file.size)} · ${sourceImage.width}×${sourceImage.height}, click to choose another`;
+ }
+
+ function compress() {
+ if (!sourceImage) return;
+
+ const quality = Number(T.$('quality').value) / 100;
+ const format = T.$('format').value;
+ const maxWidth = Number(T.$('max-width').value);
+
+ T.$('quality-value').textContent = T.$('quality').value;
+ T.$('max-width-value').textContent = String(maxWidth);
+
+ // Scale down only, never upscale, which adds bytes without detail
+ const scale = Math.min(1, maxWidth / sourceImage.width);
+ const width = Math.round(sourceImage.width * scale);
+ const height = Math.round(sourceImage.height * scale);
+
+ const canvas = document.createElement('canvas');
+ canvas.width = width;
+ canvas.height = height;
+
+ const ctx = canvas.getContext('2d');
+ ctx.imageSmoothingEnabled = true;
+ ctx.imageSmoothingQuality = 'high';
+
+ // JPEG has no alpha channel, so composite onto white rather than
+ // letting transparent pixels turn black
+ if (format === 'image/jpeg') {
+ ctx.fillStyle = '#FFFFFF';
+ ctx.fillRect(0, 0, width, height);
+ }
+
+ ctx.drawImage(sourceImage, 0, 0, width, height);
+
+ canvas.toBlob((blob) => {
+ if (!blob) {
+ T.status('status', 'Could not encode the image in that format.', 'error');
+ return;
+ }
+
+ outputBlob = blob;
+ T.$('preview-after').src = URL.createObjectURL(blob);
+
+ T.$('r-after').textContent = T.bytes(blob.size);
+ T.$('r-dims').textContent = `${width} × ${height}`;
+
+ const saved = sourceFile.size - blob.size;
+ const percentage = (saved / sourceFile.size) * 100;
+
+ T.$('r-saved').textContent = saved > 0 ? percentage.toFixed(0) + '%' : ', ';
+ T.$('r-saved').style.color = saved > 0 ? 'var(--success)' : 'var(--warning)';
+
+ if (saved > 0) {
+ T.status('status',
+ `Saved ${T.bytes(saved)}, ${percentage.toFixed(1)}% smaller.` +
+ (scale < 1 ? ` Resized to ${width}px wide.` : ''), 'ok');
+ } else {
+ T.status('status',
+ 'The compressed file is larger than the original. Try a lower quality, ' +
+ 'a smaller width, or WebP, some images are already well optimised.', 'warn');
+ }
+
+ if (window.Analytics) Analytics.trackToolUse('image-compressor');
+ }, format, format === 'image/png' ? undefined : quality);
+ }
+
+ T.dropzone('dropzone', load);
+ T.on(['quality', 'max-width'], debounce(compress, 150));
+ T.on(['format'], compress, 'change');
+
+ T.$('download').addEventListener('click', () => {
+ if (!outputBlob) {
+ toast({ type: 'warning', title: 'Choose an image first' });
+ return;
+ }
+ const extension = { 'image/jpeg': 'jpg', 'image/webp': 'webp', 'image/png': 'png' }[T.$('format').value];
+ const base = (sourceFile.name || 'image').replace(/\.[^.]+$/, '');
+ downloadFile(outputBlob, `${base}-compressed.${extension}`, T.$('format').value);
+ });
+
+ T.$('reset').addEventListener('click', async () => {
+ const file = await T.pickFile('image/*');
+ if (file) load(file);
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Image Compressor | 123MiniApps' }));
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('image-compressor');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

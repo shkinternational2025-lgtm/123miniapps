@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/glassmorphism-generator.html
+     Purpose: Generate frosted-glass CSS, previewed over a background so you can judge it properly.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Glassmorphism Generator: Frosted Glass CSS</title>
+<meta name="description" content="Generate frosted-glass CSS with adjustable blur, transparency, saturation and border tuning, previewed over a real background image.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/glassmorphism-generator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Glassmorphism Generator | 123MiniApps">
+<meta property="og:description" content="Generate frosted-glass CSS with adjustable blur, transparency, saturation and border tuning, previewed over a real background image.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/glassmorphism-generator.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Glassmorphism Generator | 123MiniApps">
+<meta name="twitter:description" content="Generate frosted-glass CSS with adjustable blur, transparency, saturation and border tuning, previewed over a real background image.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Design Tools", "item": "https://www.123miniapps.online/#category-design" },
+        { "@type": "ListItem", "position": 3, "name": "Glassmorphism Generator", "item": "https://www.123miniapps.online/tools/glassmorphism-generator.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Glassmorphism Generator",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Generate frosted-glass CSS with adjustable blur, transparency, saturation and border tuning, previewed over a real background image."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/glassmorphism-generator.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Glassmorphism Generator free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Glassmorphism Generator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Glassmorphism Generator do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Glassmorphism Generator covers blur, transparency and saturation control, custom tint colour and border strength, four preview backgrounds to judge against, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Glassmorphism Generator work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The effect depends entirely on backdrop-filter, which blurs whatever is painted behind the element rather than the element itself. That means it does nothing over a flat background, glass only reads as glass when there is detail behind it to distort. If your preview looks like a plain translucent box, the problem is the backdrop, not the settings."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Glassmorphism Generator work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/glassmorphism-generator.html#howto",
+      "name": "How to use Glassmorphism Generator",
+      "description": "Generate frosted-glass CSS, previewed over a background so you can judge it properly.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Adjust the blur and transparency",
+                  "text": "Adjust the blur and transparency.",
+                  "url": "https://www.123miniapps.online/tools/glassmorphism-generator.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Pick a background that resembles your real one",
+                  "text": "Pick a background that resembles your real one.",
+                  "url": "https://www.123miniapps.online/tools/glassmorphism-generator.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Tune the tint and border until it reads as glass",
+                  "text": "Tune the tint and border until it reads as glass.",
+                  "url": "https://www.123miniapps.online/tools/glassmorphism-generator.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Copy the CSS, the Safari prefix is included",
+                  "text": "Copy the CSS, the Safari prefix is included.",
+                  "url": "https://www.123miniapps.online/tools/glassmorphism-generator.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-design">Design Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Glassmorphism Generator</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🪟</div>
+      <div>
+        <h1>Glassmorphism Generator</h1>
+        <p>Generate frosted-glass CSS, previewed over a background so you can judge it properly.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Glassmorphism generator">
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="blur">
+        <span>Blur</span>
+        <span class="field__hint"><strong id="blur-value">20</strong> px</span>
+      </label>
+      <input class="range" id="blur" type="range" min="0" max="40" value="20" step="1">
+    </div>
+    <div class="field">
+      <label class="field__label" for="transparency">
+        <span>Transparency</span>
+        <span class="field__hint"><strong id="transparency-value">20</strong> %</span>
+      </label>
+      <input class="range" id="transparency" type="range" min="0" max="100" value="20" step="1">
+    </div>
+    <div class="field">
+      <label class="field__label" for="saturation">
+        <span>Saturation</span>
+        <span class="field__hint"><strong id="saturation-value">160</strong> %</span>
+      </label>
+      <input class="range" id="saturation" type="range" min="100" max="250" value="160" step="5">
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="tint"><span>Glass tint</span></label>
+      <input class="input" id="tint" type="color" value="#1A1F4E" style="height:52px;padding:6px;cursor:pointer">
+    </div>
+    <div class="field">
+      <label class="field__label" for="border-alpha">
+        <span>Border strength</span>
+        <span class="field__hint"><strong id="border-alpha-value">25</strong> %</span>
+      </label>
+      <input class="range" id="border-alpha" type="range" min="0" max="100" value="25" step="1">
+    </div>
+    <div class="field">
+      <label class="field__label" for="radius">
+        <span>Corner radius</span>
+        <span class="field__hint"><strong id="radius-value">22</strong> px</span>
+      </label>
+      <input class="range" id="radius" type="range" min="0" max="48" value="22" step="2">
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="backdrop"><span>Preview background</span></label>
+      <select class="select" id="backdrop">
+        <option value="mesh" selected>Colourful mesh</option>
+        <option value="photo">Photo-like gradient</option>
+        <option value="dark">Dark solid</option>
+        <option value="light">Light solid</option>
+      </select>
+    </div>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="shadow" checked>
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Add a drop shadow</span>
+    </label>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="noise">
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Add subtle noise texture</span>
+    </label>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Adjust the sliders.</p>
+
+    <hr class="hr">
+
+ <div id="surface" style="padding:var(--space-12);border-radius:var(--radius-lg);display:grid;place-items:center;min-height:320px">
+ <div id="glass" style="padding:var(--space-8);max-width:340px;text-align:center">
+ <h3 style="margin-bottom:var(--space-2);color:#fff">Frosted glass</h3>
+ <p style="color:rgba(255,255,255.85);font-size:var(--text-sm)">The blur samples whatever sits behind the element, so glass only reads as glass over something with detail.</p>
+ </div>
+ </div>
+
+    <div class="field">
+      <label class="field__label" for="css">
+        <span>CSS</span>
+      </label>
+      <div class="output output--empty" id="css">The CSS will appear here.</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy CSS</button>
+      <button class="btn btn--secondary" id="copy-tailwind" type="button">Copy Tailwind class</button>
+      <button class="btn btn--secondary" id="download" type="button">Download</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Blur, transparency and saturation control</li>
+        <li>Custom tint colour and border strength</li>
+        <li>Four preview backgrounds to judge against</li>
+        <li>Optional drop shadow and noise texture</li>
+        <li>Includes the -webkit- prefix for Safari</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Adjust the blur and transparency.</li>
+        <li>Pick a background that resembles your real one.</li>
+        <li>Tune the tint and border until it reads as glass.</li>
+        <li>Copy the CSS, the Safari prefix is included.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Making glassmorphism work in practice</h2>
+      <p class="text-sm text-muted">The effect depends entirely on <code>backdrop-filter</code>, which blurs whatever is painted behind the element rather than the element itself. That means it does nothing over a flat background, glass only reads as glass when there is detail behind it to distort. If your preview looks like a plain translucent box, the problem is the backdrop, not the settings.</p>
+      <p class="text-sm text-muted mt-3">Legibility is the recurring failure. A blurred backdrop still varies in brightness, so text over glass can be perfectly readable in one scroll position and unreadable in another. The fixes are to raise the tint opacity above about 15%, add saturation to push the backdrop toward a consistent tone, and always verify contrast against the lightest and darkest points the backdrop reaches. A glass panel that passes WCAG AA over one photo may fail badly over another.</p>
+      <p class="text-sm text-muted mt-3">There is a real performance cost too. <code>backdrop-filter</code> forces the browser to composite and blur a region on every frame, which is expensive, especially on mobile, and especially if the content behind it is animating or scrolling. Use it on a handful of elements rather than throughout an interface. Safari also still requires the <code>-webkit-</code> prefix, and Firefox only enabled it by default relatively recently, so include a solid-colour fallback inside an <code>@supports</code> query for browsers that lack it.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Glassmorphism Generator free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Glassmorphism Generator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Glassmorphism Generator do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Glassmorphism Generator covers blur, transparency and saturation control, custom tint colour and border strength, four preview backgrounds to judge against, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Glassmorphism Generator work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">The effect depends entirely on backdrop-filter, which blurs whatever is painted behind the element rather than the element itself. That means it does nothing over a flat background, glass only reads as glass when there is detail behind it to distort. If your preview looks like a plain translucent box, the problem is the backdrop, not the settings.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Glassmorphism Generator work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/glassmorphism-frosted-glass-effect.html">Glassmorphism: The Frosted-Glass UI Effect Explained</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const BACKDROPS = {
+ mesh: 'radial-gradient(at 20% 25%, #00D4FF 0px, transparent 55%), ' +
+ 'radial-gradient(at 78% 30%, #7B61FF 0px, transparent 55%), ' +
+ 'radial-gradient(at 55% 85%, #F472B6 0px, transparent 55%), #0B1120',
+ photo: 'linear-gradient(135deg, #667eea 0%, #764ba2 35%, #f093fb 70%, #f5576c 100%)',
+ dark: '#0B1120',
+ light: '#F0F4FF'
+ };
+
+ function tintRgba() {
+ const rgb = T.hexToRgb(T.$('tint').value) || { r: 26, g: 31, b: 78 };
+ const alpha = Number(T.$('transparency').value) / 100;
+ return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha.toFixed(2)})`;
+ }
+
+ function borderRgba() {
+ const alpha = Number(T.$('border-alpha').value) / 100;
+ return `rgba(255, 255, 255, ${alpha.toFixed(2)})`;
+ }
+
+ function buildCSS() {
+ const blur = Number(T.$('blur').value);
+ const saturation = Number(T.$('saturation').value);
+ const radius = Number(T.$('radius').value);
+
+ const lines = [
+ `background: ${tintRgba()};`,
+ `-webkit-backdrop-filter: blur(${blur}px) saturate(${saturation}%);`,
+ `backdrop-filter: blur(${blur}px) saturate(${saturation}%);`,
+ `border: 1px solid ${borderRgba()};`,
+ `border-radius: ${radius}px;`
+ ];
+
+ if (T.$('shadow').checked) {
+ lines.push('box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);');
+ }
+
+ return lines;
+ }
+
+ function render() {
+ ['blur', 'transparency', 'saturation', 'border-alpha', 'radius'].forEach((id) => {
+ T.$(id + '-value').textContent = T.$(id).value;
+ });
+
+ const surface = T.$('surface');
+ surface.style.background = BACKDROPS[T.$('backdrop').value];
+
+ const glass = T.$('glass');
+ const blur = Number(T.$('blur').value);
+ const saturation = Number(T.$('saturation').value);
+
+ glass.style.background = tintRgba();
+ glass.style.backdropFilter = `blur(${blur}px) saturate(${saturation}%)`;
+ glass.style.webkitBackdropFilter = `blur(${blur}px) saturate(${saturation}%)`;
+ glass.style.border = `1px solid ${borderRgba()}`;
+ glass.style.borderRadius = T.$('radius').value + 'px';
+ glass.style.boxShadow = T.$('shadow').checked ? '0 8px 32px rgba(0,0,0.24)' : 'none';
+
+ if (T.$('noise').checked) {
+ // A tiny inline SVG turbulence pattern, tiled, no extra request
+ const noise = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E\")";
+ glass.style.backgroundImage = noise;
+ } else {
+ glass.style.backgroundImage = 'none';
+ }
+
+ const lines = buildCSS();
+ if (T.$('noise').checked) {
+ lines.push("/* Optional noise texture, inlined so it costs no request */");
+ lines.push("background-image: url(\"data:image/svg+xml...\"); /* see the copy button */");
+ }
+
+ T.setOutput('css',
+ '.glass {\n ' + lines.join('\n ') + '\n}\n\n' +
+ '/* Fallback for browsers without backdrop-filter */\n' +
+ '@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {\n' +
+ ` .glass {\n background: ${solidFallback()};\n }\n}`);
+
+ // Warn when the effect will not be visible
+ const flat = ['dark', 'light'].includes(T.$('backdrop').value);
+ T.status('status',
+ flat
+ ? 'Over a flat background the blur has nothing to sample, glass needs detail behind it.'
+ : `Blur ${blur}px at ${T.$('transparency').value}% tint opacity.`,
+ flat ? 'warn' : 'ok');
+
+ if (window.Analytics) Analytics.trackToolUse('glassmorphism-generator');
+ }
+
+ /** A solid approximation for browsers lacking backdrop-filter. */
+ function solidFallback() {
+ const rgb = T.hexToRgb(T.$('tint').value) || { r: 26, g: 31, b: 78 };
+ const alpha = Math.min(0.95, Number(T.$('transparency').value) / 100 + 0.55);
+ return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha.toFixed(2)})`;
+ }
+
+ T.on(['blur', 'transparency', 'saturation', 'border-alpha', 'radius'], render);
+ T.on(['tint'], render, 'input');
+ T.on(['backdrop', 'shadow', 'noise'], render, 'change');
+
+ T.$('copy').addEventListener('click', () => copyToClipboard(T.$('css').textContent, 'CSS copied'));
+
+ T.$('copy-tailwind').addEventListener('click', () => {
+ const blur = T.$('blur').value;
+ copyToClipboard(
+ `backdrop-blur-[${blur}px] backdrop-saturate-[${T.$('saturation').value}%] ` +
+ `bg-[${tintRgba().replace(/\s+/g, '')}] border border-[${borderRgba().replace(/\s+/g, '')}] ` +
+ `rounded-[${T.$('radius').value}px]`,
+ 'Tailwind classes copied');
+ });
+
+ T.$('download').addEventListener('click', () =>
+ downloadFile(T.$('css').textContent, 'glass.css', 'text/css'));
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Glassmorphism Generator | 123MiniApps' }));
+
+ render();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('glassmorphism-generator');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/discount-calculator.html
+     Purpose: Work out sale prices and savings, including what stacked discounts really total.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Discount Calculator: Sale Price, Savings and Stacked Discounts</title>
+<meta name="description" content="Find the sale price and savings on any discount, including stacked discounts, and work backwards from a sale price to the original.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/discount-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Discount Calculator | 123MiniApps">
+<meta property="og:description" content="Find the sale price and savings on any discount, including stacked discounts, and work backwards from a sale price to the original.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/discount-calculator.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Discount Calculator | 123MiniApps">
+<meta name="twitter:description" content="Find the sale price and savings on any discount, including stacked discounts, and work backwards from a sale price to the original.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://www.123miniapps.online/#category-calculator" },
+        { "@type": "ListItem", "position": 3, "name": "Discount Calculator", "item": "https://www.123miniapps.online/tools/discount-calculator.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Discount Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Find the sale price and savings on any discount, including stacked discounts, and work backwards from a sale price to the original."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/discount-calculator.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Discount Calculator free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Discount Calculator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Discount Calculator do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Discount Calculator covers sale price, savings and effective discount, stacked discounts calculated correctly, reverse calculation to find the original price, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Discount Calculator work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A 20% discount followed by another 20% is not 40% off. The second discount applies to the already-reduced price, so you pay 80% of 80%, which is 64% of the original, an effective discount of 36%, not 40%. The gap widens as the discounts grow: two 50% discounts leave you at 25% of the original rather than free."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Discount Calculator work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/discount-calculator.html#howto",
+      "name": "How to use Discount Calculator",
+      "description": "Work out sale prices and savings, including what stacked discounts really total.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Pick which calculation you need",
+                  "text": "Pick which calculation you need.",
+                  "url": "https://www.123miniapps.online/tools/discount-calculator.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Enter the price and discount percentages",
+                  "text": "Enter the price and discount percentages.",
+                  "url": "https://www.123miniapps.online/tools/discount-calculator.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Read the final price and savings",
+                  "text": "Read the final price and savings.",
+                  "url": "https://www.123miniapps.online/tools/discount-calculator.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Check the breakdown to see the working",
+                  "text": "Check the breakdown to see the working.",
+                  "url": "https://www.123miniapps.online/tools/discount-calculator.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-calculator">Calculators</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Discount Calculator</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🏷️</div>
+      <div>
+        <h1>Discount Calculator</h1>
+        <p>Work out sale prices and savings, including what stacked discounts really total.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Discount calculator">
+    <div class="field">
+      <label class="field__label" for="mode"><span>What do you want to work out?</span></label>
+      <select class="select" id="mode">
+        <option value="sale" selected>Sale price from a discount</option>
+        <option value="stacked">Stacked discounts (one after another)</option>
+        <option value="original">Original price from a sale price</option>
+        <option value="percent">What discount was applied?</option>
+      </select>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="price"><span>Original price</span></label>
+      <input class="input" id="price" type="number" value="199.99" placeholder="199.99" step="any" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label class="field__label" for="discount"><span>Discount (%)</span></label>
+      <input class="input" id="discount" type="number" value="25" placeholder="25" step="any" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label class="field__label" for="discount2"><span>Second discount (%)</span></label>
+      <input class="input" id="discount2" type="number" value="10" placeholder="10" step="any" inputmode="decimal">
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="saleprice"><span>Sale price</span></label>
+      <input class="input" id="saleprice" type="number" value="149.99" placeholder="149.99" step="any" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label class="field__label" for="tax"><span>Add tax afterwards (%)</span></label>
+      <input class="input" id="tax" type="number" value="0" placeholder="0" step="any" inputmode="decimal">
+    </div>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Enter a price and a discount.</p>
+
+    <hr class="hr">
+
+ <div class="result-grid">
+ <div class="result result--primary"><span class="result__value" id="r-final">, </span><span class="result__label">You pay</span></div>
+ <div class="result"><span class="result__value" id="r-saved">, </span><span class="result__label">You save</span></div>
+ <div class="result"><span class="result__value" id="r-effective">, </span><span class="result__label">Effective discount</span></div>
+ </div>
+
+ <div class="field">
+ <span class="field__label"><span>Breakdown</span></span>
+ <div class="output" id="working">The calculation will appear here.</div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy result</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Sale price, savings and effective discount</li>
+        <li>Stacked discounts calculated correctly</li>
+        <li>Reverse calculation to find the original price</li>
+        <li>Optional tax applied after the discount</li>
+        <li>Step-by-step breakdown of every calculation</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Pick which calculation you need.</li>
+        <li>Enter the price and discount percentages.</li>
+        <li>Read the final price and savings.</li>
+        <li>Check the breakdown to see the working.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Why stacked discounts never add up</h2>
+      <p class="text-sm text-muted">A 20% discount followed by another 20% is not 40% off. The second discount applies to the already-reduced price, so you pay 80% of 80%, which is 64% of the original, an effective discount of 36%, not 40%. The gap widens as the discounts grow: two 50% discounts leave you at 25% of the original rather than free.</p>
+      <p class="text-sm text-muted mt-3">The order does not matter mathematically, multiplication is commutative, so 20% then 10% gives the same result as 10% then 20%. It can matter legally and practically, though. Some retailers apply percentage discounts before fixed-amount vouchers, others after, and the difference is real money. Tax is normally calculated on the discounted price, which is what this tool does.</p>
+      <p class="text-sm text-muted mt-3">The pricing tactic worth being aware of is the reference price. A discount is only meaningful relative to a price the item actually sold at, and “was £200, now £100” tells you nothing if it never sold at £200. Several jurisdictions regulate this, EU rules require the displayed prior price to be the lowest price charged in the preceding 30 days, and similar rules exist in the UK and Australia. Comparing against what competitors charge is a better guide than the percentage on the label.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Discount Calculator free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Discount Calculator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Discount Calculator do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Discount Calculator covers sale price, savings and effective discount, stacked discounts calculated correctly, reverse calculation to find the original price, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Discount Calculator work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">A 20% discount followed by another 20% is not 40% off. The second discount applies to the already-reduced price, so you pay 80% of 80%, which is 64% of the original, an effective discount of 36%, not 40%. The gap widens as the discounts grow: two 50% discounts leave you at 25% of the original rather than free.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Discount Calculator work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/why-stacked-discounts-never-add-up.html">Why 20% off plus another 20% off is not 40% off</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let lastResult = '';
+
+ function syncFields() {
+ const mode = T.$('mode').value;
+ const show = (id, visible) => {
+ const field = T.$(id).closest('.field');
+ if (field) field.style.display = visible ? '' : 'none';
+ };
+
+ show('price', mode !== 'original');
+ show('discount', mode === 'sale' || mode === 'stacked');
+ show('discount2', mode === 'stacked');
+ show('saleprice', mode === 'original' || mode === 'percent');
+
+ calculate();
+ }
+
+ function calculate() {
+ const mode = T.$('mode').value;
+ const price = T.num(T.$('price').value);
+ const d1 = T.num(T.$('discount').value);
+ const d2 = T.num(T.$('discount2').value);
+ const sale = T.num(T.$('saleprice').value);
+ const taxPct = T.num(T.$('tax').value) || 0;
+
+ let final, saved, effective, working;
+
+ try {
+ if (mode === 'sale') {
+ if (isNaN(price) || isNaN(d1)) throw new Error('need');
+ final = price * (1 - d1 / 100);
+ saved = price - final;
+ effective = d1;
+ working = `Original: ${T.money(price)}\n` +
+ `Discount: ${d1}% → −${T.money(saved)}\n` +
+ `Sale price: ${T.money(final)}`;
+ } else if (mode === 'stacked') {
+ if (isNaN(price) || isNaN(d1) || isNaN(d2)) throw new Error('need');
+ const after1 = price * (1 - d1 / 100);
+ final = after1 * (1 - d2 / 100);
+ saved = price - final;
+ effective = (saved / price) * 100;
+ working = `Original: ${T.money(price)}\n` +
+ `First discount ${d1}%: ${T.money(price)} × ${T.fmt(1 - d1 / 100, 3)} = ${T.money(after1)}\n` +
+ `Second discount ${d2}%: ${T.money(after1)} × ${T.fmt(1 - d2 / 100, 3)} = ${T.money(final)}\n\n` +
+ `Naively adding the discounts suggests ${T.fmt(d1 + d2, 1)}% off.\n` +
+ `The real effective discount is ${T.fmt(effective, 2)}%, a difference of ${T.money((d1 + d2 - effective) / 100 * price)}.`;
+ } else if (mode === 'original') {
+ if (isNaN(sale) || isNaN(d1)) throw new Error('need');
+ if (d1 >= 100) throw new Error('A 100% discount cannot be reversed.');
+ const original = sale / (1 - d1 / 100);
+ final = sale;
+ saved = original - sale;
+ effective = d1;
+ working = `Sale price: ${T.money(sale)}\n` +
+ `Was ${d1}% off\n` +
+ `Original: ${T.money(sale)} ÷ ${T.fmt(1 - d1 / 100, 3)} = ${T.money(original)}\n` +
+ `Saving: ${T.money(saved)}`;
+ } else {
+ if (isNaN(price) || isNaN(sale)) throw new Error('need');
+ if (price === 0) throw new Error('The original price cannot be zero.');
+ final = sale;
+ saved = price - sale;
+ effective = (saved / price) * 100;
+ working = `Original: ${T.money(price)}\n` +
+ `Sale price: ${T.money(sale)}\n` +
+ `Saving: ${T.money(saved)}\n` +
+ `Discount: (${T.money(saved)} ÷ ${T.money(price)}) × 100 = ${T.fmt(effective, 2)}%`;
+ }
+ } catch (err) {
+ if (err.message === 'need') {
+ T.status('status', 'Enter a price and a discount.', 'muted');
+ ['r-final', 'r-saved', 'r-effective'].forEach((id) => { T.$(id).textContent = ', '; });
+ } else {
+ T.status('status', err.message, 'error');
+ }
+ return;
+ }
+
+ if (taxPct > 0) {
+ const withTax = final * (1 + taxPct / 100);
+ working += `\n\nTax at ${taxPct}%: +${T.money(withTax - final)}\nTotal to pay: ${T.money(withTax)}`;
+ final = withTax;
+ }
+
+ T.$('r-final').textContent = T.money(final);
+ T.$('r-saved').textContent = T.money(saved);
+ T.$('r-effective').textContent = T.fmt(effective, 1) + '%';
+
+ T.setOutput('working', working);
+
+ lastResult = `You pay ${T.money(final)}, saving ${T.money(saved)} (${T.fmt(effective, 1)}% off).`;
+ T.status('status', lastResult, 'ok');
+ }
+
+ T.on(['price', 'discount', 'discount2', 'saleprice', 'tax'], calculate);
+ T.$('mode').addEventListener('change', syncFields);
+
+ T.$('copy').addEventListener('click', () => copyToClipboard(lastResult, 'Result copied'));
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Discount Calculator | 123MiniApps' }));
+
+ syncFields();
+ if (window.Analytics) Analytics.trackToolUse('discount-calculator');
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('discount-calculator');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

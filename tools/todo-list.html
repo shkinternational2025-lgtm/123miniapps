@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/todo-list.html
+     Purpose: A checklist that saves to your browser, no account, no sync, no tracking.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Todo List: Fast Checklist With No Account Required</title>
+<meta name="description" content="A fast checklist that saves to your browser and needs no account. Priorities, due dates, filtering and drag-free reordering, stored only on your device.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/todo-list.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Todo List | 123MiniApps">
+<meta property="og:description" content="A fast checklist that saves to your browser and needs no account. Priorities, due dates, filtering and drag-free reordering, stored only on your device.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/todo-list.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Todo List | 123MiniApps">
+<meta name="twitter:description" content="A fast checklist that saves to your browser and needs no account. Priorities, due dates, filtering and drag-free reordering, stored only on your device.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Productivity Tools", "item": "https://www.123miniapps.online/#category-productivity" },
+        { "@type": "ListItem", "position": 3, "name": "Todo List", "item": "https://www.123miniapps.online/tools/todo-list.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Todo List",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "A fast checklist that saves to your browser and needs no account. Priorities, due dates, filtering and drag-free reordering, stored only on your device."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/todo-list.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Todo List free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Todo List is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Todo List do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Todo List covers priorities, due dates and tags, filter by status, priority or due date, move tasks up and down without dragging, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Todo List work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything here is stored in your browser's localStorage. That has real advantages: it works offline, it loads instantly, nobody can read it, and there is no account to create or subscription to cancel. It also has a real limitation you should understand before relying on it, the data lives in one browser on one device. It will not appear on your phone, it does not survive clearing site data, and private browsing windows discard it when closed."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Todo List work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Your data is stored in your browser's localStorage, which lives on your device and is readable only by this site in this browser. Nothing syncs and nothing is uploaded. The trade-off is that clearing your browser data will erase it, so export anything important. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/todo-list.html#howto",
+      "name": "How to use Todo List",
+      "description": "A checklist that saves to your browser, no account, no sync, no tracking.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Type a task and press Enter",
+                  "text": "Type a task and press Enter.",
+                  "url": "https://www.123miniapps.online/tools/todo-list.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Set a priority or due date before adding if you want one",
+                  "text": "Set a priority or due date before adding if you want one.",
+                  "url": "https://www.123miniapps.online/tools/todo-list.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Click a task to mark it done",
+                  "text": "Click a task to mark it done.",
+                  "url": "https://www.123miniapps.online/tools/todo-list.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Use the filters to focus on what matters now",
+                  "text": "Use the filters to focus on what matters now.",
+                  "url": "https://www.123miniapps.online/tools/todo-list.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-productivity">Productivity Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Todo List</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">✅</div>
+      <div>
+        <h1>Todo List</h1>
+        <p>A checklist that saves to your browser, no account, no sync, no tracking.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Todo list">
+ <div class="field">
+ <label class="field__label" for="new-task"><span>Add a task</span><span class="field__hint">Press Enter to add</span></label>
+ <div style="display:flex;gap:var(--space-3)">
+ <input class="input" id="new-task" type="text" placeholder="What needs doing?" autocomplete="off" style="flex:1">
+ <button class="btn btn--primary" id="add" type="button">Add</button>
+ </div>
+ </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="priority"><span>Priority</span></label>
+      <select class="select" id="priority">
+        <option value="normal" selected>Normal</option>
+        <option value="high">High</option>
+        <option value="low">Low</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="due"><span>Due date (optional)</span></label>
+      <input class="input" id="due" type="date" value="" placeholder="" >
+    </div>
+    <div class="field">
+      <label class="field__label" for="tag"><span>Tag (optional)</span></label>
+      <input class="input" id="tag" type="text" value="" placeholder="e.g. work" >
+    </div>
+    </div>
+
+    <hr class="hr">
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="filter"><span>Show</span></label>
+      <select class="select" id="filter">
+        <option value="all" selected>Everything</option>
+        <option value="active">Not done</option>
+        <option value="done">Done</option>
+        <option value="today">Due today or overdue</option>
+        <option value="high">High priority</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="sort"><span>Sort by</span></label>
+      <select class="select" id="sort">
+        <option value="added" selected>When added</option>
+        <option value="priority">Priority</option>
+        <option value="due">Due date</option>
+        <option value="alpha">Alphabetically</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="search"><span>Search</span></label>
+      <input class="input" id="search" type="text" value="" placeholder="Filter by text" >
+    </div>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Add your first task.</p>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Tasks</span><span class="field__hint" id="counts"></span></span>
+ <div id="list"></div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--secondary" id="clear-done" type="button">Clear completed</button>
+      <button class="btn btn--secondary" id="export" type="button">Export as text</button>
+      <button class="btn btn--secondary" id="copy" type="button">Copy list</button>
+      <button class="btn btn--ghost" id="clear-all" type="button">Delete everything</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Priorities, due dates and tags</li>
+        <li>Filter by status, priority or due date</li>
+        <li>Move tasks up and down without dragging</li>
+        <li>Search across all tasks</li>
+        <li>Saved on your device, no account, no sync</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Type a task and press Enter.</li>
+        <li>Set a priority or due date before adding if you want one.</li>
+        <li>Click a task to mark it done.</li>
+        <li>Use the filters to focus on what matters now.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Where your tasks live, and what that means</h2>
+      <p class="text-sm text-muted">Everything here is stored in your browser's localStorage. That has real advantages: it works offline, it loads instantly, nobody can read it, and there is no account to create or subscription to cancel. It also has a real limitation you should understand before relying on it, the data lives in one browser on one device. It will not appear on your phone, it does not survive clearing site data, and private browsing windows discard it when closed.</p>
+      <p class="text-sm text-muted mt-3">Use the export button if a list matters. A quick copy into a note or document takes seconds and protects you from the one failure mode this design has.</p>
+      <p class="text-sm text-muted mt-3">On the productivity side, the most useful discipline is keeping the list short. A list of eighty items is a source of anxiety rather than a plan, because scanning it costs more attention than it saves. Most systems that work, whether that is a daily top-three, a kanban work-in-progress limit, or simply deleting anything untouched for a month, do the same underlying thing: they reduce the number of open decisions. The filters here exist to support that, not to help you manage a longer list.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Todo List free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Todo List is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Todo List do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Todo List covers priorities, due dates and tags, filter by status, priority or due date, move tasks up and down without dragging, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Todo List work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything here is stored in your browser&#x27;s localStorage. That has real advantages: it works offline, it loads instantly, nobody can read it, and there is no account to create or subscription to cancel. It also has a real limitation you should understand before relying on it, the data lives in one browser on one device. It will not appear on your phone, it does not survive clearing site data, and private browsing windows discard it when closed.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Todo List work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Your data is stored in your browser&#x27;s localStorage, which lives on your device and is readable only by this site in this browser. Nothing syncs and nothing is uploaded. The trade-off is that clearing your browser data will erase it, so export anything important. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/why-writing-a-to-do-list-works.html">Why Writing a To-Do List Works (and How to Write a Better One)</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let tasks = T.store.get('todo-tasks', []);
+
+ const PRIORITY_ORDER = { high: 0, normal: 1, low: 2 };
+ const PRIORITY_COLOUR = { high: 'var(--danger)', normal: 'var(--text-muted)', low: 'var(--info)' };
+
+ function save() {
+ T.store.set('todo-tasks', tasks);
+ }
+
+ function addTask() {
+ const textValue = T.$('new-task').value.trim();
+ if (!textValue) {
+ T.status('status', 'Type something first.', 'warn');
+ return;
+ }
+
+ tasks.push({
+ id: Date.now() + Math.random(),
+ text: textValue,
+ done: false,
+ priority: T.$('priority').value,
+ due: T.$('due').value || null,
+ tag: T.$('tag').value.trim() || null,
+ added: Date.now()
+ });
+
+ save();
+ T.$('new-task').value = '';
+ T.$('due').value = '';
+ render();
+ T.$('new-task').focus();
+
+ if (window.Analytics) Analytics.trackToolUse('todo-list');
+ }
+
+ function visibleTasks() {
+ const filter = T.$('filter').value;
+ const search = T.$('search').value.trim().toLowerCase();
+ const today = new Date().toISOString().slice(0, 10);
+
+ let list = tasks.filter((task) => {
+ if (search && !task.text.toLowerCase().includes(search) &&
+ !(task.tag || '').toLowerCase().includes(search)) return false;
+
+ if (filter === 'active') return !task.done;
+ if (filter === 'done') return task.done;
+ if (filter === 'high') return task.priority === 'high' && !task.done;
+ if (filter === 'today') return !task.done && task.due && task.due <= today;
+ return true;
+ });
+
+ const sort = T.$('sort').value;
+ if (sort === 'priority') {
+ list = [...list].sort((a, b) => PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority]);
+ } else if (sort === 'due') {
+ // Tasks with no due date sort last
+ list = [...list].sort((a, b) => (a.due || '9999').localeCompare(b.due || '9999'));
+ } else if (sort === 'alpha') {
+ list = [...list].sort((a, b) => a.text.localeCompare(b.text));
+ }
+
+ return list;
+ }
+
+ function dueLabel(due) {
+ if (!due) return null;
+ const today = new Date().toISOString().slice(0, 10);
+ const date = new Date(due + 'T00:00:00');
+ const days = Math.round((date - new Date(today + 'T00:00:00')) / 86400000);
+
+ if (days < 0) return { text: `${Math.abs(days)} day(s) overdue`, colour: 'var(--danger)' };
+ if (days === 0) return { text: 'Due today', colour: 'var(--warning)' };
+ if (days === 1) return { text: 'Due tomorrow', colour: 'var(--warning)' };
+ return { text: `Due in ${days} days`, colour: 'var(--text-muted)' };
+ }
+
+ function render() {
+ const mount = T.$('list');
+ mount.innerHTML = '';
+
+ const list = visibleTasks();
+ const done = tasks.filter((t) => t.done).length;
+
+ T.$('counts').textContent = tasks.length
+ ? `${tasks.length - done} open · ${done} done`
+ : '';
+
+ if (!list.length) {
+ mount.append(el('div', { className: 'empty-state' }, [
+ el('div', { className: 'empty-state__icon', text: tasks.length ? '🔍' : '📝',
+ attrs: { 'aria-hidden': 'true' } }),
+ el('p', { text: tasks.length
+ ? 'No tasks match the current filter.'
+ : 'Nothing here yet. Add your first task above.' })
+ ]));
+ T.status('status', tasks.length ? 'No matches.' : 'Add your first task.', 'muted');
+ return;
+ }
+
+ list.forEach((task) => {
+ const index = tasks.indexOf(task);
+
+ const rowEl = el('div', {
+ className: 'info-panel mb-2',
+ style: {
+ display: 'flex', alignItems: 'center', gap: 'var(--space-4)',
+ opacity: task.done ? '0.55' : '1',
+ borderLeftWidth: '3px',
+ borderLeftColor: task.done ? 'var(--success)' : PRIORITY_COLOUR[task.priority]
+ }
+ });
+
+ const checkbox = el('input', {
+ attrs: {
+ type: 'checkbox',
+ 'aria-label': `Mark “${task.text}” as ${task.done ? 'not done' : 'done'}`
+ },
+ style: { width: '20px', height: '20px', flexShrink: '0', cursor: 'pointer' }
+ });
+ checkbox.checked = task.done;
+ checkbox.addEventListener('change', () => {
+ task.done = checkbox.checked;
+ save();
+ render();
+ });
+
+ const body = el('div', { style: { flex: '1', minWidth: '0' } });
+ body.append(el('div', {
+ text: task.text,
+ style: {
+ textDecoration: task.done ? 'line-through' : 'none',
+ color: 'var(--text-primary)',
+ overflowWrap: 'anywhere'
+ }
+ }));
+
+ const meta = el('div', { className: 'flex flex-wrap gap-2 mt-2' });
+
+ if (task.priority !== 'normal') {
+ meta.append(el('span', {
+ className: 'badge',
+ text: task.priority,
+ style: { color: PRIORITY_COLOUR[task.priority], borderColor: PRIORITY_COLOUR[task.priority] }
+ }));
+ }
+
+ if (task.tag) meta.append(el('span', { className: 'badge badge--muted', text: task.tag }));
+
+ const due = dueLabel(task.due);
+ if (due && !task.done) {
+ meta.append(el('span', {
+ className: 'badge',
+ text: due.text,
+ style: { color: due.colour, borderColor: due.colour }
+ }));
+ }
+
+ if (meta.children.length) body.append(meta);
+ rowEl.append(checkbox, body);
+
+ // Reordering without drag-and-drop, which is fiddly on touch
+ const controls = el('div', { className: 'flex gap-1', style: { flexShrink: '0' } });
+
+ const move = (direction, label) => {
+ const button = el('button', {
+ className: 'btn btn--ghost btn--sm',
+ attrs: { type: 'button', 'aria-label': `Move “${task.text}” ${label}` },
+ text: direction < 0 ? '↑' : '↓'
+ });
+ button.addEventListener('click', () => {
+ const target = index + direction;
+ if (target < 0 || target >= tasks.length) return;
+ [tasks[index], tasks[target]] = [tasks[target], tasks[index]];
+ save();
+ render();
+ });
+ return button;
+ };
+
+ const remove = el('button', {
+ className: 'btn btn--ghost btn--sm',
+ attrs: { type: 'button', 'aria-label': `Delete “${task.text}”` },
+ text: '✕'
+ });
+ remove.addEventListener('click', () => {
+ tasks.splice(index, 1);
+ save();
+ render();
+ });
+
+ controls.append(move(-1, 'up'), move(1, 'down'), remove);
+ rowEl.append(controls);
+ mount.append(rowEl);
+ });
+
+ const overdue = tasks.filter((t) => !t.done && t.due && t.due < new Date().toISOString().slice(0, 10)).length;
+ T.status('status',
+ overdue ? `${overdue} task(s) overdue.` : `${tasks.length - done} task(s) remaining.`,
+ overdue ? 'warn' : 'ok');
+ }
+
+ function asText() {
+ return tasks.map((task) =>
+ `${task.done ? '[x]' : '[ ]'} ${task.text}` +
+ (task.priority !== 'normal' ? ` (${task.priority})` : '') +
+ (task.due ? `, due ${task.due}` : '') +
+ (task.tag ? ` #${task.tag}` : '')
+ ).join('\n');
+ }
+
+ T.$('add').addEventListener('click', addTask);
+ T.$('new-task').addEventListener('keydown', (e) => {
+ if (e.key === 'Enter') { e.preventDefault(); addTask(); }
+ });
+
+ T.on(['filter', 'sort'], render, 'change');
+ T.$('search').addEventListener('input', debounce(render, 200));
+
+ T.$('clear-done').addEventListener('click', () => {
+ const before = tasks.length;
+ tasks = tasks.filter((t) => !t.done);
+ save();
+ render();
+ toast({ type: 'success', title: `Cleared ${before - tasks.length} completed task(s)` });
+ });
+
+ T.$('clear-all').addEventListener('click', () => {
+ if (!tasks.length) return;
+ tasks = [];
+ save();
+ render();
+ toast({ type: 'success', title: 'All tasks deleted', message: 'This cannot be undone.' });
+ });
+
+ T.$('copy').addEventListener('click', () => copyToClipboard(asText(), 'List copied'));
+ T.$('export').addEventListener('click', () => {
+ if (!tasks.length) { toast({ type: 'warning', title: 'Nothing to export' }); return; }
+ downloadFile(asText(), 'todo-list.txt');
+ });
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Todo List | 123MiniApps' }));
+
+ render();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('todo-list');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

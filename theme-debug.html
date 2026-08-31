@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theme Debug — 123MiniApps</title>
+<!-- Load the REAL site stylesheet, exactly as the homepage does -->
+<link rel="stylesheet" href="assets/css/main.min.css">
+<style>
+  /* Minimal own styling so this page works even if the CSS above fails to load */
+  #panel{font-family:system-ui,sans-serif;max-width:720px;margin:24px auto;padding:20px;
+         border:1px solid #8888;border-radius:12px}
+  #panel h1{font-size:18px;margin:0 0 12px}
+  #panel button{margin:4px;padding:8px 12px;border-radius:8px;cursor:pointer;border:1px solid #8888}
+  #readout{white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace;font-size:13px;
+           background:#00000022;padding:12px;border-radius:8px;margin-top:12px}
+  .ok{color:#16a34a;font-weight:700}
+  .bad{color:#dc2626;font-weight:700}
+</style>
+</head>
+<body>
+<div id="panel">
+  <h1>Theme switcher self-test</h1>
+  <p>Click a theme. The big box below should change colour. The readout tells us <em>why</em> if it doesn't.</p>
+
+  <div>
+    <button onclick="setTheme('indigo-nova')">Indigo Nova (dark)</button>
+    <button onclick="setTheme('graphite-minimal')">Graphite (white)</button>
+    <button onclick="setTheme('azure-trust')">Azure (light)</button>
+    <button onclick="setTheme('sunburst')">Sunburst (light)</button>
+    <button onclick="setTheme('crimson-edge')">Crimson (dark)</button>
+  </div>
+
+  <div id="swatch" style="height:80px;border-radius:10px;margin-top:14px;border:1px solid #8888;
+       background:var(--bg-primary);color:var(--text-primary);display:grid;place-items:center;font-weight:700">
+    This box uses var(--bg-primary)
+  </div>
+
+  <div id="readout">running…</div>
+</div>
+
+<!-- Load the REAL site scripts, in the same order as the homepage -->
+<script src="assets/js/config.js"></script>
+<script src="assets/js/theme-manager.js"></script>
+
+<script>
+function computed(v){ return getComputedStyle(document.body).getPropertyValue(v).trim(); }
+function report(){
+  const root = document.documentElement;
+  const cssLoaded = computed('--bg-primary') !== '';   // empty means the stylesheet's vars aren't applying
+  const cfgOk = !!(window.CONFIG && window.CONFIG.themes);
+  const mgrOk = !!window.themeManager;
+  const lines = [];
+  lines.push('1) main.min.css variables applying?  ' + (cssLoaded
+      ? 'YES ✓  (--bg-primary = ' + computed('--bg-primary') + ')'
+      : 'NO ✗  <-- the stylesheet is NOT being applied by this browser'));
+  lines.push('2) config.js loaded?                 ' + (cfgOk
+      ? 'YES ✓  (' + window.CONFIG.themes.length + ' themes)'
+      : 'NO ✗  <-- config.js did not run'));
+  lines.push('3) theme-manager.js loaded?          ' + (mgrOk ? 'YES ✓' : 'NO ✗'));
+  lines.push('4) current <html data-theme> value:  ' + (root.getAttribute('data-theme') || '(none)'));
+  lines.push('5) computed body background now:     ' + computed('background-color') + '  (via var --bg-primary = ' + computed('--bg-primary') + ')');
+  lines.push('');
+  if (!cssLoaded)      lines.push('>>> DIAGNOSIS: CSS is not loading. The path assets/css/main.min.css is wrong for how you opened this, OR a browser extension/antivirus is blocking local files.');
+  else if (!cfgOk || !mgrOk) lines.push('>>> DIAGNOSIS: the JavaScript files are being blocked (extension/antivirus/JS disabled). The paint-drop panel needs them.');
+  else                 lines.push('>>> DIAGNOSIS: everything is wired correctly here. If the colours above DO change when you click, the site itself is fine and the earlier problem was cached files. If they do NOT change, tell me the exact numbers above.');
+  document.getElementById('readout').innerHTML = lines.join('\n');
+}
+function setTheme(id){
+  document.documentElement.setAttribute('data-theme', id); // bypass the app entirely
+  report();
+}
+window.addEventListener('DOMContentLoaded', report);
+setTimeout(report, 300); // re-check after scripts settle
+</script>
+</body>
+</html>

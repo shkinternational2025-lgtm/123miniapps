@@ -1,0 +1,118 @@
+/* ============================================
+ 123MiniApps.online v2.0
+ File: main.css
+ Purpose: Single entry point. Imports every layer
+ in cascade order, then adds page-level
+ composition that spans components.
+
+ NOTE ON PRODUCTION: @import costs one round-trip
+ per file. For deploy, concatenate in this exact
+ order into a single main.min.css. In development
+ the modular imports keep things debuggable.
+ ============================================ */
+
+@import url('reset.css');
+@import url('design-tokens.css');
+@import url('typography.css');
+@import url('spacing.css');
+@import url('shadows.css');
+@import url('animations.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('themes.css');
+
+/* ============================================
+ PAGE-LEVEL COMPOSITION
+ ============================================ */
+
+/* Push page content below the fixed nav.
+ The hero opts out (it has its own padding). */
+main {
+ display: block;
+}
+
+/* Ambient background glow behind the whole page */
+body::before {
+ content: '';
+ position: fixed;
+ inset: 0;
+ z-index: -1;
+ pointer-events: none;
+ background:
+ radial-gradient(50% 40% at 12% 8%, var(--mesh-1), transparent 70%),
+ radial-gradient(45% 40% at 88% 22%, var(--mesh-2), transparent 70%);
+ opacity: 0.55;
+}
+
+/* Section with an inset surface panel */
+.panel {
+ padding: clamp(1.5rem, 1rem + 2vw, 3rem);
+ background: var(--bg-card);
+ border: 1px solid var(--border-color);
+ border-radius: var(--radius-xl);
+}
+
+/* Divider */
+.hr {
+ height: 1px;
+ border: 0;
+ background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+/* Empty-state block used by favorites / filtered lists */
+.empty-state {
+ grid-column: 1 / -1;
+ padding: var(--space-16) var(--space-6);
+ text-align: center;
+ color: var(--text-muted);
+}
+
+.empty-state__icon {
+ font-size: var(--text-5xl);
+ margin-bottom: var(--space-4);
+}
+
+/* Count line above tool grids */
+.result-count {
+ margin-bottom: var(--space-6);
+ font-size: var(--text-sm);
+ color: var(--text-muted);
+}
+
+.result-count strong {
+ color: var(--accent-primary);
+ font-variant-numeric: tabular-nums;
+}
+
+/* Related tools strip on tool pages */
+.related-strip {
+ display: grid;
+ gap: var(--space-4);
+ grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+ margin-top: var(--space-6);
+}
+
+/* Print, strip decoration, keep content readable */
+@media print {
+ .nav,
+ .theme-fab,
+ .theme-panel,
+ .back-to-top,
+ .cookie-banner,
+ .toast-region,
+ .progress-bar,
+ .hero__mesh,
+ .hero__grid,
+ .hero__particles,
+ .newsletter,
+ body::before {
+ display: none !important;
+ }
+
+ body {
+ background: #fff;
+ color: #000;
+ }
+
+ .tool-page { padding-top: 0; }
+}

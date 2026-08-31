@@ -1,0 +1,191 @@
+/* ============================================
+ 123MiniApps.online v2.0
+ File: animations.css
+ Purpose: Keyframes + scroll-reveal utilities.
+ Only transform / opacity / filter are
+ animated so everything stays on the
+ compositor at 60fps.
+ ============================================ */
+
+/* --------------------------------------------
+ Keyframes
+ -------------------------------------------- */
+@keyframes fade-in {
+ from { opacity: 0; }
+ to { opacity: 1; }
+}
+
+@keyframes fade-up {
+ from { opacity: 0; transform: translate3d(0, 28px, 0); }
+ to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes fade-scale {
+ from { opacity: 0; transform: scale3d(0.94, 0.94, 1); }
+ to { opacity: 1; transform: scale3d(1, 1, 1); }
+}
+
+@keyframes slide-in-right {
+ from { opacity: 0; transform: translate3d(40px, 0, 0); }
+ to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes slide-in-left {
+ from { opacity: 0; transform: translate3d(-40px, 0, 0); }
+ to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes slide-up-in {
+ from { opacity: 0; transform: translate3d(0, 100%, 0); }
+ to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes glow-pulse {
+ 0%, 100% { filter: drop-shadow(0 0 6px var(--border-glow)); }
+ 50% { filter: drop-shadow(0 0 22px var(--border-glow)); }
+}
+
+@keyframes float {
+ 0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+ 50% { transform: translate3d(0, -14px, 0) rotate(0.6deg); }
+}
+
+@keyframes float-delayed {
+ 0%, 100% { transform: translate3d(0, -8px, 0) rotate(-0.5deg); }
+ 50% { transform: translate3d(0, 8px, 0) rotate(0.5deg); }
+}
+
+@keyframes spin {
+ to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+ from { transform: translate3d(-100%, 0, 0); }
+ to { transform: translate3d(100%, 0, 0); }
+}
+
+@keyframes blink-caret {
+ 0%, 49% { opacity: 1; }
+ 50%, 100% { opacity: 0; }
+}
+
+@keyframes gradient-shift {
+ 0% { background-position: 0% 50%; }
+ 50% { background-position: 100% 50%; }
+ 100% { background-position: 0% 50%; }
+}
+
+@keyframes mesh-drift {
+ 0% { transform: translate3d(0, 0, 0) scale(1); }
+ 33% { transform: translate3d(3%, -4%, 0) scale(1.08); }
+ 66% { transform: translate3d(-3%, 3%, 0) scale(0.96); }
+ 100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes toast-progress {
+ from { transform: scaleX(1); }
+ to { transform: scaleX(0); }
+}
+
+/* --------------------------------------------
+ Animation utilities
+ -------------------------------------------- */
+.animate-fade-in { animation: fade-in var(--duration-slow) var(--ease-out) both; }
+.animate-fade-up { animation: fade-up var(--duration-slow) var(--ease-out) both; }
+.animate-fade-scale{ animation: fade-scale var(--duration-normal) var(--ease-bounce) both; }
+.animate-float { animation: float 6s var(--ease-default) infinite; }
+.animate-glow { animation: glow-pulse 3s var(--ease-default) infinite; }
+.animate-spin { animation: spin 1s linear infinite; }
+
+.delay-1 { animation-delay: 80ms; }
+.delay-2 { animation-delay: 160ms; }
+.delay-3 { animation-delay: 240ms; }
+.delay-4 { animation-delay: 320ms; }
+.delay-5 { animation-delay: 400ms; }
+.delay-6 { animation-delay: 480ms; }
+
+/* --------------------------------------------
+ Scroll reveal
+ Elements marked [data-animate] start hidden and
+ are revealed by animations.js via .is-visible.
+ -------------------------------------------- */
+[data-animate] {
+ opacity: 0;
+ will-change: opacity, transform;
+}
+
+[data-animate='fade-in'] { }
+[data-animate='fade-up'] { transform: translate3d(0, 28px, 0); }
+[data-animate='fade-scale'] { transform: scale3d(0.94, 0.94, 1); }
+[data-animate='slide-in-right'] { transform: translate3d(40px, 0, 0); }
+[data-animate='slide-in-left'] { transform: translate3d(-40px, 0, 0); }
+
+[data-animate].is-visible {
+ opacity: 1;
+ transform: none;
+ transition:
+ opacity var(--duration-slow) var(--ease-out),
+ transform var(--duration-slow) var(--ease-out);
+ transition-delay: var(--reveal-delay, 0ms);
+ will-change: auto;
+}
+
+/* --------------------------------------------
+ Skeleton loading shimmer
+ -------------------------------------------- */
+.skeleton {
+ position: relative;
+ overflow: hidden;
+ background: var(--bg-surface);
+ border-radius: var(--radius-sm);
+}
+
+.skeleton::after {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(
+ 90deg,
+ transparent,
+ var(--border-color),
+ transparent
+ );
+ animation: shimmer 1.4s infinite;
+}
+
+/* --------------------------------------------
+ Typewriter caret
+ -------------------------------------------- */
+.typewriter__caret {
+ display: inline-block;
+ width: 3px;
+ height: 1em;
+ margin-left: 2px;
+ vertical-align: text-bottom;
+ background: var(--accent-primary);
+ animation: blink-caret 1s step-end infinite;
+}
+
+/* --------------------------------------------
+ Reduced motion, disable everything decorative
+ -------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+ *,
+ *::before,
+ *::after {
+ animation-duration: 0.01ms !important;
+ animation-iteration-count: 1 !important;
+ transition-duration: 0.01ms !important;
+ scroll-behavior: auto !important;
+ }
+
+ [data-animate] {
+ opacity: 1 !important;
+ transform: none !important;
+ }
+
+ .typewriter__caret {
+ animation: none;
+ opacity: 1;
+ }
+}

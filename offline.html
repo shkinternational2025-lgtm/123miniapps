@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're offline | 123MiniApps</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
+<style>
+  /* Inlined so the page still looks right even if the stylesheet isn't cached */
+  html,body{margin:0;height:100%}
+  body{background:#0B1120;color:#f8fafc;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+       display:grid;place-items:center;text-align:center;padding:24px}
+  .wrap{max-width:34rem}
+  .mark{display:inline-grid;place-items:center;width:64px;height:64px;border-radius:50%;
+        background:linear-gradient(135deg,#4f46e5,#7c3aed 55%,#3b82f6);font-weight:800;margin-bottom:20px}
+  h1{font-size:clamp(1.6rem,4vw,2.2rem);margin:0 0 12px}
+  p{color:#cbd5e1;line-height:1.6;margin:0 0 24px}
+  a.btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;
+        color:#fff;background:linear-gradient(135deg,#4f46e5,#7c3aed 55%,#3b82f6)}
+  .muted{font-size:.85rem;color:#94a3b8;margin-top:20px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="mark">123</div>
+    <h1>You're offline</h1>
+    <p>This page hasn't been saved for offline use yet. Any tool you've already opened still works
+       without a connection, because the tools run entirely in your browser, not on a server.</p>
+    <a class="btn" href="/index.html">Go to the homepage</a>
+    <p class="muted">Reconnect and refresh to load new pages.</p>
+  </div>
+  <script>
+    // Auto-recover: when the connection returns, reload the page the user wanted.
+    window.addEventListener('online', function () { location.reload(); });
+  </script>
+</body>
+</html>

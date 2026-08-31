@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/scientific-calculator.html
+     Purpose: Trigonometry, logarithms, powers and memory, with full keyboard support.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Scientific Calculator: Trig, Logs, Powers and Memory</title>
+<meta name="description" content="A full scientific calculator with trigonometry, logarithms, powers, roots, constants and memory registers. Keyboard input supported throughout.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/scientific-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Scientific Calculator | 123MiniApps">
+<meta property="og:description" content="A full scientific calculator with trigonometry, logarithms, powers, roots, constants and memory registers. Keyboard input supported throughout.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/scientific-calculator.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scientific Calculator | 123MiniApps">
+<meta name="twitter:description" content="A full scientific calculator with trigonometry, logarithms, powers, roots, constants and memory registers. Keyboard input supported throughout.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://www.123miniapps.online/#category-calculator" },
+        { "@type": "ListItem", "position": 3, "name": "Scientific Calculator", "item": "https://www.123miniapps.online/tools/scientific-calculator.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Scientific Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "A full scientific calculator with trigonometry, logarithms, powers, roots, constants and memory registers. Keyboard input supported throughout."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/scientific-calculator.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Scientific Calculator free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Scientific Calculator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Scientific Calculator do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Scientific Calculator covers trigonometric, inverse trig and hyperbolic functions, natural and base-10 logarithms, powers and roots, radian and degree modes, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Scientific Calculator work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The obvious way to build a calculator in JavaScript is to hand the user's input to eval(). That works, and it is also a security hole: eval executes arbitrary code, so anything typed into the box, or injected into it via a crafted link, runs with the page's full privileges. Plenty of online calculators do exactly this."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Scientific Calculator work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/scientific-calculator.html#howto",
+      "name": "How to use Scientific Calculator",
+      "description": "Trigonometry, logarithms, powers and memory, with full keyboard support.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Type an expression such as sin(pi/4) * sqrt(2)",
+                  "text": "Type an expression such as sin(pi/4) * sqrt(2).",
+                  "url": "https://www.123miniapps.online/tools/scientific-calculator.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Press Enter or Calculate",
+                  "text": "Press Enter or Calculate.",
+                  "url": "https://www.123miniapps.online/tools/scientific-calculator.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Switch to degrees if your angles are in degrees",
+                  "text": "Switch to degrees if your angles are in degrees.",
+                  "url": "https://www.123miniapps.online/tools/scientific-calculator.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Click any history entry to reuse it",
+                  "text": "Click any history entry to reuse it.",
+                  "url": "https://www.123miniapps.online/tools/scientific-calculator.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-calculator">Calculators</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Scientific Calculator</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🔬</div>
+      <div>
+        <h1>Scientific Calculator</h1>
+        <p>Trigonometry, logarithms, powers and memory, with full keyboard support.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Scientific calculator">
+ <div class="field">
+ <label class="field__label" for="expr">
+ <span>Expression</span>
+ <span class="field__hint" id="mem-indicator"></span>
+ </label>
+ <input class="input font-mono" id="expr" type="text" value="" placeholder="e.g. sin(pi/4) * sqrt(2)"
+ autocomplete="off" spellcheck="false" style="font-size:var(--text-lg);height:60px">
+ </div>
+
+ <div class="display" style="padding:var(--space-6)">
+ <span class="display__value" id="result" style="font-size:clamp(1.75rem,1rem+4vw,3rem)">0</span>
+ <span class="display__label" id="status">Type an expression and press Enter.</span>
+ </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="angle"><span>Angle mode</span></label>
+      <select class="select" id="angle">
+        <option value="rad" selected>Radians</option>
+        <option value="deg">Degrees</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="precision"><span>Decimal places</span></label>
+      <select class="select" id="precision">
+        <option value="auto" selected>Automatic</option>
+        <option value="2">2</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+    </div>
+
+ <div class="field">
+ <span class="field__label"><span>Functions</span><span class="field__hint">Click to insert</span></span>
+ <div class="chip-grid" id="functions"></div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="evaluate" type="button">Calculate</button>
+      <button class="btn btn--secondary" id="mem-store" type="button">M+</button>
+      <button class="btn btn--secondary" id="mem-recall" type="button">MR</button>
+      <button class="btn btn--secondary" id="mem-clear" type="button">MC</button>
+      <button class="btn btn--ghost" id="clear" type="button">Clear</button>
+      <button class="btn btn--secondary" id="copy" type="button">Copy result</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>History</span><span class="field__hint">Click any entry to reuse it</span></span>
+ <div id="history" class="chip-grid"></div>
+ </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Trigonometric, inverse trig and hyperbolic functions</li>
+        <li>Natural and base-10 logarithms, powers and roots</li>
+        <li>Radian and degree modes</li>
+        <li>Memory registers and a reusable history</li>
+        <li>Safe expression parser, no eval()</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Type an expression such as sin(pi/4) * sqrt(2).</li>
+        <li>Press Enter or Calculate.</li>
+        <li>Switch to degrees if your angles are in degrees.</li>
+        <li>Click any history entry to reuse it.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>How this evaluates expressions safely</h2>
+      <p class="text-sm text-muted">The obvious way to build a calculator in JavaScript is to hand the user's input to <code>eval()</code>. That works, and it is also a security hole: eval executes arbitrary code, so anything typed into the box, or injected into it via a crafted link, runs with the page's full privileges. Plenty of online calculators do exactly this.</p>
+      <p class="text-sm text-muted mt-3">This one implements a proper recursive-descent parser instead. The expression is tokenised into numbers, operators, parentheses and function names, then parsed according to precedence rules, parentheses first, then functions and unary minus, then exponentiation, then multiplication and division, then addition and subtraction. Anything the grammar does not recognise is rejected with an error rather than executed.</p>
+      <p class="text-sm text-muted mt-3">One detail that surprises people: exponentiation is right-associative, so <code>2^3^2</code> means 2^(3^2) = 512, not (2^3)^2 = 64. That matches mathematical convention and most scientific calculators, though some spreadsheet software gets it wrong. Unary minus binds looser than exponentiation too, so <code>-2^2</code> is −4 rather than 4.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Scientific Calculator free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Scientific Calculator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Scientific Calculator do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Scientific Calculator covers trigonometric, inverse trig and hyperbolic functions, natural and base-10 logarithms, powers and roots, radian and degree modes, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Scientific Calculator work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">The obvious way to build a calculator in JavaScript is to hand the user&#x27;s input to eval(). That works, and it is also a security hole: eval executes arbitrary code, so anything typed into the box, or injected into it via a crafted link, runs with the page&#x27;s full privileges. Plenty of online calculators do exactly this.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Scientific Calculator work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/scientific-calculator-functions-explained.html">Scientific Calculator Functions Explained</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let memory = 0;
+ let history = T.store.get('calc-history', []);
+ let lastValue = 0;
+
+ const CONSTANTS = { pi: Math.PI, e: Math.E, tau: Math.PI * 2, phi: (1 + Math.sqrt(5)) / 2 };
+
+ /** Functions available in expressions. Angle-aware where relevant. */
+ function functions() {
+ const deg = T.$('angle').value === 'deg';
+ const toRad = (x) => (deg ? (x * Math.PI) / 180 : x);
+ const fromRad = (x) => (deg ? (x * 180) / Math.PI : x);
+
+ return {
+ sin: (x) => Math.sin(toRad(x)), cos: (x) => Math.cos(toRad(x)), tan: (x) => Math.tan(toRad(x)),
+ asin: (x) => fromRad(Math.asin(x)), acos: (x) => fromRad(Math.acos(x)), atan: (x) => fromRad(Math.atan(x)),
+ sinh: Math.sinh, cosh: Math.cosh, tanh: Math.tanh,
+ ln: Math.log, log: Math.log10, log2: Math.log2,
+ sqrt: Math.sqrt, cbrt: Math.cbrt, abs: Math.abs,
+ exp: Math.exp, floor: Math.floor, ceil: Math.ceil, round: Math.round,
+ sign: Math.sign, fact: factorial
+ };
+ }
+
+ function factorial(n) {
+ if (n < 0 || n !== Math.floor(n)) throw new Error('Factorial needs a non-negative whole number');
+ if (n > 170) return Infinity; // beyond double precision
+ let out = 1;
+ for (let i = 2; i <= n; i++) out *= i;
+ return out;
+ }
+
+ /**
+ * Recursive-descent parser. Deliberately not eval(), this only
+ * ever evaluates arithmetic, never arbitrary JavaScript.
+ * @param {string} input
+ * @returns {number}
+ */
+ function evaluate(input) {
+ const fns = functions();
+ let pos = 0;
+ const src = input.replace(/\s+/g, '');
+
+ const peek = () => src[pos];
+ const eof = () => pos >= src.length;
+
+ function parseExpression() {
+ let left = parseTerm();
+ while (!eof() && (peek() === '+' || peek() === '-')) {
+ const op = src[pos++];
+ const right = parseTerm();
+ left = op === '+' ? left + right : left - right;
+ }
+ return left;
+ }
+
+ function parseTerm() {
+ let left = parseUnary();
+ while (!eof() && (peek() === '*' || peek() === '/' || peek() === '%')) {
+ const op = src[pos++];
+ const right = parseUnary();
+ if (op === '*') left *= right;
+ else if (op === '/') {
+ if (right === 0) throw new Error('Division by zero');
+ left /= right;
+ } else left %= right;
+ }
+ return left;
+ }
+
+ function parseUnary() {
+ if (peek() === '-') { pos++; return -parseUnary(); }
+ if (peek() === '+') { pos++; return parseUnary(); }
+ return parsePower();
+ }
+
+ function parsePower() {
+ const base = parsePostfix();
+ if (!eof() && (peek() === '^')) {
+ pos++;
+ // Right-associative: 2^3^2 = 2^(3^2)
+ return Math.pow(base, parseUnary());
+ }
+ return base;
+ }
+
+ function parsePostfix() {
+ let value = parsePrimary();
+ while (!eof() && peek() === '!') { pos++; value = factorial(value); }
+ return value;
+ }
+
+ function parsePrimary() {
+ if (eof()) throw new Error('Unexpected end of expression');
+
+ if (peek() === '(') {
+ pos++;
+ const value = parseExpression();
+ if (peek() !== ')') throw new Error('Missing closing bracket');
+ pos++;
+ return value;
+ }
+
+ // Number, including scientific notation
+ const numMatch = /^\d*\.?\d+(e[+-]?\d+)?/i.exec(src.slice(pos));
+ if (numMatch) { pos += numMatch[0].length; return Number(numMatch[0]); }
+
+ // Identifier, function call or constant
+ const idMatch = /^[a-z_][a-z0-9_]*/i.exec(src.slice(pos));
+ if (idMatch) {
+ const name = idMatch[0].toLowerCase();
+ pos += idMatch[0].length;
+
+ if (peek() === '(') {
+ pos++;
+ const arg = parseExpression();
+ if (peek() !== ')') throw new Error(`Missing closing bracket after ${name}()`);
+ pos++;
+ const fn = fns[name];
+ if (!fn) throw new Error(`Unknown function “${name}”`);
+ return fn(arg);
+ }
+
+ if (name in CONSTANTS) return CONSTANTS[name];
+ if (name === 'ans') return lastValue;
+ if (name === 'mem') return memory;
+ throw new Error(`Unknown name “${name}”`);
+ }
+
+ throw new Error(`Unexpected character “${peek()}”`);
+ }
+
+ const value = parseExpression();
+ if (!eof()) throw new Error(`Unexpected character “${peek()}”`);
+ return value;
+ }
+
+ function format(n) {
+ if (!isFinite(n)) return n > 0 ? '∞' : (isNaN(n) ? 'Not a number' : '−∞');
+ const p = T.$('precision').value;
+ if (p !== 'auto') return n.toFixed(Number(p));
+ if (Number.isInteger(n) && Math.abs(n) < 1e15) return n.toLocaleString();
+ if (Math.abs(n) < 1e-7 || Math.abs(n) >= 1e15) return n.toExponential(8);
+ return Number(n.toPrecision(12)).toString();
+ }
+
+ function run() {
+ const input = T.$('expr').value.trim();
+ if (!input) return;
+
+ try {
+ const value = evaluate(input);
+ lastValue = value;
+ T.$('result').textContent = format(value);
+ T.status('status', 'Use “ans” to reference this result.', 'ok');
+
+ history.unshift({ expr: input, result: format(value) });
+ history = history.slice(0, 10);
+ T.store.set('calc-history', history);
+ renderHistory();
+ } catch (err) {
+ T.$('result').textContent = 'Error';
+ T.status('status', err.message, 'error');
+ }
+ }
+
+ function renderHistory() {
+ const mount = T.$('history');
+ mount.innerHTML = '';
+
+ if (!history.length) {
+ mount.append(el('span', { className: 'text-xs text-muted', text: 'Nothing yet.' }));
+ return;
+ }
+
+ history.forEach((h) => {
+ const chip = el('button', {
+ className: 'chip font-mono',
+ attrs: { type: 'button' },
+ text: `${h.expr} = ${h.result}`
+ });
+ chip.addEventListener('click', () => {
+ T.$('expr').value = h.expr;
+ run();
+ });
+ mount.append(chip);
+ });
+ }
+
+ function renderFunctions() {
+ const mount = T.$('functions');
+ const items = ['sin(', 'cos(', 'tan(', 'asin(', 'acos(', 'atan(',
+ 'ln(', 'log(', 'sqrt(', 'cbrt(', 'abs(', 'exp(', 'fact(',
+ 'pi', 'e', 'ans', '^', '!', '%'];
+
+ items.forEach((item) => {
+ const chip = el('button', { className: 'chip font-mono', attrs: { type: 'button' }, text: item });
+ chip.addEventListener('click', () => {
+ const input = T.$('expr');
+ const at = input.selectionStart ?? input.value.length;
+ input.value = input.value.slice(0, at) + item + input.value.slice(at);
+ input.focus();
+ input.setSelectionRange(at + item.length, at + item.length);
+ });
+ mount.append(chip);
+ });
+ }
+
+ function updateMemoryIndicator() {
+ T.$('mem-indicator').textContent = memory !== 0 ? `M = ${format(memory)}` : '';
+ }
+
+ T.$('expr').addEventListener('keydown', (e) => {
+ if (e.key === 'Enter') { e.preventDefault(); run(); }
+ });
+
+ T.$('evaluate').addEventListener('click', run);
+ T.on(['angle', 'precision'], run, 'change');
+
+ T.$('mem-store').addEventListener('click', () => {
+ memory += lastValue;
+ updateMemoryIndicator();
+ toast({ type: 'success', title: 'Added to memory', message: format(memory) });
+ });
+
+ T.$('mem-recall').addEventListener('click', () => {
+ const input = T.$('expr');
+ input.value += format(memory).replace(/,/g, '');
+ input.focus();
+ });
+
+ T.$('mem-clear').addEventListener('click', () => {
+ memory = 0;
+ updateMemoryIndicator();
+ toast({ type: 'success', title: 'Memory cleared' });
+ });
+
+ T.$('clear').addEventListener('click', () => {
+ T.$('expr').value = '';
+ T.$('result').textContent = '0';
+ T.status('status', 'Type an expression and press Enter.', 'muted');
+ T.$('expr').focus();
+ });
+
+ T.$('copy').addEventListener('click', () =>
+ copyToClipboard(T.$('result').textContent, 'Result copied'));
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Scientific Calculator | 123MiniApps' }));
+
+ renderFunctions();
+ renderHistory();
+ updateMemoryIndicator();
+ if (window.Analytics) Analytics.trackToolUse('scientific-calculator');
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('scientific-calculator');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

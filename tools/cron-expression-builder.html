@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/cron-expression-builder.html
+     Purpose: Build cron schedules and read them back in plain English, with the next run times.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Cron Expression Builder: Read and Write Cron Schedules</title>
+<meta name="description" content="Build and read cron schedules with a plain-English explanation and the next five run times. Includes presets for common schedules.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/cron-expression-builder.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Cron Expression Builder | 123MiniApps">
+<meta property="og:description" content="Build and read cron schedules with a plain-English explanation and the next five run times. Includes presets for common schedules.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/cron-expression-builder.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cron Expression Builder | 123MiniApps">
+<meta name="twitter:description" content="Build and read cron schedules with a plain-English explanation and the next five run times. Includes presets for common schedules.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://www.123miniapps.online/#category-developer" },
+        { "@type": "ListItem", "position": 3, "name": "Cron Expression Builder", "item": "https://www.123miniapps.online/tools/cron-expression-builder.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Cron Expression Builder",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Build and read cron schedules with a plain-English explanation and the next five run times. Includes presets for common schedules."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/cron-expression-builder.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Cron Expression Builder free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Cron Expression Builder is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Cron Expression Builder do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Cron Expression Builder covers two-way editing, expression or individual fields, plain-English explanation of any schedule, next five run times calculated locally, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Cron Expression Builder work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The five fields are minute, hour, day of month, month and day of week, in that order. An asterisk means every value. Lists use commas (1,15), ranges use hyphens (1-5), and steps use a slash (*/15 means every fifteenth). So 0 9 * * 1-5 runs at nine o'clock on weekdays."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Cron Expression Builder work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything is processed in your browser. Code, tokens and payloads you paste in never leave your device, which matters when you are debugging something that contains real credentials or customer data. Check the Network tab if you want to confirm it. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/cron-expression-builder.html#howto",
+      "name": "How to use Cron Expression Builder",
+      "description": "Build cron schedules and read them back in plain English, with the next run times.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Type a cron expression, or fill in the five fields",
+                  "text": "Type a cron expression, or fill in the five fields.",
+                  "url": "https://www.123miniapps.online/tools/cron-expression-builder.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Read the plain-English explanation",
+                  "text": "Read the plain-English explanation.",
+                  "url": "https://www.123miniapps.online/tools/cron-expression-builder.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Check the next five run times look right",
+                  "text": "Check the next five run times look right.",
+                  "url": "https://www.123miniapps.online/tools/cron-expression-builder.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Copy the expression into your crontab",
+                  "text": "Copy the expression into your crontab.",
+                  "url": "https://www.123miniapps.online/tools/cron-expression-builder.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-developer">Developer Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Cron Expression Builder</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">⏰</div>
+      <div>
+        <h1>Cron Expression Builder</h1>
+        <p>Build cron schedules and read them back in plain English, with the next run times.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Cron expression builder">
+ <div class="field">
+ <label class="field__label" for="expression">
+ <span>Cron expression</span>
+ <span class="field__hint">minute hour day-of-month month day-of-week</span>
+ </label>
+ <input class="input font-mono" id="expression" type="text" value="0 9 * * 1-5"
+ style="font-size:var(--text-xl);height:60px" autocomplete="off" spellcheck="false">
+ </div>
+
+ <div class="display" style="padding:var(--space-6)">
+ <span class="display__label" style="font-size:var(--text-lg);color:var(--text-primary)" id="explanation">, </span>
+ </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Enter a cron expression.</p>
+
+    <hr class="hr">
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="f-minute"><span>Minute (0-59)</span></label>
+      <input class="input" id="f-minute" type="text" value="0" placeholder="0" >
+    </div>
+    <div class="field">
+      <label class="field__label" for="f-hour"><span>Hour (0-23)</span></label>
+      <input class="input" id="f-hour" type="text" value="9" placeholder="9" >
+    </div>
+    <div class="field">
+      <label class="field__label" for="f-dom"><span>Day of month (1-31)</span></label>
+      <input class="input" id="f-dom" type="text" value="*" placeholder="*" >
+    </div>
+    <div class="field">
+      <label class="field__label" for="f-month"><span>Month (1-12)</span></label>
+      <input class="input" id="f-month" type="text" value="*" placeholder="*" >
+    </div>
+    <div class="field">
+      <label class="field__label" for="f-dow"><span>Day of week (0-6)</span></label>
+      <input class="input" id="f-dow" type="text" value="1-5" placeholder="1-5" >
+    </div>
+    </div>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Next five runs</span><span class="field__hint">In your local timezone</span></span>
+ <div class="table-scroll"><div id="runs"></div></div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy expression</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Common schedules</span></span>
+ <div class="chip-grid" id="presets"></div>
+ </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Two-way editing, expression or individual fields</li>
+        <li>Plain-English explanation of any schedule</li>
+        <li>Next five run times calculated locally</li>
+        <li>Twelve common presets</li>
+        <li>Validates ranges, steps and lists</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Type a cron expression, or fill in the five fields.</li>
+        <li>Read the plain-English explanation.</li>
+        <li>Check the next five run times look right.</li>
+        <li>Copy the expression into your crontab.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Reading cron expressions</h2>
+      <p class="text-sm text-muted">The five fields are minute, hour, day of month, month and day of week, in that order. An asterisk means every value. Lists use commas (<code>1,15</code>), ranges use hyphens (<code>1-5</code>), and steps use a slash (<code>*/15</code> means every fifteenth). So <code>0 9 * * 1-5</code> runs at nine o'clock on weekdays.</p>
+      <p class="text-sm text-muted mt-3">The trap that catches nearly everyone is the interaction between day-of-month and day-of-week. When both are restricted, cron runs the job if <em>either</em> matches, not both, so <code>0 0 1 * 1</code> runs on the first of the month <em>and</em> every Monday, not only on Mondays that fall on the first. If you need an AND, you have to add a guard inside the job itself.</p>
+      <p class="text-sm text-muted mt-3">Two operational points. Cron uses the server's local timezone, so a job scheduled for 02:30 may run twice or not at all on daylight-saving transition days, schedule anything critical outside the 01:00 to 03:00 window, or use UTC. And a job scheduled every minute will start again even if the previous run has not finished, so long-running jobs need a lockfile or they will pile up and exhaust the machine.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Cron Expression Builder free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Cron Expression Builder is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Cron Expression Builder do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Cron Expression Builder covers two-way editing, expression or individual fields, plain-English explanation of any schedule, next five run times calculated locally, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Cron Expression Builder work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">The five fields are minute, hour, day of month, month and day of week, in that order. An asterisk means every value. Lists use commas (1,15), ranges use hyphens (1-5), and steps use a slash (*/15 means every fifteenth). So 0 9 * * 1-5 runs at nine o&#x27;clock on weekdays.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Cron Expression Builder work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything is processed in your browser. Code, tokens and payloads you paste in never leave your device, which matters when you are debugging something that contains real credentials or customer data. Check the Network tab if you want to confirm it. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/cron-day-of-week-trap.html">The cron mistake that runs your job far more often than you intended</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const PRESETS = [
+ ['Every minute', '* * * * *'],
+ ['Every 5 minutes', '*/5 * * * *'],
+ ['Every 15 minutes', '*/15 * * * *'],
+ ['Every hour', '0 * * * *'],
+ ['Every day at midnight', '0 0 * * *'],
+ ['Every weekday at 9am', '0 9 * * 1-5'],
+ ['Every Monday at 9am', '0 9 * * 1'],
+ ['Twice a day', '0 0,12 * * *'],
+ ['First of the month', '0 0 1 * *'],
+ ['Every Sunday at 3am', '0 3 * * 0'],
+ ['Quarterly', '0 0 1 1,4,7,10 *'],
+ ['Weekends at noon', '0 12 * * 0,6']
+ ];
+
+ const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+ 'July', 'August', 'September', 'October', 'November', 'December'];
+ const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+ const RANGES = {
+ minute: [0, 59], hour: [0, 23], dom: [1, 31], month: [1, 12], dow: [0, 6]
+ };
+
+ let updating = false;
+
+ /**
+ * Expand one cron field into the set of values it matches.
+ * @returns {number[]|null} null when the field is invalid
+ */
+ function expand(field, name) {
+ const [lo, hi] = RANGES[name];
+ const values = new Set();
+
+ for (const part of String(field).split(',')) {
+ const token = part.trim();
+ if (!token) return null;
+
+ const stepMatch = token.match(/^(.+?)\/(\d+)$/);
+ const step = stepMatch ? Number(stepMatch[2]) : 1;
+ const base = stepMatch ? stepMatch[1] : token;
+
+ if (step < 1) return null;
+
+ let start, end;
+
+ if (base === '*') {
+ start = lo; end = hi;
+ } else if (/^\d+-\d+$/.test(base)) {
+ [start, end] = base.split('-').map(Number);
+ } else if (/^\d+$/.test(base)) {
+ start = end = Number(base);
+ } else {
+ return null;
+ }
+
+ if (isNaN(start) || isNaN(end) || start < lo || end > hi || start > end) return null;
+
+ for (let v = start; v <= end; v += step) values.add(v);
+ }
+
+ return values.size ? [...values].sort((a, b) => a - b) : null;
+ }
+
+ /** Describe one field in plain English. */
+ function describeField(field, name) {
+ const [lo, hi] = RANGES[name];
+ if (field === '*') return null;
+
+ const stepMatch = field.match(/^\*\/(\d+)$/);
+ if (stepMatch) {
+ const n = Number(stepMatch[1]);
+ const unit = { minute: 'minute', hour: 'hour', dom: 'day', month: 'month', dow: 'day' }[name];
+ return `every ${n === 1 ? '' : n + ' '}${unit}${n === 1 ? '' : 's'}`;
+ }
+
+ const values = expand(field, name);
+ if (!values) return null;
+
+ const list = (arr, fmt) => {
+ const parts = arr.map(fmt);
+ if (parts.length === 1) return parts[0];
+ if (parts.length === 2) return parts.join(' and ');
+ if (parts.length > 5) return `${parts.length} selected values`;
+ return parts.slice(0, -1).join(', ') + ' and ' + parts[parts.length - 1];
+ };
+
+ if (name === 'month') return list(values, (v) => MONTHS[v - 1]);
+ if (name === 'dow') return list(values, (v) => DAYS[v % 7]);
+ if (name === 'dom') return list(values, (v) => 'the ' + ordinal(v));
+
+ void lo; void hi;
+ return list(values, String);
+ }
+
+ function ordinal(n) {
+ const s = ['th', 'st', 'nd', 'rd'];
+ const v = n % 100;
+ return n + (s[(v - 20) % 10] || s[v] || s[0]);
+ }
+
+ function explain(parts) {
+ const [minute, hour, dom, month, dow] = parts;
+
+ // Time of day
+ let time;
+ const minutes = expand(minute, 'minute');
+ const hours = expand(hour, 'hour');
+
+ if (minute === '*' && hour === '*') {
+ time = 'Every minute';
+ } else if (hour === '*' && minutes && minutes.length === 1) {
+ time = `At ${minutes[0]} minute(s) past every hour`;
+ } else if (minute.startsWith('*/')) {
+ time = `Every ${minute.slice(2)} minutes`;
+ } else if (minutes && hours && minutes.length === 1 && hours.length <= 3) {
+ time = 'At ' + hours.map((h) => `${T.pad2(h)}:${T.pad2(minutes[0])}`).join(' and ');
+ } else {
+ const m = describeField(minute, 'minute');
+ const h = describeField(hour, 'hour');
+ time = `At minute ${m || 'every'}${h ? `, hour ${h}` : ''}`;
+ }
+
+ const bits = [time];
+
+ const domText = describeField(dom, 'dom');
+ const dowText = describeField(dow, 'dow');
+ const monthText = describeField(month, 'month');
+
+ if (domText && dowText) {
+ bits.push(`on ${domText} OR on ${dowText} (cron treats these as OR, not AND)`);
+ } else if (domText) {
+ bits.push(`on ${domText}`);
+ } else if (dowText) {
+ bits.push(`on ${dowText}`);
+ }
+
+ if (monthText) bits.push(`in ${monthText}`);
+
+ return bits.join(' ') + '.';
+ }
+
+ /** Find the next N times the expression matches, by scanning forward. */
+ function nextRuns(parts, count = 5) {
+ const [minute, hour, dom, month, dow] = parts;
+ const mins = expand(minute, 'minute');
+ const hrs = expand(hour, 'hour');
+ const doms = expand(dom, 'dom');
+ const months = expand(month, 'month');
+ const dows = expand(dow, 'dow');
+
+ if (!mins || !hrs || !doms || !months || !dows) return [];
+
+ const domRestricted = dom !== '*';
+ const dowRestricted = dow !== '*';
+
+ const runs = [];
+ const cursor = new Date();
+ cursor.setSeconds(0, 0);
+ cursor.setMinutes(cursor.getMinutes() + 1);
+
+ // Scan at most a year ahead, one minute at a time
+ const LIMIT = 366 * 24 * 60;
+
+ for (let i = 0; i < LIMIT && runs.length < count; i++) {
+ const matchesMonth = months.includes(cursor.getMonth() + 1);
+ const matchesHour = hrs.includes(cursor.getHours());
+ const matchesMinute = mins.includes(cursor.getMinutes());
+
+ // The OR rule: when both day fields are restricted, either may match
+ const matchesDom = doms.includes(cursor.getDate());
+ const matchesDow = dows.includes(cursor.getDay());
+ const matchesDay = domRestricted && dowRestricted
+ ? matchesDom || matchesDow
+ : domRestricted ? matchesDom
+ : dowRestricted ? matchesDow
+ : true;
+
+ if (matchesMonth && matchesDay && matchesHour && matchesMinute) {
+ runs.push(new Date(cursor));
+ }
+
+ cursor.setMinutes(cursor.getMinutes() + 1);
+ }
+
+ return runs;
+ }
+
+ function parse() {
+ const raw = T.$('expression').value.trim().replace(/\s+/g, ' ');
+ const parts = raw.split(' ');
+
+ if (parts.length !== 5) {
+ T.status('status', `A cron expression has five fields; this has ${parts.length}.`, 'error');
+ T.$('explanation').textContent = ', ';
+ T.$('runs').innerHTML = '';
+ return;
+ }
+
+ const names = ['minute', 'hour', 'dom', 'month', 'dow'];
+ for (let i = 0; i < 5; i++) {
+ if (!expand(parts[i], names[i])) {
+ T.status('status', `The ${names[i]} field “${parts[i]}” is not valid.`, 'error');
+ T.$('explanation').textContent = ', ';
+ T.$('runs').innerHTML = '';
+ return;
+ }
+ }
+
+ if (!updating) {
+ updating = true;
+ ['f-minute', 'f-hour', 'f-dom', 'f-month', 'f-dow']
+ .forEach((id, i) => { T.$(id).value = parts[i]; });
+ updating = false;
+ }
+
+ T.$('explanation').textContent = explain(parts);
+
+ const runs = nextRuns(parts);
+ const mount = T.$('runs');
+ mount.innerHTML = '';
+
+ if (runs.length) {
+ mount.append(T.table(
+ ['Run', 'Date and time', 'In'],
+ runs.map((d, i) => [
+ '#' + (i + 1),
+ d.toLocaleString(undefined, { weekday: 'short', year: 'numeric', month: 'short',
+ day: 'numeric', hour: '2-digit', minute: '2-digit' }),
+ relative(d)
+ ])
+ ));
+ T.status('status', `Valid. Next run ${relative(runs[0])}.`, 'ok');
+ } else {
+ T.status('status', 'Valid, but no runs found in the next year, check the day and month fields.', 'warn');
+ }
+
+ if (window.Analytics) Analytics.trackToolUse('cron-expression-builder');
+ }
+
+ function relative(date) {
+ const diff = date - Date.now();
+ const mins = Math.round(diff / 60000);
+ if (mins < 60) return `${mins} minute${mins === 1 ? '' : 's'}`;
+ const hours = Math.round(mins / 60);
+ if (hours < 48) return `${hours} hour${hours === 1 ? '' : 's'}`;
+ return `${Math.round(hours / 24)} days`;
+ }
+
+ function fromFields() {
+ if (updating) return;
+ updating = true;
+ T.$('expression').value = ['f-minute', 'f-hour', 'f-dom', 'f-month', 'f-dow']
+ .map((id) => T.$(id).value.trim() || '*').join(' ');
+ updating = false;
+ parse();
+ }
+
+ T.$('expression').addEventListener('input', debounce(parse, 250));
+ T.on(['f-minute', 'f-hour', 'f-dom', 'f-month', 'f-dow'], debounce(fromFields, 250));
+
+ T.$('copy').addEventListener('click', () =>
+ copyToClipboard(T.$('expression').value.trim(), 'Expression copied'));
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Cron Expression Builder | 123MiniApps' }));
+
+ const presetMount = T.$('presets');
+ PRESETS.forEach(([name, expr]) => {
+ const chip = el('button', { className: 'chip', attrs: { type: 'button', title: expr }, text: name });
+ chip.addEventListener('click', () => { T.$('expression').value = expr; parse(); });
+ presetMount.append(chip);
+ });
+
+ parse();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('cron-expression-builder');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

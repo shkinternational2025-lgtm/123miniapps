@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/sql-formatter.html
+     Purpose: Format SQL with clause-aware indentation and consistent keyword casing.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>SQL Formatter: Readable Queries with Consistent Keywords</title>
+<meta name="description" content="Format SQL queries with consistent keyword casing and clause-aware indentation, or compact them to a single line. Handles joins and subqueries.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/sql-formatter.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="SQL Formatter | 123MiniApps">
+<meta property="og:description" content="Format SQL queries with consistent keyword casing and clause-aware indentation, or compact them to a single line. Handles joins and subqueries.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/sql-formatter.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SQL Formatter | 123MiniApps">
+<meta name="twitter:description" content="Format SQL queries with consistent keyword casing and clause-aware indentation, or compact them to a single line. Handles joins and subqueries.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://www.123miniapps.online/#category-developer" },
+        { "@type": "ListItem", "position": 3, "name": "SQL Formatter", "item": "https://www.123miniapps.online/tools/sql-formatter.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "SQL Formatter",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Format SQL queries with consistent keyword casing and clause-aware indentation, or compact them to a single line. Handles joins and subqueries."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/sql-formatter.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is SQL Formatter free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. SQL Formatter is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can SQL Formatter do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "SQL Formatter covers clause-aware line breaks and indentation, configurable keyword casing, leading or trailing comma style, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does SQL Formatter work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Uppercase keywords are the long-standing convention, and the reason is practical rather than aesthetic: SQL has no visual distinction between keywords and identifiers, so uppercasing SELECT, FROM and WHERE lets you find the structure of a long query at a glance. Table and column names stay lowercase, which makes the two categories immediately distinguishable without syntax highlighting."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does SQL Formatter work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything is processed in your browser. Code, tokens and payloads you paste in never leave your device, which matters when you are debugging something that contains real credentials or customer data. Check the Network tab if you want to confirm it. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/sql-formatter.html#howto",
+      "name": "How to use SQL Formatter",
+      "description": "Format SQL with clause-aware indentation and consistent keyword casing.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Paste your SQL into the input box",
+                  "text": "Paste your SQL into the input box.",
+                  "url": "https://www.123miniapps.online/tools/sql-formatter.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Choose keyword casing and indentation",
+                  "text": "Choose keyword casing and indentation.",
+                  "url": "https://www.123miniapps.online/tools/sql-formatter.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Press Format",
+                  "text": "Press Format.",
+                  "url": "https://www.123miniapps.online/tools/sql-formatter.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Copy the result into your editor or migration file",
+                  "text": "Copy the result into your editor or migration file.",
+                  "url": "https://www.123miniapps.online/tools/sql-formatter.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-developer">Developer Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">SQL Formatter</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🗄️</div>
+      <div>
+        <h1>SQL Formatter</h1>
+        <p>Format SQL with clause-aware indentation and consistent keyword casing.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="SQL formatter">
+    <div class="field">
+      <label class="field__label" for="input">
+        <span>SQL</span>
+        <span class="field__hint" id="input-stats"></span>
+      </label>
+      <textarea class="textarea" id="input" style="min-height:180px" spellcheck="false" placeholder="select * from users where active = 1"></textarea>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="keywords"><span>Keyword case</span></label>
+      <select class="select" id="keywords">
+        <option value="upper" selected>UPPERCASE</option>
+        <option value="lower">lowercase</option>
+        <option value="keep">Leave as written</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field__label" for="indent"><span>Indentation</span></label>
+      <select class="select" id="indent">
+        <option value="2" selected>2 spaces</option>
+        <option value="4">4 spaces</option>
+        <option value="tab">Tab</option>
+      </select>
+    </div>
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="commas">
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>Put commas at the start of lines</span>
+    </label>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Paste a query to format it.</p>
+
+    <hr class="hr">
+
+    <div class="field">
+      <label class="field__label" for="output">
+        <span>Formatted SQL</span>
+        <span class="field__hint" id="output-stats"></span>
+      </label>
+      <div class="output output--empty" id="output">Result will appear here.</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="format" type="button">Format</button>
+      <button class="btn btn--secondary" id="compact" type="button">Compact to one line</button>
+      <button class="btn btn--secondary" id="copy" type="button">Copy result</button>
+      <button class="btn btn--secondary" id="download" type="button">Download</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Query summary</span></span>
+ <div class="table-scroll"><div id="summary"></div></div>
+ </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Clause-aware line breaks and indentation</li>
+        <li>Configurable keyword casing</li>
+        <li>Leading or trailing comma style</li>
+        <li>Compact mode for single-line output</li>
+        <li>Query summary listing tables and clauses</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Paste your SQL into the input box.</li>
+        <li>Choose keyword casing and indentation.</li>
+        <li>Press Format.</li>
+        <li>Copy the result into your editor or migration file.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Formatting conventions and why they matter</h2>
+      <p class="text-sm text-muted">Uppercase keywords are the long-standing convention, and the reason is practical rather than aesthetic: SQL has no visual distinction between keywords and identifiers, so uppercasing <code>SELECT</code>, <code>FROM</code> and <code>WHERE</code> lets you find the structure of a long query at a glance. Table and column names stay lowercase, which makes the two categories immediately distinguishable without syntax highlighting.</p>
+      <p class="text-sm text-muted mt-3">Leading commas look strange at first but solve a real problem. When each line begins with a comma, commenting out a column means deleting or commenting one line without touching its neighbours. With trailing commas, removing the last column in a list leaves a dangling comma that breaks the query, a small annoyance that happens constantly while debugging.</p>
+      <p class="text-sm text-muted mt-3">The formatting choice that matters most for reviewability is putting each JOIN and each condition on its own line. A five-table join written on one line is unreadable and hides mistakes; the same join with one table per line makes a missing ON clause or an accidental cross join immediately visible. This formatter breaks on the major clause keywords and indents JOIN conditions under their join, which is the convention most style guides converge on.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is SQL Formatter free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. SQL Formatter is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can SQL Formatter do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">SQL Formatter covers clause-aware line breaks and indentation, configurable keyword casing, leading or trailing comma style, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does SQL Formatter work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Uppercase keywords are the long-standing convention, and the reason is practical rather than aesthetic: SQL has no visual distinction between keywords and identifiers, so uppercasing SELECT, FROM and WHERE lets you find the structure of a long query at a glance. Table and column names stay lowercase, which makes the two categories immediately distinguishable without syntax highlighting.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does SQL Formatter work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything is processed in your browser. Code, tokens and payloads you paste in never leave your device, which matters when you are debugging something that contains real credentials or customer data. Check the Network tab if you want to confirm it. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/why-format-your-sql.html">Why Formatting Your SQL Makes Queries Easier to Read and Debug</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let lastResult = '';
+
+ // Clauses that begin a new line at the base indent level
+ const MAJOR = ['SELECT', 'FROM', 'WHERE', 'GROUP BY', 'HAVING', 'ORDER BY',
+ 'LIMIT', 'OFFSET', 'UNION ALL', 'UNION', 'INSERT INTO', 'VALUES', 'UPDATE',
+ 'SET', 'DELETE FROM', 'CREATE TABLE', 'ALTER TABLE', 'DROP TABLE', 'WITH',
+ 'RETURNING', 'FETCH'];
+
+ // Joins begin a new line but are conceptually part of FROM
+ const JOINS = ['LEFT OUTER JOIN', 'RIGHT OUTER JOIN', 'FULL OUTER JOIN',
+ 'LEFT JOIN', 'RIGHT JOIN', 'INNER JOIN', 'CROSS JOIN', 'FULL JOIN', 'JOIN'];
+
+ // Indented continuations
+ const MINOR = ['AND', 'OR', 'ON'];
+
+ const ALL_KEYWORDS = [...MAJOR, ...JOINS, ...MINOR, 'AS', 'ASC', 'DESC', 'IN',
+ 'NOT', 'NULL', 'IS', 'LIKE', 'BETWEEN', 'EXISTS', 'CASE', 'WHEN', 'THEN',
+ 'ELSE', 'END', 'DISTINCT', 'COUNT', 'SUM', 'AVG', 'MIN', 'MAX', 'INTO'];
+
+ function indentString() {
+ const v = T.$('indent').value;
+ return v === 'tab' ? '\t' : ' '.repeat(Number(v));
+ }
+
+ /** Apply the chosen casing to recognised keywords only. */
+ function applyCase(sql) {
+ const mode = T.$('keywords').value;
+ if (mode === 'keep') return sql;
+
+ // Longest first, so GROUP BY is matched before GROUP
+ const sorted = [...ALL_KEYWORDS].sort((a, b) => b.length - a.length);
+ const pattern = sorted.map((k) => k.replace(/ /g, '\\s+')).join('|');
+
+ return sql.replace(new RegExp(`\\b(${pattern})\\b`, 'gi'), (m) =>
+ mode === 'upper' ? m.toUpperCase() : m.toLowerCase());
+ }
+
+ function format(sql) {
+ const indent = indentString();
+
+ // Normalise whitespace outside of string literals
+ let out = sql.replace(/\s+/g, ' ').trim();
+
+ // Break before major clauses
+ MAJOR.forEach((kw) => {
+ const re = new RegExp(`\\s+(${kw.replace(/ /g, '\\s+')})\\b`, 'gi');
+ out = out.replace(re, '\n$1');
+ });
+
+ // Break before joins, at the base level
+ JOINS.forEach((kw) => {
+ const re = new RegExp(`\\s+(${kw.replace(/ /g, '\\s+')})\\b`, 'gi');
+ out = out.replace(re, '\n$1');
+ });
+
+ // Break before AND / OR / ON, indented one level
+ MINOR.forEach((kw) => {
+ const re = new RegExp(`\\s+(${kw})\\b`, 'gi');
+ out = out.replace(re, `\n${indent}$1`);
+ });
+
+ // Column lists: one per line, indented
+ out = out.split('\n').map((line) => {
+ if (!/^\s*(SELECT|SET|VALUES)\b/i.test(line)) return line;
+ const leadingComma = T.$('commas').checked;
+ return leadingComma
+ ? line.replace(/,\s*/g, `\n${indent}, `)
+ : line.replace(/,\s*/g, `,\n${indent}`);
+ }).join('\n');
+
+ // Tidy: no trailing spaces, no runs of blank lines
+ out = out.split('\n')
+ .map((l) => l.replace(/\s+$/, ''))
+ .filter((l, i, arr) => l.trim() !== '' || (i > 0 && arr[i - 1].trim() !== ''))
+ .join('\n');
+
+ return applyCase(out).trim();
+ }
+
+ function compact(sql) {
+ return applyCase(sql.replace(/\s+/g, ' ').replace(/\s*([(),])\s*/g, '$1 ').trim());
+ }
+
+ function summarise(sql) {
+ const mount = T.$('summary');
+ mount.innerHTML = '';
+
+ const upper = sql.toUpperCase();
+ const rows = [];
+
+ const statement = (upper.match(/^\s*(SELECT|INSERT|UPDATE|DELETE|CREATE|ALTER|DROP|WITH)/) || [])[1];
+ if (statement) rows.push(['Statement type', statement]);
+
+ const tables = [...sql.matchAll(/\b(?:FROM|JOIN|INTO|UPDATE)\s+([a-zA-Z_][\w.]*)/gi)]
+ .map((m) => m[1]);
+ if (tables.length) rows.push(['Tables referenced', [...new Set(tables)].join(', ')]);
+
+ const joinCount = (upper.match(/\bJOIN\b/g) || []).length;
+ if (joinCount) rows.push(['Joins', String(joinCount)]);
+
+ const subqueries = (sql.match(/\(\s*SELECT/gi) || []).length;
+ if (subqueries) rows.push(['Subqueries', String(subqueries)]);
+
+ if (!/\bWHERE\b/i.test(sql) && /^(\s*)(SELECT|UPDATE|DELETE)/i.test(sql)) {
+ rows.push(['⚠ Note', 'No WHERE clause, this affects every row.']);
+ }
+
+ if (rows.length) mount.append(T.table(['Property', 'Value'], rows));
+ }
+
+ function run(mode) {
+ const raw = T.$('input').value;
+ T.$('input-stats').textContent = raw.length.toLocaleString() + ' characters';
+
+ if (!raw.trim()) {
+ lastResult = '';
+ T.setOutput('output', '');
+ T.$('summary').innerHTML = '';
+ T.status('status', 'Paste a query to format it.', 'muted');
+ return;
+ }
+
+ lastResult = mode === 'compact' ? compact(raw) : format(raw);
+ T.setOutput('output', lastResult);
+ T.$('output-stats').textContent = lastResult.split('\n').length + ' lines';
+
+ summarise(raw);
+ T.status('status', mode === 'compact' ? 'Compacted to one line.' : 'Formatted.', 'ok');
+
+ if (window.Analytics) Analytics.trackToolUse('sql-formatter');
+ }
+
+ // The debounced re-run keeps whichever mode was last chosen.
+ let currentMode = 'format';
+ const setMode = (mode) => { currentMode = mode; run(mode); };
+
+ T.$('format').addEventListener('click', () => setMode('format'));
+ T.$('compact').addEventListener('click', () => setMode('compact'));
+ T.$('input').addEventListener('input', debounce(() => run(currentMode), 400));
+ T.on(['keywords', 'indent', 'commas'], () => run(currentMode), 'change');
+
+ T.wireActions({ slug: 'sql-formatter', getResult: () => lastResult, filename: 'query.sql' });
+
+ T.$('input').value =
+ 'select u.id, u.name, count(o.id) as order_count from users u left join orders o on o.user_id = u.id where u.active = 1 and u.created_at > 2024-01-01 group by u.id, u.name having count(o.id) > 5 order by order_count desc limit 20';
+ run('format');
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('sql-formatter');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

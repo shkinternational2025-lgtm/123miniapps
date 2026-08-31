@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/loan-calculator.html
+     Purpose: Estimate monthly payments and total interest, with a full amortization schedule.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Loan Calculator: Monthly Payment and Amortization Schedule</title>
+<meta name="description" content="Estimate monthly loan payments, total interest and see a full amortization schedule. Model extra payments to see how much interest they save.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/loan-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Loan Calculator | 123MiniApps">
+<meta property="og:description" content="Estimate monthly loan payments, total interest and see a full amortization schedule. Model extra payments to see how much interest they save.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/loan-calculator.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Loan Calculator | 123MiniApps">
+<meta name="twitter:description" content="Estimate monthly loan payments, total interest and see a full amortization schedule. Model extra payments to see how much interest they save.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://www.123miniapps.online/#category-calculator" },
+        { "@type": "ListItem", "position": 3, "name": "Loan Calculator", "item": "https://www.123miniapps.online/tools/loan-calculator.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Loan Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Estimate monthly loan payments, total interest and see a full amortization schedule. Model extra payments to see how much interest they save."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/loan-calculator.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Loan Calculator free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Loan Calculator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Loan Calculator do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Loan Calculator covers monthly, fortnightly or weekly payment schedules, full amortization table summarised by year, extra-payment modelling with interest saved, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Loan Calculator work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "An amortizing loan uses a fixed payment split between interest and principal, but the split shifts over time. Interest is charged on the outstanding balance, so early payments are mostly interest and barely dent the principal. On a 25-year mortgage at 5.5%, roughly 70% of the first payment is interest; by the final year that has fallen below 5%. This is why a loan's balance drops slowly at first and then accelerates."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Loan Calculator work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser's Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/loan-calculator.html#howto",
+      "name": "How to use Loan Calculator",
+      "description": "Estimate monthly payments and total interest, with a full amortization schedule.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Enter the loan amount, rate and term",
+                  "text": "Enter the loan amount, rate and term.",
+                  "url": "https://www.123miniapps.online/tools/loan-calculator.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Add an extra payment amount to see its effect",
+                  "text": "Add an extra payment amount to see its effect.",
+                  "url": "https://www.123miniapps.online/tools/loan-calculator.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Read the payment and total interest above",
+                  "text": "Read the payment and total interest above.",
+                  "url": "https://www.123miniapps.online/tools/loan-calculator.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Download the schedule if you need it in a spreadsheet",
+                  "text": "Download the schedule if you need it in a spreadsheet.",
+                  "url": "https://www.123miniapps.online/tools/loan-calculator.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-calculator">Calculators</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Loan Calculator</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🏦</div>
+      <div>
+        <h1>Loan Calculator</h1>
+        <p>Estimate monthly payments and total interest, with a full amortization schedule.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Loan calculator">
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="principal"><span>Loan amount</span></label>
+      <input class="input" id="principal" type="number" value="250000" placeholder="250000" step="any" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label class="field__label" for="rate"><span>Annual interest rate (%)</span></label>
+      <input class="input" id="rate" type="number" value="5.5" placeholder="5.5" step="any" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label class="field__label" for="years"><span>Term (years)</span></label>
+      <input class="input" id="years" type="number" value="25" placeholder="25" step="any" inputmode="decimal">
+    </div>
+    </div>
+
+    <div class="workspace__row">
+    <div class="field">
+      <label class="field__label" for="extra"><span>Extra monthly payment</span></label>
+      <input class="input" id="extra" type="number" value="0" placeholder="0" step="any" inputmode="decimal">
+    </div>
+    <div class="field">
+      <label class="field__label" for="frequency"><span>Payment frequency</span></label>
+      <select class="select" id="frequency">
+        <option value="12" selected>Monthly</option>
+        <option value="26">Fortnightly</option>
+        <option value="52">Weekly</option>
+      </select>
+    </div>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Enter your loan details.</p>
+
+    <hr class="hr">
+
+ <div class="result-grid">
+ <div class="result result--primary"><span class="result__value" id="r-payment">, </span><span class="result__label">Payment</span></div>
+ <div class="result"><span class="result__value" id="r-total">, </span><span class="result__label">Total repaid</span></div>
+ <div class="result"><span class="result__value" id="r-interest">, </span><span class="result__label">Total interest</span></div>
+ <div class="result"><span class="result__value" id="r-payoff">, </span><span class="result__label">Paid off in</span></div>
+ </div>
+
+ <div id="savings" class="field" hidden>
+ <div class="result result--primary" style="text-align:left;padding:var(--space-5)">
+ <span id="savings-text"></span>
+ </div>
+ </div>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Amortization schedule</span><span class="field__hint">Yearly summary</span></span>
+ <div class="table-scroll"><div id="schedule"></div></div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy summary</button>
+      <button class="btn btn--secondary" id="download" type="button">Download schedule (CSV)</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Monthly, fortnightly or weekly payment schedules</li>
+        <li>Full amortization table summarised by year</li>
+        <li>Extra-payment modelling with interest saved</li>
+        <li>Total repaid and total interest breakdown</li>
+        <li>Exports the schedule as CSV</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Enter the loan amount, rate and term.</li>
+        <li>Add an extra payment amount to see its effect.</li>
+        <li>Read the payment and total interest above.</li>
+        <li>Download the schedule if you need it in a spreadsheet.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>How amortization actually works</h2>
+      <p class="text-sm text-muted">An amortizing loan uses a fixed payment split between interest and principal, but the split shifts over time. Interest is charged on the outstanding balance, so early payments are mostly interest and barely dent the principal. On a 25-year mortgage at 5.5%, roughly 70% of the first payment is interest; by the final year that has fallen below 5%. This is why a loan's balance drops slowly at first and then accelerates.</p>
+      <p class="text-sm text-muted mt-3">It is also why extra payments are disproportionately effective early on. Any additional amount goes entirely to principal, which removes all the future interest that balance would have generated. Paying an extra 10% each month on a typical 25-year mortgage often cuts four to five years off the term and saves a substantial multiple of what you actually paid in.</p>
+      <p class="text-sm text-muted mt-3">Two caveats on the numbers here. This calculates a straightforward amortizing loan and does not include property taxes, insurance, arrangement fees or mortgage insurance, all of which can add materially to what you actually pay each month. And it assumes a fixed rate for the whole term, a variable or tracker rate will diverge from these figures as soon as the rate moves.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Loan Calculator free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Loan Calculator is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Loan Calculator do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Loan Calculator covers monthly, fortnightly or weekly payment schedules, full amortization table summarised by year, extra-payment modelling with interest saved, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Loan Calculator work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">An amortizing loan uses a fixed payment split between interest and principal, but the split shifts over time. Interest is charged on the outstanding balance, so early payments are mostly interest and barely dent the principal. On a 25-year mortgage at 5.5%, roughly 70% of the first payment is interest; by the final year that has fallen below 5%. This is why a loan&#x27;s balance drops slowly at first and then accelerates.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Loan Calculator work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything happens inside your browser. The text you enter is processed by JavaScript running on your own device and is never sent to a server, there is no backend to send it to. You can confirm this in your browser&#x27;s Network tab while you use the tool. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/how-loan-repayments-work-amortization.html">How Loan Repayments Work: Understanding Amortization</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let schedule = [];
+ let summary = '';
+
+ /**
+ * Build the full payment schedule.
+ * @returns {{payments: Object[], totalInterest: number, periods: number}}
+ */
+ function amortize(principal, annualRate, years, perYear, extra) {
+ const periodRate = annualRate / 100 / perYear;
+ const totalPeriods = Math.round(years * perYear);
+
+ // Standard amortization formula; the zero-rate case degenerates to
+ // simple division, which the formula cannot express.
+ const payment = periodRate === 0
+ ? principal / totalPeriods
+ : (principal * periodRate) / (1 - Math.pow(1 + periodRate, -totalPeriods));
+
+ const payments = [];
+ let balance = principal;
+ let totalInterest = 0;
+ let period = 0;
+
+ // Cap the loop so a pathological input cannot hang the tab
+ const MAX_PERIODS = totalPeriods * 2 + 1200;
+
+ while (balance > 0.005 && period < MAX_PERIODS) {
+ period++;
+ const interest = balance * periodRate;
+ let principalPart = payment + extra - interest;
+
+ // Final payment: never overshoot the remaining balance
+ if (principalPart > balance) principalPart = balance;
+
+ balance -= principalPart;
+ totalInterest += interest;
+
+ payments.push({
+ period,
+ payment: principalPart + interest,
+ interest,
+ principal: principalPart,
+ balance: Math.max(0, balance)
+ });
+ }
+
+ return { payment, payments, totalInterest, periods: period };
+ }
+
+ function describeTerm(periods, perYear) {
+ const years = Math.floor(periods / perYear);
+ const rem = Math.round(periods % perYear);
+ const unit = perYear === 12 ? 'month' : perYear === 26 ? 'fortnight' : 'week';
+ return `${years} yr${rem ? ` ${rem} ${unit}${rem === 1 ? '' : 's'}` : ''}`;
+ }
+
+ function calculate() {
+ const principal = T.num(T.$('principal').value);
+ const rate = T.num(T.$('rate').value);
+ const years = T.num(T.$('years').value);
+ const extra = T.num(T.$('extra').value) || 0;
+ const perYear = Number(T.$('frequency').value);
+
+ if (isNaN(principal) || isNaN(rate) || isNaN(years) || principal <= 0 || years <= 0) {
+ T.status('status', 'Enter a loan amount, rate and term.', 'muted');
+ return;
+ }
+
+ if (rate < 0 || rate > 100) {
+ T.status('status', 'Enter an interest rate between 0 and 100.', 'error');
+ return;
+ }
+
+ const result = amortize(principal, rate, years, perYear, extra);
+ schedule = result.payments;
+
+ const totalPaid = principal + result.totalInterest;
+
+ T.$('r-payment').textContent = T.money(result.payment + extra);
+ T.$('r-total').textContent = T.money(totalPaid);
+ T.$('r-interest').textContent = T.money(result.totalInterest);
+ T.$('r-payoff').textContent = describeTerm(result.periods, perYear);
+
+ // Compare against the no-extra-payment baseline
+ if (extra > 0) {
+ const base = amortize(principal, rate, years, perYear, 0);
+ const saved = base.totalInterest - result.totalInterest;
+ const periodsSaved = base.periods - result.periods;
+
+ T.$('savings').hidden = false;
+ T.$('savings-text').innerHTML =
+ `Paying an extra <strong>${T.esc(T.money(extra))}</strong> each period saves ` +
+ `<strong>${T.esc(T.money(saved))}</strong> in interest and clears the loan ` +
+ `<strong>${T.esc(describeTerm(periodsSaved, perYear))}</strong> earlier.`;
+ } else {
+ T.$('savings').hidden = true;
+ }
+
+ renderSchedule(perYear);
+
+ summary = [
+ `Loan amount: ${T.money(principal)}`,
+ `Interest rate: ${rate}%`,
+ `Term: ${years} years`,
+ `Payment: ${T.money(result.payment + extra)}`,
+ `Total repaid: ${T.money(totalPaid)}`,
+ `Total interest: ${T.money(result.totalInterest)}`,
+ `Paid off in: ${describeTerm(result.periods, perYear)}`
+ ].join('\n');
+
+ const ratio = (result.totalInterest / principal) * 100;
+ T.status('status',
+ `Interest costs ${T.fmt(ratio, 1)}% of the amount borrowed.`,
+ ratio > 60 ? 'warn' : 'ok');
+ }
+
+ function renderSchedule(perYear) {
+ const mount = T.$('schedule');
+ mount.innerHTML = '';
+ if (!schedule.length) return;
+
+ // Roll periods up into years so the table stays readable
+ const rows = [];
+ for (let start = 0; start < schedule.length; start += perYear) {
+ const chunk = schedule.slice(start, start + perYear);
+ const year = Math.floor(start / perYear) + 1;
+ rows.push([
+ 'Year ' + year,
+ T.money(chunk.reduce((n, p) => n + p.payment, 0)),
+ T.money(chunk.reduce((n, p) => n + p.principal, 0)),
+ T.money(chunk.reduce((n, p) => n + p.interest, 0)),
+ T.money(chunk[chunk.length - 1].balance)
+ ]);
+ }
+
+ mount.append(T.table(['Period', 'Paid', 'Principal', 'Interest', 'Balance'], rows));
+ }
+
+ T.on(['principal', 'rate', 'years', 'extra'], debounce(calculate, 200));
+ T.on(['frequency'], calculate, 'change');
+
+ T.$('copy').addEventListener('click', () => copyToClipboard(summary, 'Summary copied'));
+
+ T.$('download').addEventListener('click', () => {
+ if (!schedule.length) {
+ toast({ type: 'warning', title: 'Nothing to download' });
+ return;
+ }
+ const csv = ['Period,Payment,Principal,Interest,Balance']
+ .concat(schedule.map((p) =>
+ [p.period, p.payment.toFixed(2), p.principal.toFixed(2), p.interest.toFixed(2), p.balance.toFixed(2)].join(',')))
+ .join('\n');
+ downloadFile(csv, 'amortization-schedule.csv', 'text/csv');
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Loan Calculator | 123MiniApps' }));
+
+ calculate();
+ if (window.Analytics) Analytics.trackToolUse('loan-calculator');
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('loan-calculator');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

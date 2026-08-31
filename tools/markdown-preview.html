@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/markdown-preview.html
+     Purpose: Write Markdown on the left, see the rendered result on the right.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Markdown Preview: Live Rendering with HTML Export</title>
+<meta name="description" content="Write Markdown and see rendered HTML update live. Supports headings, lists, tables, code blocks, links and task lists. Export the HTML.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/markdown-preview.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Markdown Preview | 123MiniApps">
+<meta property="og:description" content="Write Markdown and see rendered HTML update live. Supports headings, lists, tables, code blocks, links and task lists. Export the HTML.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/markdown-preview.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Markdown Preview | 123MiniApps">
+<meta name="twitter:description" content="Write Markdown and see rendered HTML update live. Supports headings, lists, tables, code blocks, links and task lists. Export the HTML.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://www.123miniapps.online/#category-developer" },
+        { "@type": "ListItem", "position": 3, "name": "Markdown Preview", "item": "https://www.123miniapps.online/tools/markdown-preview.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Markdown Preview",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Write Markdown and see rendered HTML update live. Supports headings, lists, tables, code blocks, links and task lists. Export the HTML."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/markdown-preview.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is Markdown Preview free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. Markdown Preview is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can Markdown Preview do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Markdown Preview covers live side-by-side preview, headings, emphasis, lists, tables, blockquotes and code, task lists, links and images, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does Markdown Preview work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Markdown was written by John Gruber in 2004 with a deliberately loose specification, which led to incompatible implementations. CommonMark was created in 2014 to pin down the ambiguities, how many spaces a nested list needs, what happens with mismatched emphasis markers, how to handle a list item containing a blank line. Most modern renderers follow CommonMark, but not all agree on the extensions."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does Markdown Preview work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything is processed in your browser. Code, tokens and payloads you paste in never leave your device, which matters when you are debugging something that contains real credentials or customer data. Check the Network tab if you want to confirm it. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/markdown-preview.html#howto",
+      "name": "How to use Markdown Preview",
+      "description": "Write Markdown on the left, see the rendered result on the right.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Type or paste Markdown on the left",
+                  "text": "Type or paste Markdown on the left.",
+                  "url": "https://www.123miniapps.online/tools/markdown-preview.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "The preview renders as you type",
+                  "text": "The preview renders as you type.",
+                  "url": "https://www.123miniapps.online/tools/markdown-preview.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Copy the generated HTML, or download it as a file",
+                  "text": "Copy the generated HTML, or download it as a file.",
+                  "url": "https://www.123miniapps.online/tools/markdown-preview.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Use the sample to see the supported syntax",
+                  "text": "Use the sample to see the supported syntax.",
+                  "url": "https://www.123miniapps.online/tools/markdown-preview.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-developer">Developer Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Markdown Preview</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">📝</div>
+      <div>
+        <h1>Markdown Preview</h1>
+        <p>Write Markdown on the left, see the rendered result on the right.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Markdown preview">
+ <div class="workspace__row">
+ <div class="field">
+ <label class="field__label" for="input">
+ <span>Markdown</span>
+ <span class="field__hint" id="input-stats"></span>
+ </label>
+ <textarea class="textarea" id="input" style="min-height:420px" spellcheck="false"></textarea>
+ </div>
+ <div class="field">
+ <span class="field__label"><span>Preview</span><span class="field__hint">Rendered live</span></span>
+ <div class="output" id="preview" style="min-height:420px;font-family:var(--font-body);white-space:normal"></div>
+ </div>
+ </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Start typing Markdown.</p>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy-html" type="button">Copy HTML</button>
+      <button class="btn btn--secondary" id="copy-md" type="button">Copy Markdown</button>
+      <button class="btn btn--secondary" id="download" type="button">Download HTML</button>
+      <button class="btn btn--secondary" id="sample" type="button">Load sample</button>
+      <button class="btn btn--ghost" id="clear" type="button">Clear</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+
+    <hr class="hr">
+
+ <div class="field">
+ <span class="field__label"><span>Generated HTML</span></span>
+ <div class="output output--empty" id="html">The HTML will appear here.</div>
+ </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Live side-by-side preview</li>
+        <li>Headings, emphasis, lists, tables, blockquotes and code</li>
+        <li>Task lists, links and images</li>
+        <li>HTML export</li>
+        <li>Raw HTML in the source is escaped, not executed</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Type or paste Markdown on the left.</li>
+        <li>The preview renders as you type.</li>
+        <li>Copy the generated HTML, or download it as a file.</li>
+        <li>Use the sample to see the supported syntax.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Markdown&#x27;s many dialects</h2>
+      <p class="text-sm text-muted">Markdown was written by John Gruber in 2004 with a deliberately loose specification, which led to incompatible implementations. CommonMark was created in 2014 to pin down the ambiguities, how many spaces a nested list needs, what happens with mismatched emphasis markers, how to handle a list item containing a blank line. Most modern renderers follow CommonMark, but not all agree on the extensions.</p>
+      <p class="text-sm text-muted mt-3">GitHub Flavored Markdown adds the features most people now assume are standard: tables, fenced code blocks with language hints, strikethrough, task lists and automatic URL linking. None of those are in the original Markdown. This renderer implements the common subset of GFM, which covers what documentation and README files actually use.</p>
+      <p class="text-sm text-muted mt-3">One security point worth knowing. Original Markdown deliberately passes raw HTML straight through, which is convenient and dangerous, a Markdown file from an untrusted source can contain a script tag. Renderers that accept user content must sanitise the output, and many CVEs have come from doing this incompletely. This tool escapes HTML in the source rather than passing it through, which loses a little flexibility and eliminates the entire risk category.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is Markdown Preview free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. Markdown Preview is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can Markdown Preview do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Markdown Preview covers live side-by-side preview, headings, emphasis, lists, tables, blockquotes and code, task lists, links and images, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does Markdown Preview work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Markdown was written by John Gruber in 2004 with a deliberately loose specification, which led to incompatible implementations. CommonMark was created in 2014 to pin down the ambiguities, how many spaces a nested list needs, what happens with mismatched emphasis markers, how to handle a list item containing a blank line. Most modern renderers follow CommonMark, but not all agree on the extensions.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does Markdown Preview work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything is processed in your browser. Code, tokens and payloads you paste in never leave your device, which matters when you are debugging something that contains real credentials or customer data. Check the Network tab if you want to confirm it. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/markdown-explained-for-beginners.html">Markdown Explained: Write Formatted Text Without a Word Processor</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const SAMPLE = `# Markdown Preview
+
+A **live** renderer with *emphasis*, ~~strikethrough~~ and \`inline code\`.
+
+## Lists
+
+- First item
+- Second item
+ - Nested item
+- Third item
+
+1. Ordered one
+2. Ordered two
+
+## Task list
+
+- [x] Write the renderer
+- [ ] Add syntax highlighting
+
+## Table
+
+| Feature | Supported |
+| --- | --- |
+| Headings | Yes |
+| Tables | Yes |
+| Footnotes | No |
+
+## Code
+
+\`\`\`javascript
+function greet(name) {
+ return \`Hello, \${name}\`;
+}
+\`\`\`
+
+> A blockquote for emphasis.
+
+[A link](https://www.123miniapps.online/) and a horizontal rule:
+
+---
+`;
+
+ let html = '';
+
+ /**
+ * A small CommonMark-ish renderer covering the GFM subset that
+ * documentation actually uses.
+ *
+ * Everything is escaped first, so raw HTML in the source is shown
+ * literally rather than executed.
+ */
+ function render(md) {
+ const codeBlocks = [];
+
+ // Stash fenced code blocks before any other processing
+ let src = md.replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) => {
+ codeBlocks.push({ lang, code });
+ return `\u0000CODE${codeBlocks.length - 1}\u0000`;
+ });
+
+ src = T.esc(src);
+
+ const lines = src.split('\n');
+ const out = [];
+ let inList = null; // 'ul' | 'ol' | null
+ let inQuote = false;
+ let inTable = false;
+
+ const closeBlocks = () => {
+ if (inList) { out.push(`</${inList}>`); inList = null; }
+ if (inQuote) { out.push('</blockquote>'); inQuote = false; }
+ if (inTable) { out.push('</tbody></table>'); inTable = false; }
+ };
+
+ for (let i = 0; i < lines.length; i++) {
+ const line = lines[i];
+
+ // Stashed code block
+ const codeMatch = line.match(/^\u0000CODE(\d+)\u0000$/);
+ if (codeMatch) {
+ closeBlocks();
+ const block = codeBlocks[Number(codeMatch[1])];
+ out.push(`<pre><code class="language-${T.esc(block.lang)}">${T.esc(block.code)}</code></pre>`);
+ continue;
+ }
+
+ // Horizontal rule
+ if (/^\s*([-*_])\s*\1\s*\1[\s\-*_]*$/.test(line)) {
+ closeBlocks();
+ out.push('<hr>');
+ continue;
+ }
+
+ // Heading
+ const heading = line.match(/^(#{1,6})\s+(.*)$/);
+ if (heading) {
+ closeBlocks();
+ const level = heading[1].length;
+ out.push(`<h${level}>${inline(heading[2])}</h${level}>`);
+ continue;
+ }
+
+ // Table row
+ if (/^\s*\|.*\|\s*$/.test(line)) {
+ const cells = line.trim().slice(1, -1).split('|').map((c) => c.trim());
+
+ // The delimiter row that follows a header
+ if (/^[\s|:-]+$/.test(line)) continue;
+
+ if (!inTable) {
+ closeBlocks();
+ out.push('<table><thead><tr>' +
+ cells.map((c) => `<th>${inline(c)}</th>`).join('') +
+ '</tr></thead><tbody>');
+ inTable = true;
+ continue;
+ }
+
+ out.push('<tr>' + cells.map((c) => `<td>${inline(c)}</td>`).join('') + '</tr>');
+ continue;
+ }
+
+ // Blockquote
+ const quote = line.match(/^&gt;\s?(.*)$/);
+ if (quote) {
+ if (!inQuote) { closeBlocks(); out.push('<blockquote>'); inQuote = true; }
+ out.push(`<p>${inline(quote[1])}</p>`);
+ continue;
+ }
+
+ // Task list item
+ const task = line.match(/^\s*[-*+]\s+\[([ xX])\]\s+(.*)$/);
+ if (task) {
+ if (inList !== 'ul') { closeBlocks(); out.push('<ul>'); inList = 'ul'; }
+ const checked = task[1].toLowerCase() === 'x' ? ' checked' : '';
+ out.push(`<li style="list-style:none;margin-left:-1.2em">` +
+ `<input type="checkbox" disabled${checked}> ${inline(task[2])}</li>`);
+ continue;
+ }
+
+ // Unordered list item
+ const ul = line.match(/^(\s*)[-*+]\s+(.*)$/);
+ if (ul) {
+ if (inList !== 'ul') { closeBlocks(); out.push('<ul>'); inList = 'ul'; }
+ const nested = ul[1].length >= 2;
+ out.push(`<li${nested ? ' style="margin-left:1.5em"' : ''}>${inline(ul[2])}</li>`);
+ continue;
+ }
+
+ // Ordered list item
+ const ol = line.match(/^\s*\d+[.)]\s+(.*)$/);
+ if (ol) {
+ if (inList !== 'ol') { closeBlocks(); out.push('<ol>'); inList = 'ol'; }
+ out.push(`<li>${inline(ol[1])}</li>`);
+ continue;
+ }
+
+ // Blank line closes open blocks
+ if (!line.trim()) { closeBlocks(); continue; }
+
+ // Paragraph
+ closeBlocks();
+ out.push(`<p>${inline(line)}</p>`);
+ }
+
+ closeBlocks();
+ return out.join('\n');
+ }
+
+ /** Inline formatting, applied to already-escaped text. */
+ function inline(text) {
+ return text
+ .replace(/`([^`]+)`/g, '<code>$1</code>')
+ .replace(/!\[([^\]]*)\]\(([^)\s]+)[^)]*\)/g,
+ '<img src="$2" alt="$1" style="max-width:100%">')
+ .replace(/\[([^\]]+)\]\(([^)\s]+)[^)]*\)/g,
+ '<a href="$2" rel="noopener noreferrer">$1</a>')
+ .replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>')
+ .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+ .replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em>$1</em>')
+ .replace(/__([^_]+)__/g, '<strong>$1</strong>')
+ .replace(/~~([^~]+)~~/g, '<del>$1</del>');
+ }
+
+ function run() {
+ const md = T.$('input').value;
+ T.$('input-stats').textContent =
+ `${md.split('\n').length} lines · ${T.words(md).length} words`;
+
+ if (!md.trim()) {
+ T.$('preview').innerHTML = '<p class="text-muted">Nothing to preview yet.</p>';
+ T.setOutput('html', '');
+ T.status('status', 'Start typing Markdown.', 'muted');
+ return;
+ }
+
+ html = render(md);
+ T.$('preview').innerHTML = html;
+ T.setOutput('html', html);
+
+ T.status('status', `Rendered ${md.split('\n').length} line(s).`, 'ok');
+ if (window.Analytics) Analytics.trackToolUse('markdown-preview');
+ }
+
+ T.$('input').addEventListener('input', debounce(run, 200));
+
+ T.$('sample').addEventListener('click', () => { T.$('input').value = SAMPLE; run(); });
+ T.$('clear').addEventListener('click', () => { T.$('input').value = ''; run(); T.$('input').focus(); });
+
+ T.$('copy-html').addEventListener('click', () => copyToClipboard(html, 'HTML copied'));
+ T.$('copy-md').addEventListener('click', () => copyToClipboard(T.$('input').value, 'Markdown copied'));
+
+ T.$('download').addEventListener('click', () => {
+ downloadFile(
+ `<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8">\n<title>Document</title>\n` +
+ `<style>body{font-family:system-ui,sans-serif;max-width:70ch;margin:40px auto;padding:0 20px;line-height:1.6}` +
+ `pre{background:#f4f4f4;padding:12px;overflow:auto;border-radius:6px}` +
+ `code{background:#f4f4f4;padding:2px 4px;border-radius:3px}` +
+ `table{border-collapse:collapse}th,td{border:1px solid #ddd;padding:6px 10px}</style>\n` +
+ `</head><body>\n${html}\n</body></html>`,
+ 'document.html', 'text/html');
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Markdown Preview | 123MiniApps' }));
+
+ T.$('input').value = SAMPLE;
+ run();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('markdown-preview');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

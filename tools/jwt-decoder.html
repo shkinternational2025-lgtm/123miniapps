@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/jwt-decoder.html
+     Purpose: Inspect a JWT's header, claims and expiry, decoded locally, never sent anywhere.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>JWT Decoder: Inspect Header, Payload and Expiry Locally</title>
+<meta name="description" content="Decode a JSON Web Token to inspect its header, payload and expiry. Decoding happens entirely in your browser, the token is never transmitted.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/jwt-decoder.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="JWT Decoder | 123MiniApps">
+<meta property="og:description" content="Decode a JSON Web Token to inspect its header, payload and expiry. Decoding happens entirely in your browser, the token is never transmitted.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/jwt-decoder.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JWT Decoder | 123MiniApps">
+<meta name="twitter:description" content="Decode a JSON Web Token to inspect its header, payload and expiry. Decoding happens entirely in your browser, the token is never transmitted.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://www.123miniapps.online/#category-developer" },
+        { "@type": "ListItem", "position": 3, "name": "JWT Decoder", "item": "https://www.123miniapps.online/tools/jwt-decoder.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "JWT Decoder",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Decode a JSON Web Token to inspect its header, payload and expiry. Decoding happens entirely in your browser, the token is never transmitted."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/jwt-decoder.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is JWT Decoder free to use?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. JWT Decoder is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What can JWT Decoder do?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "JWT Decoder covers decodes header and payload with formatting, registered claim reference with human-readable times, expiry status and countdown, among other things. Everything is available immediately with no account, no sign-up and no usage limit."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does JWT Decoder work?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A JWT has three Base64URL-encoded parts separated by dots: header, payload and signature. The first two are merely encoded, not encrypted, anyone holding the token can read every claim in it. That is by design, and it is why you must never put anything confidential in a JWT payload. Assume the user, and anyone who intercepts the token, can read it."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my data private, and does JWT Decoder work offline?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Everything is processed in your browser. Code, tokens and payloads you paste in never leave your device, which matters when you are debugging something that contains real credentials or customer data. Check the Network tab if you want to confirm it. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/jwt-decoder.html#howto",
+      "name": "How to use JWT Decoder",
+      "description": "Inspect a JWT's header, claims and expiry, decoded locally, never sent anywhere.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Paste your token into the box",
+                  "text": "Paste your token into the box.",
+                  "url": "https://www.123miniapps.online/tools/jwt-decoder.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "The header and payload decode immediately",
+                  "text": "The header and payload decode immediately.",
+                  "url": "https://www.123miniapps.online/tools/jwt-decoder.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Check the claims table for expiry and issuer",
+                  "text": "Check the claims table for expiry and issuer.",
+                  "url": "https://www.123miniapps.online/tools/jwt-decoder.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Clear the box when you are finished",
+                  "text": "Clear the box when you are finished.",
+                  "url": "https://www.123miniapps.online/tools/jwt-decoder.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-developer">Developer Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">JWT Decoder</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">🎫</div>
+      <div>
+        <h1>JWT Decoder</h1>
+        <p>Inspect a JWT's header, claims and expiry, decoded locally, never sent anywhere.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="JWT decoder">
+ <p class="field__hint" style="color:var(--warning)">
+ A JWT often <em>is</em> a live credential. Pasting one into an online decoder that sends it to a
+ server hands over whatever access it grants. This tool decodes in your browser and makes no
+ network requests, you can confirm that in the Network tab. Even so, treat production tokens
+ with care and revoke anything you have pasted somewhere you did not fully trust.
+ </p>
+
+    <div class="field">
+      <label class="field__label" for="input">
+        <span>JSON Web Token</span>
+        <span class="field__hint" id="input-stats"></span>
+      </label>
+      <textarea class="textarea" id="input" style="min-height:130px" spellcheck="false" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…"></textarea>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Paste a token to decode it.</p>
+
+    <hr class="hr">
+
+ <div class="workspace__row">
+ <div class="field">
+ <span class="field__label"><span>Header</span><span class="field__hint">Algorithm and type</span></span>
+ <div class="output output--empty" id="header">, </div>
+ </div>
+ <div class="field">
+ <span class="field__label"><span>Payload</span><span class="field__hint">The claims</span></span>
+ <div class="output output--empty" id="payload">, </div>
+ </div>
+ </div>
+
+ <div class="field">
+ <span class="field__label"><span>Registered claims</span></span>
+ <div class="table-scroll"><div id="claims"></div></div>
+ </div>
+
+ <div class="result-grid">
+ <div class="result result--primary"><span class="result__value" id="r-status" style="font-size:var(--text-xl)">, </span><span class="result__label">Token status</span></div>
+ <div class="result"><span class="result__value" id="r-alg" style="font-size:var(--text-xl)">, </span><span class="result__label">Algorithm</span></div>
+ <div class="result"><span class="result__value" id="r-expires" style="font-size:var(--text-lg)">, </span><span class="result__label">Expires</span></div>
+ </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="sample" type="button">Load a sample token</button>
+      <button class="btn btn--secondary" id="copy" type="button">Copy payload</button>
+      <button class="btn btn--ghost" id="clear" type="button">Clear</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Decodes header and payload with formatting</li>
+        <li>Registered claim reference with human-readable times</li>
+        <li>Expiry status and countdown</li>
+        <li>Handles Base64URL padding correctly</li>
+        <li>Nothing is transmitted, decoding is local</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Paste your token into the box.</li>
+        <li>The header and payload decode immediately.</li>
+        <li>Check the claims table for expiry and issuer.</li>
+        <li>Clear the box when you are finished.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>What decoding a JWT does and does not prove</h2>
+      <p class="text-sm text-muted">A JWT has three Base64URL-encoded parts separated by dots: header, payload and signature. The first two are merely encoded, not encrypted, anyone holding the token can read every claim in it. That is by design, and it is why you must never put anything confidential in a JWT payload. Assume the user, and anyone who intercepts the token, can read it.</p>
+      <p class="text-sm text-muted mt-3">This tool decodes but does not verify. Verification means recomputing the signature over the header and payload using the secret or public key, and that requires the key, which you should not paste into a website. An unverified token proves nothing: an attacker can change any claim and re-encode it. Always verify server-side before trusting a single field.</p>
+      <p class="text-sm text-muted mt-3">The classic vulnerability is the <code>alg</code> header. Early libraries would read the algorithm from the token itself, so an attacker could set <code>alg</code> to <code>none</code>, strip the signature, and have the token accepted. A related attack switches <code>RS256</code> to <code>HS256</code> so the public key gets used as an HMAC secret. Modern libraries reject both, but the lesson stands: the server must decide which algorithm is acceptable, never the token. This decoder flags <code>alg: none</code> prominently for that reason.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is JWT Decoder free to use?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, completely. JWT Decoder is free with no usage limits, no account and no sign-up. There is no paid tier and no trial that expires. Tools marked Premium on this site carry that label to indicate a deeper feature set, not a price.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What can JWT Decoder do?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">JWT Decoder covers decodes header and payload with formatting, registered claim reference with human-readable times, expiry status and countdown, among other things. Everything is available immediately with no account, no sign-up and no usage limit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How does JWT Decoder work?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">A JWT has three Base64URL-encoded parts separated by dots: header, payload and signature. The first two are merely encoded, not encrypted, anyone holding the token can read every claim in it. That is by design, and it is why you must never put anything confidential in a JWT payload. Assume the user, and anyone who intercepts the token, can read it.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my data private, and does JWT Decoder work offline?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Everything is processed in your browser. Code, tokens and payloads you paste in never leave your device, which matters when you are debugging something that contains real credentials or customer data. Check the Network tab if you want to confirm it. Because nothing depends on a server, the tool also keeps working offline once the page has loaded, the site registers a service worker that caches it after your first visit.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/how-to-decode-a-jwt-safely.html">How to Decode a JWT (and Why You Should Never Paste One Online)</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.1"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.1"></script>
+<script src="../assets/data/categories.js?v=2.8.1" defer></script>
+<script src="../assets/data/tools.js?v=2.8.1" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.1" defer></script>
+<script src="../assets/js/components.js?v=2.8.1" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.1" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.1" defer></script>
+<script src="../assets/js/animations.js?v=2.8.1" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.1" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.1" defer></script>
+<script src="../assets/js/consent.js?v=2.8.1" defer></script>
+<script src="../assets/js/ads.js?v=2.8.1" defer></script>
+<script src="../assets/js/main.js?v=2.8.1" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const CLAIM_NAMES = {
+ iss: 'Issuer', sub: 'Subject', aud: 'Audience', exp: 'Expiry time',
+ nbf: 'Not valid before', iat: 'Issued at', jti: 'JWT ID',
+ scope: 'Scope', scp: 'Scope', roles: 'Roles', email: 'Email',
+ name: 'Name', azp: 'Authorised party', typ: 'Type', kid: 'Key ID'
+ };
+
+ const TIME_CLAIMS = new Set(['exp', 'nbf', 'iat', 'auth_time', 'updated_at']);
+
+ let payloadJson = '';
+
+ /** Decode Base64URL, restoring padding and handling UTF-8. */
+ function base64UrlDecode(segment) {
+ let s = segment.replace(/-/g, '+').replace(/_/g, '/');
+ while (s.length % 4) s += '=';
+
+ const binary = atob(s);
+ const bytes = new Uint8Array(binary.length);
+ for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+ return new TextDecoder('utf-8').decode(bytes);
+ }
+
+ function relative(seconds) {
+ const diff = seconds * 1000 - Date.now();
+ const abs = Math.abs(diff);
+ const units = [['day', 86400000], ['hour', 3600000], ['minute', 60000], ['second', 1000]];
+
+ for (const [name, size] of units) {
+ if (abs >= size || name === 'second') {
+ const n = Math.round(abs / size);
+ return diff < 0 ? `${n} ${name}${n === 1 ? '' : 's'} ago` : `in ${n} ${name}${n === 1 ? '' : 's'}`;
+ }
+ }
+ return 'now';
+ }
+
+ function run() {
+ const raw = T.$('input').value.trim();
+ T.$('input-stats').textContent = raw.length.toLocaleString() + ' characters';
+
+ if (!raw) {
+ T.setOutput('header', '', ', ');
+ T.setOutput('payload', '', ', ');
+ T.$('claims').innerHTML = '';
+ ['r-status', 'r-alg', 'r-expires'].forEach((id) => { T.$(id).textContent = ', '; });
+ T.status('status', 'Paste a token to decode it.', 'muted');
+ return;
+ }
+
+ const parts = raw.split('.');
+
+ if (parts.length !== 3) {
+ T.status('status',
+ `A JWT has three dot-separated parts; this has ${parts.length}.`, 'error');
+ return;
+ }
+
+ let header, payload;
+
+ try {
+ header = JSON.parse(base64UrlDecode(parts[0]));
+ } catch {
+ T.status('status', 'The header is not valid Base64URL-encoded JSON.', 'error');
+ return;
+ }
+
+ try {
+ payload = JSON.parse(base64UrlDecode(parts[1]));
+ } catch {
+ T.status('status', 'The payload is not valid Base64URL-encoded JSON.', 'error');
+ return;
+ }
+
+ T.setOutput('header', JSON.stringify(header, null, 2));
+ payloadJson = JSON.stringify(payload, null, 2);
+ T.setOutput('payload', payloadJson);
+
+ const alg = header.alg || 'unknown';
+ T.$('r-alg').textContent = alg;
+ T.$('r-alg').style.color = alg.toLowerCase() === 'none' ? 'var(--danger)' : '';
+
+ renderClaims(payload);
+
+ // Expiry
+ const now = Math.floor(Date.now() / 1000);
+ let statusText = 'Decoded';
+ let statusColour = 'var(--success)';
+
+ if (payload.exp) {
+ T.$('r-expires').textContent = new Date(payload.exp * 1000).toLocaleString();
+ if (payload.exp < now) {
+ statusText = 'Expired';
+ statusColour = 'var(--danger)';
+ }
+ } else {
+ T.$('r-expires').textContent = 'No expiry claim';
+ }
+
+ if (payload.nbf && payload.nbf > now) {
+ statusText = 'Not yet valid';
+ statusColour = 'var(--warning)';
+ }
+
+ T.$('r-status').textContent = statusText;
+ T.$('r-status').style.color = statusColour;
+
+ if (alg.toLowerCase() === 'none') {
+ T.status('status',
+ 'Warning: alg is "none", meaning this token carries no signature at all.', 'error');
+ } else if (statusText === 'Expired') {
+ T.status('status',
+ `Token expired ${relative(payload.exp)}. Decoded successfully, but not verified.`, 'warn');
+ } else {
+ T.status('status',
+ 'Decoded successfully. Note that the signature has NOT been verified.', 'ok');
+ }
+
+ if (window.Analytics) Analytics.trackToolUse('jwt-decoder');
+ }
+
+ function renderClaims(payload) {
+ const mount = T.$('claims');
+ mount.innerHTML = '';
+
+ const rows = Object.entries(payload).map(([key, value]) => {
+ let display;
+
+ if (TIME_CLAIMS.has(key) && typeof value === 'number') {
+ display = `${new Date(value * 1000).toLocaleString()} (${relative(value)})`;
+ } else if (value !== null && typeof value === 'object') {
+ display = JSON.stringify(value);
+ } else {
+ display = String(value);
+ }
+
+ return [key, CLAIM_NAMES[key] || ', ', display];
+ });
+
+ mount.append(T.table(['Claim', 'Meaning', 'Value'], rows));
+ }
+
+ T.$('input').addEventListener('input', debounce(run, 250));
+
+ T.$('sample').addEventListener('click', () => {
+ // A deliberately fake, already-expired demo token
+ const header = { alg: 'HS256', typ: 'JWT' };
+ const payload = {
+ sub: '1234567890',
+ name: 'Ada Lovelace',
+ email: 'ada@example.com',
+ roles: ['engineer', 'admin'],
+ iss: 'https://auth.example.com',
+ iat: Math.floor(Date.now() / 1000) - 3600,
+ exp: Math.floor(Date.now() / 1000) + 3600
+ };
+ const enc = (obj) => btoa(JSON.stringify(obj))
+ .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+
+ T.$('input').value = `${enc(header)}.${enc(payload)}.not-a-real-signature`;
+ run();
+ });
+
+ T.$('copy').addEventListener('click', () => copyToClipboard(payloadJson, 'Payload copied'));
+
+ T.$('clear').addEventListener('click', () => {
+ T.$('input').value = '';
+ run();
+ toast({ type: 'success', title: 'Cleared', message: 'The token is gone from this page.' });
+ });
+
+ T.$('share').addEventListener('click', () => shareLink({ title: 'JWT Decoder | 123MiniApps' }));
+
+ run();
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('jwt-decoder');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>
