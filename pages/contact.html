@@ -84,6 +84,11 @@
         any point.
       </p>
 
+      <p class="lead">
+        Prefer to email directly? Write to
+        <a href="mailto:123miniapps@gmail.com">123miniapps@gmail.com</a>.
+      </p>
+
       <form id="contact-form" class="panel mt-6" novalidate>
         <div class="field mb-4">
           <label class="field__label" for="c-name"><span>Your name</span></label>
@@ -243,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = encodeURIComponent(data.body + '\n\n, ' + data.name);
 
     // Opens the visitor's own mail client; nothing is sent through this site.
-    window.location.href = 'mailto:hello@123miniapps.online?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:123miniapps@gmail.com?subject=' + subject + '&body=' + body;
 
     status.textContent = 'Opening your email client. If nothing happens, use "Copy message instead".';
     status.style.color = 'var(--text-muted)';
