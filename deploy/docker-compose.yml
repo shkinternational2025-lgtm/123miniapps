@@ -1,0 +1,29 @@
+# ============================================================
+# 123MiniApps — deploy behind the existing Traefik on this VPS.
+#
+# Traefik (already running) owns ports 80/443, redirects HTTP->HTTPS,
+# and issues Let's Encrypt certs via the "letsencrypt" resolver.
+# This stack just serves the static site on internal port 80 and
+# carries the Traefik labels so Traefik routes the two domains to it.
+#
+# The site files are bind-mounted from the git clone at /opt/123miniapps,
+# so updating the site is just:  cd /opt/123miniapps && git pull
+#
+# Deploy:  cd /opt/123miniapps/deploy && docker compose up -d
+# ============================================================
+
+services:
+  miniapps:
+    image: nginx:alpine
+    container_name: miniapps
+    restart: unless-stopped
+    volumes:
+      - /opt/123miniapps:/usr/share/nginx/html:ro
+      - /opt/123miniapps/deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.miniapps.rule=Host(`123miniapps.online`) || Host(`www.123miniapps.online`)"
+      - "traefik.http.routers.miniapps.entrypoints=websecure"
+      - "traefik.http.routers.miniapps.tls=true"
+      - "traefik.http.routers.miniapps.tls.certresolver=letsencrypt"
+      - "traefik.http.services.miniapps.loadbalancer.server.port=80"
