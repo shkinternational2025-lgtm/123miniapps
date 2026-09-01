@@ -115,20 +115,20 @@ CHROME_TAIL = """<footer class="footer">
   </div>
 </div>
 
-<script src="{root}assets/js/config.js?v=2.8.1"></script>
-<script src="{root}assets/js/theme-manager.js?v=2.8.1"></script>
-<script src="{root}assets/data/categories.js?v=2.8.1" defer></script>
-<script src="{root}assets/data/tools.js?v=2.8.1" defer></script>
-<script src="{root}assets/data/testimonials.js?v=2.8.1" defer></script>
-<script src="{root}assets/js/components.js?v=2.8.1" defer></script>
-<script src="{root}assets/js/tool-utils.js?v=2.8.1" defer></script>
-<script src="{root}assets/js/search-engine.js?v=2.8.1" defer></script>
-<script src="{root}assets/js/animations.js?v=2.8.1" defer></script>
-<script src="{root}assets/js/pwa.js?v=2.8.1" defer></script>
-<script src="{root}assets/js/analytics.js?v=2.8.1" defer></script>
-<script src="{root}assets/js/consent.js?v=2.8.1" defer></script>
-<script src="{root}assets/js/ads.js?v=2.8.1" defer></script>
-<script src="{root}assets/js/main.js?v=2.8.1" defer></script>
+<script src="{root}assets/js/config.js?v=2.8.2"></script>
+<script src="{root}assets/js/theme-manager.js?v=2.8.2"></script>
+<script src="{root}assets/data/categories.js?v=2.8.2" defer></script>
+<script src="{root}assets/data/tools.js?v=2.8.2" defer></script>
+<script src="{root}assets/data/testimonials.js?v=2.8.2" defer></script>
+<script src="{root}assets/js/components.js?v=2.8.2" defer></script>
+<script src="{root}assets/js/tool-utils.js?v=2.8.2" defer></script>
+<script src="{root}assets/js/search-engine.js?v=2.8.2" defer></script>
+<script src="{root}assets/js/animations.js?v=2.8.2" defer></script>
+<script src="{root}assets/js/pwa.js?v=2.8.2" defer></script>
+<script src="{root}assets/js/analytics.js?v=2.8.2" defer></script>
+<script src="{root}assets/js/consent.js?v=2.8.2" defer></script>
+<script src="{root}assets/js/ads.js?v=2.8.2" defer></script>
+<script src="{root}assets/js/main.js?v=2.8.2" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{{document.getElementById('copyright-year').textContent=new Date().getFullYear();}});</script>
 </body>
 </html>
@@ -176,7 +176,7 @@ HEAD = """<!DOCTYPE html>
 html{{background:#0B1120}}
 body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}}
 </style>
-<link rel="stylesheet" href="{root}assets/css/main.min.css?v=2.8.1">
+<link rel="stylesheet" href="{root}assets/css/main.min.css?v=2.8.2">
 
 <script type="application/ld+json">
 {schema}

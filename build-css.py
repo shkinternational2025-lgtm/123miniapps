@@ -75,7 +75,13 @@ def minify(css):
 
     # Collapse whitespace
     css = re.sub(r"\s+", " ", css)
-    css = re.sub(r"\s*([{}:; >+~])\s*", r"\1", css)
+    # Collapse space around structural chars and the >/~ combinators.
+    # NOTE: '+' is deliberately NOT in this class. Inside calc()/min()/max()/
+    # clamp() the '+' operator REQUIRES whitespace on both sides, e.g.
+    # calc(var(--space-8) + 68px). Stripping it produces calc(2rem+68px),
+    # which browsers reject and resolve to a garbage value. The few extra
+    # bytes from keeping "a + b" spacing in selectors are worth it.
+    css = re.sub(r"\s*([{}:;>~])\s*", r"\1", css)
 
     # Drop the final semicolon in each block
     css = css.replace(";}", "}")

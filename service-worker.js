@@ -15,7 +15,7 @@
      - Cross-origin (fonts): stale-while-revalidate.
    ============================================ */
 
-const VERSION = '2.8.1';
+const VERSION = '2.8.2';
 const SHELL_CACHE = `123miniapps-shell-v${VERSION}`;
 const PAGE_CACHE = `123miniapps-pages-v${VERSION}`;
 const FONT_CACHE = `123miniapps-fonts-v${VERSION}`;
