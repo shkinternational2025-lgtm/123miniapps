@@ -379,7 +379,7 @@ PAGES.append(tool(
  ],
  background_title="Where your tasks live, and what that means",
  background_paragraphs=[
- "Everything here is stored in your browser's localStorage. That has real advantages: it works offline, it loads instantly, nobody can read it, and there is no account to create or subscription to cancel. It also has a real limitation you should understand before relying on it, the data lives in one browser on one device. It will not appear on your phone, it does not survive clearing site data, and private browsing windows discard it when closed.",
+ "Everything here is stored in your browser's localStorage. That has real advantages: it stays on your device, it loads instantly, nobody can read it, and there is no account to create or subscription to cancel. It also has a real limitation you should understand before relying on it, the data lives in one browser on one device. It will not appear on your phone, it does not survive clearing site data, and private browsing windows discard it when closed.",
  "Use the export button if a list matters. A quick copy into a note or document takes seconds and protects you from the one failure mode this design has.",
  "On the productivity side, the most useful discipline is keeping the list short. A list of eighty items is a source of anxiety rather than a plan, because scanning it costs more attention than it saves. Most systems that work, whether that is a daily top-three, a kanban work-in-progress limit, or simply deleting anything untouched for a month, do the same underlying thing: they reduce the number of open decisions. The filters here exist to support that, not to help you manage a longer list.",
  ],

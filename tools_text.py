@@ -949,7 +949,7 @@ PAGES.append(tool(
  "Adjustable rate, pitch and volume",
  "Pause and resume mid-sentence",
  "Highlights nothing and stores nothing",
- "Works offline with locally installed voices",
+ "Uses the voices already installed on your device",
  ],
  howto=[
  "Paste the text you want read aloud.",
