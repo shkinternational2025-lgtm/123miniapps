@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ============================================================
-# build-llms.py — generate /llms.txt for AI / answer engines.
+# build-llms.py - generate /llms.txt for AI / answer engines.
 #
 # llms.txt is a plain-markdown map of the site that assistants
 # like ChatGPT, Claude, Perplexity and Google AI Overviews can
@@ -119,7 +119,7 @@ def build():
         lines.append(f"### {cname}")
         lines.append("")
         for t in sorted(items, key=lambda x: x["name"]):
-            desc = f" — {t['description']}" if t["description"] else ""
+            desc = f" - {t['description']}" if t["description"] else ""
             lines.append(f"- [{t['name']}]({BASE}/{t['url']}){desc}")
         lines.append("")
 

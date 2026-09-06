@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ============================================================
-# indexnow.py — ping IndexNow (Bing, Yandex, and partners) so
+# indexnow.py - ping IndexNow (Bing, Yandex, and partners) so
 # new or updated pages get crawled within minutes instead of
 # waiting for the next natural crawl.
 #
@@ -66,7 +66,7 @@ def submit(urls):
             print(f"IndexNow: HTTP {resp.status} for {len(urls)} URL(s).")
             print("  200/202 = accepted. 403 = key file not reachable yet.")
     except urllib.error.HTTPError as e:
-        print(f"IndexNow error: HTTP {e.code} — {e.read().decode('utf-8', 'ignore')}")
+        print(f"IndexNow error: HTTP {e.code} - {e.read().decode('utf-8', 'ignore')}")
     except Exception as e:  # noqa: BLE001
         print(f"IndexNow request failed: {e}")
 

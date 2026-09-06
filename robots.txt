@@ -6,7 +6,7 @@
 User-agent: *
 Allow: /
 
-# Build-time utilities and templates — no value in the index
+# Build-time utilities and templates - no value in the index
 Disallow: /admin/
 Disallow: /tools/_template.html
 Disallow: /theme-debug.html
