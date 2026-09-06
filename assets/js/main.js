@@ -310,6 +310,7 @@ const App = {
  this.renderCategories();
  this.renderFeaturedTools();
  this.renderAllTools();
+ this.initCategoryNavigation();
  this.renderFeatures();
  this.renderTestimonials();
  this.renderFAQ();
@@ -318,11 +319,10 @@ const App = {
 
  renderCategories() {
  const grid = document.getElementById('category-grid');
- const row = document.getElementById('category-row');
 
  if (grid) {
  const frag = document.createDocumentFragment();
- window.CATEGORIES.filter((c) => c.primary).forEach((category, i) => {
+ window.CATEGORIES.forEach((category, i) => {
  const card = createCategoryCard({ category });
  card.dataset.animate = 'fade-up';
  card.style.setProperty('--reveal-delay', `${i * 60}ms`);
@@ -330,14 +330,43 @@ const App = {
  });
  grid.append(frag);
  }
+ },
 
- if (row) {
- const frag = document.createDocumentFragment();
- window.CATEGORIES.filter((c) => !c.primary).forEach((category) => {
- frag.append(createCategoryChip({ category }));
- });
- row.append(frag);
+ /**
+ * Make the category cards actually browse: clicking one activates the
+ * matching tab in the "All 95 tools" section and scrolls to it. Also
+ * honours a #category-<id> hash on first load and on back/forward.
+ */
+ goToCategory(id) {
+ const tabBtn = document.getElementById(`tab-${id}`);
+ if (!tabBtn) return false;
+ tabBtn.click();
+ const section = document.getElementById('all-tools-section');
+ if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ return true;
+ },
+
+ initCategoryNavigation() {
+ const grid = document.getElementById('category-grid');
+ if (grid) {
+ grid.addEventListener('click', (e) => {
+ const card = e.target.closest('[data-category]');
+ if (!card) return;
+ const id = card.dataset.category;
+ if (document.getElementById(`tab-${id}`)) {
+ e.preventDefault();
+ history.replaceState(null, '', `#category-${id}`);
+ this.goToCategory(id);
  }
+ });
+ }
+
+ const fromHash = () => {
+ const m = location.hash.match(/^#category-(.+)$/);
+ if (m) this.goToCategory(decodeURIComponent(m[1]));
+ };
+ window.addEventListener('hashchange', fromHash);
+ fromHash();
  },
 
  renderFeaturedTools() {

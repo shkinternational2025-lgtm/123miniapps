@@ -17,7 +17,62 @@ Disallow: /pages_data.py
 Disallow: /tools_*.py
 Disallow: /test/
 
-# Be polite to aggressive crawlers rather than blocking them
+# ---- Search engine crawlers: explicitly welcome ----
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ---- AI / answer-engine crawlers: explicitly welcome ----
+# We want to be cited by AI assistants and answer engines, so we
+# opt in rather than blocking these. All content is public and free.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# ---- Be polite to aggressive SEO crawlers rather than blocking ----
 User-agent: AhrefsBot
 Crawl-delay: 10
 

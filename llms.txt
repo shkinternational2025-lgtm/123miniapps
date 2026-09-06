@@ -1,0 +1,247 @@
+# 123MiniApps
+
+> 95 free browser-based mini tools for text, images, developers and designers. Every tool runs entirely as JavaScript in the user's browser tab: nothing is uploaded, there is no backend, no account is required, and data never leaves the device.
+
+Key facts an assistant can rely on:
+
+- All tools are 100% free with no usage limits and no sign-up.
+- All processing is client-side (in-browser). No file or text is ever sent to a server.
+- Works offline after first visit (installable PWA).
+- Homepage: https://www.123miniapps.online/
+- Full sitemap: https://www.123miniapps.online/sitemap.xml
+
+## Tools by category
+
+### Text Tools
+
+- [Case Converter](https://www.123miniapps.online/tools/case-converter.html) — Switch text between upper, lower, title, sentence, camel and snake case.
+- [Character Counter](https://www.123miniapps.online/tools/character-counter.html) — Track character limits for tweets, meta descriptions and SMS.
+- [Find and Replace](https://www.123miniapps.online/tools/find-and-replace.html) — Bulk find-and-replace across large text with optional regex.
+- [Lorem Ipsum Generator](https://www.123miniapps.online/tools/lorem-ipsum-generator.html) — Generate placeholder paragraphs, sentences or words for mockups.
+- [Remove Duplicate Lines](https://www.123miniapps.online/tools/remove-duplicate-lines.html) — Strip repeated lines from any list while keeping the original order.
+- [Text Diff Checker](https://www.123miniapps.online/tools/text-diff-checker.html) — Compare two blocks of text and highlight every addition and deletion.
+- [Text Formatter](https://www.123miniapps.online/tools/text-formatter.html) — Tidy messy text: fix spacing, line breaks, indentation and smart quotes.
+- [Text Reverser](https://www.123miniapps.online/tools/text-reverser.html) — Reverse text by characters, words or lines in a single click.
+- [Text to Speech](https://www.123miniapps.online/tools/text-to-speech.html) — Read any text aloud using the voices already installed on your device.
+- [Word Counter](https://www.123miniapps.online/tools/word-counter.html) — Count words, characters, sentences and reading time as you type.
+
+### Image Tools
+
+- [Color Picker from Image](https://www.123miniapps.online/tools/color-picker-from-image.html) — Pick any color out of an uploaded image and copy its hex value.
+- [Favicon Generator](https://www.123miniapps.online/tools/favicon-generator.html) — Turn any square image into a complete favicon set with HTML snippet.
+- [Image Compressor](https://www.123miniapps.online/tools/image-compressor.html) — Shrink JPG, PNG and WebP files without a visible quality drop.
+- [Image Cropper](https://www.123miniapps.online/tools/image-cropper.html) — Crop images with a draggable frame and common aspect-ratio presets.
+- [Image Filters](https://www.123miniapps.online/tools/image-filters.html) — Apply grayscale, sepia, blur, contrast and saturation adjustments.
+- [Image Format Converter](https://www.123miniapps.online/tools/image-format-converter.html) — Convert between PNG, JPG, WebP and BMP right in the browser.
+- [Image Resizer](https://www.123miniapps.online/tools/image-resizer.html) — Resize images to exact pixel dimensions or a percentage scale.
+- [Image Watermark](https://www.123miniapps.online/tools/image-watermark.html) — Stamp text or a logo watermark across your images before sharing.
+- [Image to Base64](https://www.123miniapps.online/tools/image-to-base64.html) — Convert an image into a Base64 data URI ready to paste into CSS or HTML.
+- [Meme Generator](https://www.123miniapps.online/tools/meme-generator.html) — Add classic top and bottom captions to any image.
+
+### Developer Tools
+
+- [Base64 Encoder / Decoder](https://www.123miniapps.online/tools/base64-encoder-decoder.html) — Encode text to Base64 or decode it back, with full Unicode support.
+- [CSS Minifier](https://www.123miniapps.online/tools/css-minifier.html) — Strip comments and whitespace from CSS and report the bytes saved.
+- [Cron Expression Builder](https://www.123miniapps.online/tools/cron-expression-builder.html) — Build and read cron schedules with a plain-English explanation.
+- [HTML Formatter](https://www.123miniapps.online/tools/html-formatter.html) — Indent and tidy messy HTML, or minify it for production.
+- [HTTP Status Codes](https://www.123miniapps.online/tools/http-status-codes.html) — Searchable reference for every HTTP status code and what it means.
+- [JSON Formatter](https://www.123miniapps.online/tools/json-formatter.html)
+- [JWT Decoder](https://www.123miniapps.online/tools/jwt-decoder.html) — Inspect the header, payload and expiry of any JSON Web Token.
+- [JavaScript Minifier](https://www.123miniapps.online/tools/javascript-minifier.html) — Reduce JavaScript file size by removing comments and dead whitespace.
+- [Markdown Preview](https://www.123miniapps.online/tools/markdown-preview.html) — Write Markdown on the left and see rendered HTML update live on the right.
+- [Regex Tester](https://www.123miniapps.online/tools/regex-tester.html) — Test regular expressions against sample text with live match highlighting.
+- [SQL Formatter](https://www.123miniapps.online/tools/sql-formatter.html) — Format SQL queries with consistent keyword casing and indentation.
+- [URL Encoder / Decoder](https://www.123miniapps.online/tools/url-encoder-decoder.html) — Percent-encode or decode URLs and query string components.
+
+### Converters
+
+- [CSV to JSON](https://www.123miniapps.online/tools/csv-to-json.html) — Turn CSV data into structured JSON, and convert back again.
+- [Currency Converter](https://www.123miniapps.online/tools/currency-converter.html) — Convert between currencies using rates you enter or paste in.
+- [File Size Converter](https://www.123miniapps.online/tools/file-size-converter.html) — Convert between bytes, KB, MB, GB and TB, binary or decimal.
+- [Number Base Converter](https://www.123miniapps.online/tools/number-base-converter.html) — Convert between binary, octal, decimal and hexadecimal.
+- [Roman Numeral Converter](https://www.123miniapps.online/tools/roman-numeral-converter.html) — Convert numbers to Roman numerals and back, up to 3,999,999.
+- [Temperature Converter](https://www.123miniapps.online/tools/temperature-converter.html) — Switch between Celsius, Fahrenheit and Kelvin instantly.
+- [Text to ASCII](https://www.123miniapps.online/tools/text-to-ascii.html) — Convert text to ASCII or Unicode code points and back.
+- [Time Zone Converter](https://www.123miniapps.online/tools/time-zone-converter.html) — Compare a moment in time across several time zones at once.
+- [Timestamp Converter](https://www.123miniapps.online/tools/timestamp-converter.html) — Convert Unix timestamps to readable dates across any timezone.
+- [Unit Converter](https://www.123miniapps.online/tools/unit-converter.html) — Convert length, weight, volume, area, speed and temperature.
+
+### Generators
+
+- [Barcode Generator](https://www.123miniapps.online/tools/barcode-generator.html) — Generate Code128, EAN-13 and UPC-A barcodes as downloadable images.
+- [Fake Data Generator](https://www.123miniapps.online/tools/fake-data-generator.html) — Produce realistic sample names, emails, addresses and phone numbers.
+- [Gradient Generator](https://www.123miniapps.online/tools/gradient-generator.html) — Design linear and radial CSS gradients with a live preview.
+- [Hash Generator](https://www.123miniapps.online/tools/hash-generator.html) — Produce SHA-1, SHA-256, SHA-384 and SHA-512 digests of any text.
+- [Invoice Generator](https://www.123miniapps.online/tools/invoice-generator.html) — Build a clean itemized invoice and export it as a printable PDF.
+- [Password Generator](https://www.123miniapps.online/tools/password-generator.html) — Create cryptographically strong passwords with full character control.
+- [Placeholder Image Generator](https://www.123miniapps.online/tools/placeholder-image-generator.html) — Create sized placeholder images with custom text and colors.
+- [QR Code Generator](https://www.123miniapps.online/tools/qr-code-generator.html) — Turn links, text, Wi-Fi credentials or contact cards into a QR code.
+- [Random Number Generator](https://www.123miniapps.online/tools/random-number-generator.html) — Draw random numbers in any range, with or without repeats.
+- [Signature Generator](https://www.123miniapps.online/tools/signature-generator.html) — Draw or type a signature and export it with a transparent background.
+- [Slug Generator](https://www.123miniapps.online/tools/slug-generator.html) — Turn any title into a clean, URL-safe slug.
+- [UUID Generator](https://www.123miniapps.online/tools/uuid-generator.html) — Generate RFC-4122 v4 UUIDs one at a time or a thousand at once.
+
+### Calculators
+
+- [Age Calculator](https://www.123miniapps.online/tools/age-calculator.html) — Find an exact age in years, months, days, plus the next birthday countdown.
+- [BMI Calculator](https://www.123miniapps.online/tools/bmi-calculator.html) — Calculate body mass index in metric or imperial units.
+- [Compound Interest Calculator](https://www.123miniapps.online/tools/compound-interest-calculator.html) — Project how savings grow with compounding and regular contributions.
+- [Date Difference Calculator](https://www.123miniapps.online/tools/date-difference-calculator.html) — Count the days, weeks and months between any two dates.
+- [Discount Calculator](https://www.123miniapps.online/tools/discount-calculator.html) — Find the sale price, savings and effective discount on any purchase.
+- [Fuel Cost Calculator](https://www.123miniapps.online/tools/fuel-cost-calculator.html) — Estimate the fuel cost of a trip from distance, efficiency and price.
+- [Loan Calculator](https://www.123miniapps.online/tools/loan-calculator.html) — Estimate monthly payments, total interest and see a full amortization table.
+- [Percentage Calculator](https://www.123miniapps.online/tools/percentage-calculator.html) — Work out percentages, increases, decreases and percentage differences.
+- [Scientific Calculator](https://www.123miniapps.online/tools/scientific-calculator.html) — A full scientific calculator with trig, logs, powers and memory.
+- [Tip Calculator](https://www.123miniapps.online/tools/tip-calculator.html) — Split a bill and work out the tip per person in seconds.
+
+### Security Tools
+
+- [Encryption Tool](https://www.123miniapps.online/tools/encryption-tool.html) — Encrypt and decrypt text with AES-GCM using a passphrase you choose.
+- [Hash Comparison](https://www.123miniapps.online/tools/hash-comparison.html) — Compare two hashes or verify a file checksum against a known value.
+- [Password Strength Checker](https://www.123miniapps.online/tools/password-strength-checker.html) — Score a password on entropy and estimate how long it would take to crack.
+- [Privacy Checker](https://www.123miniapps.online/tools/privacy-checker.html) — See what your browser reveals about you, and what to do about it.
+- [Random Key Generator](https://www.123miniapps.online/tools/random-key-generator.html) — Generate API keys, secrets and tokens at any length or encoding.
+
+### Design Tools
+
+- [Border Radius Generator](https://www.123miniapps.online/tools/border-radius-generator.html) — Dial in per-corner border radii, including elliptical blob shapes.
+- [Box Shadow Generator](https://www.123miniapps.online/tools/box-shadow-generator.html) — Compose CSS box-shadows visually, including layered and inset shadows.
+- [CSS Grid Generator](https://www.123miniapps.online/tools/css-grid-generator.html) — Lay out a CSS grid visually and copy the generated rules.
+- [Color Palette Generator](https://www.123miniapps.online/tools/color-palette-generator.html) — Build harmonious palettes from a base color using color theory.
+- [Color Picker](https://www.123miniapps.online/tools/color-picker.html) — Pick a color and get HEX, RGB, HSL and a full tint/shade ramp.
+- [Contrast Checker](https://www.123miniapps.online/tools/contrast-checker.html) — Verify text/background contrast ratios against WCAG AA and AAA.
+- [Font Pairing Tool](https://www.123miniapps.online/tools/font-pairing-tool.html) — Browse curated heading/body font pairings with live specimen text.
+- [Glassmorphism Generator](https://www.123miniapps.online/tools/glassmorphism-generator.html) — Generate frosted-glass CSS with blur, transparency and border tuning.
+
+### Content Tools
+
+- [Blog Title Generator](https://www.123miniapps.online/tools/blog-title-generator.html) — Spin a topic into dozens of headline variations across proven formats.
+- [Citation Generator](https://www.123miniapps.online/tools/citation-generator.html) — Format references in APA, MLA, Chicago and Harvard styles.
+- [Keyword Density Checker](https://www.123miniapps.online/tools/keyword-density-checker.html) — Find your most-used words and phrases and their density percentages.
+- [Meta Tag Generator](https://www.123miniapps.online/tools/meta-tag-generator.html) — Produce complete SEO, Open Graph and Twitter Card meta tags.
+- [Readability Checker](https://www.123miniapps.online/tools/readability-checker.html) — Score your writing with Flesch-Kincaid and spot hard-to-read sentences.
+- [Text Summarizer](https://www.123miniapps.online/tools/text-summarizer.html) — Condense long text to its key sentences using extractive scoring.
+
+### Productivity Tools
+
+- [Countdown Timer](https://www.123miniapps.online/tools/countdown-timer.html) — Count down to a date or duration with a full-screen display.
+- [Habit Tracker](https://www.123miniapps.online/tools/habit-tracker.html) — Track daily habits on a streak grid stored only on your device.
+- [Meeting Cost Calculator](https://www.123miniapps.online/tools/meeting-cost-calculator.html) — Watch what a meeting costs in real time based on attendee salaries.
+- [Notepad](https://www.123miniapps.online/tools/notepad.html) — A distraction-free scratchpad that autosaves as you type.
+- [Pomodoro Timer](https://www.123miniapps.online/tools/pomodoro-timer.html) — Run focused 25-minute work blocks with automatic break cycles.
+- [Todo List](https://www.123miniapps.online/tools/todo-list.html) — A fast checklist that saves to your browser and needs no account.
+
+### Fun Tools
+
+- [Coin Flip](https://www.123miniapps.online/tools/coin-flip.html) — Flip a coin with a 3D animation, or flip a hundred at once.
+- [Dice Roller](https://www.123miniapps.online/tools/dice-roller.html) — Roll any dice notation, d4 through d100, with modifiers.
+- [Emoji Picker](https://www.123miniapps.online/tools/emoji-picker.html) — Search thousands of emoji by name and copy them with one click.
+- [Password Game](https://www.123miniapps.online/tools/password-game.html) — A playful challenge that teaches what actually makes a password strong.
+- [Random Picker](https://www.123miniapps.online/tools/random-picker.html) — Drop in a list and let it pick a winner, with an animated reveal.
+- [Spin the Wheel](https://www.123miniapps.online/tools/spin-the-wheel.html) — Build a custom spinning wheel for decisions, giveaways or classrooms.
+
+## Guides and articles
+
+- [Apply Photo Filters Online](https://www.123miniapps.online/blog/apply-photo-filters-in-your-browser.html)
+- [Barcodes Explained](https://www.123miniapps.online/blog/barcodes-explained-how-to-generate-one.html)
+- [Base64 Encoding Explained](https://www.123miniapps.online/blog/base64-encoding-explained-for-developers.html)
+- [Binary, Decimal & Hex](https://www.123miniapps.online/blog/binary-decimal-hex-number-bases-explained.html)
+- [Celsius to Fahrenheit & Kelvin](https://www.123miniapps.online/blog/celsius-fahrenheit-kelvin-temperature-conversion.html)
+- [Character Counter](https://www.123miniapps.online/blog/character-count-tweets-meta-sms.html)
+- [Text Formatter](https://www.123miniapps.online/blog/clean-up-messy-text-formatting.html)
+- [Color Contrast & Accessibility](https://www.123miniapps.online/blog/color-contrast-and-accessibility.html)
+- [Compare Two Texts Online](https://www.123miniapps.online/blog/compare-two-texts-find-differences.html)
+- [Compound Interest Explained](https://www.123miniapps.online/blog/compound-interest-explained.html)
+- [Compress Images Without Losing Quality (Free, In-Browser)](https://www.123miniapps.online/blog/compress-images-without-losing-quality.html)
+- [Convert Image Formats](https://www.123miniapps.online/blog/convert-between-image-formats-png-jpg-webp.html)
+- [Convert Case Online](https://www.123miniapps.online/blog/convert-text-case-without-retyping.html)
+- [Create a Signature for Documents Online (Free)](https://www.123miniapps.online/blog/create-a-digital-signature-online.html)
+- [Cron Day-of-Month and Day-of-Week: The OR Trap Explained](https://www.123miniapps.online/blog/cron-day-of-week-trap.html)
+- [Crop Image Online to the Right Aspect Ratio & Size](https://www.123miniapps.online/blog/crop-image-to-right-aspect-ratio.html)
+- [CSS Border Radius](https://www.123miniapps.online/blog/css-border-radius-rounded-corners.html)
+- [CSS Box Shadow Explained](https://www.123miniapps.online/blog/css-box-shadow-explained.html)
+- [CSS Gradients Explained](https://www.123miniapps.online/blog/css-gradients-explained.html)
+- [CSS Grid Explained](https://www.123miniapps.online/blog/css-grid-explained-visual-layouts.html)
+- [CSS Minification Explained](https://www.123miniapps.online/blog/css-minification-explained.html)
+- [Dice Notation Explained: 3d6+2, 4d6kh3, Advantage and Why It Matters](https://www.123miniapps.online/blog/dice-notation-explained.html)
+- [A Quick Digital Notepad in Your Browser](https://www.123miniapps.online/blog/digital-notepad-quick-notes-in-browser.html)
+- [Find and Replace Online](https://www.123miniapps.online/blog/find-and-replace-online-bulk-edit-text.html)
+- [Get the Hex Color From an Image (Free Eyedropper)](https://www.123miniapps.online/blog/get-hex-color-from-any-image.html)
+- [Glassmorphism Explained](https://www.123miniapps.online/blog/glassmorphism-frosted-glass-effect.html)
+- [How Currency Conversion Works & Why Rates Move](https://www.123miniapps.online/blog/how-currency-conversion-works.html)
+- [How Emoji Work](https://www.123miniapps.online/blog/how-emoji-work-and-how-to-use-them.html)
+- [How Encryption Works](https://www.123miniapps.online/blog/how-encryption-works-keeping-text-private.html)
+- [How Habit Tracking Builds Consistency & Why Streaks Work](https://www.123miniapps.online/blog/how-habit-tracking-builds-consistency.html)
+- [How Loan Repayments Work](https://www.123miniapps.online/blog/how-loan-repayments-work-amortization.html)
+- [How Long Should a Password Be? What the Evidence Says](https://www.123miniapps.online/blog/how-long-should-a-password-be.html)
+- [Word Count Guide](https://www.123miniapps.online/blog/how-many-words-is-that-word-count-guide.html)
+- [How Much to Tip & Split the Bill](https://www.123miniapps.online/blog/how-much-to-tip-and-split-the-bill.html)
+- [How Password Strength Is Measured (Entropy Explained)](https://www.123miniapps.online/blog/how-password-strength-is-measured.html)
+- [How QR Codes Work & How to Make One Free](https://www.123miniapps.online/blog/how-qr-codes-work-and-how-to-make-one.html)
+- [Roman Numerals Explained](https://www.123miniapps.online/blog/how-roman-numerals-work.html)
+- [How Text Summarizers Work & When to Use One](https://www.123miniapps.online/blog/how-text-summarizers-work.html)
+- [How to Build a Color Palette That Works](https://www.123miniapps.online/blog/how-to-build-a-color-palette.html)
+- [Calculate Days Between Two Dates (Accurately)](https://www.123miniapps.online/blog/how-to-calculate-days-between-dates.html)
+- [How to Calculate Exact Age in Years, Months & Days](https://www.123miniapps.online/blog/how-to-calculate-exact-age.html)
+- [How to Calculate the Fuel Cost of a Trip](https://www.123miniapps.online/blog/how-to-calculate-fuel-cost-of-a-trip.html)
+- [How to Calculate Percentages](https://www.123miniapps.online/blog/how-to-calculate-percentages.html)
+- [How to Cite Sources](https://www.123miniapps.online/blog/how-to-cite-sources-apa-mla-chicago.html)
+- [Convert CSV to JSON](https://www.123miniapps.online/blog/how-to-convert-csv-to-json.html)
+- [How to Decode a JWT Safely](https://www.123miniapps.online/blog/how-to-decode-a-jwt-safely.html)
+- [How to Generate Truly Random Numbers (Fairly)](https://www.123miniapps.online/blog/how-to-generate-truly-random-numbers.html)
+- [How to Make a Meme Online](https://www.123miniapps.online/blog/how-to-make-a-meme.html)
+- [How to Make a Professional Invoice Free (No Software)](https://www.123miniapps.online/blog/how-to-make-a-professional-invoice.html)
+- [Readability Scores Explained](https://www.123miniapps.online/blog/how-to-make-writing-easier-to-read.html)
+- [How to Pair Fonts That Work Together](https://www.123miniapps.online/blog/how-to-pair-fonts-that-work.html)
+- [How to Pick a Random Winner Fairly](https://www.123miniapps.online/blog/how-to-pick-a-random-winner-fairly.html)
+- [Reverse Text Online](https://www.123miniapps.online/blog/how-to-reverse-text-words-lines.html)
+- [How to Test Regular Expressions (Regex) Online](https://www.123miniapps.online/blog/how-to-test-regular-expressions.html)
+- [How to Use a Countdown Timer to Focus & Beat Procrastination](https://www.123miniapps.online/blog/how-to-use-a-countdown-timer.html)
+- [How to Write Blog Titles That Get Clicks](https://www.123miniapps.online/blog/how-to-write-blog-titles-that-get-clicks.html)
+- [HTTP Status Codes Explained](https://www.123miniapps.online/blog/http-status-codes-explained.html)
+- [Is a Coin Flip Really 50/50? The Surprising Truth](https://www.123miniapps.online/blog/is-a-coin-flip-really-fair.html)
+- [JavaScript Minification](https://www.123miniapps.online/blog/javascript-minification-and-performance.html)
+- [Keyword Density Explained](https://www.123miniapps.online/blog/keyword-density-and-why-stuffing-backfires.html)
+- [How to Make a Favicon](https://www.123miniapps.online/blog/make-a-favicon-for-every-browser.html)
+- [Markdown Explained](https://www.123miniapps.online/blog/markdown-explained-for-beginners.html)
+- [Meta Tags Explained](https://www.123miniapps.online/blog/meta-tags-explained-title-description-open-graph.html)
+- [Metric to Imperial Conversion](https://www.123miniapps.online/blog/metric-to-imperial-unit-conversion-explained.html)
+- [Placeholder Images](https://www.123miniapps.online/blog/placeholder-images-why-and-how.html)
+- [Remove Duplicate Lines Online](https://www.123miniapps.online/blog/remove-duplicate-lines-from-a-list.html)
+- [Resize Image Online to Exact Pixels (No Stretching)](https://www.123miniapps.online/blog/resize-image-to-exact-dimensions.html)
+- [Scientific Calculator Functions Explained](https://www.123miniapps.online/blog/scientific-calculator-functions-explained.html)
+- [Spin the Wheel](https://www.123miniapps.online/blog/spin-the-wheel-for-fair-random-choices.html)
+- [Text to Speech Online Free](https://www.123miniapps.online/blog/text-to-speech-in-your-browser.html)
+- [The Pomodoro Technique Explained](https://www.123miniapps.online/blog/the-pomodoro-technique-explained.html)
+- [The Real Cost of Meetings & How to Calculate It](https://www.123miniapps.online/blog/the-real-cost-of-meetings.html)
+- [Time Zones Explained](https://www.123miniapps.online/blog/time-zones-explained-converting-times.html)
+- [Color on the Web](https://www.123miniapps.online/blog/understanding-color-hex-rgb-hsl.html)
+- [Unix Timestamp Converter](https://www.123miniapps.online/blog/unix-timestamps-epoch-time-explained.html)
+- [URL Encoding Explained](https://www.123miniapps.online/blog/url-encoding-percent-encoding-explained.html)
+- [How to Watermark Images Online to Protect Your Photos](https://www.123miniapps.online/blog/watermark-images-to-protect-your-work.html)
+- [WebP vs JPEG vs PNG: Which Image Format to Use and When](https://www.123miniapps.online/blog/webp-vs-jpeg-vs-png.html)
+- [What a Matching Checksum Actually Proves (And What It Doesn't)](https://www.123miniapps.online/blog/what-a-checksum-actually-proves.html)
+- [What Does a Website Know About You? Check Your Privacy](https://www.123miniapps.online/blog/what-a-website-knows-about-you.html)
+- [What BMI Measures and What It Doesn't](https://www.123miniapps.online/blog/what-bmi-measures-and-what-it-doesnt.html)
+- [Base64 Images Explained](https://www.123miniapps.online/blog/what-is-a-base64-image-data-uri.html)
+- [What Is a Hash? MD5, SHA-256 & Hashing Explained](https://www.123miniapps.online/blog/what-is-a-hash-md5-sha256-explained.html)
+- [What Is a URL Slug? Create SEO-Friendly URLs](https://www.123miniapps.online/blog/what-is-a-url-slug-seo-friendly.html)
+- [What Is a UUID? Unique IDs Explained (+ Generator)](https://www.123miniapps.online/blog/what-is-a-uuid-and-when-you-need-one.html)
+- [What Is ASCII? Text, Character Codes & Unicode Explained](https://www.123miniapps.online/blog/what-is-ascii-text-to-character-codes.html)
+- [What Is Lorem Ipsum? Placeholder Text Explained (+ Generator)](https://www.123miniapps.online/blog/what-is-lorem-ipsum-placeholder-text.html)
+- [What Makes a Key Strong](https://www.123miniapps.online/blog/what-makes-a-strong-key-or-secret.html)
+- [Why Does My 1TB Drive Show 931GB? The Real Explanation](https://www.123miniapps.online/blog/why-1tb-drive-shows-931gb.html)
+- [HTML Formatter](https://www.123miniapps.online/blog/why-format-your-html.html)
+- [SQL Formatter](https://www.123miniapps.online/blog/why-format-your-sql.html)
+- [Why Is My JSON Invalid? The Four Mistakes That Cause Almost Every Error](https://www.123miniapps.online/blog/why-is-my-json-invalid.html)
+- [Why Password Rules Are So Frustrating](https://www.123miniapps.online/blog/why-password-rules-are-so-frustrating.html)
+- [Why Stacked Discounts Never Add Up (And What They Really Save You)](https://www.123miniapps.online/blog/why-stacked-discounts-never-add-up.html)
+- [Why To-Do Lists Work & How to Write a Better One](https://www.123miniapps.online/blog/why-writing-a-to-do-list-works.html)
+- [Fake Data for Testing](https://www.123miniapps.online/blog/why-you-need-fake-data-for-testing.html)
+
+## Site pages
+
+- [About](https://www.123miniapps.online/pages/about.html)
+- [Privacy](https://www.123miniapps.online/pages/privacy.html)
+- [Contact](https://www.123miniapps.online/pages/contact.html)
+- [Terms](https://www.123miniapps.online/pages/terms.html)

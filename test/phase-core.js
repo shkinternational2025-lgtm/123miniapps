@@ -29,8 +29,8 @@ module.exports = async function run() {
 
     s.eq('home: theme applied', w.document.documentElement.getAttribute('data-theme'), 'indigo-nova');
     s.eq('home: ten theme swatches', q('.theme-swatch'), 10);
-    s.eq('home: six category cards', q('#category-grid .category-card'), 6);
-    s.eq('home: five category chips', q('#category-row .category-chip'), 5);
+    s.eq('home: eleven category cards', q('#category-grid .category-card'), 11);
+    s.eq('home: no small chip row remains', q('#category-row'), 0);
     s.eq('home: six featured tools', q('#featured-grid .tool-card--featured'), 6);
     s.eq('home: twelve category tabs', q('#all-tools [role="tab"]'), 12);
     s.eq('home: all 95 cards in the directory', q('#tabpanel-all .tool-card'), 95);
