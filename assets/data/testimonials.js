@@ -30,8 +30,8 @@ const FAQS = [
     a: 'Every tool is free with no usage limits. The Premium badge marks tools with a deeper feature set such as batch processing and export options, not a paywall. Nothing on this site costs money.'
   },
   {
-    q: 'Does it work offline?',
-    a: 'Mostly. The site registers a service worker that caches the shell and each tool page you visit, so you can return to any previously loaded page without a connection.'
+    q: 'Do the tools need an internet connection?',
+    a: 'Yes, to open. Each tool loads fresh from the web every time so you always get the latest version. Once a tool is open, all the work happens inside your browser and your data is never sent to a server.'
   },
   {
     q: 'Can I use these tools for commercial work?',

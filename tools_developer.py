@@ -2123,7 +2123,7 @@ PAGES.append(tool(
  "Instant filtering by code, name or description",
  "Guidance on when each code is appropriate",
  "Class filters for 1xx through 5xx",
- "Works offline once the page is cached",
+ "Runs entirely in your browser, no server lookups",
  ],
  howto=[
  "Type a code or a word into the search box.",

@@ -328,10 +328,11 @@ def _default_faqs(name, cat, features, background_paragraphs, tagline):
             context,
         ),
         (
-            f"Is my data private, and does {name} work offline?",
+            f"Is my data private with {name}?",
             handling
-            + " Because nothing depends on a server, the tool also keeps working offline once the "
-            "page has loaded, the site registers a service worker that caches it after your first visit.",
+            + " The tool loads fresh from the web each time you open it, so you always get the "
+            "latest version, but once it is open all the work happens locally in your browser and "
+            "nothing you enter is sent to a server.",
         ),
     ]
 

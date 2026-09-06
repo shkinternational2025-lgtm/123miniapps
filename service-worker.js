@@ -1,29 +1,30 @@
 /* ============================================
    123MiniApps.online v2.0
    File: service-worker.js
-   Purpose: Offline support and instant repeat loads.
+   Purpose: Fast repeat loads, always-online tool pages.
 
-   Strategy:
-     - App shell (CSS, JS, data): stale-while-revalidate, so
-       a cached copy loads instantly but is refreshed in the
-       background — an updated stylesheet or script propagates
-       on the next load instead of being pinned by the cache.
-       Caches are versioned so a deploy also invalidates them.
-     - HTML pages: network-first with a cache fallback, so
-       users always get fresh content when online but keep
-       working when they aren't.
+   Strategy (intentionally NOT a full offline app):
+     - HTML pages: network-only. Every tool opens fresh from
+       the server each time, so the page is always current and
+       always loads its ads. We do NOT cache pages, so a tool
+       cannot be used with no connection. When the user is
+       offline we show a friendly "reconnect" page instead.
+     - App shell (CSS, JS, data, images): stale-while-revalidate,
+       so the page paints fast while the file refreshes in the
+       background. These assets carry no ads and rarely change.
      - Cross-origin (fonts): stale-while-revalidate.
+
+   The result: the installed icon behaves like a fast shortcut
+   that always connects online, rather than an offline copy.
    ============================================ */
 
-const VERSION = '2.8.3';
+const VERSION = '2.8.4';
 const SHELL_CACHE = `123miniapps-shell-v${VERSION}`;
-const PAGE_CACHE = `123miniapps-pages-v${VERSION}`;
 const FONT_CACHE = `123miniapps-fonts-v${VERSION}`;
 
-/** Everything needed to render the site with no network. */
+/** Static assets worth precaching for speed. Deliberately NO HTML
+    pages here, so no tool page is ever available offline. */
 const SHELL_ASSETS = [
-  '/',
-  '/index.html',
   '/offline.html',
   '/manifest.json',
   '/assets/css/animations.css',
@@ -56,7 +57,7 @@ const SHELL_ASSETS = [
 ];
 
 /* ============================================
-   INSTALL — precache the shell
+   INSTALL — precache the static assets
    ============================================ */
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -79,7 +80,7 @@ self.addEventListener('install', (event) => {
    ACTIVATE — drop caches from older versions
    ============================================ */
 self.addEventListener('activate', (event) => {
-  const keep = new Set([SHELL_CACHE, PAGE_CACHE, FONT_CACHE]);
+  const keep = new Set([SHELL_CACHE, FONT_CACHE]);
 
   event.waitUntil(
     caches.keys()
@@ -110,9 +111,10 @@ self.addEventListener('fetch', (event) => {
   // Anything else off-origin: leave it alone
   if (url.origin !== self.location.origin) return;
 
-  // HTML navigations — network-first
+  // HTML navigations — network-only (with an offline notice on failure).
+  // Pages are never cached, so tools always load fresh and online.
   if (request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html')) {
-    event.respondWith(networkFirst(request));
+    event.respondWith(networkOnly(request));
     return;
   }
 
@@ -126,57 +128,23 @@ self.addEventListener('fetch', (event) => {
    ============================================ */
 
 /**
- * Serve from cache, falling back to network and caching the result.
- * @param {Request} request
- * @param {string} cacheName
- * @returns {Promise<Response>}
- */
-async function cacheFirst(request, cacheName) {
-  const cached = await caches.match(request);
-  if (cached) return cached;
-
-  try {
-    const response = await fetch(request);
-    if (response.ok) {
-      const cache = await caches.open(cacheName);
-      cache.put(request, response.clone());
-    }
-    return response;
-  } catch {
-    return new Response('', { status: 504, statusText: 'Offline' });
-  }
-}
-
-/**
- * Try the network first so online users always see fresh HTML;
- * fall back to cache, then to the offline shell.
+ * Always fetch HTML from the network so tools open fresh and load
+ * their ads. Nothing is cached. When the user is offline, show the
+ * precached "reconnect" page rather than a stale copy of the tool.
  * @param {Request} request
  * @returns {Promise<Response>}
  */
-async function networkFirst(request) {
+async function networkOnly(request) {
   try {
-    const response = await fetch(request);
-    if (response.ok) {
-      const cache = await caches.open(PAGE_CACHE);
-      cache.put(request, response.clone());
-    }
-    return response;
+    return await fetch(request);
   } catch {
-    const cached = await caches.match(request);
-    if (cached) return cached;
-
-    // A dedicated, friendly offline page (precached in SHELL_ASSETS)
     const offline = await caches.match('/offline.html');
     if (offline) return offline;
-
-    // Then the homepage, which is always precached
-    const home = await caches.match('/index.html');
-    if (home) return home;
 
     return new Response(
       '<!DOCTYPE html><meta charset="utf-8"><title>Offline</title>' +
       '<body style="font-family:system-ui;background:#0B1120;color:#fff;display:grid;place-items:center;height:100vh;margin:0;text-align:center">' +
-      '<div><h1>You are offline</h1><p>This page has not been cached yet. Reconnect and try again.</p></div>',
+      '<div><h1>You are offline</h1><p>123MiniApps tools run online. Reconnect to the internet and try again.</p></div>',
       { status: 503, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
     );
   }
@@ -184,8 +152,8 @@ async function networkFirst(request) {
 
 /**
  * Return the cached copy immediately while refreshing it in the
- * background — right for fonts, which change rarely but shouldn't
- * pin forever.
+ * background — right for static assets and fonts, which change
+ * rarely but shouldn't pin forever.
  * @param {Request} request
  * @param {string} cacheName
  * @returns {Promise<Response>}
