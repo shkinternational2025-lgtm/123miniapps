@@ -41,7 +41,7 @@ SHELL = """<!DOCTYPE html>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <style>html{{background:#0B1120}}body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}}</style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.5">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.6">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -94,7 +94,7 @@ SHELL = """<!DOCTYPE html>
     <div class="prose">
       <p class="text-muted"><strong>Last updated:</strong> <span id="policy-date">2026</span>. This document applies to www.123miniapps.online.</p>
 {body}
-      <p class="mt-8"><a href="../index.html">← Back to all 96 tools</a></p>
+      <p class="mt-8"><a href="../index.html">← Back to all 101 tools</a></p>
     </div>
   </div>
 </main>
@@ -151,19 +151,19 @@ SHELL = """<!DOCTYPE html>
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.8.5"></script>
-<script src="../assets/js/theme-manager.js?v=2.8.5"></script>
-<script src="../assets/data/categories.js?v=2.8.5" defer></script>
-<script src="../assets/data/tools.js?v=2.8.5" defer></script>
-<script src="../assets/data/testimonials.js?v=2.8.5" defer></script>
-<script src="../assets/js/components.js?v=2.8.5" defer></script>
-<script src="../assets/js/search-engine.js?v=2.8.5" defer></script>
-<script src="../assets/js/animations.js?v=2.8.5" defer></script>
-<script src="../assets/js/pwa.js?v=2.8.5" defer></script>
-<script src="../assets/js/analytics.js?v=2.8.5" defer></script>
-<script src="../assets/js/consent.js?v=2.8.5" defer></script>
-<script src="../assets/js/ads.js?v=2.8.5" defer></script>
-<script src="../assets/js/main.js?v=2.8.5" defer></script>
+<script src="../assets/js/config.js?v=2.8.6"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.6"></script>
+<script src="../assets/data/categories.js?v=2.8.6" defer></script>
+<script src="../assets/data/tools.js?v=2.8.6" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.6" defer></script>
+<script src="../assets/js/components.js?v=2.8.6" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.6" defer></script>
+<script src="../assets/js/animations.js?v=2.8.6" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.6" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.6" defer></script>
+<script src="../assets/js/consent.js?v=2.8.6" defer></script>
+<script src="../assets/js/ads.js?v=2.8.6" defer></script>
+<script src="../assets/js/main.js?v=2.8.6" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{{document.getElementById('copyright-year').textContent=new Date().getFullYear();}});</script>
 </body>
 </html>

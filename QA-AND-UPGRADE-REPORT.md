@@ -1,6 +1,6 @@
 # 123MiniApps — Pre-Launch QA & Upgrade Report
 
-**Date:** 2026-09-01 · **Scope:** whole site (96 tools, 96 blog articles, 7 pages, homepage, PWA)
+**Date:** 2026-09-01 · **Scope:** whole site (101 tools, 96 blog articles, 7 pages, homepage, PWA)
 **Verdict:** **Launch-ready.** No blockers found. This pass added modern SEO / GEO / AEO
 signals and finalized Adsterra readiness. Remaining items are optional polish and server setup.
 
@@ -18,7 +18,7 @@ signals and finalized Adsterra readiness. Remaining items are optional polish an
 | robots.txt / manifest / PWA icons | valid; all icons present |
 | Accessibility | every `<img>` has alt; `lang` set; all `target=_blank` have `noopener` |
 | Security | **no external scripts** (fully self-hosted), no `http://` links, no mixed content |
-| Runtime errors (jsdom boot) | **0** across all 96 tools + blog + legal + homepage |
+| Runtime errors (jsdom boot) | **0** across all 101 tools + blog + legal + homepage |
 | Canonical consistency | 201 pages, all `https://www.123miniapps.online` |
 
 The foundation was already strong. The site is fast, private, and technically clean.

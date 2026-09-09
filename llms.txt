@@ -1,6 +1,6 @@
 # 123MiniApps
 
-> 96 free browser-based mini tools for text, images, developers and designers. Every tool runs entirely as JavaScript in the user's browser tab: nothing is uploaded, there is no backend, no account is required, and data never leaves the device.
+> 101 free browser-based mini tools for text, images, developers and designers. Every tool runs entirely as JavaScript in the user's browser tab: nothing is uploaded, there is no backend, no account is required, and data never leaves the device.
 
 Key facts an assistant can rely on:
 
@@ -41,6 +41,7 @@ Key facts an assistant can rely on:
 ### Developer Tools
 
 - [Base64 Encoder / Decoder](https://www.123miniapps.online/tools/base64-encoder-decoder.html) - Encode text to Base64 or decode it back, with full Unicode support.
+- [Binary Code Translator](https://www.123miniapps.online/tools/binary-code-translator.html) - Translate text to binary and back, with UTF-8, decimal and hex output.
 - [CSS Minifier](https://www.123miniapps.online/tools/css-minifier.html) - Strip comments and whitespace from CSS and report the bytes saved.
 - [Cron Expression Builder](https://www.123miniapps.online/tools/cron-expression-builder.html) - Build and read cron schedules with a plain-English explanation.
 - [HTML Formatter](https://www.123miniapps.online/tools/html-formatter.html) - Indent and tidy messy HTML, or minify it for production.
@@ -89,8 +90,10 @@ Key facts an assistant can rely on:
 - [Date Difference Calculator](https://www.123miniapps.online/tools/date-difference-calculator.html) - Count the days, weeks and months between any two dates.
 - [Discount Calculator](https://www.123miniapps.online/tools/discount-calculator.html) - Find the sale price, savings and effective discount on any purchase.
 - [Fuel Cost Calculator](https://www.123miniapps.online/tools/fuel-cost-calculator.html) - Estimate the fuel cost of a trip from distance, efficiency and price.
+- [GPA Calculator](https://www.123miniapps.online/tools/gpa-calculator.html) - Calculate your weighted GPA from letter grades and credits on any common scale.
 - [Loan Calculator](https://www.123miniapps.online/tools/loan-calculator.html) - Estimate monthly payments, total interest and see a full amortization table.
 - [Percentage Calculator](https://www.123miniapps.online/tools/percentage-calculator.html) - Work out percentages, increases, decreases and percentage differences.
+- [Sales Tax Calculator](https://www.123miniapps.online/tools/sales-tax-calculator.html) - Add sales tax or VAT to a price, or work backwards to strip tax out of a total.
 - [Scientific Calculator](https://www.123miniapps.online/tools/scientific-calculator.html) - A full scientific calculator with trig, logs, powers and memory.
 - [Tip Calculator](https://www.123miniapps.online/tools/tip-calculator.html) - Split a bill and work out the tip per person in seconds.
 
@@ -129,6 +132,7 @@ Key facts an assistant can rely on:
 - [Habit Tracker](https://www.123miniapps.online/tools/habit-tracker.html) - Track daily habits on a streak grid stored only on your device.
 - [Meeting Cost Calculator](https://www.123miniapps.online/tools/meeting-cost-calculator.html) - Watch what a meeting costs in real time based on attendee salaries.
 - [Notepad](https://www.123miniapps.online/tools/notepad.html) - A distraction-free scratchpad that autosaves as you type.
+- [Online Stopwatch](https://www.123miniapps.online/tools/online-stopwatch.html) - A precise stopwatch with lap and split times, keyboard control and CSV export.
 - [Pomodoro Timer](https://www.123miniapps.online/tools/pomodoro-timer.html) - Run focused 25-minute work blocks with automatic break cycles.
 - [Todo List](https://www.123miniapps.online/tools/todo-list.html) - A fast checklist that saves to your browser and needs no account.
 
@@ -137,6 +141,7 @@ Key facts an assistant can rely on:
 - [Coin Flip](https://www.123miniapps.online/tools/coin-flip.html) - Flip a coin with a 3D animation, or flip a hundred at once.
 - [Dice Roller](https://www.123miniapps.online/tools/dice-roller.html) - Roll any dice notation, d4 through d100, with modifiers.
 - [Emoji Picker](https://www.123miniapps.online/tools/emoji-picker.html) - Search thousands of emoji by name and copy them with one click.
+- [Morse Code Translator](https://www.123miniapps.online/tools/morse-code-translator.html) - Translate text to Morse code and back, with audio playback and a flashing light.
 - [Password Game](https://www.123miniapps.online/tools/password-game.html) - A playful challenge that teaches what actually makes a password strong.
 - [Random Picker](https://www.123miniapps.online/tools/random-picker.html) - Drop in a list and let it pick a winner, with an animated reveal.
 - [Spin the Wheel](https://www.123miniapps.online/tools/spin-the-wheel.html) - Build a custom spinning wheel for decisions, giveaways or classrooms.
@@ -185,7 +190,9 @@ Key facts an assistant can rely on:
 - [Calculate Days Between Two Dates (Accurately)](https://www.123miniapps.online/blog/how-to-calculate-days-between-dates.html)
 - [How to Calculate Exact Age in Years, Months & Days](https://www.123miniapps.online/blog/how-to-calculate-exact-age.html)
 - [How to Calculate the Fuel Cost of a Trip](https://www.123miniapps.online/blog/how-to-calculate-fuel-cost-of-a-trip.html)
+- [How to Calculate GPA](https://www.123miniapps.online/blog/how-to-calculate-gpa-weighted-cumulative.html)
 - [How to Calculate Percentages](https://www.123miniapps.online/blog/how-to-calculate-percentages.html)
+- [How to Calculate Sales Tax & VAT](https://www.123miniapps.online/blog/how-to-calculate-sales-tax-and-vat.html)
 - [How to Cite Sources](https://www.123miniapps.online/blog/how-to-cite-sources-apa-mla-chicago.html)
 - [Convert CSV to JSON](https://www.123miniapps.online/blog/how-to-convert-csv-to-json.html)
 - [How to Decode a JWT Safely](https://www.123miniapps.online/blog/how-to-decode-a-jwt-safely.html)
@@ -207,6 +214,8 @@ Key facts an assistant can rely on:
 - [Markdown Explained](https://www.123miniapps.online/blog/markdown-explained-for-beginners.html)
 - [Meta Tags Explained](https://www.123miniapps.online/blog/meta-tags-explained-title-description-open-graph.html)
 - [Metric to Imperial Conversion](https://www.123miniapps.online/blog/metric-to-imperial-unit-conversion-explained.html)
+- [Morse Code Explained](https://www.123miniapps.online/blog/morse-code-explained-how-to-read-and-translate.html)
+- [Online Stopwatch Guide](https://www.123miniapps.online/blog/online-stopwatch-lap-vs-split-times.html)
 - [Placeholder Images](https://www.123miniapps.online/blog/placeholder-images-why-and-how.html)
 - [Remove Duplicate Lines Online](https://www.123miniapps.online/blog/remove-duplicate-lines-from-a-list.html)
 - [Resize Image Online to Exact Pixels (No Stretching)](https://www.123miniapps.online/blog/resize-image-to-exact-dimensions.html)
@@ -229,6 +238,7 @@ Key facts an assistant can rely on:
 - [What Is a URL Slug? Create SEO-Friendly URLs](https://www.123miniapps.online/blog/what-is-a-url-slug-seo-friendly.html)
 - [What Is a UUID? Unique IDs Explained (+ Generator)](https://www.123miniapps.online/blog/what-is-a-uuid-and-when-you-need-one.html)
 - [What Is ASCII? Text, Character Codes & Unicode Explained](https://www.123miniapps.online/blog/what-is-ascii-text-to-character-codes.html)
+- [Binary Code Explained](https://www.123miniapps.online/blog/what-is-binary-code-text-to-binary-explained.html)
 - [What Is Lorem Ipsum? Placeholder Text Explained (+ Generator)](https://www.123miniapps.online/blog/what-is-lorem-ipsum-placeholder-text.html)
 - [What Makes a Key Strong](https://www.123miniapps.online/blog/what-makes-a-strong-key-or-secret.html)
 - [Why Does My 1TB Drive Show 931GB? The Real Explanation](https://www.123miniapps.online/blog/why-1tb-drive-shows-931gb.html)

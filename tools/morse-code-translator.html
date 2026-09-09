@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/morse-code-translator.html
+     Purpose: Translate text to Morse and back, with audio playback and a flashing light.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Free Morse Code Translator | 123MiniApps</title>
+<meta name="description" content="Translate text to Morse code and back, then play it as sound or a flashing light with adjustable speed. Runs entirely in your browser.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/morse-code-translator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Free Morse Code Translator | 123MiniApps">
+<meta property="og:description" content="Translate text to Morse code and back, then play it as sound or a flashing light with adjustable speed. Runs entirely in your browser.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/morse-code-translator.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Morse Code Translator | 123MiniApps">
+<meta name="twitter:description" content="Translate text to Morse code and back, then play it as sound or a flashing light with adjustable speed. Runs entirely in your browser.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.6">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Fun Tools", "item": "https://www.123miniapps.online/#category-fun" },
+        { "@type": "ListItem", "position": 3, "name": "Morse Code Translator", "item": "https://www.123miniapps.online/tools/morse-code-translator.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Morse Code Translator",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Translate text to Morse code and back, then play it as sound or a flashing light with adjustable speed. Runs entirely in your browser."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/morse-code-translator.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is this Morse code translator free?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, with no limits, no account and no sign-up."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Can it play Morse as sound?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Press Play sound and the tool keys the code with correctly timed tones using your browser's audio, and flashes the on-screen light in time with it."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How do I write word breaks in Morse?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Separate letters with a single space and words with a forward slash surrounded by spaces, for example .... .. / - .... . .-. . for HI THERE."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my text sent anywhere?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. The translation and audio run entirely in your browser, so nothing you type leaves your device."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/morse-code-translator.html#howto",
+      "name": "How to use Morse Code Translator",
+      "description": "Translate text to Morse and back, with audio playback and a flashing light.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Type text to see its Morse code instantly",
+                  "text": "Type text to see its Morse code instantly.",
+                  "url": "https://www.123miniapps.online/tools/morse-code-translator.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Or paste Morse (dots, dashes, / between words) to decode it",
+                  "text": "Or paste Morse (dots, dashes, / between words) to decode it.",
+                  "url": "https://www.123miniapps.online/tools/morse-code-translator.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Press Play sound to hear it and watch the light flash",
+                  "text": "Press Play sound to hear it and watch the light flash.",
+                  "url": "https://www.123miniapps.online/tools/morse-code-translator.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Drag the speed slider to set the words-per-minute",
+                  "text": "Drag the speed slider to set the words-per-minute.",
+                  "url": "https://www.123miniapps.online/tools/morse-code-translator.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-fun">Fun Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Morse Code Translator</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">📡</div>
+      <div>
+        <h1>Morse Code Translator</h1>
+        <p>Translate text to Morse and back, with audio playback and a flashing light.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Morse code translator">
+    <div class="field">
+      <label class="field__label" for="text">
+        <span>Text</span>
+      </label>
+      <textarea class="textarea" id="text" style="min-height:110px" spellcheck="false" placeholder="Type text to convert to Morse"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="morse">
+        <span>Morse code</span>
+      </label>
+      <textarea class="textarea" id="morse" style="min-height:110px" spellcheck="false" placeholder=".... .. / - .... . .-. ."></textarea>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Type in either box. Use / between words in Morse.</p>
+
+    <div class="workspace__row">
+ <div class="field">
+      <label class="field__label" for="wpm"><span>Playback speed</span><span class="field__hint"><strong id="wpm-value">15</strong> WPM</span></label>
+      <input class="range" id="wpm" type="range" min="5" max="35" value="15" step="1">
+    </div>
+ <div class="field">
+      <label class="field__label"><span>Light</span></label>
+      <div id="lamp" style="height:52px;border-radius:var(--radius-md);border:1px solid var(--glass-border);background:#111;transition:background .05s"></div>
+    </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="play" type="button">Play sound</button>
+      <button class="btn btn--ghost" id="stop" type="button">Stop</button>
+      <button class="btn btn--ghost" id="copymorse" type="button">Copy Morse</button>
+      <button class="btn btn--ghost" id="clear" type="button">Clear</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Two-way: text to Morse and Morse to text</li>
+        <li>Audible playback with adjustable words-per-minute</li>
+        <li>Flashing-light visual mode alongside the sound</li>
+        <li>Handles letters, numbers and common punctuation</li>
+        <li>Copy either side, everything runs in your browser</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Type text to see its Morse code instantly.</li>
+        <li>Or paste Morse (dots, dashes, / between words) to decode it.</li>
+        <li>Press Play sound to hear it and watch the light flash.</li>
+        <li>Drag the speed slider to set the words-per-minute.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>How Morse code works</h2>
+      <p class="text-sm text-muted">Morse code represents each letter and number as a short sequence of dots and dashes, a dot being one unit of time and a dash three. The gap between symbols in a letter is one unit, the gap between letters is three, and the gap between words is seven, which is why spacing carries as much meaning as the marks themselves. The famous distress signal SOS is three dots, three dashes, three dots, chosen because it is unmistakable even to an untrained ear.</p>
+      <p class="text-sm text-muted mt-3">Timing is measured in words per minute. The reference word PARIS is exactly 50 units long, so a speed of 15 WPM means 750 units per minute, and each unit is 80 milliseconds. This tool uses that standard, so raising the slider shortens every dot, dash and gap proportionally, exactly as a real operator would key faster.</p>
+      <p class="text-sm text-muted mt-3">Because Morse is just a mapping, decoding is the reverse lookup: split the incoming code on spaces to find letters and on a slash to find word breaks, then translate each dot-dash pattern back to its character. The audio and the flashing light are two views of the same signal, one for the ear and one for the eye.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is this Morse code translator free?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, with no limits, no account and no sign-up.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>Can it play Morse as sound?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes. Press Play sound and the tool keys the code with correctly timed tones using your browser&#x27;s audio, and flashes the on-screen light in time with it.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How do I write word breaks in Morse?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Separate letters with a single space and words with a forward slash surrounded by spaces, for example .... .. / - .... . .-. . for HI THERE.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my text sent anywhere?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">No. The translation and audio run entirely in your browser, so nothing you type leaves your device.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.6"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.6"></script>
+<script src="../assets/data/categories.js?v=2.8.6" defer></script>
+<script src="../assets/data/tools.js?v=2.8.6" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.6" defer></script>
+<script src="../assets/js/components.js?v=2.8.6" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.6" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.6" defer></script>
+<script src="../assets/js/animations.js?v=2.8.6" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.6" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.6" defer></script>
+<script src="../assets/js/consent.js?v=2.8.6" defer></script>
+<script src="../assets/js/ads.js?v=2.8.6" defer></script>
+<script src="../assets/js/main.js?v=2.8.6" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ const MAP = {
+      A: '.-', B: '-...', C: '-.-.', D: '-..', E: '.', F: '..-.', G: '--.', H: '....',
+      I: '..', J: '.---', K: '-.-', L: '.-..', M: '--', N: '-.', O: '---', P: '.--.',
+      Q: '--.-', R: '.-.', S: '...', T: '-', U: '..-', V: '...-', W: '.--', X: '-..-',
+      Y: '-.--', Z: '--..', '0': '-----', '1': '.----', '2': '..---', '3': '...--',
+      '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.',
+      '.': '.-.-.-', ',': '--..--', '?': '..--..', "'": '.----.', '!': '-.-.--',
+      '/': '-..-.', '(': '-.--.', ')': '-.--.-', '&': '.-...', ':': '---...',
+      ';': '-.-.-.', '=': '-...-', '+': '.-.-.', '-': '-....-', '_': '..--.-',
+      '"': '.-..-.', '$': '...-..-', '@': '.--.-.'
+    };
+    const REV = {};
+    Object.keys(MAP).forEach((k) => { REV[MAP[k]] = k; });
+    let updating = false;
+
+    function textToMorse(text) {
+      return text.toUpperCase().split('').map((ch) => {
+        if (ch === ' ') return '/';
+        return MAP[ch] !== undefined ? MAP[ch] : '';
+      }).filter((x) => x !== '').join(' ').replace(/\s*\/\s*/g, ' / ');
+    }
+
+    function morseToText(code) {
+      return code.trim().split(/\s+/).map((tok) => {
+        if (tok === '/') return ' ';
+        return REV[tok] !== undefined ? REV[tok] : '';
+      }).join('').replace(/\s+/g, ' ').trim();
+    }
+
+    function fromText() { if (updating) return; updating = true; T.$('morse').value = textToMorse(T.$('text').value); T.status('status', 'Converted to Morse.', 'ok'); updating = false; }
+    function fromMorse() { if (updating) return; updating = true; T.$('text').value = morseToText(T.$('morse').value); T.status('status', 'Decoded to text.', 'ok'); updating = false; }
+
+    T.$('text').addEventListener('input', fromText);
+    T.$('morse').addEventListener('input', fromMorse);
+    T.$('wpm').addEventListener('input', () => { T.$('wpm-value').textContent = T.$('wpm').value; });
+
+    let audioCtx = null;
+    let playToken = 0;
+
+    function playMorse() {
+      const code = T.$('morse').value.trim();
+      if (!code) { T.status('status', 'Nothing to play, type some text first.', 'muted'); return; }
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const wpm = Number(T.$('wpm').value);
+      const unit = 1.2 / wpm;
+      const token = ++playToken;
+      let t = audioCtx.currentTime + 0.05;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine'; osc.frequency.value = 600;
+      gain.gain.value = 0; osc.connect(gain); gain.connect(audioCtx.destination); osc.start();
+      const flashes = [];
+      const on = (start, dur) => { gain.gain.setValueAtTime(0.25, start); gain.gain.setValueAtTime(0, start + dur); flashes.push([start, dur]); };
+      for (const ch of code) {
+        if (ch === '.') { on(t, unit); t += unit + unit; }
+        else if (ch === '-') { on(t, unit * 3); t += unit * 3 + unit; }
+        else if (ch === ' ') { t += unit * 2; }
+        else if (ch === '/') { t += unit * 4; }
+      }
+      osc.stop(t + unit);
+      T.status('status', 'Playing...', 'ok');
+      const startClock = performance.now();
+      const base = audioCtx.currentTime;
+      function tickLamp() {
+        if (token !== playToken) return;
+        const now = audioCtx.currentTime;
+        const lit = flashes.some(([s, d]) => now >= s && now < s + d);
+        T.$('lamp').style.background = lit ? '#facc15' : '#111';
+        if (now < t + unit) requestAnimationFrame(tickLamp);
+        else { T.$('lamp').style.background = '#111'; T.status('status', 'Done.', 'muted'); }
+      }
+      requestAnimationFrame(tickLamp);
+    }
+
+    T.$('play').addEventListener('click', playMorse);
+    T.$('stop').addEventListener('click', () => { playToken++; if (audioCtx) { audioCtx.close(); audioCtx = null; } T.$('lamp').style.background = '#111'; T.status('status', 'Stopped.', 'muted'); });
+    T.$('copymorse').addEventListener('click', () => copyToClipboard(T.$('morse').value, 'Morse copied'));
+    T.$('clear').addEventListener('click', () => { updating = true; T.$('text').value = ''; T.$('morse').value = ''; updating = false; T.status('status', 'Type in either box. Use / between words in Morse.', 'muted'); });
+    T.$('share').addEventListener('click', () => shareLink({ title: 'Morse Code Translator | 123MiniApps' }));
+
+    T.$('text').value = 'SOS';
+    fromText();
+    if (window.Analytics) Analytics.trackToolUse('morse-code-translator');
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('morse-code-translator');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

@@ -260,7 +260,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.123miniapps.online/blog/how-to-calculate-gpa-weighted-cumulative.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.123miniapps.online/blog/how-to-calculate-percentages.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.123miniapps.online/blog/how-to-calculate-sales-tax-and-vat.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -398,6 +410,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.123miniapps.online/blog/morse-code-explained-how-to-read-and-translate.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.123miniapps.online/blog/online-stopwatch-lap-vs-split-times.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.123miniapps.online/blog/placeholder-images-why-and-how.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -530,6 +554,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.123miniapps.online/blog/what-is-binary-code-text-to-binary-explained.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.123miniapps.online/blog/what-is-lorem-ipsum-placeholder-text.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -645,6 +675,12 @@
   </url>
   <url>
     <loc>https://www.123miniapps.online/tools/base64-encoder-decoder.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.123miniapps.online/tools/binary-code-translator.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -836,6 +872,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.123miniapps.online/tools/gpa-calculator.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.123miniapps.online/tools/gradient-generator.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -986,6 +1028,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.123miniapps.online/tools/morse-code-translator.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.123miniapps.online/tools/notepad.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -993,6 +1041,12 @@
   </url>
   <url>
     <loc>https://www.123miniapps.online/tools/number-base-converter.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.123miniapps.online/tools/online-stopwatch.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1083,6 +1137,12 @@
   </url>
   <url>
     <loc>https://www.123miniapps.online/tools/roman-numeral-converter.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.123miniapps.online/tools/sales-tax-calculator.html</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -23,7 +23,7 @@ Do these once, in order. Budget ~30 minutes plus a few days of waiting for Googl
 ### B. Submit the sitemap
 4. In Search Console → **Sitemaps** (left menu).
 5. Enter `sitemap.xml` and Submit. Status should read "Success" within a day.
-   Your sitemap already lists all 96 tools, the homepage, static pages, the
+   Your sitemap already lists all 101 tools, the homepage, static pages, the
    blog index and all 8 articles (109 URLs total), and `robots.txt` already
    points to it — so this is the only submission you need.
 

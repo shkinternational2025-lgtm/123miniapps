@@ -107,7 +107,7 @@ Modern ranking includes being the source AI assistants quote (ChatGPT,
 Perplexity, Google AI Overviews). Freshness matters a lot: in 2026, the large
 majority of AI citations come from pages updated within the last 6–12 months.
 
-- [ ] **5.1** Confirm `llms.txt` is live (Phase 0.3). This file hands AI engines a clean map of your 96 tools + articles - it's already done.
+- [ ] **5.1** Confirm `llms.txt` is live (Phase 0.3). This file hands AI engines a clean map of your 101 tools + articles - it's already done.
 - [ ] **5.2** Test your own visibility: open ChatGPT and Perplexity and ask natural questions your tools answer, e.g. *"free online tool to format JSON"*, *"browser password generator that doesn't send data to a server"*. Note whether 123MiniApps is mentioned. Re-check monthly.
 - [ ] **5.3** For every important page, make sure the **first sentence directly answers the query** in plain language (your tool pages already do this - keep it up in new content).
 - [ ] **5.4** Keep pages fresh: when you edit a tool or article, that "updated" signal helps AEO. Ask Claude to bump the article's `dateModified` when you refresh content.

@@ -1,7 +1,7 @@
 /* ============================================
  123MiniApps.online v2.0
  File: tools.js
- Purpose: The complete tools database (96 tools).
+ Purpose: The complete tools database (101 tools).
 
  ADDING A TOOL, three steps, nothing else:
  1. Append an object to RAW_TOOLS below.
@@ -438,7 +438,27 @@ const RAW_TOOLS = [
  { id: 96, name: 'Hex to RGB Converter', category: 'design', icon: '🎨', premium: false, rating: 4.8, usageCount: 45200,
  description: 'Convert colors between hex, RGB and HSL in either direction, instantly.',
  features: ['Hex to RGB and RGB to hex', 'Auto-detects your input format', 'HSL output too', 'Copy any format'],
- keywords: ['hex to rgb', 'rgb to hex', 'hex', 'rgb', 'hsl', 'color converter', 'colour'] }
+ keywords: ['hex to rgb', 'rgb to hex', 'hex', 'rgb', 'hsl', 'color converter', 'colour'] },
+ { id: 97, name: 'Binary Code Translator', category: 'developer', icon: '🔢', premium: true, rating: 4.8, usageCount: 51200,
+ description: 'Translate text to binary and back, with UTF-8, decimal and hex output.',
+ features: ['Text to binary and binary to text', 'Full UTF-8 support', 'Decimal and hex output', 'Choose spacing'],
+ keywords: ['binary translator', 'text to binary', 'binary to text', 'binary code', 'binary decoder', 'ascii to binary'] },
+ { id: 98, name: 'Morse Code Translator', category: 'fun', icon: '📡', premium: true, rating: 4.8, usageCount: 68400,
+ description: 'Translate text to Morse code and back, with audio playback and a flashing light.',
+ features: ['Text to Morse and back', 'Audible playback', 'Adjustable speed (WPM)', 'Flashing light mode'],
+ keywords: ['morse code translator', 'morse code', 'text to morse', 'morse decoder', 'morse audio', 'sos'] },
+ { id: 99, name: 'Online Stopwatch', category: 'productivity', icon: '⏱️', premium: true, rating: 4.7, usageCount: 94600,
+ description: 'A precise stopwatch with lap and split times, keyboard control and CSV export.',
+ features: ['Hundredth-second precision', 'Lap and split times', 'Keyboard shortcuts', 'Export laps to CSV'],
+ keywords: ['online stopwatch', 'stopwatch', 'lap timer', 'split timer', 'timer', 'stopwatch online'] },
+ { id: 100, name: 'GPA Calculator', category: 'calculator', icon: '🎓', premium: true, rating: 4.8, usageCount: 87300,
+ description: 'Calculate your weighted GPA from letter grades and credits on any common scale.',
+ features: ['Weighted GPA', '4.0, 4.3 and 5.0 scales', 'Unlimited courses', 'Live totals'],
+ keywords: ['gpa calculator', 'grade calculator', 'college gpa', 'weighted gpa', 'grade point average', 'cumulative gpa'] },
+ { id: 101, name: 'Sales Tax Calculator', category: 'calculator', icon: '🧾', premium: true, rating: 4.7, usageCount: 79800,
+ description: 'Add sales tax or VAT to a price, or work backwards to strip tax out of a total.',
+ features: ['Add or remove tax', 'Any sales tax or VAT rate', 'Net, tax and gross at once', 'Reverse VAT mode'],
+ keywords: ['sales tax calculator', 'vat calculator', 'tax calculator', 'reverse vat', 'add tax', 'remove vat'] }
 ];
 
 /**

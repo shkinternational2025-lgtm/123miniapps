@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/online-stopwatch.html
+     Purpose: A precise stopwatch with laps, splits, keyboard control and CSV export.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Free Online Stopwatch | 123MiniApps</title>
+<meta name="description" content="A precise online stopwatch with lap and split times, keyboard shortcuts and CSV export of your laps. Runs entirely in your browser, no sign-up.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/online-stopwatch.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Free Online Stopwatch | 123MiniApps">
+<meta property="og:description" content="A precise online stopwatch with lap and split times, keyboard shortcuts and CSV export of your laps. Runs entirely in your browser, no sign-up.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/online-stopwatch.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Online Stopwatch | 123MiniApps">
+<meta name="twitter:description" content="A precise online stopwatch with lap and split times, keyboard shortcuts and CSV export of your laps. Runs entirely in your browser, no sign-up.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.6">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Productivity Tools", "item": "https://www.123miniapps.online/#category-productivity" },
+        { "@type": "ListItem", "position": 3, "name": "Online Stopwatch", "item": "https://www.123miniapps.online/tools/online-stopwatch.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Online Stopwatch",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "A precise online stopwatch with lap and split times, keyboard shortcuts and CSV export of your laps. Runs entirely in your browser, no sign-up."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/online-stopwatch.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is this online stopwatch free?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, with no limits, no account and no sign-up."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What is the difference between a lap and a split?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The lap time is how long one segment took; the total (split) is the running time since you started. This stopwatch shows both for every lap you record."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Can I control it with the keyboard?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. The space bar starts and stops the stopwatch, and the L key records a lap, so you can time hands-free."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Does it keep running if I switch tabs?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Timing is based on the system clock, so the elapsed time stays accurate even if the tab is in the background."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/online-stopwatch.html#howto",
+      "name": "How to use Online Stopwatch",
+      "description": "A precise stopwatch with laps, splits, keyboard control and CSV export.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Press Start, or tap the space bar, to begin timing",
+                  "text": "Press Start, or tap the space bar, to begin timing.",
+                  "url": "https://www.123miniapps.online/tools/online-stopwatch.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Press Lap (or the L key) to record a split without stopping",
+                  "text": "Press Lap (or the L key) to record a split without stopping.",
+                  "url": "https://www.123miniapps.online/tools/online-stopwatch.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Press Start/Stop again to pause, and Reset to clear",
+                  "text": "Press Start/Stop again to pause, and Reset to clear.",
+                  "url": "https://www.123miniapps.online/tools/online-stopwatch.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Export laps to CSV to keep or analyse them",
+                  "text": "Export laps to CSV to keep or analyse them.",
+                  "url": "https://www.123miniapps.online/tools/online-stopwatch.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-productivity">Productivity Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Online Stopwatch</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">⏱️</div>
+      <div>
+        <h1>Online Stopwatch</h1>
+        <p>A precise stopwatch with laps, splits, keyboard control and CSV export.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Online stopwatch">
+ <div style="text-align:center;padding:var(--space-4) 0">
+      <div id="display" style="font-family:var(--font-mono);font-size:clamp(2.5rem,10vw,4.5rem);font-weight:700;letter-spacing:1px">00:00.00</div>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Press Start, or hit the space bar. Press L to record a lap.</p>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="startstop" type="button">Start</button>
+      <button class="btn btn--ghost" id="lap" type="button">Lap</button>
+      <button class="btn btn--ghost" id="reset" type="button">Reset</button>
+      <button class="btn btn--ghost" id="export" type="button">Export laps (CSV)</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+
+    <hr class="hr">
+
+ <div id="laps-wrap" hidden>
+      <h3 class="text-lg mb-2">Laps</h3>
+      <div style="overflow-x:auto"><table class="data-table" id="laps-table"><thead><tr><th>#</th><th>Lap time</th><th>Total time</th></tr></thead><tbody id="laps-body"></tbody></table></div>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Precise to a hundredth of a second</li>
+        <li>Lap and split times in a running table</li>
+        <li>Keyboard control: space to start/stop, L for a lap</li>
+        <li>Export all your laps to a CSV file</li>
+        <li>Runs in your browser, keeps counting in the background</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Press Start, or tap the space bar, to begin timing.</li>
+        <li>Press Lap (or the L key) to record a split without stopping.</li>
+        <li>Press Start/Stop again to pause, and Reset to clear.</li>
+        <li>Export laps to CSV to keep or analyse them.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Lap time versus split time</h2>
+      <p class="text-sm text-muted">A stopwatch measures elapsed time, but the useful detail is often in the laps. This tool records two numbers each time you press Lap: the lap time, which is how long that individual segment took, and the total time, which is the running clock since you started. A runner doing repeats cares about the lap time; someone timing stages of a longer process cares about the total. Having both side by side means you never have to subtract in your head.</p>
+      <p class="text-sm text-muted mt-3">Accuracy comes from measuring against the browser's high-resolution clock rather than counting ticks, so pausing and resuming does not drift. The display updates many times a second for a smooth readout, while the underlying time is tracked precisely, which is why the hundredths never stutter even if the tab is busy.</p>
+      <p class="text-sm text-muted mt-3">Because everything is kept locally, you can export your laps to a CSV file and open them in a spreadsheet to chart pace or spot the slowest segment. Nothing is uploaded, so timing a workout, a presentation rehearsal or a cooking step stays entirely on your device.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is this online stopwatch free?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, with no limits, no account and no sign-up.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>What is the difference between a lap and a split?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">The lap time is how long one segment took; the total (split) is the running time since you started. This stopwatch shows both for every lap you record.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>Can I control it with the keyboard?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes. The space bar starts and stops the stopwatch, and the L key records a lap, so you can time hands-free.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Does it keep running if I switch tabs?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes. Timing is based on the system clock, so the elapsed time stays accurate even if the tab is in the background.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.6"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.6"></script>
+<script src="../assets/data/categories.js?v=2.8.6" defer></script>
+<script src="../assets/data/tools.js?v=2.8.6" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.6" defer></script>
+<script src="../assets/js/components.js?v=2.8.6" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.6" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.6" defer></script>
+<script src="../assets/js/animations.js?v=2.8.6" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.6" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.6" defer></script>
+<script src="../assets/js/consent.js?v=2.8.6" defer></script>
+<script src="../assets/js/ads.js?v=2.8.6" defer></script>
+<script src="../assets/js/main.js?v=2.8.6" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ let running = false, startTime = 0, elapsed = 0, raf = null;
+    let laps = [], lastLap = 0;
+
+    function fmt(ms) {
+      const cs = Math.floor(ms / 10) % 100;
+      const s = Math.floor(ms / 1000) % 60;
+      const m = Math.floor(ms / 60000) % 60;
+      const h = Math.floor(ms / 3600000);
+      const p = (n) => String(n).padStart(2, '0');
+      return (h > 0 ? p(h) + ':' : '') + p(m) + ':' + p(s) + '.' + p(cs);
+    }
+
+    function render() {
+      const now = performance.now();
+      T.$('display').textContent = fmt(elapsed + (running ? now - startTime : 0));
+      if (running) raf = requestAnimationFrame(render);
+    }
+
+    function startStop() {
+      if (running) {
+        elapsed += performance.now() - startTime;
+        running = false;
+        cancelAnimationFrame(raf);
+        T.$('startstop').textContent = 'Start';
+        T.status('status', 'Paused.', 'muted');
+      } else {
+        startTime = performance.now();
+        running = true;
+        T.$('startstop').textContent = 'Stop';
+        T.status('status', 'Running...', 'ok');
+        render();
+      }
+    }
+
+    function currentMs() { return elapsed + (running ? performance.now() - startTime : 0); }
+
+    function lap() {
+      const total = currentMs();
+      if (total === 0) return;
+      const lapTime = total - lastLap;
+      lastLap = total;
+      laps.push({ lapTime, total });
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + laps.length + '</td><td>' + fmt(lapTime) + '</td><td>' + fmt(total) + '</td>';
+      T.$('laps-body').prepend(tr);
+      T.$('laps-wrap').hidden = false;
+    }
+
+    function reset() {
+      running = false;
+      cancelAnimationFrame(raf);
+      elapsed = 0; lastLap = 0; laps = [];
+      T.$('display').textContent = '00:00.00';
+      T.$('startstop').textContent = 'Start';
+      T.$('laps-body').innerHTML = '';
+      T.$('laps-wrap').hidden = true;
+      T.status('status', 'Reset. Press Start, or hit the space bar.', 'muted');
+    }
+
+    T.$('startstop').addEventListener('click', startStop);
+    T.$('lap').addEventListener('click', lap);
+    T.$('reset').addEventListener('click', reset);
+    T.$('export').addEventListener('click', () => {
+      if (!laps.length) { T.status('status', 'No laps to export yet.', 'muted'); return; }
+      let csv = 'Lap,Lap time,Total time\n';
+      laps.forEach((l, i) => { csv += (i + 1) + ',' + fmt(l.lapTime) + ',' + fmt(l.total) + '\n'; });
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = 'stopwatch-laps.csv';
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(a.href);
+    });
+    T.$('share').addEventListener('click', () => shareLink({ title: 'Online Stopwatch | 123MiniApps' }));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.code === 'Space') { e.preventDefault(); startStop(); }
+      else if (e.key === 'l' || e.key === 'L') { e.preventDefault(); lap(); }
+    });
+
+    if (window.Analytics) Analytics.trackToolUse('online-stopwatch');
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('online-stopwatch');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>
