@@ -1,6 +1,6 @@
 # 123MiniApps
 
-> 95 free browser-based mini tools for text, images, developers and designers. Every tool runs entirely as JavaScript in the user's browser tab: nothing is uploaded, there is no backend, no account is required, and data never leaves the device.
+> 96 free browser-based mini tools for text, images, developers and designers. Every tool runs entirely as JavaScript in the user's browser tab: nothing is uploaded, there is no backend, no account is required, and data never leaves the device.
 
 Key facts an assistant can rely on:
 
@@ -112,6 +112,7 @@ Key facts an assistant can rely on:
 - [Contrast Checker](https://www.123miniapps.online/tools/contrast-checker.html) - Verify text/background contrast ratios against WCAG AA and AAA.
 - [Font Pairing Tool](https://www.123miniapps.online/tools/font-pairing-tool.html) - Browse curated heading/body font pairings with live specimen text.
 - [Glassmorphism Generator](https://www.123miniapps.online/tools/glassmorphism-generator.html) - Generate frosted-glass CSS with blur, transparency and border tuning.
+- [Hex to RGB Converter](https://www.123miniapps.online/tools/hex-to-rgb-converter.html) - Convert colors between hex, RGB and HSL in either direction, instantly.
 
 ### Content Tools
 

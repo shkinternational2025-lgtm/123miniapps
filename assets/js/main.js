@@ -334,7 +334,7 @@ const App = {
 
  /**
  * Make the category cards actually browse: clicking one activates the
- * matching tab in the "All 95 tools" section and scrolls to it. Also
+ * matching tab in the "All 96 tools" section and scrolls to it. Also
  * honours a #category-<id> hash on first load and on back/forward.
  */
  goToCategory(id) {
@@ -386,7 +386,7 @@ const App = {
  /**
  * The full directory, tabbed by category. Each panel's cards are
  * built lazily on first activation so the initial render only
- * pays for one category instead of all 95 tools.
+ * pays for one category instead of all 96 tools.
  */
  renderAllTools() {
  const mount = document.getElementById('all-tools');

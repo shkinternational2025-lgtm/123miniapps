@@ -314,7 +314,7 @@ PAGES.append(tool(
  <span class="field__hint" id="desc-count"></span>
  </label>
  <textarea class="textarea" id="description" style="min-height:90px"
- placeholder="A concise summary of the page, around 155 characters.">95 free online tools for text, images, developers and designers. Everything runs in your browser, no uploads, no accounts, no tracking.</textarea>
+ placeholder="A concise summary of the page, around 155 characters.">96 free online tools for text, images, developers and designers. Everything runs in your browser, no uploads, no accounts, no tracking.</textarea>
  </div>"""),
  row(
  text_input("image", "Social image URL", "https://example.com/og.png"),

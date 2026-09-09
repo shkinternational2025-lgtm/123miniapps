@@ -62,7 +62,7 @@ SHELL = """<!DOCTYPE html>
 html{{background:#0B1120}}
 body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}}
 </style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.4">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.5">
 
 <script type="application/ld+json">
 {{
@@ -220,20 +220,20 @@ body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,san
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.8.4"></script>
-<script src="../assets/js/theme-manager.js?v=2.8.4"></script>
-<script src="../assets/data/categories.js?v=2.8.4" defer></script>
-<script src="../assets/data/tools.js?v=2.8.4" defer></script>
-<script src="../assets/data/testimonials.js?v=2.8.4" defer></script>
-<script src="../assets/js/components.js?v=2.8.4" defer></script>
-<script src="../assets/js/tool-utils.js?v=2.8.4" defer></script>
-<script src="../assets/js/search-engine.js?v=2.8.4" defer></script>
-<script src="../assets/js/animations.js?v=2.8.4" defer></script>
-<script src="../assets/js/pwa.js?v=2.8.4" defer></script>
-<script src="../assets/js/analytics.js?v=2.8.4" defer></script>
-<script src="../assets/js/consent.js?v=2.8.4" defer></script>
-<script src="../assets/js/ads.js?v=2.8.4" defer></script>
-<script src="../assets/js/main.js?v=2.8.4" defer></script>
+<script src="../assets/js/config.js?v=2.8.5"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.5"></script>
+<script src="../assets/data/categories.js?v=2.8.5" defer></script>
+<script src="../assets/data/tools.js?v=2.8.5" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.5" defer></script>
+<script src="../assets/js/components.js?v=2.8.5" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.5" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.5" defer></script>
+<script src="../assets/js/animations.js?v=2.8.5" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.5" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.5" defer></script>
+<script src="../assets/js/consent.js?v=2.8.5" defer></script>
+<script src="../assets/js/ads.js?v=2.8.5" defer></script>
+<script src="../assets/js/main.js?v=2.8.5" defer></script>
 {extra_scripts}
 <!-- ============================================
      TOOL LOGIC
@@ -316,6 +316,7 @@ FURTHER_READING = {
     "random-number-generator": ("how-to-generate-truly-random-numbers", "How to Generate Truly Random Numbers (and Why Math.random Isn't Enough)"),
     "hash-generator": ("what-is-a-hash-md5-sha256-explained", "What Is a Hash? MD5, SHA-256 and How Hashing Works"),
     "slug-generator": ("what-is-a-url-slug-seo-friendly", "What Is a URL Slug and How to Create SEO-Friendly Ones"),
+    "hex-to-rgb-converter": ("understanding-color-hex-rgb-hsl", "Understanding Color on the Web: Hex, RGB and HSL"),
     "barcode-generator": ("barcodes-explained-how-to-generate-one", "Barcodes Explained: How to Generate One That Scans"),
     "placeholder-image-generator": ("placeholder-images-why-and-how", "Placeholder Images: Why Designers Use Them and How to Generate One"),
     "fake-data-generator": ("why-you-need-fake-data-for-testing", "Why You Need Fake Data for Testing (and How to Generate It)"),

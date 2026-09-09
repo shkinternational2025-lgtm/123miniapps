@@ -1522,3 +1522,169 @@ PAGES.append(tool(
 
  render();""",
 ))
+
+# ---------------------------------------------------------------
+# 78. Hex to RGB Converter
+# ---------------------------------------------------------------
+PAGES.append(tool(
+ slug="hex-to-rgb-converter", name="Hex to RGB Converter", icon="🎨", cat="design",
+ title="Hex to RGB Converter",
+ description="Convert colours between hex, RGB and HSL in either direction. Paste a hex code, an rgb() or an hsl() value and get all three formats at once, in your browser.",
+ tagline="Convert between hex, RGB and HSL in either direction, nothing sent to a server.",
+ workspace=ws(
+ color_input("picker", "Pick a colour", "#1A2B3C"),
+ row(
+ text_input("hex", "HEX", "#1A2B3C", "#1A2B3C"),
+ text_input("rgb", "RGB", "rgb(26, 43, 60)", "rgb(26, 43, 60)"),
+ ),
+ row(
+ text_input("hsl", "HSL", "hsl(210, 40%, 17%)", "hsl(210, 40%, 17%)"),
+ html_block(""" <div class="field">
+ <label class="field__label"><span>Preview</span></label>
+ <div id="swatch" style="height:52px;border-radius:var(--radius-md);border:1px solid var(--glass-border);background:#1A2B3C"></div>
+ </div>"""),
+ ),
+ status_line("status", "Paste a hex, RGB or HSL value into any field."),
+ buttons(("random", "Random colour", "primary"), ("copy", "Copy all", "ghost"), ("clear", "Clear", "ghost"), ("share", "Share tool", "ghost")),
+ label="Hex to RGB converter",
+ ),
+ info_block=info(
+ features=[
+ "Converts hex to RGB, RGB to hex, and both to HSL",
+ "Auto-detects the format you type, no dropdown needed",
+ "Accepts shorthand hex (#fff) and 8-digit hex with alpha",
+ "One-click copy for every output format",
+ "Live swatch preview and a native colour picker",
+ ],
+ howto=[
+ "Paste a hex code, an rgb() value or an hsl() value into any field.",
+ "The other formats update instantly below.",
+ "Click Copy all to grab every format at once.",
+ "Use the swatch to confirm the colour before copying.",
+ ],
+ background_title="Why hex, RGB and HSL all exist",
+ background_paragraphs=[
+ "A hex to RGB conversion is really just a change of notation for the same colour. Hex is a compact base-16 shorthand that design tools and CSS favour, while RGB is the three decimal channel values from 0 to 255 that a screen actually uses to light each pixel. Converting hex to RGB, or RGB to hex, is lossless: #1A2B3C and rgb(26, 43, 60) are the identical colour written two ways.",
+ "HSL describes that same colour as hue, saturation and lightness, which is far easier for a human to reason about when you want a slightly lighter or more muted version without guessing at channel values. That is why this converter shows all three at once: you pick whichever notation is convenient and read off the others.",
+ "Eight-digit hex and rgba() add an alpha channel for transparency, and both are accepted here. The conversion runs entirely in your browser, so nothing you paste is ever sent to a server.",
+ ],
+ ),
+ faqs=[
+ ("Is this hex to RGB converter free?", "Yes, with no limits, no account and no sign-up."),
+ ("Is my colour data sent anywhere?", "No. The conversion runs as JavaScript in your browser, so nothing you enter is uploaded to a server."),
+ ("What is the difference between hex and RGB?", "They are two notations for the same colour. Hex is a base-16 shorthand like #1A2B3C, and RGB is the three decimal channel values from 0 to 255 that it decodes to. HSL describes the same colour as hue, saturation and lightness."),
+ ("Does it support alpha and transparency?", "Yes. Eight-digit hex such as #1A2B3C80 and rgba() values are both accepted, and the alpha channel is carried through to the output."),
+ ],
+ script=r""" const clamp = (n, lo, hi) => Math.min(hi, Math.max(lo, n));
+ let updating = false;
+
+ function parseHex(str) {
+ let s = String(str).trim().replace(/^#/, '');
+ if (/^[0-9a-fA-F]{3}$/.test(s)) s = s.split('').map((c) => c + c).join('');
+ else if (/^[0-9a-fA-F]{4}$/.test(s)) s = s.split('').map((c) => c + c).join('');
+ if (/^[0-9a-fA-F]{6}$/.test(s)) return { r: parseInt(s.slice(0, 2), 16), g: parseInt(s.slice(2, 4), 16), b: parseInt(s.slice(4, 6), 16), a: 1 };
+ if (/^[0-9a-fA-F]{8}$/.test(s)) return { r: parseInt(s.slice(0, 2), 16), g: parseInt(s.slice(2, 4), 16), b: parseInt(s.slice(4, 6), 16), a: parseInt(s.slice(6, 8), 16) / 255 };
+ return null;
+ }
+
+ function parseRgb(str) {
+ const m = String(str).match(/rgba?\(([^)]+)\)/i);
+ const inner = m ? m[1] : (/^[\d.,\s]+$/.test(String(str).trim()) ? String(str) : null);
+ if (inner === null) return null;
+ const parts = inner.split(',').map((x) => x.trim());
+ if (parts.length < 3) return null;
+ const r = parseFloat(parts[0]), g = parseFloat(parts[1]), b = parseFloat(parts[2]);
+ const a = parts[3] !== undefined ? parseFloat(parts[3]) : 1;
+ if ([r, g, b].some((v) => isNaN(v) || v < 0 || v > 255)) return null;
+ return { r: Math.round(r), g: Math.round(g), b: Math.round(b), a: isNaN(a) ? 1 : clamp(a, 0, 1) };
+ }
+
+ function hslToRgb(h, s, l) {
+ h = ((h % 360) + 360) % 360; s = clamp(s, 0, 1); l = clamp(l, 0, 1);
+ const c = (1 - Math.abs(2 * l - 1)) * s;
+ const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+ const m = l - c / 2;
+ let r = 0, g = 0, b = 0;
+ if (h < 60) { r = c; g = x; } else if (h < 120) { r = x; g = c; } else if (h < 180) { g = c; b = x; }
+ else if (h < 240) { g = x; b = c; } else if (h < 300) { r = x; b = c; } else { r = c; b = x; }
+ return { r: Math.round((r + m) * 255), g: Math.round((g + m) * 255), b: Math.round((b + m) * 255) };
+ }
+
+ function parseHsl(str) {
+ const m = String(str).match(/hsla?\(([^)]+)\)/i);
+ if (!m) return null;
+ const parts = m[1].split(',').map((x) => x.trim());
+ if (parts.length < 3) return null;
+ const h = parseFloat(parts[0]), s = parseFloat(parts[1]) / 100, l = parseFloat(parts[2]) / 100;
+ const a = parts[3] !== undefined ? parseFloat(parts[3]) : 1;
+ if ([h, s, l].some(isNaN)) return null;
+ return Object.assign(hslToRgb(h, s, l), { a: isNaN(a) ? 1 : clamp(a, 0, 1) });
+ }
+
+ function rgbToHsl(r, g, b) {
+ r /= 255; g /= 255; b /= 255;
+ const max = Math.max(r, g, b), min = Math.min(r, g, b);
+ let h = 0, s = 0; const l = (max + min) / 2;
+ if (max !== min) {
+ const d = max - min;
+ s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+ if (max === r) h = (g - b) / d + (g < b ? 6 : 0);
+ else if (max === g) h = (b - r) / d + 2;
+ else h = (r - g) / d + 4;
+ h /= 6;
+ }
+ return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
+ }
+
+ const to2 = (n) => n.toString(16).padStart(2, '0');
+ function rgbToHex(c) {
+ let h = '#' + to2(c.r) + to2(c.g) + to2(c.b);
+ if (c.a !== undefined && c.a < 1) h += to2(Math.round(c.a * 255));
+ return h.toUpperCase();
+ }
+
+ function apply(rgb, source) {
+ updating = true;
+ const hex = rgbToHex(rgb);
+ const hasAlpha = rgb.a !== undefined && rgb.a < 1;
+ const rgbStr = hasAlpha ? `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${+rgb.a.toFixed(2)})` : `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+ const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+ const hslStr = hasAlpha ? `hsla(${hsl.h}, ${hsl.s}%, ${hsl.l}%, ${+rgb.a.toFixed(2)})` : `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+ if (source !== 'hex') T.$('hex').value = hex;
+ if (source !== 'rgb') T.$('rgb').value = rgbStr;
+ if (source !== 'hsl') T.$('hsl').value = hslStr;
+ T.$('picker').value = '#' + to2(rgb.r) + to2(rgb.g) + to2(rgb.b);
+ T.$('swatch').style.background = hex;
+ ['hex', 'rgb', 'hsl'].forEach((id) => T.$(id).classList.remove('is-invalid'));
+ T.status('status', `HEX ${hex} and ${rgbStr}`, 'ok');
+ updating = false;
+ }
+
+ function handle(source, parser) {
+ if (updating) return;
+ const rgb = parser(T.$(source).value);
+ if (!rgb) {
+ T.$(source).classList.add('is-invalid');
+ T.status('status', `That is not a valid ${source.toUpperCase()} value.`, 'error');
+ return;
+ }
+ apply(rgb, source);
+ }
+
+ T.$('hex').addEventListener('input', () => handle('hex', parseHex));
+ T.$('rgb').addEventListener('input', () => handle('rgb', parseRgb));
+ T.$('hsl').addEventListener('input', () => handle('hsl', parseHsl));
+ T.$('picker').addEventListener('input', () => { if (updating) return; apply(Object.assign(parseHex(T.$('picker').value) || { r: 0, g: 0, b: 0 }, { a: 1 }), 'picker'); });
+ T.$('random').addEventListener('click', () => apply({ r: Math.floor(Math.random() * 256), g: Math.floor(Math.random() * 256), b: Math.floor(Math.random() * 256), a: 1 }, ''));
+ T.$('copy').addEventListener('click', () => copyToClipboard(`HEX: ${T.$('hex').value}\nRGB: ${T.$('rgb').value}\nHSL: ${T.$('hsl').value}`, 'All formats copied'));
+ T.$('clear').addEventListener('click', () => {
+ updating = true;
+ ['hex', 'rgb', 'hsl'].forEach((id) => { T.$(id).value = ''; T.$(id).classList.remove('is-invalid'); });
+ updating = false;
+ T.status('status', 'Paste a hex, RGB or HSL value into any field.', 'muted');
+ });
+ T.$('share').addEventListener('click', () => shareLink({ title: 'Hex to RGB Converter | 123MiniApps' }));
+
+ apply({ r: 26, g: 43, b: 60, a: 1 }, '');
+ if (window.Analytics) Analytics.trackToolUse('hex-to-rgb-converter');""",
+))

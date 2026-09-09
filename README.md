@@ -5,7 +5,7 @@ no accounts, no tracking.
 
 ## Status
 
-All 95 tools are built, wired and tested. 963 behavioural tests pass.
+All 96 tools are built, wired and tested. 963 behavioural tests pass.
 
 | Category | Tools | Tests |
 |---|---:|---:|

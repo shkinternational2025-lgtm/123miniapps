@@ -91,7 +91,7 @@ def build():
     lines = []
     lines.append("# 123MiniApps")
     lines.append("")
-    lines.append("> 95 free browser-based mini tools for text, images, developers "
+    lines.append("> 96 free browser-based mini tools for text, images, developers "
                  "and designers. Every tool runs entirely as JavaScript in the "
                  "user's browser tab: nothing is uploaded, there is no backend, "
                  "no account is required, and data never leaves the device.")

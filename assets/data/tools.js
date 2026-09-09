@@ -1,7 +1,7 @@
 /* ============================================
  123MiniApps.online v2.0
  File: tools.js
- Purpose: The complete tools database (95 tools).
+ Purpose: The complete tools database (96 tools).
 
  ADDING A TOOL, three steps, nothing else:
  1. Append an object to RAW_TOOLS below.
@@ -434,7 +434,11 @@ const RAW_TOOLS = [
  { id: 95, name: 'Emoji Picker', category: 'fun', icon: '😀', premium: false, rating: 4.5, usageCount: 103500,
  description: 'Search thousands of emoji by name and copy them with one click.',
  features: ['Search by name or keyword', 'Category browsing', 'Recently used', 'Copy on click'],
- keywords: ['emoji', 'smiley', 'unicode', 'symbols', 'copy emoji'] }
+ keywords: ['emoji', 'smiley', 'unicode', 'symbols', 'copy emoji'] },
+ { id: 96, name: 'Hex to RGB Converter', category: 'design', icon: '🎨', premium: false, rating: 4.8, usageCount: 45200,
+ description: 'Convert colors between hex, RGB and HSL in either direction, instantly.',
+ features: ['Hex to RGB and RGB to hex', 'Auto-detects your input format', 'HSL output too', 'Copy any format'],
+ keywords: ['hex to rgb', 'rgb to hex', 'hex', 'rgb', 'hsl', 'color converter', 'colour'] }
 ];
 
 /**

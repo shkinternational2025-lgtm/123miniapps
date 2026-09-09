@@ -464,8 +464,13 @@ def tool(slug, name, icon, cat, title, description, tagline,
         "category_name": cat_name,
         "schema_category": schema_cat,
         "purpose": tagline,
-        "title": title,
-        "og_title": f"{name} | 123MiniApps",
+        # SEO title: lead with "Free" + the head keyword (the tool name),
+        # kept short so Google never truncates it, and identical to og_title
+        # so social cards and search results match. The descriptive `title`
+        # argument is retained for backward compatibility but no longer used
+        # in the tag; the long-tail keywords live in the meta description.
+        "title": f"Free {name} | 123MiniApps",
+        "og_title": f"Free {name} | 123MiniApps",
         "description": description,
         "tagline": tagline,
         "workspace": workspace,
