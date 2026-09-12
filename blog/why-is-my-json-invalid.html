@@ -27,7 +27,7 @@
 <meta name="twitter:description" content="Trailing commas, single quotes, unquoted keys and unescaped characters cause almost every JSON parse error. How to spot each one, and why the reported line is often wrong.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-02-25">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-11">
 <meta property="article:section" content="Guides">
 <meta property="article:tag" content="why is my json invalid, json unexpected token, json trailing comma error, json parse error line, json vs javascript object">
 <meta name="theme-color" content="#0B1120">
@@ -43,7 +43,7 @@
 html{background:#0B1120}
 body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
 </style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.7">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.9">
 
 <script type="application/ld+json">
 {
@@ -78,7 +78,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "Why is my JSON invalid when it looks perfectly fine?",
       "description": "Trailing commas, single quotes, unquoted keys and unescaped characters cause almost every JSON parse error. How to spot each one, and why the reported line is often wrong.",
       "datePublished": "2026-02-25",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-11",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -102,7 +102,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         "@id": "https://www.123miniapps.online/blog/why-is-my-json-invalid.html"
       },
       "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
-      "wordCount": 1009,
+      "wordCount": 1222,
       "keywords": "why is my json invalid, json unexpected token, json trailing comma error, json parse error line, json vs javascript object",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -172,8 +172,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           <p class="lead mt-2" style="margin-bottom:0">Four small differences between JSON and JavaScript account for the overwhelming majority of parse failures, and error messages point at the wrong line.</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-02-25 · Updated 2026-09-01 ·
-          1009 words · about 4 minute read
+          By 123MiniApps · Published 2026-02-25 · Updated 2026-09-11 ·
+          1222 words · about 5 minute read
         </p>
       </header>
 
@@ -244,6 +244,18 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
 
       <p>If you are parsing JSON from an untrusted source, use <code>JSON.parse</code> and never <code>eval</code>. This should go without saying, but code that predates <code>JSON.parse</code> being universally available still circulates, and <code>eval</code> on attacker-controlled input executes arbitrary code.</p>
 
+      <h2 id="two-subtler-traps-duplicate-keys-and-big-numbers">Two subtler traps: duplicate keys and big numbers</h2>
+
+      <p>Two problems parse without any error at all, which makes them more dangerous than the four above. The first is duplicate keys. JSON does not forbid an object from listing the same key twice, and most parsers silently keep the last one, so <code>{"id": 1, "id": 2}</code> quietly becomes <code>2</code> with no warning. If you are merging or hand-editing objects, a duplicated key can drop a value without a trace.</p>
+
+      <p>The second is number precision. JSON numbers are just digits, but nearly every parser reads them into a double-precision float, which represents integers exactly only up to 2 to the 53rd power, about 9 quadrillion. A 19-digit database identifier or a large financial value can therefore come back subtly wrong after a round trip. The fix is to send such values as strings and convert them deliberately, rather than trusting the parser to preserve them.</p>
+
+      <h2 id="a-worked-example-fixed">A worked example, fixed</h2>
+
+      <p>Here is a small object carrying three of the classic mistakes at once. Each row shows the broken form, the reason it fails, and the corrected version:</p>
+
+      <div class="table-scroll" style="margin:var(--space-6) 0"><table class="data-table"><thead><tr><th>Broken</th><th>Problem</th><th>Fixed</th></tr></thead><tbody><tr><td>{'name': 'Ada'}</td><td>Single quotes on key and value</td><td>{"name": "Ada"}</td></tr><tr><td>{"n": 1,}</td><td>Trailing comma before the closing brace</td><td>{"n": 1}</td></tr><tr><td>{n: 1}</td><td>Unquoted key</td><td>{"n": 1}</td></tr></tbody></table></div>
+
       <h2 id="how-to-debug-invalid-json-systematically">How to debug invalid JSON systematically</h2>
 
       <p>When a parser rejects your JSON, the error message almost always names a line and column, and that pointer is the fastest route to the fix. Start there rather than scanning the whole document. The parser reports the point where it first got confused, which is usually at or just after the real mistake, a missing comma on the previous line, for instance, is often flagged at the start of the next one. Reading the character immediately before the reported position resolves a large share of errors on its own.</p>
@@ -271,12 +283,12 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       <h2 class="text-2xl mb-4">Continue reading</h2>
       <div class="grid-auto grid-auto--lg">
         <a class="tool-card" href="apply-photo-filters-in-your-browser.html"><h3 class="tool-card__title">Apply photo filters</h3><span class="tool-card__link"><span>Read the guide</span></span></a>
+        <a class="tool-card" href="aspect-ratio-explained-16-9-4-3.html"><h3 class="tool-card__title">Aspect ratio explained</h3><span class="tool-card__link"><span>Read the guide</span></span></a>
         <a class="tool-card" href="barcodes-explained-how-to-generate-one.html"><h3 class="tool-card__title">Barcodes explained</h3><span class="tool-card__link"><span>Read the guide</span></span></a>
-        <a class="tool-card" href="base64-encoding-explained-for-developers.html"><h3 class="tool-card__title">Base64 encoding</h3><span class="tool-card__link"><span>Read the guide</span></span></a>
       </div>
     </section>
 
-    <p class="mt-8"><a href="index.html">← More articles</a> · <a href="../index.html">Browse all 106 tools</a></p>
+    <p class="mt-8"><a href="index.html">← More articles</a> · <a href="../index.html">Browse all 111 tools</a></p>
 
   </div>
 </main>
@@ -334,20 +346,20 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.8.7"></script>
-<script src="../assets/js/theme-manager.js?v=2.8.7"></script>
-<script src="../assets/data/categories.js?v=2.8.7" defer></script>
-<script src="../assets/data/tools.js?v=2.8.7" defer></script>
-<script src="../assets/data/testimonials.js?v=2.8.7" defer></script>
-<script src="../assets/js/components.js?v=2.8.7" defer></script>
-<script src="../assets/js/tool-utils.js?v=2.8.7" defer></script>
-<script src="../assets/js/search-engine.js?v=2.8.7" defer></script>
-<script src="../assets/js/animations.js?v=2.8.7" defer></script>
-<script src="../assets/js/pwa.js?v=2.8.7" defer></script>
-<script src="../assets/js/analytics.js?v=2.8.7" defer></script>
-<script src="../assets/js/consent.js?v=2.8.7" defer></script>
-<script src="../assets/js/ads.js?v=2.8.7" defer></script>
-<script src="../assets/js/main.js?v=2.8.7" defer></script>
+<script src="../assets/js/config.js?v=2.8.9"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.9"></script>
+<script src="../assets/data/categories.js?v=2.8.9" defer></script>
+<script src="../assets/data/tools.js?v=2.8.9" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.9" defer></script>
+<script src="../assets/js/components.js?v=2.8.9" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.9" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.9" defer></script>
+<script src="../assets/js/animations.js?v=2.8.9" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.9" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.9" defer></script>
+<script src="../assets/js/consent.js?v=2.8.9" defer></script>
+<script src="../assets/js/ads.js?v=2.8.9" defer></script>
+<script src="../assets/js/main.js?v=2.8.9" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{document.getElementById('copyright-year').textContent=new Date().getFullYear();});</script>
 </body>
 </html>

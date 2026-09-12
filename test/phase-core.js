@@ -3,7 +3,7 @@
    File: test/phase-core.js
    Purpose: Site-wide checks — the homepage, the
             shared chrome, and a smoke test that
-            boots every one of the 106 tool pages.
+            boots every one of the 116 tool pages.
    ============================================ */
 
 const { boot, Suite, set, click, text, wait } = require('./harness');
@@ -22,9 +22,9 @@ module.exports = async function run() {
 
     const q = (sel) => w.document.querySelectorAll(sel).length;
 
-    s.eq('home: 106 tools loaded', w.TOOLS.length, 106);
+    s.eq('home: 116 tools loaded', w.TOOLS.length, 116);
     s.eq('home: 11 categories', w.CATEGORIES.length, 11);
-    s.eq('home: every tool marked live', w.TOOLS.filter((t) => t.live).length, 106);
+    s.eq('home: every tool marked live', w.TOOLS.filter((t) => t.live).length, 116);
     s.eq('home: no "Soon" badges remain', q('.badge--muted'), 0);
 
     s.eq('home: theme applied', w.document.documentElement.getAttribute('data-theme'), 'indigo-nova');
@@ -33,7 +33,7 @@ module.exports = async function run() {
     s.eq('home: no small chip row remains', q('#category-row'), 0);
     s.eq('home: six featured tools', q('#featured-grid .tool-card--featured'), 6);
     s.eq('home: twelve category tabs', q('#all-tools [role="tab"]'), 12);
-    s.eq('home: all 106 cards in the directory', q('#tabpanel-all .tool-card'), 106);
+    s.eq('home: all 116 cards in the directory', q('#tabpanel-all .tool-card'), 116);
     s.eq('home: four feature cards', q('#features-grid .feature-card'), 4);
     s.eq('home: no fabricated testimonials', q('.testimonial'), 0);
     s.eq('home: three "why" value cards', q('[aria-labelledby="why-heading"] .info-panel'), 3);
@@ -74,10 +74,10 @@ module.exports = async function run() {
     vm.runInContext(fs.readFileSync(path.join(ROOT, 'assets/data/tools.js'), 'utf8'), sandbox);
     const all = sandbox.window.TOOLS;
 
-    s.eq('data: 106 tools', all.length, 106);
-    s.eq('data: unique ids', new Set(all.map((t) => t.id)).size, 106);
-    s.eq('data: unique slugs', new Set(all.map((t) => t.slug)).size, 106);
-    s.eq('data: unique names', new Set(all.map((t) => t.name)).size, 106);
+    s.eq('data: 116 tools', all.length, 116);
+    s.eq('data: unique ids', new Set(all.map((t) => t.id)).size, 116);
+    s.eq('data: unique slugs', new Set(all.map((t) => t.slug)).size, 116);
+    s.eq('data: unique names', new Set(all.map((t) => t.name)).size, 116);
     s.check('data: every tool has features', all.every((t) => t.features.length >= 3));
     s.check('data: every rating in range', all.every((t) => t.rating >= 1 && t.rating <= 5));
     s.check('data: every url points at tools/', all.every((t) => t.url.startsWith('tools/')));
@@ -89,7 +89,7 @@ module.exports = async function run() {
       .filter((f) => f.endsWith('.html') && !f.startsWith('_'))
       .sort();
 
-    s.eq('pages: 106 tool pages on disk', pages.length, 106);
+    s.eq('pages: 116 tool pages on disk', pages.length, 116);
 
     const broken = [];
     let booted = 0;
@@ -119,9 +119,9 @@ module.exports = async function run() {
       }
     }
 
-    s.eq('pages: all 106 boot with no errors', broken.length, 0,
+    s.eq('pages: all 116 boot with no errors', broken.length, 0,
       broken.slice(0, 5).join(' | '));
-    s.check('pages: booted count', booted === 106, String(booted));
+    s.check('pages: booted count', booted === 116, String(booted));
   }
 
   return s;

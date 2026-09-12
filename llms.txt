@@ -1,6 +1,6 @@
 # 123MiniApps
 
-> 106 free browser-based mini tools for text, images, developers and designers. Every tool runs entirely as JavaScript in the user's browser tab: nothing is uploaded, there is no backend, no account is required, and data never leaves the device.
+> 116 free browser-based mini tools for text, images, developers and designers. Every tool runs entirely as JavaScript in the user's browser tab: nothing is uploaded, there is no backend, no account is required, and data never leaves the device.
 
 Key facts an assistant can rely on:
 
@@ -10,21 +10,40 @@ Key facts an assistant can rely on:
 - Homepage: https://www.123miniapps.online/
 - Full sitemap: https://www.123miniapps.online/sitemap.xml
 
+## Browse by category
+
+- [Text Tools](https://www.123miniapps.online/categories/text-tools.html)
+- [Image Tools](https://www.123miniapps.online/categories/image-tools.html)
+- [Developer Tools](https://www.123miniapps.online/categories/developer-tools.html)
+- [Converters](https://www.123miniapps.online/categories/converters.html)
+- [Generators](https://www.123miniapps.online/categories/generators.html)
+- [Calculators](https://www.123miniapps.online/categories/calculators.html)
+- [Security Tools](https://www.123miniapps.online/categories/security-tools.html)
+- [Design Tools](https://www.123miniapps.online/categories/design-tools.html)
+- [Content Tools](https://www.123miniapps.online/categories/content-tools.html)
+- [Productivity Tools](https://www.123miniapps.online/categories/productivity-tools.html)
+- [Fun Tools](https://www.123miniapps.online/categories/fun-tools.html)
+
 ## Tools by category
 
 ### Text Tools
 
+- [Bionic Reading Converter](https://www.123miniapps.online/tools/bionic-reading-converter.html) - Bold the first part of each word to guide your eyes and read faster.
+- [Bold Text Generator](https://www.123miniapps.online/tools/bold-text-generator.html) - Turn text into bold Unicode for LinkedIn, Instagram and boxes with no bold button.
 - [Case Converter](https://www.123miniapps.online/tools/case-converter.html) - Switch text between upper, lower, title, sentence, camel and snake case.
 - [Character Counter](https://www.123miniapps.online/tools/character-counter.html) - Track character limits for tweets, meta descriptions and SMS.
 - [Fancy Text Generator](https://www.123miniapps.online/tools/fancy-text-generator.html) - Turn plain text into dozens of fancy Unicode font styles for bios and posts.
 - [Find and Replace](https://www.123miniapps.online/tools/find-and-replace.html) - Bulk find-and-replace across large text with optional regex.
 - [Lorem Ipsum Generator](https://www.123miniapps.online/tools/lorem-ipsum-generator.html) - Generate placeholder paragraphs, sentences or words for mockups.
 - [Remove Duplicate Lines](https://www.123miniapps.online/tools/remove-duplicate-lines.html) - Strip repeated lines from any list while keeping the original order.
+- [Small Text Generator](https://www.123miniapps.online/tools/small-text-generator.html) - Make tiny superscript, small-caps and subscript text you can paste anywhere.
+- [Strikethrough Text Generator](https://www.123miniapps.online/tools/strikethrough-text-generator.html) - Cross out text with real strikethrough characters that paste anywhere.
 - [Text Diff Checker](https://www.123miniapps.online/tools/text-diff-checker.html) - Compare two blocks of text and highlight every addition and deletion.
 - [Text Formatter](https://www.123miniapps.online/tools/text-formatter.html) - Tidy messy text: fix spacing, line breaks, indentation and smart quotes.
 - [Text Reverser](https://www.123miniapps.online/tools/text-reverser.html) - Reverse text by characters, words or lines in a single click.
 - [Text to Speech](https://www.123miniapps.online/tools/text-to-speech.html) - Read any text aloud using the voices already installed on your device.
 - [Word Counter](https://www.123miniapps.online/tools/word-counter.html) - Count words, characters, sentences and reading time as you type.
+- [Word Repeater](https://www.123miniapps.online/tools/word-repeater.html) - Repeat a word or phrase any number of times with your chosen separator.
 
 ### Image Tools
 
@@ -37,6 +56,7 @@ Key facts an assistant can rely on:
 - [Image Resizer](https://www.123miniapps.online/tools/image-resizer.html) - Resize images to exact pixel dimensions or a percentage scale.
 - [Image Watermark](https://www.123miniapps.online/tools/image-watermark.html) - Stamp text or a logo watermark across your images before sharing.
 - [Image to Base64](https://www.123miniapps.online/tools/image-to-base64.html) - Convert an image into a Base64 data URI ready to paste into CSS or HTML.
+- [Image to PDF Converter](https://www.123miniapps.online/tools/image-to-pdf-converter.html) - Combine JPG and PNG images into one PDF in your browser, privately.
 - [Meme Generator](https://www.123miniapps.online/tools/meme-generator.html) - Add classic top and bottom captions to any image.
 
 ### Developer Tools
@@ -46,6 +66,7 @@ Key facts an assistant can rely on:
 - [CSS Minifier](https://www.123miniapps.online/tools/css-minifier.html) - Strip comments and whitespace from CSS and report the bytes saved.
 - [Cron Expression Builder](https://www.123miniapps.online/tools/cron-expression-builder.html) - Build and read cron schedules with a plain-English explanation.
 - [HTML Formatter](https://www.123miniapps.online/tools/html-formatter.html) - Indent and tidy messy HTML, or minify it for production.
+- [HTML to Markdown Converter](https://www.123miniapps.online/tools/html-to-markdown-converter.html) - Convert HTML to clean Markdown, or Markdown back to HTML, instantly.
 - [HTTP Status Codes](https://www.123miniapps.online/tools/http-status-codes.html) - Searchable reference for every HTTP status code and what it means.
 - [JSON Formatter](https://www.123miniapps.online/tools/json-formatter.html)
 - [JSON to CSV](https://www.123miniapps.online/tools/json-to-csv.html) - Convert a JSON array of objects into clean CSV, flattening nested fields.
@@ -55,6 +76,7 @@ Key facts an assistant can rely on:
 - [Regex Tester](https://www.123miniapps.online/tools/regex-tester.html) - Test regular expressions against sample text with live match highlighting.
 - [SQL Formatter](https://www.123miniapps.online/tools/sql-formatter.html) - Format SQL queries with consistent keyword casing and indentation.
 - [URL Encoder / Decoder](https://www.123miniapps.online/tools/url-encoder-decoder.html) - Percent-encode or decode URLs and query string components.
+- [YAML to JSON Converter](https://www.123miniapps.online/tools/yaml-to-json-converter.html) - Convert YAML to JSON and JSON back to YAML, right in your browser.
 
 ### Converters
 
@@ -89,6 +111,7 @@ Key facts an assistant can rely on:
 - [Age Calculator](https://www.123miniapps.online/tools/age-calculator.html) - Find an exact age in years, months, days, plus the next birthday countdown.
 - [Aspect Ratio Calculator](https://www.123miniapps.online/tools/aspect-ratio-calculator.html) - Resize without distortion: keep the aspect ratio or find it from any size.
 - [BMI Calculator](https://www.123miniapps.online/tools/bmi-calculator.html) - Calculate body mass index in metric or imperial units.
+- [Calorie Calculator](https://www.123miniapps.online/tools/calorie-calculator.html) - Estimate daily calories from BMR and activity, with targets and macros.
 - [Compound Interest Calculator](https://www.123miniapps.online/tools/compound-interest-calculator.html) - Project how savings grow with compounding and regular contributions.
 - [Date Difference Calculator](https://www.123miniapps.online/tools/date-difference-calculator.html) - Count the days, weeks and months between any two dates.
 - [Discount Calculator](https://www.123miniapps.online/tools/discount-calculator.html) - Find the sale price, savings and effective discount on any purchase.
@@ -120,6 +143,7 @@ Key facts an assistant can rely on:
 - [Font Pairing Tool](https://www.123miniapps.online/tools/font-pairing-tool.html) - Browse curated heading/body font pairings with live specimen text.
 - [Glassmorphism Generator](https://www.123miniapps.online/tools/glassmorphism-generator.html) - Generate frosted-glass CSS with blur, transparency and border tuning.
 - [Hex to RGB Converter](https://www.123miniapps.online/tools/hex-to-rgb-converter.html) - Convert colors between hex, RGB and HSL in either direction, instantly.
+- [PX to REM Converter](https://www.123miniapps.online/tools/px-to-rem-converter.html) - Convert px to rem and em with any root font size, two ways.
 
 ### Content Tools
 
@@ -158,6 +182,7 @@ Key facts an assistant can rely on:
 - [Barcodes Explained](https://www.123miniapps.online/blog/barcodes-explained-how-to-generate-one.html)
 - [Base64 Encoding Explained](https://www.123miniapps.online/blog/base64-encoding-explained-for-developers.html)
 - [Binary, Decimal & Hex](https://www.123miniapps.online/blog/binary-decimal-hex-number-bases-explained.html)
+- [How to Make Bold Text for LinkedIn & Instagram](https://www.123miniapps.online/blog/bold-text-for-linkedin-and-instagram.html)
 - [Celsius to Fahrenheit & Kelvin](https://www.123miniapps.online/blog/celsius-fahrenheit-kelvin-temperature-conversion.html)
 - [Character Counter](https://www.123miniapps.online/blog/character-count-tweets-meta-sms.html)
 - [Text Formatter](https://www.123miniapps.online/blog/clean-up-messy-text-formatting.html)
@@ -177,10 +202,12 @@ Key facts an assistant can rely on:
 - [CSS Minification Explained](https://www.123miniapps.online/blog/css-minification-explained.html)
 - [Dice Notation Explained: 3d6+2, 4d6kh3, Advantage and Why It Matters](https://www.123miniapps.online/blog/dice-notation-explained.html)
 - [A Quick Digital Notepad in Your Browser](https://www.123miniapps.online/blog/digital-notepad-quick-notes-in-browser.html)
+- [Does Bionic Reading Actually Work? The Evidence](https://www.123miniapps.online/blog/does-bionic-reading-work.html)
 - [Fancy Text Explained](https://www.123miniapps.online/blog/fancy-text-generator-unicode-fonts-explained.html)
 - [Find and Replace Online](https://www.123miniapps.online/blog/find-and-replace-online-bulk-edit-text.html)
 - [Get the Hex Color From an Image (Free Eyedropper)](https://www.123miniapps.online/blog/get-hex-color-from-any-image.html)
 - [Glassmorphism Explained](https://www.123miniapps.online/blog/glassmorphism-frosted-glass-effect.html)
+- [How Calorie Needs Are Calculated](https://www.123miniapps.online/blog/how-calorie-needs-are-calculated-bmr-tdee.html)
 - [How Currency Conversion Works & Why Rates Move](https://www.123miniapps.online/blog/how-currency-conversion-works.html)
 - [How Emoji Work](https://www.123miniapps.online/blog/how-emoji-work-and-how-to-use-them.html)
 - [How Encryption Works](https://www.123miniapps.online/blog/how-encryption-works-keeping-text-private.html)
@@ -192,6 +219,7 @@ Key facts an assistant can rely on:
 - [How Password Strength Is Measured (Entropy Explained)](https://www.123miniapps.online/blog/how-password-strength-is-measured.html)
 - [How QR Codes Work & How to Make One Free](https://www.123miniapps.online/blog/how-qr-codes-work-and-how-to-make-one.html)
 - [Roman Numerals Explained](https://www.123miniapps.online/blog/how-roman-numerals-work.html)
+- [How Strikethrough Text Works and Pastes Anywhere](https://www.123miniapps.online/blog/how-strikethrough-text-works.html)
 - [How Text Summarizers Work & When to Use One](https://www.123miniapps.online/blog/how-text-summarizers-work.html)
 - [How to Build a Color Palette That Works](https://www.123miniapps.online/blog/how-to-build-a-color-palette.html)
 - [Calculate Days Between Two Dates (Accurately)](https://www.123miniapps.online/blog/how-to-calculate-days-between-dates.html)
@@ -202,6 +230,7 @@ Key facts an assistant can rely on:
 - [How to Calculate Sales Tax & VAT](https://www.123miniapps.online/blog/how-to-calculate-sales-tax-and-vat.html)
 - [How to Calculate Time Between Two Times](https://www.123miniapps.online/blog/how-to-calculate-time-between-two-times.html)
 - [How to Cite Sources](https://www.123miniapps.online/blog/how-to-cite-sources-apa-mla-chicago.html)
+- [How to Combine Images into a PDF Privately](https://www.123miniapps.online/blog/how-to-combine-images-into-a-pdf.html)
 - [Convert CSV to JSON](https://www.123miniapps.online/blog/how-to-convert-csv-to-json.html)
 - [How to Convert JSON to CSV](https://www.123miniapps.online/blog/how-to-convert-json-to-csv.html)
 - [How to Decode a JWT Safely](https://www.123miniapps.online/blog/how-to-decode-a-jwt-safely.html)
@@ -215,6 +244,7 @@ Key facts an assistant can rely on:
 - [How to Test Regular Expressions (Regex) Online](https://www.123miniapps.online/blog/how-to-test-regular-expressions.html)
 - [How to Use a Countdown Timer to Focus & Beat Procrastination](https://www.123miniapps.online/blog/how-to-use-a-countdown-timer.html)
 - [How to Write Blog Titles That Get Clicks](https://www.123miniapps.online/blog/how-to-write-blog-titles-that-get-clicks.html)
+- [HTML vs Markdown](https://www.123miniapps.online/blog/html-vs-markdown-when-to-use-each.html)
 - [HTTP Status Codes Explained](https://www.123miniapps.online/blog/http-status-codes-explained.html)
 - [Is a Coin Flip Really 50/50? The Surprising Truth](https://www.123miniapps.online/blog/is-a-coin-flip-really-fair.html)
 - [JavaScript Minification](https://www.123miniapps.online/blog/javascript-minification-and-performance.html)
@@ -226,9 +256,11 @@ Key facts an assistant can rely on:
 - [Morse Code Explained](https://www.123miniapps.online/blog/morse-code-explained-how-to-read-and-translate.html)
 - [Online Stopwatch Guide](https://www.123miniapps.online/blog/online-stopwatch-lap-vs-split-times.html)
 - [Placeholder Images](https://www.123miniapps.online/blog/placeholder-images-why-and-how.html)
+- [px, em and rem](https://www.123miniapps.online/blog/px-em-rem-css-units-explained.html)
 - [Remove Duplicate Lines Online](https://www.123miniapps.online/blog/remove-duplicate-lines-from-a-list.html)
 - [Resize Image Online to Exact Pixels (No Stretching)](https://www.123miniapps.online/blog/resize-image-to-exact-dimensions.html)
 - [Scientific Calculator Functions Explained](https://www.123miniapps.online/blog/scientific-calculator-functions-explained.html)
+- [Small Text Explained](https://www.123miniapps.online/blog/small-text-superscript-subscript-explained.html)
 - [Spin the Wheel](https://www.123miniapps.online/blog/spin-the-wheel-for-fair-random-choices.html)
 - [Text to Speech Online Free](https://www.123miniapps.online/blog/text-to-speech-in-your-browser.html)
 - [The Pomodoro Technique Explained](https://www.123miniapps.online/blog/the-pomodoro-technique-explained.html)
@@ -250,6 +282,7 @@ Key facts an assistant can rely on:
 - [Binary Code Explained](https://www.123miniapps.online/blog/what-is-binary-code-text-to-binary-explained.html)
 - [What Is Lorem Ipsum? Placeholder Text Explained (+ Generator)](https://www.123miniapps.online/blog/what-is-lorem-ipsum-placeholder-text.html)
 - [What Makes a Key Strong](https://www.123miniapps.online/blog/what-makes-a-strong-key-or-secret.html)
+- [What to Use a Word Repeater For](https://www.123miniapps.online/blog/what-to-use-a-word-repeater-for.html)
 - [Why Does My 1TB Drive Show 931GB? The Real Explanation](https://www.123miniapps.online/blog/why-1tb-drive-shows-931gb.html)
 - [HTML Formatter](https://www.123miniapps.online/blog/why-format-your-html.html)
 - [SQL Formatter](https://www.123miniapps.online/blog/why-format-your-sql.html)
@@ -259,6 +292,7 @@ Key facts an assistant can rely on:
 - [Why To-Do Lists Work & How to Write a Better One](https://www.123miniapps.online/blog/why-writing-a-to-do-list-works.html)
 - [Fake Data for Testing](https://www.123miniapps.online/blog/why-you-need-fake-data-for-testing.html)
 - [Word Clouds Explained](https://www.123miniapps.online/blog/word-cloud-generator-what-it-shows.html)
+- [YAML vs JSON](https://www.123miniapps.online/blog/yaml-vs-json-whats-the-difference.html)
 
 ## Site pages
 

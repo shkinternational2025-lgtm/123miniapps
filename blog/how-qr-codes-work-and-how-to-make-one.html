@@ -27,7 +27,7 @@
 <meta name="twitter:description" content="How QR codes work and how to make one for free. What they store, why they are so robust, static vs dynamic, and a free in-browser QR code generator.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-08-02">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-11">
 <meta property="article:section" content="Guides">
 <meta property="article:tag" content="qr code generator, how to make a qr code, create qr code free, qr code for url, what is a qr code, generate qr code">
 <meta name="theme-color" content="#0B1120">
@@ -43,7 +43,7 @@
 html{background:#0B1120}
 body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
 </style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.7">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.9">
 
 <script type="application/ld+json">
 {
@@ -78,7 +78,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "How QR Codes Work and How to Make One",
       "description": "How QR codes work and how to make one for free. What they store, why they are so robust, static vs dynamic, and a free in-browser QR code generator.",
       "datePublished": "2026-08-02",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-11",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -102,7 +102,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         "@id": "https://www.123miniapps.online/blog/how-qr-codes-work-and-how-to-make-one.html"
       },
       "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
-      "wordCount": 1099,
+      "wordCount": 1350,
       "keywords": "qr code generator, how to make a qr code, create qr code free, qr code for url, what is a qr code, generate qr code",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -172,8 +172,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           <p class="lead mt-2" style="margin-bottom:0">What a QR code actually stores, why it survives damage, and how to create one that scans reliably.</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-08-02 · Updated 2026-09-01 ·
-          1099 words · about 5 minute read
+          By 123MiniApps · Published 2026-08-02 · Updated 2026-09-11 ·
+          1350 words · about 6 minute read
         </p>
       </header>
 
@@ -224,6 +224,14 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
 
       <p>The practical consideration is the same in every case: the more information you encode, the denser and harder to scan the code becomes, so favour the most compact form of the data. A Wi-Fi code, for instance, is inherently longer than a short URL, which is why Wi-Fi QR codes look busier. For anything you want scanned quickly from a distance or printed small, keep the payload minimal, a short link, a brief piece of text, and reserve the data-heavy uses for codes that will be scanned up close. Matching the amount of data to how the code will be scanned is the single biggest factor in whether it works smoothly in practice.</p>
 
+      <h2 id="how-much-data-can-a-qr-code-hold">How much data can a QR code hold?</h2>
+
+      <p>A QR code is not a fixed size. The standard defines forty versions, from a tiny 21 by 21 grid up to a dense 177 by 177 one, and the encoder picks the smallest version that fits your data at the error-correction level you chose. Capacity depends on the type of data: the largest version can hold roughly 7,000 digits, about 4,300 letters and symbols, or around 2,950 bytes. In practice you will never approach those limits with a link, and you should not try to, because every extra module makes the code denser and harder to scan. Treat the capacity as a ceiling to stay well under, not a target to fill.</p>
+
+      <h2 id="before-you-scan-a-note-on-safety">Before you scan: a note on safety</h2>
+
+      <p>Because a QR code hides its destination behind a pattern, it can point somewhere you would not have chosen if you had seen the address written out. Attackers exploit this by pasting their own codes over legitimate ones on parking meters, posters and payment signs, a trick often called quishing. The defence is simple: let your phone show the decoded link before it opens, and read it the way you would read any link, checking the real domain first. Treat a scanned link that asks for a password, a payment or a login exactly as you would treat an unexpected email doing the same, with suspicion. Generating your own codes is completely safe; the caution is only for codes you did not create.</p>
+
       <p>To sum up: a QR code is a robust two-dimensional grid that encodes data, usually a URL, with built-in error correction that lets it survive damage and even a centred logo. Keep the encoded data short for a clean, scannable code, maintain contrast and the quiet-zone margin, prefer static codes for reliability, and always test before printing. Do that and QR codes become a dependable, instant link between print and screen.</p>
       </div>
     </article>
@@ -246,12 +254,12 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       <h2 class="text-2xl mb-4">Continue reading</h2>
       <div class="grid-auto grid-auto--lg">
         <a class="tool-card" href="apply-photo-filters-in-your-browser.html"><h3 class="tool-card__title">Apply photo filters</h3><span class="tool-card__link"><span>Read the guide</span></span></a>
+        <a class="tool-card" href="aspect-ratio-explained-16-9-4-3.html"><h3 class="tool-card__title">Aspect ratio explained</h3><span class="tool-card__link"><span>Read the guide</span></span></a>
         <a class="tool-card" href="barcodes-explained-how-to-generate-one.html"><h3 class="tool-card__title">Barcodes explained</h3><span class="tool-card__link"><span>Read the guide</span></span></a>
-        <a class="tool-card" href="base64-encoding-explained-for-developers.html"><h3 class="tool-card__title">Base64 encoding</h3><span class="tool-card__link"><span>Read the guide</span></span></a>
       </div>
     </section>
 
-    <p class="mt-8"><a href="index.html">← More articles</a> · <a href="../index.html">Browse all 106 tools</a></p>
+    <p class="mt-8"><a href="index.html">← More articles</a> · <a href="../index.html">Browse all 111 tools</a></p>
 
   </div>
 </main>
@@ -309,20 +317,20 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.8.7"></script>
-<script src="../assets/js/theme-manager.js?v=2.8.7"></script>
-<script src="../assets/data/categories.js?v=2.8.7" defer></script>
-<script src="../assets/data/tools.js?v=2.8.7" defer></script>
-<script src="../assets/data/testimonials.js?v=2.8.7" defer></script>
-<script src="../assets/js/components.js?v=2.8.7" defer></script>
-<script src="../assets/js/tool-utils.js?v=2.8.7" defer></script>
-<script src="../assets/js/search-engine.js?v=2.8.7" defer></script>
-<script src="../assets/js/animations.js?v=2.8.7" defer></script>
-<script src="../assets/js/pwa.js?v=2.8.7" defer></script>
-<script src="../assets/js/analytics.js?v=2.8.7" defer></script>
-<script src="../assets/js/consent.js?v=2.8.7" defer></script>
-<script src="../assets/js/ads.js?v=2.8.7" defer></script>
-<script src="../assets/js/main.js?v=2.8.7" defer></script>
+<script src="../assets/js/config.js?v=2.8.9"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.9"></script>
+<script src="../assets/data/categories.js?v=2.8.9" defer></script>
+<script src="../assets/data/tools.js?v=2.8.9" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.9" defer></script>
+<script src="../assets/js/components.js?v=2.8.9" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.9" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.9" defer></script>
+<script src="../assets/js/animations.js?v=2.8.9" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.9" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.9" defer></script>
+<script src="../assets/js/consent.js?v=2.8.9" defer></script>
+<script src="../assets/js/ads.js?v=2.8.9" defer></script>
+<script src="../assets/js/main.js?v=2.8.9" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{document.getElementById('copyright-year').textContent=new Date().getFullYear();});</script>
 </body>
 </html>

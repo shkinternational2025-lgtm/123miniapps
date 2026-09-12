@@ -91,7 +91,7 @@ def build():
     lines = []
     lines.append("# 123MiniApps")
     lines.append("")
-    lines.append("> 106 free browser-based mini tools for text, images, developers "
+    lines.append("> 116 free browser-based mini tools for text, images, developers "
                  "and designers. Every tool runs entirely as JavaScript in the "
                  "user's browser tab: nothing is uploaded, there is no backend, "
                  "no account is required, and data never leaves the device.")
@@ -110,6 +110,19 @@ def build():
     by_cat = {}
     for t in tools:
         by_cat.setdefault(t["category"], []).append(t)
+
+    cat_slugs = {
+        "text": "text-tools", "image": "image-tools", "developer": "developer-tools",
+        "converter": "converters", "generator": "generators", "calculator": "calculators",
+        "security": "security-tools", "design": "design-tools", "content": "content-tools",
+        "productivity": "productivity-tools", "fun": "fun-tools",
+    }
+    lines.append("## Browse by category")
+    lines.append("")
+    for cid, cname in CATEGORY_ORDER:
+        if by_cat.get(cid) and cid in cat_slugs:
+            lines.append(f"- [{cname}]({BASE}/categories/{cat_slugs[cid]}.html)")
+    lines.append("")
 
     lines.append("## Tools by category")
     lines.append("")

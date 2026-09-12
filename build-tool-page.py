@@ -62,7 +62,7 @@ SHELL = """<!DOCTYPE html>
 html{{background:#0B1120}}
 body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}}
 </style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.7">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.9">
 
 <script type="application/ld+json">
 {{
@@ -72,7 +72,7 @@ body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,san
       "@type": "BreadcrumbList",
       "itemListElement": [
         {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" }},
-        {{ "@type": "ListItem", "position": 2, "name": "{category_name}", "item": "https://www.123miniapps.online/#category-{category_id}" }},
+        {{ "@type": "ListItem", "position": 2, "name": "{category_name}", "item": "https://www.123miniapps.online/categories/{category_slug}.html" }},
         {{ "@type": "ListItem", "position": 3, "name": "{tool_name}", "item": "https://www.123miniapps.online/tools/{slug}.html" }}
       ]
     }},
@@ -133,7 +133,7 @@ body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,san
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="../index.html">Home</a>
       <span aria-hidden="true">/</span>
-      <a href="../index.html#category-{category_id}">{category_name}</a>
+      <a href="../categories/{category_slug}.html">{category_name}</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">{tool_name}</span>
     </nav>
@@ -144,6 +144,11 @@ body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,san
         <h1>{tool_name}</h1>
         <p>{tagline}</p>
       </div>
+    </div>
+
+    <div class="info-panel" id="quick-answer" style="border-left:3px solid var(--accent-primary);margin-bottom:var(--space-6)">
+      <strong class="eyebrow" style="color:var(--accent-primary)">Quick answer</strong>
+      <p class="text-sm mt-2" style="margin-bottom:0">{quick_answer}</p>
     </div>
 
 {workspace}
@@ -220,20 +225,20 @@ body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,san
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.8.7"></script>
-<script src="../assets/js/theme-manager.js?v=2.8.7"></script>
-<script src="../assets/data/categories.js?v=2.8.7" defer></script>
-<script src="../assets/data/tools.js?v=2.8.7" defer></script>
-<script src="../assets/data/testimonials.js?v=2.8.7" defer></script>
-<script src="../assets/js/components.js?v=2.8.7" defer></script>
-<script src="../assets/js/tool-utils.js?v=2.8.7" defer></script>
-<script src="../assets/js/search-engine.js?v=2.8.7" defer></script>
-<script src="../assets/js/animations.js?v=2.8.7" defer></script>
-<script src="../assets/js/pwa.js?v=2.8.7" defer></script>
-<script src="../assets/js/analytics.js?v=2.8.7" defer></script>
-<script src="../assets/js/consent.js?v=2.8.7" defer></script>
-<script src="../assets/js/ads.js?v=2.8.7" defer></script>
-<script src="../assets/js/main.js?v=2.8.7" defer></script>
+<script src="../assets/js/config.js?v=2.8.9"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.9"></script>
+<script src="../assets/data/categories.js?v=2.8.9" defer></script>
+<script src="../assets/data/tools.js?v=2.8.9" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.9" defer></script>
+<script src="../assets/js/components.js?v=2.8.9" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.9" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.9" defer></script>
+<script src="../assets/js/animations.js?v=2.8.9" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.9" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.9" defer></script>
+<script src="../assets/js/consent.js?v=2.8.9" defer></script>
+<script src="../assets/js/ads.js?v=2.8.9" defer></script>
+<script src="../assets/js/main.js?v=2.8.9" defer></script>
 {extra_scripts}
 <!-- ============================================
      TOOL LOGIC
@@ -260,7 +265,25 @@ document.addEventListener('DOMContentLoaded', () => {{
 """
 
 
-DEFAULTS = {"extra_scripts": "", "extra_schema": "", "further_reading": ""}
+DEFAULTS = {"extra_scripts": "", "extra_schema": "", "further_reading": "",
+            "quick_answer": "", "category_slug": ""}
+
+# Category id -> the standalone category hub page slug (see build-category-page.py).
+# Keeps tool breadcrumbs pointing at real, indexable category pages rather than
+# homepage anchors, which strengthens the topic clusters.
+CATEGORY_SLUGS = {
+    "text": "text-tools",
+    "image": "image-tools",
+    "developer": "developer-tools",
+    "converter": "converters",
+    "generator": "generators",
+    "calculator": "calculators",
+    "security": "security-tools",
+    "design": "design-tools",
+    "content": "content-tools",
+    "productivity": "productivity-tools",
+    "fun": "fun-tools",
+}
 
 # Tool slug -> the blog article that explains the concept behind it.
 # This is the second half of the internal link graph: the blog already
@@ -369,6 +392,16 @@ FURTHER_READING = {
     "aspect-ratio-calculator": ("aspect-ratio-explained-16-9-4-3", "Aspect Ratio Explained: 16:9, 4:3 and How to Resize Without Distortion"),
     "time-duration-calculator": ("how-to-calculate-time-between-two-times", "How to Calculate the Time Between Two Times (Including Overnight)"),
     "word-cloud-generator": ("word-cloud-generator-what-it-shows", "Word Cloud Generator: What It Shows and Why Stop Words Matter"),
+    "bold-text-generator": ("bold-text-for-linkedin-and-instagram", "How to Make Bold Text for LinkedIn, Instagram and Anywhere Else"),
+    "strikethrough-text-generator": ("how-strikethrough-text-works", "How Strikethrough Text Works (and Why It Pastes Anywhere)"),
+    "small-text-generator": ("small-text-superscript-subscript-explained", "Small Text Explained: Superscript, Subscript and Small Caps"),
+    "bionic-reading-converter": ("does-bionic-reading-work", "Does Bionic Reading Actually Work? What the Evidence Says"),
+    "word-repeater": ("what-to-use-a-word-repeater-for", "What to Use a Word Repeater For (and How Separators Help)"),
+    "yaml-to-json-converter": ("yaml-vs-json-whats-the-difference", "YAML vs JSON: What's the Difference and When to Use Each"),
+    "html-to-markdown-converter": ("html-vs-markdown-when-to-use-each", "HTML vs Markdown: When to Use Each and How to Convert"),
+    "px-to-rem-converter": ("px-em-rem-css-units-explained", "px, em and rem: Which CSS Unit Should You Actually Use?"),
+    "calorie-calculator": ("how-calorie-needs-are-calculated-bmr-tdee", "How Your Calorie Needs Are Calculated: BMR, TDEE and Targets"),
+    "image-to-pdf-converter": ("how-to-combine-images-into-a-pdf", "How to Combine Images into a PDF (Without Uploading Them)"),
 }
 
 
@@ -444,6 +477,8 @@ def build(page):
     """Render one tool page from the shared shell."""
     page = enrich(page)
     page = {**page, "further_reading": page.get("further_reading") or further_reading_html(page["slug"])}
+    page.setdefault("category_slug", CATEGORY_SLUGS.get(page["category_id"], page["category_id"]))
+    page.setdefault("quick_answer", page.get("description", ""))
     html = SHELL.format(**{**DEFAULTS, **page})
     path = os.path.join(TOOLS_DIR, page["slug"] + ".html")
     with open(path, "w", encoding="utf-8") as fh:
@@ -468,6 +503,8 @@ TOOL_MODULES = [
     "tools_image",
     "tools_batch1",
     "tools_batch2",
+    "tools_batch3",
+    "tools_batch4",
 ]
 
 

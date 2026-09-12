@@ -18,7 +18,7 @@
    that always connects online, rather than an offline copy.
    ============================================ */
 
-const VERSION = '2.8.7';
+const VERSION = '2.8.9';
 const SHELL_CACHE = `123miniapps-shell-v${VERSION}`;
 const FONT_CACHE = `123miniapps-fonts-v${VERSION}`;
 
