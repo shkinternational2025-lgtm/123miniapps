@@ -62,7 +62,7 @@ SHELL = """<!DOCTYPE html>
 html{{background:#0B1120}}
 body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}}
 </style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.6">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.7">
 
 <script type="application/ld+json">
 {{
@@ -220,20 +220,20 @@ body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,san
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.8.6"></script>
-<script src="../assets/js/theme-manager.js?v=2.8.6"></script>
-<script src="../assets/data/categories.js?v=2.8.6" defer></script>
-<script src="../assets/data/tools.js?v=2.8.6" defer></script>
-<script src="../assets/data/testimonials.js?v=2.8.6" defer></script>
-<script src="../assets/js/components.js?v=2.8.6" defer></script>
-<script src="../assets/js/tool-utils.js?v=2.8.6" defer></script>
-<script src="../assets/js/search-engine.js?v=2.8.6" defer></script>
-<script src="../assets/js/animations.js?v=2.8.6" defer></script>
-<script src="../assets/js/pwa.js?v=2.8.6" defer></script>
-<script src="../assets/js/analytics.js?v=2.8.6" defer></script>
-<script src="../assets/js/consent.js?v=2.8.6" defer></script>
-<script src="../assets/js/ads.js?v=2.8.6" defer></script>
-<script src="../assets/js/main.js?v=2.8.6" defer></script>
+<script src="../assets/js/config.js?v=2.8.7"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.7"></script>
+<script src="../assets/data/categories.js?v=2.8.7" defer></script>
+<script src="../assets/data/tools.js?v=2.8.7" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.7" defer></script>
+<script src="../assets/js/components.js?v=2.8.7" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.7" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.7" defer></script>
+<script src="../assets/js/animations.js?v=2.8.7" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.7" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.7" defer></script>
+<script src="../assets/js/consent.js?v=2.8.7" defer></script>
+<script src="../assets/js/ads.js?v=2.8.7" defer></script>
+<script src="../assets/js/main.js?v=2.8.7" defer></script>
 {extra_scripts}
 <!-- ============================================
      TOOL LOGIC
@@ -364,6 +364,11 @@ FURTHER_READING = {
     "spin-the-wheel": ("spin-the-wheel-for-fair-random-choices", "Spin the Wheel: Making Random Choices Fun and Fair"),
     "password-game": ("why-password-rules-are-so-frustrating", "Why Password Rules Are So Frustrating (and What Good Ones Look Like)"),
     "emoji-picker": ("how-emoji-work-and-how-to-use-them", "How Emoji Actually Work (and How to Use Them Well)"),
+    "fancy-text-generator": ("fancy-text-generator-unicode-fonts-explained", "Fancy Text Generator: How Unicode Fonts Actually Work"),
+    "json-to-csv": ("how-to-convert-json-to-csv", "How to Convert JSON to CSV (and Why the Shape Changes)"),
+    "aspect-ratio-calculator": ("aspect-ratio-explained-16-9-4-3", "Aspect Ratio Explained: 16:9, 4:3 and How to Resize Without Distortion"),
+    "time-duration-calculator": ("how-to-calculate-time-between-two-times", "How to Calculate the Time Between Two Times (Including Overnight)"),
+    "word-cloud-generator": ("word-cloud-generator-what-it-shows", "Word Cloud Generator: What It Shows and Why Stop Words Matter"),
 }
 
 
@@ -462,6 +467,7 @@ TOOL_MODULES = [
     "tools_fun",
     "tools_image",
     "tools_batch1",
+    "tools_batch2",
 ]
 
 

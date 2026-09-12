@@ -91,7 +91,7 @@ def build():
     lines = []
     lines.append("# 123MiniApps")
     lines.append("")
-    lines.append("> 101 free browser-based mini tools for text, images, developers "
+    lines.append("> 106 free browser-based mini tools for text, images, developers "
                  "and designers. Every tool runs entirely as JavaScript in the "
                  "user's browser tab: nothing is uploaded, there is no backend, "
                  "no account is required, and data never leaves the device.")
@@ -101,7 +101,8 @@ def build():
     lines.append("- All tools are 100% free with no usage limits and no sign-up.")
     lines.append("- All processing is client-side (in-browser). No file or text "
                  "is ever sent to a server.")
-    lines.append("- Works offline after first visit (installable PWA).")
+    lines.append("- Installable as a PWA shortcut; tools always load fresh online "
+                 "(this is intentionally not a full offline app).")
     lines.append(f"- Homepage: {BASE}/")
     lines.append(f"- Full sitemap: {BASE}/sitemap.xml")
     lines.append("")

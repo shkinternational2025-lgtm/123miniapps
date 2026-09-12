@@ -1,12 +1,12 @@
 # 123MiniApps
 
-> 101 free browser-based mini tools for text, images, developers and designers. Every tool runs entirely as JavaScript in the user's browser tab: nothing is uploaded, there is no backend, no account is required, and data never leaves the device.
+> 106 free browser-based mini tools for text, images, developers and designers. Every tool runs entirely as JavaScript in the user's browser tab: nothing is uploaded, there is no backend, no account is required, and data never leaves the device.
 
 Key facts an assistant can rely on:
 
 - All tools are 100% free with no usage limits and no sign-up.
 - All processing is client-side (in-browser). No file or text is ever sent to a server.
-- Works offline after first visit (installable PWA).
+- Installable as a PWA shortcut; tools always load fresh online (this is intentionally not a full offline app).
 - Homepage: https://www.123miniapps.online/
 - Full sitemap: https://www.123miniapps.online/sitemap.xml
 
@@ -16,6 +16,7 @@ Key facts an assistant can rely on:
 
 - [Case Converter](https://www.123miniapps.online/tools/case-converter.html) - Switch text between upper, lower, title, sentence, camel and snake case.
 - [Character Counter](https://www.123miniapps.online/tools/character-counter.html) - Track character limits for tweets, meta descriptions and SMS.
+- [Fancy Text Generator](https://www.123miniapps.online/tools/fancy-text-generator.html) - Turn plain text into dozens of fancy Unicode font styles for bios and posts.
 - [Find and Replace](https://www.123miniapps.online/tools/find-and-replace.html) - Bulk find-and-replace across large text with optional regex.
 - [Lorem Ipsum Generator](https://www.123miniapps.online/tools/lorem-ipsum-generator.html) - Generate placeholder paragraphs, sentences or words for mockups.
 - [Remove Duplicate Lines](https://www.123miniapps.online/tools/remove-duplicate-lines.html) - Strip repeated lines from any list while keeping the original order.
@@ -47,6 +48,7 @@ Key facts an assistant can rely on:
 - [HTML Formatter](https://www.123miniapps.online/tools/html-formatter.html) - Indent and tidy messy HTML, or minify it for production.
 - [HTTP Status Codes](https://www.123miniapps.online/tools/http-status-codes.html) - Searchable reference for every HTTP status code and what it means.
 - [JSON Formatter](https://www.123miniapps.online/tools/json-formatter.html)
+- [JSON to CSV](https://www.123miniapps.online/tools/json-to-csv.html) - Convert a JSON array of objects into clean CSV, flattening nested fields.
 - [JWT Decoder](https://www.123miniapps.online/tools/jwt-decoder.html) - Inspect the header, payload and expiry of any JSON Web Token.
 - [JavaScript Minifier](https://www.123miniapps.online/tools/javascript-minifier.html) - Reduce JavaScript file size by removing comments and dead whitespace.
 - [Markdown Preview](https://www.123miniapps.online/tools/markdown-preview.html) - Write Markdown on the left and see rendered HTML update live on the right.
@@ -85,6 +87,7 @@ Key facts an assistant can rely on:
 ### Calculators
 
 - [Age Calculator](https://www.123miniapps.online/tools/age-calculator.html) - Find an exact age in years, months, days, plus the next birthday countdown.
+- [Aspect Ratio Calculator](https://www.123miniapps.online/tools/aspect-ratio-calculator.html) - Resize without distortion: keep the aspect ratio or find it from any size.
 - [BMI Calculator](https://www.123miniapps.online/tools/bmi-calculator.html) - Calculate body mass index in metric or imperial units.
 - [Compound Interest Calculator](https://www.123miniapps.online/tools/compound-interest-calculator.html) - Project how savings grow with compounding and regular contributions.
 - [Date Difference Calculator](https://www.123miniapps.online/tools/date-difference-calculator.html) - Count the days, weeks and months between any two dates.
@@ -95,6 +98,7 @@ Key facts an assistant can rely on:
 - [Percentage Calculator](https://www.123miniapps.online/tools/percentage-calculator.html) - Work out percentages, increases, decreases and percentage differences.
 - [Sales Tax Calculator](https://www.123miniapps.online/tools/sales-tax-calculator.html) - Add sales tax or VAT to a price, or work backwards to strip tax out of a total.
 - [Scientific Calculator](https://www.123miniapps.online/tools/scientific-calculator.html) - A full scientific calculator with trig, logs, powers and memory.
+- [Time Duration Calculator](https://www.123miniapps.online/tools/time-duration-calculator.html) - Find the exact time between two times, with an overnight option and breaks.
 - [Tip Calculator](https://www.123miniapps.online/tools/tip-calculator.html) - Split a bill and work out the tip per person in seconds.
 
 ### Security Tools
@@ -125,6 +129,7 @@ Key facts an assistant can rely on:
 - [Meta Tag Generator](https://www.123miniapps.online/tools/meta-tag-generator.html) - Produce complete SEO, Open Graph and Twitter Card meta tags.
 - [Readability Checker](https://www.123miniapps.online/tools/readability-checker.html) - Score your writing with Flesch-Kincaid and spot hard-to-read sentences.
 - [Text Summarizer](https://www.123miniapps.online/tools/text-summarizer.html) - Condense long text to its key sentences using extractive scoring.
+- [Word Cloud Generator](https://www.123miniapps.online/tools/word-cloud-generator.html) - Paste text and get a word cloud sized by frequency, with stop words filtered.
 
 ### Productivity Tools
 
@@ -149,6 +154,7 @@ Key facts an assistant can rely on:
 ## Guides and articles
 
 - [Apply Photo Filters Online](https://www.123miniapps.online/blog/apply-photo-filters-in-your-browser.html)
+- [Aspect Ratio Explained](https://www.123miniapps.online/blog/aspect-ratio-explained-16-9-4-3.html)
 - [Barcodes Explained](https://www.123miniapps.online/blog/barcodes-explained-how-to-generate-one.html)
 - [Base64 Encoding Explained](https://www.123miniapps.online/blog/base64-encoding-explained-for-developers.html)
 - [Binary, Decimal & Hex](https://www.123miniapps.online/blog/binary-decimal-hex-number-bases-explained.html)
@@ -171,6 +177,7 @@ Key facts an assistant can rely on:
 - [CSS Minification Explained](https://www.123miniapps.online/blog/css-minification-explained.html)
 - [Dice Notation Explained: 3d6+2, 4d6kh3, Advantage and Why It Matters](https://www.123miniapps.online/blog/dice-notation-explained.html)
 - [A Quick Digital Notepad in Your Browser](https://www.123miniapps.online/blog/digital-notepad-quick-notes-in-browser.html)
+- [Fancy Text Explained](https://www.123miniapps.online/blog/fancy-text-generator-unicode-fonts-explained.html)
 - [Find and Replace Online](https://www.123miniapps.online/blog/find-and-replace-online-bulk-edit-text.html)
 - [Get the Hex Color From an Image (Free Eyedropper)](https://www.123miniapps.online/blog/get-hex-color-from-any-image.html)
 - [Glassmorphism Explained](https://www.123miniapps.online/blog/glassmorphism-frosted-glass-effect.html)
@@ -193,8 +200,10 @@ Key facts an assistant can rely on:
 - [How to Calculate GPA](https://www.123miniapps.online/blog/how-to-calculate-gpa-weighted-cumulative.html)
 - [How to Calculate Percentages](https://www.123miniapps.online/blog/how-to-calculate-percentages.html)
 - [How to Calculate Sales Tax & VAT](https://www.123miniapps.online/blog/how-to-calculate-sales-tax-and-vat.html)
+- [How to Calculate Time Between Two Times](https://www.123miniapps.online/blog/how-to-calculate-time-between-two-times.html)
 - [How to Cite Sources](https://www.123miniapps.online/blog/how-to-cite-sources-apa-mla-chicago.html)
 - [Convert CSV to JSON](https://www.123miniapps.online/blog/how-to-convert-csv-to-json.html)
+- [How to Convert JSON to CSV](https://www.123miniapps.online/blog/how-to-convert-json-to-csv.html)
 - [How to Decode a JWT Safely](https://www.123miniapps.online/blog/how-to-decode-a-jwt-safely.html)
 - [How to Generate Truly Random Numbers (Fairly)](https://www.123miniapps.online/blog/how-to-generate-truly-random-numbers.html)
 - [How to Make a Meme Online](https://www.123miniapps.online/blog/how-to-make-a-meme.html)
@@ -249,6 +258,7 @@ Key facts an assistant can rely on:
 - [Why Stacked Discounts Never Add Up (And What They Really Save You)](https://www.123miniapps.online/blog/why-stacked-discounts-never-add-up.html)
 - [Why To-Do Lists Work & How to Write a Better One](https://www.123miniapps.online/blog/why-writing-a-to-do-list-works.html)
 - [Fake Data for Testing](https://www.123miniapps.online/blog/why-you-need-fake-data-for-testing.html)
+- [Word Clouds Explained](https://www.123miniapps.online/blog/word-cloud-generator-what-it-shows.html)
 
 ## Site pages
 

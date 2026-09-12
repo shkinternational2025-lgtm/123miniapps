@@ -1,7 +1,7 @@
 {
  "name": "123MiniApps, Free Browser Tools",
  "short_name": "123MiniApps",
- "description": "101 free mini web tools for text, images, developers and designers. Everything runs locally in your browser, no uploads, no accounts, no tracking.",
+ "description": "106 free mini web tools for text, images, developers and designers. Everything runs locally in your browser, no uploads, no accounts, no tracking.",
  "id": "/",
  "start_url": "/index.html",
  "scope": "/",

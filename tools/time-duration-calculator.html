@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/time-duration-calculator.html
+     Purpose: Work out the exact duration between two times, across midnight if needed.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Free Time Duration Calculator | 123MiniApps</title>
+<meta name="description" content="Find the exact time between two times, with optional dates and an overnight option. See the duration in hours and minutes and in total minutes.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/time-duration-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Free Time Duration Calculator | 123MiniApps">
+<meta property="og:description" content="Find the exact time between two times, with optional dates and an overnight option. See the duration in hours and minutes and in total minutes.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/time-duration-calculator.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Time Duration Calculator | 123MiniApps">
+<meta name="twitter:description" content="Find the exact time between two times, with optional dates and an overnight option. See the duration in hours and minutes and in total minutes.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.7">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://www.123miniapps.online/#category-calculator" },
+        { "@type": "ListItem", "position": 3, "name": "Time Duration Calculator", "item": "https://www.123miniapps.online/tools/time-duration-calculator.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Time Duration Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Find the exact time between two times, with optional dates and an overnight option. See the duration in hours and minutes and in total minutes."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/time-duration-calculator.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is this time duration calculator free?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, with no limits, no account and no sign-up."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How do I calculate hours for an overnight shift?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Enter the start and end times and tick the overnight box. The tool treats the end time as the next day, so a 22:00 to 06:00 shift correctly returns 8 hours."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How do I convert minutes to decimal hours?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Divide the minutes by 60. So 30 minutes is 0.5 hours and 45 minutes is 0.75. The calculator shows decimal hours automatically for timesheets."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Are my times uploaded?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. The calculation runs entirely in your browser."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/time-duration-calculator.html#howto",
+      "name": "How to use Time Duration Calculator",
+      "description": "Work out the exact duration between two times, across midnight if needed.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Enter the start time and end time",
+                  "text": "Enter the start time and end time.",
+                  "url": "https://www.123miniapps.online/tools/time-duration-calculator.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Tick overnight if the end time is on the next day",
+                  "text": "Tick overnight if the end time is on the next day.",
+                  "url": "https://www.123miniapps.online/tools/time-duration-calculator.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Optionally subtract a break in minutes",
+                  "text": "Optionally subtract a break in minutes.",
+                  "url": "https://www.123miniapps.online/tools/time-duration-calculator.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Read the duration in whichever format you need",
+                  "text": "Read the duration in whichever format you need.",
+                  "url": "https://www.123miniapps.online/tools/time-duration-calculator.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#category-calculator">Calculators</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Time Duration Calculator</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">⌛</div>
+      <div>
+        <h1>Time Duration Calculator</h1>
+        <p>Work out the exact duration between two times, across midnight if needed.</p>
+      </div>
+    </div>
+
+    <section class="workspace" aria-label="Time duration calculator">
+    <div class="workspace__row">
+ <div class="field"><label class="field__label" for="start"><span>Start time</span></label><input class="input" id="start" type="time" value="09:00" step="60"></div>
+ <div class="field"><label class="field__label" for="end"><span>End time</span></label><input class="input" id="end" type="time" value="17:30" step="60"></div>
+    </div>
+
+    <label class="switch">
+      <input class="switch__input" type="checkbox" id="overnight">
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span>End time is on the next day (overnight)</span>
+    </label>
+
+    <div class="field">
+      <label class="field__label" for="break"><span>Break to subtract (minutes)</span></label>
+      <input class="input" id="break" type="number" value="0" placeholder="" step="1" min="0" inputmode="decimal">
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Enter a start and end time to see the duration.</p>
+
+    <hr class="hr">
+
+ <div class="result-grid">
+      <div class="result"><span class="result__value" id="r-hm" style="font-size:var(--text-3xl)">8h 30m</span><span class="result__label">Duration</span></div>
+      <div class="result"><span class="result__value" id="r-dec" style="font-size:var(--text-2xl)">8.50</span><span class="result__label">Decimal hours</span></div>
+      <div class="result"><span class="result__value" id="r-min" style="font-size:var(--text-2xl)">510</span><span class="result__label">Total minutes</span></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy result</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Exact duration between two clock times</li>
+        <li>Overnight option for shifts that cross midnight</li>
+        <li>Subtract an unpaid break in minutes</li>
+        <li>Shows hours and minutes, decimal hours and total minutes</li>
+        <li>Runs entirely in your browser</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Enter the start time and end time.</li>
+        <li>Tick overnight if the end time is on the next day.</li>
+        <li>Optionally subtract a break in minutes.</li>
+        <li>Read the duration in whichever format you need.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Why time subtraction trips people up</h2>
+      <p class="text-sm text-muted">Subtracting times feels like it should be as easy as subtracting numbers, but clock time is base 60, not base 10, which is exactly where mistakes creep in. From 9:45 to 10:30 is not 0.85 of an hour just because 30 minus 45 looks negative; it is 45 minutes, because you borrow a full 60-minute hour. The reliable method is to convert both times to minutes since midnight, subtract, and then convert back. 10:30 is 630 minutes, 9:45 is 585 minutes, the difference is 45 minutes.</p>
+      <p class="text-sm text-muted mt-3">Overnight shifts add the second trap. If someone clocks in at 22:00 and out at 06:00, a plain subtraction gives a nonsensical negative sixteen hours. The fix is to recognise the end time falls on the next day and add 24 hours' worth of minutes before subtracting, giving the correct eight hours. That is what the overnight option does for you.</p>
+      <p class="text-sm text-muted mt-3">Decimal hours matter for anyone billing or being paid by time, because payroll and invoices usually work in decimals rather than hours and minutes. Thirty minutes is 0.5 hours, fifteen is 0.25, and twenty is 0.333, so eight hours and thirty minutes is 8.5, not 8.30. Showing the duration in hours-and-minutes, decimal and total-minutes at once means you never have to convert by hand for a timesheet.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is this time duration calculator free?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, with no limits, no account and no sign-up.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>How do I calculate hours for an overnight shift?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Enter the start and end times and tick the overnight box. The tool treats the end time as the next day, so a 22:00 to 06:00 shift correctly returns 8 hours.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>How do I convert minutes to decimal hours?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Divide the minutes by 60. So 30 minutes is 0.5 hours and 45 minutes is 0.75. The calculator shows decimal hours automatically for timesheets.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Are my times uploaded?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">No. The calculation runs entirely in your browser.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/how-to-calculate-time-between-two-times.html">How to Calculate the Time Between Two Times (Including Overnight)</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.7"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.7"></script>
+<script src="../assets/data/categories.js?v=2.8.7" defer></script>
+<script src="../assets/data/tools.js?v=2.8.7" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.7" defer></script>
+<script src="../assets/js/components.js?v=2.8.7" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.7" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.7" defer></script>
+<script src="../assets/js/animations.js?v=2.8.7" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.7" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.7" defer></script>
+<script src="../assets/js/consent.js?v=2.8.7" defer></script>
+<script src="../assets/js/ads.js?v=2.8.7" defer></script>
+<script src="../assets/js/main.js?v=2.8.7" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ function toMin(v) { if (!v) return null; const [h, m] = v.split(':').map(Number); return h * 60 + m; }
+
+    function calc() {
+      let s = toMin(T.$('start').value), e = toMin(T.$('end').value);
+      if (s === null || e === null) { T.status('status', 'Enter a start and end time.', 'muted'); return; }
+      if (T.$('overnight').checked) e += 24 * 60;
+      let diff = e - s;
+      const brk = parseInt(T.$('break').value, 10) || 0;
+      diff -= brk;
+      if (diff < 0) { T.status('status', 'End is before start, tick overnight if it crosses midnight.', 'error'); return; }
+      const h = Math.floor(diff / 60), m = diff % 60;
+      T.$('r-hm').textContent = h + 'h ' + m + 'm';
+      T.$('r-dec').textContent = (diff / 60).toFixed(2);
+      T.$('r-min').textContent = String(diff);
+      T.status('status', 'Duration calculated' + (brk ? ' (break subtracted).' : '.'), 'ok');
+    }
+
+    ['start', 'end', 'break'].forEach((id) => T.$(id).addEventListener('input', calc));
+    T.$('overnight').addEventListener('change', calc);
+    T.$('copy').addEventListener('click', () => copyToClipboard(T.$('r-hm').textContent + ' (' + T.$('r-dec').textContent + ' hours)', 'Result copied'));
+    T.$('share').addEventListener('click', () => shareLink({ title: 'Time Duration Calculator | 123MiniApps' }));
+    calc();
+    if (window.Analytics) Analytics.trackToolUse('time-duration-calculator');
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('time-duration-calculator');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>

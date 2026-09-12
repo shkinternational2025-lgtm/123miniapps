@@ -458,7 +458,27 @@ const RAW_TOOLS = [
  { id: 101, name: 'Sales Tax Calculator', category: 'calculator', icon: '🧾', premium: true, rating: 4.7, usageCount: 79800,
  description: 'Add sales tax or VAT to a price, or work backwards to strip tax out of a total.',
  features: ['Add or remove tax', 'Any sales tax or VAT rate', 'Net, tax and gross at once', 'Reverse VAT mode'],
- keywords: ['sales tax calculator', 'vat calculator', 'tax calculator', 'reverse vat', 'add tax', 'remove vat'] }
+ keywords: ['sales tax calculator', 'vat calculator', 'tax calculator', 'reverse vat', 'add tax', 'remove vat'] },
+ { id: 102, name: 'Fancy Text Generator', category: 'text', icon: '✨', premium: true, rating: 4.8, usageCount: 121000,
+ description: 'Turn plain text into dozens of fancy Unicode font styles for bios and posts.',
+ features: ['Dozens of Unicode styles', 'Bold, italic, script, bubble', 'Upside down and strikethrough', 'Click to copy'],
+ keywords: ['fancy text generator', 'cool text', 'font generator', 'stylish text', 'instagram fonts', 'unicode text'] },
+ { id: 103, name: 'JSON to CSV', category: 'developer', icon: '🔄', premium: true, rating: 4.7, usageCount: 64200,
+ description: 'Convert a JSON array of objects into clean CSV, flattening nested fields.',
+ features: ['JSON array to CSV', 'Flatten nested objects', 'Escapes commas and quotes', 'Download .csv'],
+ keywords: ['json to csv', 'convert json to csv', 'json csv converter', 'export json to excel'] },
+ { id: 104, name: 'Aspect Ratio Calculator', category: 'calculator', icon: '📐', premium: true, rating: 4.7, usageCount: 72100,
+ description: 'Resize without distortion: keep the aspect ratio or find it from any size.',
+ features: ['Keep ratio on resize', 'Presets 16:9, 4:3, 1:1', 'Simplified ratio + decimal', 'Width or height solve'],
+ keywords: ['aspect ratio calculator', 'ratio calculator', '16:9', 'resize ratio', 'pixel ratio'] },
+ { id: 105, name: 'Time Duration Calculator', category: 'calculator', icon: '⌛', premium: true, rating: 4.7, usageCount: 68900,
+ description: 'Find the exact time between two times, with an overnight option and breaks.',
+ features: ['Time between two times', 'Overnight (crosses midnight)', 'Subtract a break', 'Decimal hours + minutes'],
+ keywords: ['time duration calculator', 'time between two times', 'hours calculator', 'time card', 'overnight hours'] },
+ { id: 106, name: 'Word Cloud Generator', category: 'content', icon: '☁️', premium: true, rating: 4.6, usageCount: 58300,
+ description: 'Paste text and get a word cloud sized by frequency, with stop words filtered.',
+ features: ['Frequency-sized words', 'Stop-word filtering', 'Recolour', 'Download as PNG'],
+ keywords: ['word cloud generator', 'tag cloud', 'word frequency', 'text visualization', 'free word cloud'] }
 ];
 
 /**

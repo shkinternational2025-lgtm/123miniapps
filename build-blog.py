@@ -115,20 +115,20 @@ CHROME_TAIL = """<footer class="footer">
   </div>
 </div>
 
-<script src="{root}assets/js/config.js?v=2.8.6"></script>
-<script src="{root}assets/js/theme-manager.js?v=2.8.6"></script>
-<script src="{root}assets/data/categories.js?v=2.8.6" defer></script>
-<script src="{root}assets/data/tools.js?v=2.8.6" defer></script>
-<script src="{root}assets/data/testimonials.js?v=2.8.6" defer></script>
-<script src="{root}assets/js/components.js?v=2.8.6" defer></script>
-<script src="{root}assets/js/tool-utils.js?v=2.8.6" defer></script>
-<script src="{root}assets/js/search-engine.js?v=2.8.6" defer></script>
-<script src="{root}assets/js/animations.js?v=2.8.6" defer></script>
-<script src="{root}assets/js/pwa.js?v=2.8.6" defer></script>
-<script src="{root}assets/js/analytics.js?v=2.8.6" defer></script>
-<script src="{root}assets/js/consent.js?v=2.8.6" defer></script>
-<script src="{root}assets/js/ads.js?v=2.8.6" defer></script>
-<script src="{root}assets/js/main.js?v=2.8.6" defer></script>
+<script src="{root}assets/js/config.js?v=2.8.7"></script>
+<script src="{root}assets/js/theme-manager.js?v=2.8.7"></script>
+<script src="{root}assets/data/categories.js?v=2.8.7" defer></script>
+<script src="{root}assets/data/tools.js?v=2.8.7" defer></script>
+<script src="{root}assets/data/testimonials.js?v=2.8.7" defer></script>
+<script src="{root}assets/js/components.js?v=2.8.7" defer></script>
+<script src="{root}assets/js/tool-utils.js?v=2.8.7" defer></script>
+<script src="{root}assets/js/search-engine.js?v=2.8.7" defer></script>
+<script src="{root}assets/js/animations.js?v=2.8.7" defer></script>
+<script src="{root}assets/js/pwa.js?v=2.8.7" defer></script>
+<script src="{root}assets/js/analytics.js?v=2.8.7" defer></script>
+<script src="{root}assets/js/consent.js?v=2.8.7" defer></script>
+<script src="{root}assets/js/ads.js?v=2.8.7" defer></script>
+<script src="{root}assets/js/main.js?v=2.8.7" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{{document.getElementById('copyright-year').textContent=new Date().getFullYear();}});</script>
 </body>
 </html>
@@ -176,7 +176,7 @@ HEAD = """<!DOCTYPE html>
 html{{background:#0B1120}}
 body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}}
 </style>
-<link rel="stylesheet" href="{root}assets/css/main.min.css?v=2.8.6">
+<link rel="stylesheet" href="{root}assets/css/main.min.css?v=2.8.7">
 
 <script type="application/ld+json">
 {schema}
@@ -419,7 +419,7 @@ def build_article(post):
       </div>
     </section>
 {read_more}
-    <p class="mt-8"><a href="index.html">← More articles</a> · <a href="../index.html">Browse all 101 tools</a></p>
+    <p class="mt-8"><a href="index.html">← More articles</a> · <a href="../index.html">Browse all 106 tools</a></p>
 
   </div>
 </main>
@@ -510,7 +510,7 @@ def build_index(posts):
 {chr(10).join(cards)}
     </div>
 
-    <p class="mt-12 text-center"><a href="../index.html">Browse all 101 tools →</a></p>
+    <p class="mt-12 text-center"><a href="../index.html">Browse all 106 tools →</a></p>
 
   </div>
 </main>
@@ -536,6 +536,7 @@ POST_MODULES = [
     "blog_posts_fun",
     "blog_posts_extra",
     "blog_posts_batch1",
+    "blog_posts_batch2",
 ]
 
 

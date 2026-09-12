@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo-nova">
+<head>
+<!-- ============================================
+     123MiniApps.online v2.0
+     File: tools/html-to-markdown-converter.html
+     Purpose: Turn HTML into clean Markdown, or Markdown into HTML.
+     ============================================ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Free HTML to Markdown Converter | 123MiniApps</title>
+<meta name="description" content="Convert HTML to clean Markdown, or Markdown back to HTML, in your browser. Handles headings, links, lists, tables and code, with instant one-click copy.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="123MiniApps">
+<link rel="canonical" href="https://www.123miniapps.online/tools/html-to-markdown-converter.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="123MiniApps">
+<meta property="og:title" content="Free HTML to Markdown Converter | 123MiniApps">
+<meta property="og:description" content="Convert HTML to clean Markdown, or Markdown back to HTML, in your browser. Handles headings, links, lists, tables and code, with instant one-click copy.">
+<meta property="og:url" content="https://www.123miniapps.online/tools/html-to-markdown-converter.html">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free HTML to Markdown Converter | 123MiniApps">
+<meta name="twitter:description" content="Convert HTML to clean Markdown, or Markdown back to HTML, in your browser. Handles headings, links, lists, tables and code, with instant one-click copy.">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+html{background:#0B1120}
+body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
+</style>
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.9">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.123miniapps.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://www.123miniapps.online/categories/developer-tools.html" },
+        { "@type": "ListItem", "position": 3, "name": "HTML to Markdown Converter", "item": "https://www.123miniapps.online/tools/html-to-markdown-converter.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "HTML to Markdown Converter",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any modern web browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "browserRequirements": "Requires JavaScript. Runs entirely in the browser; no data is uploaded.",
+      "description": "Convert HTML to clean Markdown, or Markdown back to HTML, in your browser. Handles headings, links, lists, tables and code, with instant one-click copy."
+    },
+    {"@type": "FAQPage",
+      "@id": "https://www.123miniapps.online/tools/html-to-markdown-converter.html#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Is this HTML to Markdown converter free?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, with no limits, no account and no sign-up, in both directions."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Can it convert Markdown to HTML too?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Switch the direction to Markdown to HTML, or use the swap button to send the output back through the other way."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What formatting does it support?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Headings, bold and italic, links and images, ordered and unordered lists, blockquotes, inline code and code blocks, horizontal rules and simple tables."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Is my content uploaded?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Both conversions run entirely in your browser, so private drafts never leave your device."
+                  }
+            }
+      ]},
+    {"@type": "HowTo",
+      "@id": "https://www.123miniapps.online/tools/html-to-markdown-converter.html#howto",
+      "name": "How to use HTML to Markdown Converter",
+      "description": "Turn HTML into clean Markdown, or Markdown into HTML.",
+      "totalTime": "PT1M",
+      "tool": [
+            {
+                  "@type": "HowToTool",
+                  "name": "A web browser"
+            }
+      ],
+      "step": [
+            {
+                  "@type": "HowToStep",
+                  "position": 1,
+                  "name": "Choose the direction you want to convert",
+                  "text": "Choose the direction you want to convert.",
+                  "url": "https://www.123miniapps.online/tools/html-to-markdown-converter.html#step1"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 2,
+                  "name": "Paste your HTML or Markdown into the top box",
+                  "text": "Paste your HTML or Markdown into the top box.",
+                  "url": "https://www.123miniapps.online/tools/html-to-markdown-converter.html#step2"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 3,
+                  "name": "Read the converted result in the output box",
+                  "text": "Read the converted result in the output box.",
+                  "url": "https://www.123miniapps.online/tools/html-to-markdown-converter.html#step3"
+            },
+            {
+                  "@type": "HowToStep",
+                  "position": 4,
+                  "name": "Copy the output, or swap to convert it back",
+                  "text": "Copy the output, or swap to convert it back.",
+                  "url": "https://www.123miniapps.online/tools/html-to-markdown-converter.html#step4"
+            }
+      ]}
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="123MiniApps home">
+      <span class="nav__logo-mark" aria-hidden="true">123</span>
+      <span>Mini<span class="gradient-text">Apps</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+      <a class="nav__link" href="../index.html#categories">Categories</a>
+      <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/about.html">About</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="btn btn--icon btn--sm" data-open-search type="button" aria-label="Search tools">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a class="nav__link" href="../index.html">Home</a>
+    <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
+    <a class="nav__link" href="../index.html#categories">Categories</a>
+    <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/about.html">About</a>
+  </nav>
+</header>
+
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../categories/developer-tools.html">Developer Tools</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">HTML to Markdown Converter</span>
+    </nav>
+
+    <div class="tool-header">
+      <div class="tool-header__icon" aria-hidden="true">📝</div>
+      <div>
+        <h1>HTML to Markdown Converter</h1>
+        <p>Turn HTML into clean Markdown, or Markdown into HTML.</p>
+      </div>
+    </div>
+
+    <div class="info-panel" id="quick-answer" style="border-left:3px solid var(--accent-primary);margin-bottom:var(--space-6)">
+      <strong class="eyebrow" style="color:var(--accent-primary)">Quick answer</strong>
+      <p class="text-sm mt-2" style="margin-bottom:0">Convert HTML to clean Markdown, or Markdown back to HTML, in your browser. Handles headings, links, lists, tables and code, with instant one-click copy.</p>
+    </div>
+
+    <section class="workspace" aria-label="HTML to Markdown converter">
+    <div class="field">
+      <label class="field__label" for="mode"><span>Direction</span></label>
+      <select class="select" id="mode">
+        <option value="h2m" selected>HTML to Markdown</option>
+        <option value="m2h">Markdown to HTML</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="input">
+        <span>Input</span>
+      </label>
+      <textarea class="textarea" id="input" style="min-height:150px" spellcheck="false" placeholder="Paste HTML here...">&lt;h1&gt;Hello&lt;/h1&gt;
+&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; and &lt;a href=&quot;https://123miniapps.online&quot;&gt;a link&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One&lt;/li&gt;&lt;li&gt;Two&lt;/li&gt;&lt;/ul&gt;</textarea>
+    </div>
+
+    <p id="status" class="field__hint" role="status" aria-live="polite">Output updates as you type.</p>
+
+    <hr class="hr">
+
+    <div class="field">
+      <label class="field__label" for="output">
+        <span>Output</span>
+      </label>
+      <textarea class="textarea" id="output" style="min-height:150px" spellcheck="false" placeholder=""></textarea>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="copy" type="button">Copy output</button>
+      <button class="btn btn--secondary" id="swap" type="button">Swap direction</button>
+      <button class="btn btn--ghost" id="clear" type="button">Clear</button>
+      <button class="btn btn--ghost" id="share" type="button">Share tool</button>
+    </div>
+    </section>
+
+    <div class="info-grid">
+      <section class="info-panel">
+        <h2>Features</h2>
+        <ul>
+        <li>Convert HTML to Markdown and Markdown to HTML both ways</li>
+        <li>Handles headings, bold, italic, links and images</li>
+        <li>Converts lists, blockquotes, code blocks and simple tables</li>
+        <li>Live output that updates as you type</li>
+        <li>Runs entirely in your browser, nothing is uploaded</li>
+        </ul>
+      </section>
+
+      <section class="info-panel">
+        <h2>How to use it</h2>
+        <ol>
+        <li>Choose the direction you want to convert.</li>
+        <li>Paste your HTML or Markdown into the top box.</li>
+        <li>Read the converted result in the output box.</li>
+        <li>Copy the output, or swap to convert it back.</li>
+        </ol>
+      </section>
+
+      <section class="info-panel">
+        <h2>Why convert between HTML and Markdown</h2>
+      <p class="text-sm text-muted">Markdown and HTML both describe formatted text, but they are aimed at different readers. HTML is what browsers actually render, precise and verbose, with an opening and closing tag around everything. Markdown is a lightweight shorthand meant to be readable as plain text, where a hash means a heading and asterisks mean emphasis. Writers, note-takers and documentation systems love Markdown because it stays legible even before it is rendered, while the web ultimately needs HTML.</p>
+      <p class="text-sm text-muted mt-3">Converting between the two comes up constantly. You might paste rich content from a web page and want clean Markdown for your notes or a README, or you might write in Markdown and need the HTML to drop into a template, an email or a content field that does not understand Markdown. This tool walks the structure of your input and rewrites it in the other syntax, mapping headings to headings, links to links, and lists to lists rather than doing a blind find and replace.</p>
+      <p class="text-sm text-muted mt-3">A converter like this focuses on the common, well-behaved elements, headings, paragraphs, bold and italic, links and images, lists, blockquotes, code and simple tables, which covers the vast majority of real content. Deeply nested markup, inline styles and unusual custom tags do not always have a Markdown equivalent, so they are simplified or passed through. For everyday writing and documentation the result is clean and ready to use, and because it runs in your browser you can convert private drafts without uploading them anywhere.</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <h2 class="text-2xl mb-4" id="faq-heading">Frequently asked questions</h2>
+      <div class="accordion" id="tool-faq">
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-0" id="faq-trigger-0">
+          <span>Is this HTML to Markdown converter free?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes, with no limits, no account and no sign-up, in both directions.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+          <span>Can it convert Markdown to HTML too?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Yes. Switch the direction to Markdown to HTML, or use the swap button to send the output back through the other way.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+          <span>What formatting does it support?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">Headings, bold and italic, links and images, ordered and unordered lists, blockquotes, inline code and code blocks, horizontal rules and simple tables.</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+          <span>Is my content uploaded?</span>
+          <span class="accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+          <div class="accordion__panel-inner">
+            <div class="accordion__content">No. Both conversions run entirely in your browser, so private drafts never leave your device.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-2xl mb-4">Related tools</h2>
+      <div class="related-strip" id="related"></div>
+    </section>
+
+    <section class="section" aria-labelledby="further-reading-h">
+      <h2 class="text-2xl mb-4" id="further-reading-h">Further reading</h2>
+      <div class="info-panel" style="border-left:3px solid var(--accent-primary)">
+        <strong class="text-sm">📖 <a href="../blog/html-vs-markdown-when-to-use-each.html">HTML vs Markdown: When to Use Each and How to Convert</a></strong>
+        <p class="text-sm text-muted mt-2">Read the full guide on the 123MiniApps blog.</p>
+      </div>
+    </section>
+
+    <div class="feedback" id="feedback">
+      <span class="text-sm">Was this tool useful?</span>
+      <button class="feedback__btn" type="button" data-value="good" aria-pressed="false" aria-label="Useful">😍</button>
+      <button class="feedback__btn" type="button" data-value="ok" aria-pressed="false" aria-label="Okay">😐</button>
+      <button class="feedback__btn" type="button" data-value="bad" aria-pressed="false" aria-label="Not useful">😞</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© <span id="copyright-year">2026</span> 123MiniApps.online</p>
+      <p>
+        <a class="footer__link" href="../pages/about.html">About</a> ·
+        <a class="footer__link" href="../pages/contact.html">Contact</a> ·
+        <a class="footer__link" href="../pages/privacy.html">Privacy</a> ·
+        <a class="footer__link" href="../pages/terms.html">Terms</a> ·
+        <a class="footer__link" href="../pages/disclaimer.html">Disclaimer</a> ·
+        <a class="footer__link" href="../pages/cookies.html">Cookies</a> ·
+        <a class="footer__link" href="../pages/dmca.html">DMCA</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button class="theme-fab" id="theme-fab" type="button" aria-label="Change color theme" aria-expanded="false" aria-controls="theme-panel">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+</button>
+
+<div class="theme-panel" id="theme-panel" role="radiogroup" aria-label="Color themes" inert>
+  <p class="theme-panel__title">Pick a theme</p>
+  <p class="theme-panel__sub">Ten hand-tuned palettes.</p>
+  <div class="theme-panel__grid"></div>
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal__panel">
+    <h2 class="sr-only" id="search-modal-label">Search all tools</h2>
+    <div class="modal__header">
+      <span class="searchbar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr-only" for="search-modal-input">Search tools</label>
+      <input class="modal__input" id="search-modal-input" type="search" placeholder="Search tools…" autocomplete="off">
+      <button class="btn btn--icon btn--sm" data-close-search type="button" aria-label="Close search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="search-results" id="search-results"></div>
+      <p class="sr-only" id="search-status" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal__footer">
+      <span class="modal__hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="modal__hint"><kbd>↵</kbd> open</span>
+      <span class="modal__hint"><kbd>Esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js?v=2.8.9"></script>
+<script src="../assets/js/theme-manager.js?v=2.8.9"></script>
+<script src="../assets/data/categories.js?v=2.8.9" defer></script>
+<script src="../assets/data/tools.js?v=2.8.9" defer></script>
+<script src="../assets/data/testimonials.js?v=2.8.9" defer></script>
+<script src="../assets/js/components.js?v=2.8.9" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.8.9" defer></script>
+<script src="../assets/js/search-engine.js?v=2.8.9" defer></script>
+<script src="../assets/js/animations.js?v=2.8.9" defer></script>
+<script src="../assets/js/pwa.js?v=2.8.9" defer></script>
+<script src="../assets/js/analytics.js?v=2.8.9" defer></script>
+<script src="../assets/js/consent.js?v=2.8.9" defer></script>
+<script src="../assets/js/ads.js?v=2.8.9" defer></script>
+<script src="../assets/js/main.js?v=2.8.9" defer></script>
+
+<!-- ============================================
+     TOOL LOGIC
+     ============================================ -->
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  const $ = (id) => document.getElementById(id);
+
+ /* ---------- HTML to Markdown ---------- */
+    function esc(t) { return t.replace(/([\\`*_{}\[\]()#+\-.!>])/g, '\\$1'); }
+    function inline(node) {
+      let out = '';
+      node.childNodes.forEach((c) => { out += render(c, true); });
+      return out;
+    }
+    function render(node, inl) {
+      if (node.nodeType === 3) return node.textContent.replace(/\s+/g, ' ');
+      if (node.nodeType !== 1) return '';
+      const tag = node.tagName.toLowerCase();
+      const kids = () => inline(node);
+      switch (tag) {
+        case 'h1': case 'h2': case 'h3': case 'h4': case 'h5': case 'h6':
+          return '\n\n' + '#'.repeat(+tag[1]) + ' ' + kids().trim() + '\n\n';
+        case 'p': return '\n\n' + kids().trim() + '\n\n';
+        case 'br': return '  \n';
+        case 'hr': return '\n\n---\n\n';
+        case 'strong': case 'b': return '**' + kids().trim() + '**';
+        case 'em': case 'i': return '*' + kids().trim() + '*';
+        case 'del': case 's': return '~~' + kids().trim() + '~~';
+        case 'code':
+          if (node.parentNode && node.parentNode.tagName && node.parentNode.tagName.toLowerCase() === 'pre') return node.textContent;
+          return '`' + node.textContent + '`';
+        case 'pre': {
+          const code = node.textContent.replace(/\n$/, '');
+          return '\n\n```\n' + code + '\n```\n\n';
+        }
+        case 'a': {
+          const href = node.getAttribute('href') || '';
+          return '[' + kids().trim() + '](' + href + ')';
+        }
+        case 'img': {
+          const src = node.getAttribute('src') || '';
+          const alt = node.getAttribute('alt') || '';
+          return '![' + alt + '](' + src + ')';
+        }
+        case 'blockquote':
+          return '\n\n' + kids().trim().split('\n').map((l) => '> ' + l).join('\n') + '\n\n';
+        case 'ul': case 'ol': {
+          let i = 1, out = '\n';
+          node.childNodes.forEach((li) => {
+            if (li.nodeType === 1 && li.tagName.toLowerCase() === 'li') {
+              const marker = tag === 'ol' ? (i++ + '. ') : '- ';
+              const body = inline(li).trim().replace(/\n/g, '\n  ');
+              out += marker + body + '\n';
+            }
+          });
+          return out + '\n';
+        }
+        case 'table': return '\n\n' + renderTable(node) + '\n\n';
+        default: return kids();
+      }
+    }
+    function renderTable(table) {
+      const rows = Array.from(table.querySelectorAll('tr'));
+      if (!rows.length) return '';
+      const cells = (tr) => Array.from(tr.children).map((td) => inline(td).trim().replace(/\|/g, '\\|'));
+      const head = cells(rows[0]);
+      let out = '| ' + head.join(' | ') + ' |\n';
+      out += '| ' + head.map(() => '---').join(' | ') + ' |\n';
+      rows.slice(1).forEach((tr) => { out += '| ' + cells(tr).join(' | ') + ' |\n'; });
+      return out.trim();
+    }
+    function htmlToMd(html) {
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      let out = '';
+      doc.body.childNodes.forEach((c) => { out += render(c, false); });
+      return out.replace(/\n{3,}/g, '\n\n').replace(/[ \t]+\n/g, '\n').trim();
+    }
+    /* ---------- Markdown to HTML ---------- */
+    function mdInline(s) {
+      s = s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, '<img src="$2" alt="$1">');
+      s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>');
+      s = s.replace(/`([^`]+)`/g, (m, c) => '<code>' + c + '</code>');
+      s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      s = s.replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>');
+      s = s.replace(/~~([^~]+)~~/g, '<del>$1</del>');
+      return s;
+    }
+    function mdToHtml(md) {
+      const lines = md.replace(/\r\n?/g, '\n').split('\n');
+      const out = [];
+      let i = 0, para = [], listType = null, listItems = [];
+      const flushPara = () => { if (para.length) { out.push('<p>' + mdInline(para.join(' ')) + '</p>'); para = []; } };
+      const flushList = () => { if (listType) { out.push('<' + listType + '>' + listItems.map((x) => '<li>' + mdInline(x) + '</li>').join('') + '</' + listType + '>'); listType = null; listItems = []; } };
+      while (i < lines.length) {
+        const line = lines[i];
+        if (/^```/.test(line)) {
+          flushPara(); flushList(); i++;
+          const code = [];
+          while (i < lines.length && !/^```/.test(lines[i])) { code.push(lines[i]); i++; }
+          i++;
+          out.push('<pre><code>' + code.join('\n').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code></pre>');
+          continue;
+        }
+        const h = line.match(/^(#{1,6})\s+(.*)$/);
+        if (h) { flushPara(); flushList(); out.push('<h' + h[1].length + '>' + mdInline(h[2].trim()) + '</h' + h[1].length + '>'); i++; continue; }
+        if (/^\s*([-*_])(\s*\1){2,}\s*$/.test(line)) { flushPara(); flushList(); out.push('<hr>'); i++; continue; }
+        if (/^\s*>\s?/.test(line)) {
+          flushPara(); flushList();
+          const q = [];
+          while (i < lines.length && /^\s*>\s?/.test(lines[i])) { q.push(lines[i].replace(/^\s*>\s?/, '')); i++; }
+          out.push('<blockquote><p>' + mdInline(q.join(' ')) + '</p></blockquote>');
+          continue;
+        }
+        const ul = line.match(/^\s*[-*+]\s+(.*)$/);
+        const ol = line.match(/^\s*\d+\.\s+(.*)$/);
+        if (ul || ol) {
+          flushPara();
+          const t = ul ? 'ul' : 'ol';
+          if (listType && listType !== t) flushList();
+          listType = t; listItems.push((ul ? ul[1] : ol[1]).trim()); i++; continue;
+        }
+        if (line.trim() === '') { flushPara(); flushList(); i++; continue; }
+        para.push(line.trim()); i++;
+      }
+      flushPara(); flushList();
+      return out.join('\n');
+    }
+    function convert() {
+      const src = T.$('input').value;
+      if (src.trim() === '') { T.$('output').value = ''; T.status('status', 'Waiting for input.', 'muted'); return; }
+      try {
+        if (T.$('mode').value === 'h2m') { T.$('output').value = htmlToMd(src); T.status('status', 'Converted HTML to Markdown.', 'ok'); }
+        else { T.$('output').value = mdToHtml(src); T.status('status', 'Converted Markdown to HTML.', 'ok'); }
+      } catch (err) { T.$('output').value = ''; T.status('status', 'Could not convert: ' + err.message, 'error'); }
+    }
+    function applyPlaceholder() { T.$('input').placeholder = T.$('mode').value === 'h2m' ? 'Paste HTML here...' : 'Paste Markdown here...'; }
+    T.$('input').addEventListener('input', convert);
+    T.$('mode').addEventListener('change', () => { applyPlaceholder(); convert(); });
+    T.$('swap').addEventListener('click', () => { const out = T.$('output').value; if (out.trim()) { T.$('input').value = out; T.$('mode').value = T.$('mode').value === 'h2m' ? 'm2h' : 'h2m'; applyPlaceholder(); convert(); } });
+    T.$('copy').addEventListener('click', () => copyToClipboard(T.$('output').value, 'Output copied'));
+    T.$('clear').addEventListener('click', () => { T.$('input').value = ''; convert(); });
+    T.$('share').addEventListener('click', () => shareLink({ title: 'HTML to Markdown Converter | 123MiniApps' }));
+    applyPlaceholder(); convert();
+    if (window.Analytics) Analytics.trackToolUse('html-to-markdown-converter');
+
+  /* ---- Related tools ---- */
+  const related = document.getElementById('related');
+  const thisTool = window.getToolBySlug('html-to-markdown-converter');
+  if (related && thisTool) {
+    window.getRelatedTools(thisTool, 4).forEach((tool) => {
+      related.append(createToolCard({ tool, base: '../' }));
+    });
+  }
+});
+</script>
+</body>
+</html>
