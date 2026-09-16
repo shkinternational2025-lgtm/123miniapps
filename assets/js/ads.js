@@ -1,96 +1,181 @@
 /* ============================================
- 123MiniApps.online, Ad loader (Adsterra-ready)
+ 123MiniApps.online, Ad loader (Adsterra)
  File: assets/js/ads.js
 
- Ads are OFF by default. Nothing loads and nothing tracks until YOU
- paste your own Adsterra code below. See ADSTERRA-SETUP.md for the
- exact steps and where to get each code.
+ Your 4 Adsterra banner units are wired in below. Each banner is loaded
+ inside its own same-origin iframe (assets/ads/<size>.html) so their
+ internal 'atOptions' variables never clash - that is what lets several
+ sizes appear on one page.
 
- IMPORTANT: enabling ads means third-party ad scripts will run and may
- set cookies / track visitors. Before you switch ads on, keep your
- Privacy and Cookie pages accurate (they already mention advertising).
+ Placement (kept moderate on purpose - a clean, fast site keeps visitors
+ and rankings, which is what actually grows ad income):
+   - In-content banner: fills every <div class="ad-slot"> already built
+     into the blog, homepage and (via JS) each tool page.
+       * desktop  -> 728x90 leaderboard
+       * mobile   -> 300x250 rectangle
+   - Side rails: 160x600 skyscrapers in the left and right page gutters,
+     shown ONLY when the screen is wide enough that they cannot overlap
+     the content, and hidden on laptops/tablets/phones.
+
+ Privacy: these are third-party ad scripts that may set cookies. Your
+ Privacy and Cookie pages already mention advertising. consentMode
+ 'notice' loads ads immediately (the cookie notice is informational);
+ 'gate' waits for the visitor to Accept; 'off' loads with no notice.
+
+ To turn ads OFF again, set enabled:false below.
  ============================================ */
 
 window.ADSTERRA = window.ADSTERRA || {
- // 1) SITE-WIDE SCRIPT (easiest + highest-earning: "Social Bar" or "Popunder").
- // In Adsterra, create that ad unit, copy the script SRC it gives you
- // (looks like //pl00000.effectivegatecpm.com/xx/yy/zz/invoke.js),
- // and paste it between the quotes. Leave '' to keep it off.
- siteScriptUrl: '',
+	enabled: true,
+	consentMode: 'notice',
 
- // 2) IN-CONTENT BANNER (optional). Adsterra "Native Banner" / "Banner"
- // gives you a script SRC plus a container id. Paste both here to fill
- // the <div class="ad-slot"> placeholders in the blog and homepage.
- bannerScriptUrl: '',
- bannerContainerId: '', // e.g. 'container-abc123'
+	// Your Adsterra banner ad-unit keys (safe to be public - they live in
+	// the page anyway). Each maps to assets/ads/<width>x<height>.html.
+	banners: {
+		rect:   { key: '6d10ec0ef7be1d968a2e737f196dbff5', w: 300, h: 250 },
+		leader: { key: '82b78bed10155579891e560d7441980f', w: 728, h: 90  },
+		mobile: { key: '5fc1d78bcad974346f79cd94f79ad801', w: 320, h: 50  },
+		rail:   { key: 'a8a801176b8daa16b1bf43b4846af37e', w: 160, h: 600 }
+	},
 
- // 3) CONSENT behaviour:
- //   'notice' (default) - ads load immediately; a small dismissible cookie
- //                        notice is shown. Recommended for Adsterra.
- //   'gate'             - ads do NOT load until the visitor clicks Accept.
- //   'off'              - ads load immediately, no notice shown at all.
- consentMode: 'notice'
+	// Optional: a site-wide Social Bar / Popunder script SRC. Left empty on
+	// purpose (those formats are intrusive; add later once traffic grows).
+	siteScriptUrl: ''
 };
 
 (function () {
- var cfg = window.ADSTERRA || {};
+	var cfg = window.ADSTERRA || {};
+	if (!cfg.enabled) return;
 
- function loadScript(url, attrs) {
- if (!url) return;
- var src = (/^(https?:)?\/\//.test(url)) ? url : '//' + url;
- var s = document.createElement('script');
- s.src = src;
- s.async = true;
- s.setAttribute('data-cfasync', 'false');
- if (attrs) Object.keys(attrs).forEach(function (k) { s.setAttribute(k, attrs[k]); });
- document.body.appendChild(s);
- }
+	// Never show ads on legal / system pages (thin pages; also keeps the
+	// door open for stricter networks like AdSense later).
+	var path = (location.pathname || '').toLowerCase();
+	if (path.indexOf('/pages/') !== -1 ||
+		/\/(404|offline|theme-debug)\.html$/.test(path)) return;
 
- var started = false;
- function start() {
- if (started) return;
- started = true;
+	var ADS_BASE = '/assets/ads/';          // same-origin ad documents
+	var RAIL_MIN_GUTTER = 176;              // px of side space needed to show a 160 rail
+	var started = false;
 
- // Site-wide unit (social bar / popunder)
- loadScript((cfg.siteScriptUrl || '').trim());
+	function isDesktop() {
+		return (window.innerWidth || document.documentElement.clientWidth) >= 760;
+	}
 
- // In-content banner into every .ad-slot on the page
- var url = (cfg.bannerScriptUrl || '').trim();
- var cid = (cfg.bannerContainerId || '').trim();
- if (url && cid) {
- document.querySelectorAll('.ad-slot').forEach(function (slot) {
- slot.hidden = false;
- var box = document.createElement('div');
- box.id = cid;
- slot.appendChild(box);
- loadScript(url);
- });
- }
- }
+	/* Build a same-origin iframe that shows one Adsterra banner size. */
+	function adFrame(w, h, extraStyle) {
+		var f = document.createElement('iframe');
+		f.src = ADS_BASE + w + 'x' + h + '.html';
+		f.width = w; f.height = h;
+		f.setAttribute('scrolling', 'no');
+		f.setAttribute('frameborder', '0');
+		f.setAttribute('loading', 'lazy');
+		f.setAttribute('title', 'Advertisement');
+		f.setAttribute('aria-hidden', 'true');
+		f.style.cssText = 'border:0;display:block;overflow:hidden;width:' + w + 'px;height:' + h +
+			'px;max-width:100%;' + (extraStyle || '');
+		return f;
+	}
 
- // Decide whether we may load ad scripts yet. If a consent banner is in play
- // (consent.js present + ads configured), wait for an explicit "accepted".
- // Rejecting means nothing loads. With no consent layer, load as before.
- function maybeStart() {
- var hasAds = (cfg.siteScriptUrl || '').trim() || (cfg.bannerScriptUrl || '').trim();
- if (!hasAds) return;
+	/* A small, unobtrusive "Advertisement" label (good practice + some
+	   networks require ads to be labelled). */
+	function label() {
+		var s = document.createElement('span');
+		s.textContent = 'Advertisement';
+		s.style.cssText = 'display:block;text-align:center;font:600 10px/1.4 Inter,system-ui,sans-serif;' +
+			'letter-spacing:.08em;text-transform:uppercase;opacity:.45;margin-bottom:6px';
+		return s;
+	}
 
- // Only hold ads back when consentMode is 'gate'. In 'notice'/'off' modes
- // (the default) ads load immediately; the banner, if any, is informational.
- var gate = (cfg.consentMode || 'notice') === 'gate';
- if (gate && !(window.CONSENT && window.CONSENT.get() === 'accepted')) {
- return; // wait for the visitor to Accept (consentchange handler starts it)
- }
- start();
- }
+	/* ---- In-content banners: fill every .ad-slot on the page ---- */
+	function fillSlots() {
+		var slots = document.querySelectorAll('.ad-slot');
+		slots.forEach(function (slot) {
+			if (slot.getAttribute('data-ad-done')) return;
+			slot.setAttribute('data-ad-done', '1');
+			slot.hidden = false;
+			slot.style.cssText = 'margin:32px auto;display:flex;flex-direction:column;align-items:center;' +
+				'justify-content:center;min-height:60px';
+			slot.appendChild(label());
+			var b = isDesktop() ? cfg.banners.leader : cfg.banners.rect;
+			slot.appendChild(adFrame(b.w, b.h));
+		});
+	}
 
- document.addEventListener('consentchange', function (e) {
- if (e.detail && e.detail.value === 'accepted') start();
- });
+	/* ---- Tool pages have no .ad-slot in their HTML: add one before
+	   the "Related tools" section so the tool itself stays at the top. ---- */
+	function ensureToolSlot() {
+		if (!document.querySelector('main.tool-page')) return;
+		if (document.querySelector('.ad-slot')) return;      // already has one
+		var relStrip = document.getElementById('related');
+		var host = relStrip ? relStrip.closest('.section') : null;
+		var container = document.querySelector('main.tool-page .container');
+		if (!container) return;
+		var slot = document.createElement('div');
+		slot.className = 'ad-slot';
+		if (host && host.parentNode) host.parentNode.insertBefore(slot, host);
+		else container.appendChild(slot);
+	}
 
- if (document.readyState === 'loading') {
- document.addEventListener('DOMContentLoaded', maybeStart, { once: true });
- } else {
- maybeStart();
- }
+	/* ---- Side rails (160x600), only where they fit without overlapping ---- */
+	var railLeft, railRight;
+	function makeRail(side) {
+		var d = document.createElement('div');
+		d.className = 'ad-rail ad-rail--' + side;
+		d.style.cssText = 'position:fixed;top:110px;z-index:40;' + side + ':8px;' +
+			'width:160px;height:600px;display:none';
+		d.appendChild(adFrame(cfg.banners.rail.w, cfg.banners.rail.h));
+		document.body.appendChild(d);
+		return d;
+	}
+	function positionRails() {
+		if (!railLeft) { railLeft = makeRail('left'); railRight = makeRail('right'); }
+		// Measure the real content column so rails never sit over the text.
+		var col = document.querySelector('main .container') || document.querySelector('.container');
+		var gutter = col ? col.getBoundingClientRect().left : 0;
+		var show = gutter >= RAIL_MIN_GUTTER;
+		[railLeft, railRight].forEach(function (r) {
+			r.style.display = show ? 'block' : 'none';
+			if (show) {
+				var edge = Math.max(8, (gutter - 160) / 2);   // centre the rail in the gutter
+				r.style[r.classList.contains('ad-rail--left') ? 'left' : 'right'] = edge + 'px';
+			}
+		});
+	}
+
+	var rz;
+	function onResize() { clearTimeout(rz); rz = setTimeout(positionRails, 200); }
+
+	function start() {
+		if (started) return;
+		started = true;
+
+		if ((cfg.siteScriptUrl || '').trim()) {
+			var s = document.createElement('script');
+			var u = cfg.siteScriptUrl.trim();
+			s.src = /^(https?:)?\/\//.test(u) ? u : '//' + u;
+			s.async = true; s.setAttribute('data-cfasync', 'false');
+			document.body.appendChild(s);
+		}
+
+		ensureToolSlot();
+		fillSlots();
+		positionRails();
+		window.addEventListener('resize', onResize);
+	}
+
+	function maybeStart() {
+		var gate = (cfg.consentMode || 'notice') === 'gate';
+		if (gate && !(window.CONSENT && window.CONSENT.get() === 'accepted')) return;
+		start();
+	}
+
+	document.addEventListener('consentchange', function (e) {
+		if (e.detail && e.detail.value === 'accepted') start();
+	});
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', maybeStart, { once: true });
+	} else {
+		maybeStart();
+	}
 })();
