@@ -1,24 +1,24 @@
-# Dependencies / build junk (never commit these)
-node_modules/
-node_modules
-__pycache__/
-*.pyc
-.pytest_cache/
+# Microsoft Office temporary lock files (the ~$ files)
+~$*
+*.tmp
 
-# OS / editor cruft
+# Personal working notes - keep these OUT of the website repo
+# (the whole repo is served publicly, so notes should not live here)
+*.docx
+*.xlsx
+*.doc
+*.xls
+
+# OS junk
 .DS_Store
 Thumbs.db
 desktop.ini
-*.swp
-.vscode/
-.idea/
 
-# Local secrets — NEVER commit these
-deploy_key
-deploy_key.pub
-*.pem
-.env
+# Python build cache
+__pycache__/
+*.pyc
 
-# Local scratch / logs
-*.log
-/outputs/
+# Claude scratch chunk files (if any)
+_c*.json
+_all.json
+_b4c*.json
