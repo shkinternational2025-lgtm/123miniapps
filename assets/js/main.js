@@ -532,21 +532,39 @@ const App = {
 
  input.removeAttribute('aria-invalid');
 
- // Stored locally only, there is no mailing list backend in this build.
+ // Remember on this device (so the same person is not asked again).
  try {
  localStorage.setItem(window.CONFIG.storageKeys.newsletter, email);
  } catch {
  /* no-op */
  }
 
+ // Send the signup to the Google Sheet backend. We POST as plain text in
+ // no-cors mode so the browser sends it without a CORS preflight (Apps
+ // Script does not answer preflight requests). We cannot read the response
+ // in this mode, so a completed request is treated as success.
+ const endpoint = (window.CONFIG && window.CONFIG.newsletterEndpoint) || '';
+ if (endpoint) {
+ try {
+ fetch(endpoint, {
+ method: 'POST',
+ mode: 'no-cors',
+ headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+ body: JSON.stringify({ email: email, page: location.pathname, source: 'newsletter' })
+ }).catch(() => { /* network errors are non-blocking */ });
+ } catch {
+ /* no-op */
+ }
+ }
+
  const success = document.getElementById('newsletter-success');
  if (success) {
  success.hidden = false;
- success.textContent = 'Saved to this browser. Connect a mail provider to make it live.';
+ success.textContent = 'You are subscribed. Thank you for joining.';
  }
 
  form.reset();
- toast({ type: 'success', title: 'Noted', message: 'Stored locally on this device.' });
+ toast({ type: 'success', title: 'Subscribed', message: 'You are on the list. Thank you.' });
  });
  },
 

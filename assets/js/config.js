@@ -19,6 +19,9 @@ const CONFIG = {
  siteName: '123MiniApps.online',
  siteUrl: 'https://www.123miniapps.online',
  tagline: 'Free browser tools that never touch a server',
+
+ /** Google Apps Script Web App that saves newsletter signups to a Sheet. */
+ newsletterEndpoint: 'https://script.google.com/macros/s/AKfycbwC1ek0_kB3_pvEP9bTAOuQC2ozbSIocFI49JJAG3oB8xjaOcBV5pPwM758hLaPGkvdsg/exec',
  version: '2.0.0',
  totalTools: 95,
  totalCategories: 11,
