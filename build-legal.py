@@ -237,8 +237,8 @@ PAGES = [
         "slug": "cookies",
         "purpose": "Cookie and local-storage policy.",
         "title": "Cookie Policy",
-        "description": "Cookie policy for 123MiniApps: the site itself sets no tracking cookies and uses only local storage for preferences. Explains what changes if advertising is enabled.",
-        "lead": "The site itself sets no tracking cookies. It uses your browser's local storage for a few preferences. Here is exactly what is stored and why.",
+        "description": "Cookie policy for 123MiniApps: the local-storage preferences the tools use, plus the Google Analytics and advertising cookies the site sets, and how to control them.",
+        "lead": "The tools themselves set no tracking cookies - they run in your browser and store only a few preferences locally. The site does use Google Analytics and shows ads, which set cookies. Here is exactly what is stored and why.",
         "body": """
       <h2>1. What a cookie is</h2>
       <p>
@@ -250,7 +250,7 @@ PAGES = [
 
       <h2>2. What 123MiniApps stores</h2>
       <p>
-        The site does not set tracking or advertising cookies of its own. It uses your browser's
+        For the tools themselves, the site sets no tracking or advertising cookies of its own. It uses your browser's
         <code>localStorage</code> for a small set of preferences that stay on your device and are never
         sent to us:
       </p>
@@ -266,18 +266,27 @@ PAGES = [
         None of it identifies you, and none of it leaves your device.
       </p>
 
-      <h2>3. Third-party fonts</h2>
+      <h2>3. Analytics cookies (Google Analytics)</h2>
+      <p>
+        To measure aggregate traffic, the site uses Google Analytics, which sets cookies in your browser
+        to tell whether visits are new or returning and which pages are popular. These cookies record your
+        visits to pages, never the data you enter into a tool. Google's use of this data is governed by its
+        own privacy policy, and you can opt out across all sites with Google's
+        <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">Analytics opt-out browser add-on</a>.
+      </p>
+
+      <h2>4. Third-party fonts</h2>
       <p>
         The site loads its typefaces from Google Fonts. That request exposes your IP address and user
         agent to Google, as any request to any server does, but Google Fonts does not set advertising
         cookies through this mechanism. You can avoid it entirely by self-hosting the fonts.
       </p>
 
-      <h2>4. If advertising is enabled</h2>
+      <h2>5. Advertising cookies</h2>
       <p>
-        This site may display advertising from third-party networks such as
+        This site displays advertising from third-party networks such as
         <a href="https://adsterra.com/" rel="nofollow noopener" target="_blank">Adsterra</a> or Google AdSense.
-        When advertising is active, those networks may set their own cookies or similar identifiers to
+        Those networks may set their own cookies or similar identifiers to
         measure and personalise the ads you see. That behaviour is controlled by the ad network, not by
         us, and it is separate from the tools themselves: your tool data (the text, files and inputs you
         work on) is never shared with advertisers because it never leaves your device. Where required by
@@ -287,14 +296,14 @@ PAGES = [
         and opt-out tools such as <a href="https://www.aboutads.info/choices/" rel="nofollow noopener" target="_blank">aboutads.info</a>.
       </p>
 
-      <h2>5. Managing cookies in your browser</h2>
+      <h2>6. Managing cookies in your browser</h2>
       <p>
         Every major browser lets you view and delete cookies and local storage, and block them per
         site. Blocking storage for this domain will reset your theme and favorites on each visit but
         will not otherwise break the tools, since they run without needing stored data.
       </p>
 
-      <h2>6. Contact</h2>
+      <h2>7. Contact</h2>
       <p>
         Questions about this cookie policy can be sent through the <a href="contact.html">contact page</a>.
       </p>
