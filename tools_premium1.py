@@ -335,7 +335,7 @@ SAAS_MARKUP = r"""<div id="saas-app">
 # #saas-app, and Download PDF wired to the browser's print-to-PDF.
 # ---------------------------------------------------------------
 SAAS_SCRIPT = r"""
-document.addEventListener('DOMContentLoaded', function(){
+(function(){
   var APP=document.getElementById('saas-app'); if(!APP) return;
   const $=id=>APP.querySelector('#'+id);
   const IDS=['startMRR','newMRR','expMRR','conMRR','churnMRR','custStart','custNew','custChurn','margin','cac','opMargin'];
@@ -695,7 +695,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   loadFromUrl();
   calc();
-});
+})();
 """
 
 INFO = info(

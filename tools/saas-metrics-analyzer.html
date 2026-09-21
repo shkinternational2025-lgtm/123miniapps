@@ -717,7 +717,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const $ = (id) => document.getElementById(id);
 
 
-document.addEventListener('DOMContentLoaded', function(){
+(function(){
   var APP=document.getElementById('saas-app'); if(!APP) return;
   const $=id=>APP.querySelector('#'+id);
   const IDS=['startMRR','newMRR','expMRR','conMRR','churnMRR','custStart','custNew','custChurn','margin','cac','opMargin'];
@@ -1077,7 +1077,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   loadFromUrl();
   calc();
-});
+})();
 
 
   /* ---- Related tools ---- */
