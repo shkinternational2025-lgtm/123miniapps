@@ -539,6 +539,7 @@ POST_MODULES = [
     "blog_posts_batch2",
     "blog_posts_batch3",
     "blog_posts_batch4",
+    "blog_posts_premium",   # premium-app long-form guides
 ]
 
 

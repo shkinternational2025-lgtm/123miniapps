@@ -292,6 +292,7 @@ CATEGORY_SLUGS = {
 # reader would want. Internal links spread whatever ranking authority the
 # site earns across all its pages and keep visitors on-site longer.
 FURTHER_READING = {
+    "saas-metrics-analyzer": ("saas-metrics-explained-complete-guide", "SaaS Metrics Explained: MRR, Churn, NRR, LTV:CAC and the Rule of 40"),
     "word-counter": ("how-many-words-is-that-word-count-guide", "How Many Words Is That? A Practical Guide to Word Count"),
     "case-converter": ("convert-text-case-without-retyping", "Uppercase, lowercase, Title Case: Convert Text Case Without Retyping"),
     "text-diff-checker": ("compare-two-texts-find-differences", "How to Compare Two Texts and Spot Every Difference"),

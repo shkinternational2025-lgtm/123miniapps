@@ -259,6 +259,7 @@ Key facts an assistant can rely on:
 - [px, em and rem](https://www.123miniapps.online/blog/px-em-rem-css-units-explained.html)
 - [Remove Duplicate Lines Online](https://www.123miniapps.online/blog/remove-duplicate-lines-from-a-list.html)
 - [Resize Image Online to Exact Pixels (No Stretching)](https://www.123miniapps.online/blog/resize-image-to-exact-dimensions.html)
+- [SaaS Metrics Explained](https://www.123miniapps.online/blog/saas-metrics-explained-complete-guide.html)
 - [Scientific Calculator Functions Explained](https://www.123miniapps.online/blog/scientific-calculator-functions-explained.html)
 - [Small Text Explained](https://www.123miniapps.online/blog/small-text-superscript-subscript-explained.html)
 - [Spin the Wheel](https://www.123miniapps.online/blog/spin-the-wheel-for-fair-random-choices.html)
