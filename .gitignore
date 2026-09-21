@@ -22,3 +22,6 @@ __pycache__/
 _c*.json
 _all.json
 _b4c*.json
+
+# Node dependencies - never commit to the public site repo
+node_modules/
