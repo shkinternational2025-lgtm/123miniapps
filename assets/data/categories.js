@@ -105,6 +105,14 @@ const CATEGORIES = [
  desc: 'Dice, wheels, coin flips and other pleasant distractions.',
  primary: false,
  examples: ['Random Picker', 'Dice Roller', 'Coin Flip']
+ },
+ {
+ id: 'premium',
+ name: 'Premium Applications',
+ icon: '💎',
+ desc: 'Professional-grade business apps with full reports and one-click PDF export.',
+ primary: true,
+ examples: ['SaaS Metrics Analyzer', 'Unit Economics Analyzer', 'Break-even Analyzer']
  }
 ];
 

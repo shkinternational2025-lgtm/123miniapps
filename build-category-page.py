@@ -64,6 +64,10 @@ CATEGORIES = [
      "Dice, wheels, coin flips and other pleasant distractions.",
      "fun-tools",
      "Free fun tools: dice, wheels, coin flips, random pickers and other pleasant distractions. Instant, free and running entirely in your browser."),
+    ("premium", "Premium Applications", "\U0001F48E",
+     "Professional-grade business apps with full reports and one-click PDF export.",
+     "premium-applications",
+     "Premium browser apps for founders and operators: full professional reports with formulas, charts, benchmarks and one-click PDF export. Everything runs in your browser, nothing uploaded."),
 ]
 
 

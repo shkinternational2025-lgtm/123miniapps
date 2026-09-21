@@ -378,6 +378,7 @@ CATEGORY_NAMES = {
     "content": ("Content Tools", "UtilitiesApplication"),
     "productivity": ("Productivity Tools", "BusinessApplication"),
     "fun": ("Fun Tools", "GameApplication"),
+    "premium": ("Premium Applications", "BusinessApplication"),
 }
 
 

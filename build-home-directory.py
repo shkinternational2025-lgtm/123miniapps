@@ -27,6 +27,7 @@ CATS = [
     ("content", "Content Tools", "content-tools"),
     ("productivity", "Productivity Tools", "productivity-tools"),
     ("fun", "Fun Tools", "fun-tools"),
+    ("premium", "Premium Applications", "premium-applications"),
 ]
 
 START = "<!-- TOOL-DIRECTORY:start -->"

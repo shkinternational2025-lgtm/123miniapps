@@ -518,7 +518,11 @@ const RAW_TOOLS = [
  { id: 116, name: 'Image to PDF Converter', category: 'image', icon: '🖼️', premium: true, rating: 4.8, usageCount: 128000,
  description: 'Combine JPG and PNG images into one PDF in your browser, privately.',
  features: ['Many images into one PDF', 'Reorder and remove pages', 'A4, Letter or fit-to-image', 'Nothing uploaded'],
- keywords: ['image to pdf', 'jpg to pdf', 'png to pdf', 'images to pdf', 'combine images pdf', 'photo to pdf'] }
+ keywords: ['image to pdf', 'jpg to pdf', 'png to pdf', 'images to pdf', 'combine images pdf', 'photo to pdf'] },
+ { id: 118, name: 'SaaS Metrics Analyzer', category: 'premium', icon: '📈', premium: true, rating: 4.9, usageCount: 41200,
+ description: 'Turn one month of revenue and customer movement into MRR, ARR, churn, NRR, LTV, CAC, payback and the Rule of 40.',
+ features: ['MRR, ARR and net new MRR', 'NRR, GRR and churn rates', 'LTV, CAC, ratio and payback', 'Quick ratio and Rule of 40'],
+ keywords: ['mrr', 'arr', 'churn', 'nrr', 'ltv', 'cac', 'saas metrics', 'retention', 'unit economics', 'rule of 40', 'cac payback'] }
 ];
 
 /**

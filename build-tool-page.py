@@ -283,6 +283,7 @@ CATEGORY_SLUGS = {
     "content": "content-tools",
     "productivity": "productivity-tools",
     "fun": "fun-tools",
+    "premium": "premium-applications",
 }
 
 # Tool slug -> the blog article that explains the concept behind it.
@@ -505,6 +506,7 @@ TOOL_MODULES = [
     "tools_batch2",
     "tools_batch3",
     "tools_batch4",
+    "tools_premium1",
 ]
 
 
