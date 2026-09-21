@@ -16,6 +16,9 @@ PAGES_DIR = os.path.join(HERE, "pages")
 SHELL = """<!DOCTYPE html>
 <html lang="en" data-theme="indigo-nova">
 <head>
+  <!-- Google tag (gtag.js) - Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XBYMBW8WV"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-9XBYMBW8WV');</script>
 <!-- ============================================
      123MiniApps.online v2.0
      File: pages/{slug}.html
