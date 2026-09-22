@@ -77,6 +77,12 @@ window.CONSENT = (function () {
   }
 
   function init() {
+    // Google's Consent Management Platform (CMP), configured in AdSense, is now
+    // the single consent surface for EEA/UK/CH visitors. The site's own notice
+    // bar is disabled so EU visitors see ONE banner (Google's), not two. The
+    // window.CONSENT API below stays defined for any code that references it,
+    // and re-enabling is just a matter of removing the early return.
+    if (window.CONSENT_BANNER_DISABLED !== false) return;
     if (!required()) return;      // ads off -> no cookies -> no banner
     if (mode() === 'off') return; // ads show, no notice
     if (read()) return;           // already dismissed / chose
