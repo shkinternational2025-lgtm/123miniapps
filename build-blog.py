@@ -115,20 +115,20 @@ CHROME_TAIL = """<footer class="footer">
   </div>
 </div>
 
-<script src="{root}assets/js/config.js?v=2.8.9"></script>
-<script src="{root}assets/js/theme-manager.js?v=2.8.9"></script>
-<script src="{root}assets/data/categories.js?v=2.8.9" defer></script>
-<script src="{root}assets/data/tools.js?v=2.8.9" defer></script>
-<script src="{root}assets/data/testimonials.js?v=2.8.9" defer></script>
-<script src="{root}assets/js/components.js?v=2.8.9" defer></script>
-<script src="{root}assets/js/tool-utils.js?v=2.8.9" defer></script>
-<script src="{root}assets/js/search-engine.js?v=2.8.9" defer></script>
-<script src="{root}assets/js/animations.js?v=2.8.9" defer></script>
-<script src="{root}assets/js/pwa.js?v=2.8.9" defer></script>
-<script src="{root}assets/js/analytics.js?v=2.8.9" defer></script>
-<script src="{root}assets/js/consent.js?v=2.8.9" defer></script>
-<script src="{root}assets/js/ads.js?v=2.8.9" defer></script>
-<script src="{root}assets/js/main.js?v=2.8.9" defer></script>
+<script src="{root}assets/js/config.js?v=2.9.0"></script>
+<script src="{root}assets/js/theme-manager.js?v=2.9.0"></script>
+<script src="{root}assets/data/categories.js?v=2.9.0" defer></script>
+<script src="{root}assets/data/tools.js?v=2.9.0" defer></script>
+<script src="{root}assets/data/testimonials.js?v=2.9.0" defer></script>
+<script src="{root}assets/js/components.js?v=2.9.0" defer></script>
+<script src="{root}assets/js/tool-utils.js?v=2.9.0" defer></script>
+<script src="{root}assets/js/search-engine.js?v=2.9.0" defer></script>
+<script src="{root}assets/js/animations.js?v=2.9.0" defer></script>
+<script src="{root}assets/js/pwa.js?v=2.9.0" defer></script>
+<script src="{root}assets/js/analytics.js?v=2.9.0" defer></script>
+<script src="{root}assets/js/consent.js?v=2.9.0" defer></script>
+<script src="{root}assets/js/ads.js?v=2.9.0" defer></script>
+<script src="{root}assets/js/main.js?v=2.9.0" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{{document.getElementById('copyright-year').textContent=new Date().getFullYear();}});</script>
 </body>
 </html>
@@ -181,7 +181,7 @@ HEAD = """<!DOCTYPE html>
 html{{background:#0B1120}}
 body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}}
 </style>
-<link rel="stylesheet" href="{root}assets/css/main.min.css?v=2.8.9">
+<link rel="stylesheet" href="{root}assets/css/main.min.css?v=2.9.0">
 
 <script type="application/ld+json">
 {schema}
@@ -251,6 +251,20 @@ def render_body(markdownish):
                 f'<strong class="text-sm">Try it: <a href="../tools/{slug}.html">{name}</a></strong>'
                 f'<p class="text-sm text-muted mt-2">{blurb}</p></div>'
             )
+        elif kind == "img":
+            # ("img", src, alt[, caption]) - src is repo-root-relative, e.g.
+            # assets/images/blog/<slug>/<slug>-2.webp ; served from /blog/ via ../
+            src, alt = block[1], block[2]
+            cap = block[3] if len(block) > 3 else ""
+            figcap = (
+                f'<figcaption class="text-sm text-muted mt-2" style="text-align:center">{cap}</figcaption>'
+                if cap else ""
+            )
+            html.append(
+                f'      <figure style="margin:var(--space-6) 0;text-align:center">'
+                f'<img src="../{src}" alt="{alt}" width="1280" height="720" loading="lazy" decoding="async" '
+                f'style="max-width:100%;height:auto;border-radius:var(--radius-lg)">{figcap}</figure>'
+            )
     return "\n\n".join(html)
 
 
@@ -294,50 +308,76 @@ def build_article(post):
     words = word_count(post["body"])
     modified = post.get("modified", LAST_REVIEWED)
 
+    # Hero image (optional): ("assets/images/blog/<slug>/<slug>-1-hero.webp", "alt text").
+    # Used as the article's schema/OG image when present; otherwise the site OG image.
+    hero = post.get("hero")
+    hero_img_url = (SITE + "/" + hero[0]) if hero else (SITE + "/assets/images/social/og-image.png")
+
+    graph = [
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Blog", "item": SITE + "/blog/index.html"},
+                {"@type": "ListItem", "position": 3, "name": post["title"], "item": canonical},
+            ],
+        },
+        {
+            "@type": "BlogPosting",
+            "@id": canonical + "#article",
+            "headline": post["headline"],
+            "description": post["description"],
+            "datePublished": post["published"],
+            "dateModified": modified,
+            "author": {
+                "@type": "Organization",
+                "name": "123MiniApps",
+                "url": SITE + "/",
+                "logo": {"@type": "ImageObject", "url": SITE + "/assets/images/logo.svg"},
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "123MiniApps",
+                "url": SITE + "/",
+                "logo": {"@type": "ImageObject", "url": SITE + "/assets/images/logo.svg"},
+            },
+            "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
+            "image": hero_img_url,
+            "wordCount": words,
+            "keywords": ", ".join(post["keywords"]),
+            "inLanguage": "en",
+            "isAccessibleForFree": True,
+            "isFamilyFriendly": True,
+            # Answer/voice engines: read the H1 and the Quick-answer summary aloud.
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": ["h1", "#quick-answer"],
+            },
+        },
+    ]
+
+    # FAQ (optional): post["faq"] = [(question, answer_html), ...].
+    # Renders both a visible FAQ section and FAQPage structured data.
+    faq = post.get("faq", [])
+    if faq:
+        graph.append({
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": re.sub(r"<[^>]+>", "", q).strip(),
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": re.sub(r"<[^>]+>", "", a).strip(),
+                    },
+                }
+                for q, a in faq
+            ],
+        })
+
     schema = json.dumps({
         "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
-                    {"@type": "ListItem", "position": 2, "name": "Blog", "item": SITE + "/blog/index.html"},
-                    {"@type": "ListItem", "position": 3, "name": post["title"], "item": canonical},
-                ],
-            },
-            {
-                "@type": "BlogPosting",
-                "@id": canonical + "#article",
-                "headline": post["headline"],
-                "description": post["description"],
-                "datePublished": post["published"],
-                "dateModified": modified,
-                "author": {
-                    "@type": "Organization",
-                    "name": "123MiniApps",
-                    "url": SITE + "/",
-                    "logo": {"@type": "ImageObject", "url": SITE + "/assets/images/logo.svg"},
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "123MiniApps",
-                    "url": SITE + "/",
-                    "logo": {"@type": "ImageObject", "url": SITE + "/assets/images/logo.svg"},
-                },
-                "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
-                "image": SITE + "/assets/images/social/og-image.png",
-                "wordCount": words,
-                "keywords": ", ".join(post["keywords"]),
-                "inLanguage": "en",
-                "isAccessibleForFree": True,
-                "isFamilyFriendly": True,
-                # Answer/voice engines: read the H1 and the Quick-answer summary aloud.
-                "speakable": {
-                    "@type": "SpeakableSpecification",
-                    "cssSelector": ["h1", "#quick-answer"],
-                },
-            },
-        ],
+        "@graph": graph,
     }, indent=2, ensure_ascii=False)
 
     extra_meta = (
@@ -383,6 +423,30 @@ def build_article(post):
     </section>
 """
 
+    hero_html = ""
+    if hero:
+        hero_html = (
+            f'\n      <figure style="margin:0 0 var(--space-7)">'
+            f'<img src="../{hero[0]}" alt="{hero[1]}" width="1280" height="720" '
+            f'fetchpriority="high" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)">'
+            f'</figure>'
+        )
+
+    faq_html = ""
+    if faq:
+        faq_items = "\n".join(
+            f'        <div class="info-panel mb-3">'
+            f'<strong class="text-sm">{q}</strong>'
+            f'<p class="text-sm text-muted mt-2" style="margin-bottom:0">{a}</p></div>'
+            for q, a in faq
+        )
+        faq_html = f"""
+    <section class="section" id="faq">
+      <h2 class="text-2xl mb-4">Frequently asked questions</h2>
+{faq_items}
+    </section>
+"""
+
     body = f"""
 <main class="tool-page" id="main">
   <div class="container container--narrow">
@@ -407,14 +471,14 @@ def build_article(post):
           {words} words · about {max(1, round(words / 225))} minute read
         </p>
       </header>
-
+{hero_html}
       <div class="prose">
 {render_body(post['body'])}
       </div>
     </article>
 
     <div class="ad-slot" hidden></div>
-
+{faq_html}
     <section class="section">
       <h2 class="text-2xl mb-4">Tools mentioned in this article</h2>
       <div class="info-panel">
@@ -565,9 +629,79 @@ def collect_posts():
     return posts
 
 
+def apply_upgrades(posts):
+    """Merge SEO/AEO upgrades from blog_upgrades.py onto existing posts.
+
+    Lets us enrich published articles (keywords, hero image, in-body images,
+    FAQ, refined quick-answer) without rewriting each source module. The URL
+    and primary content stay put; we only add. Silent no-op if the file is
+    absent.
+    """
+    try:
+        from blog_upgrades import UPGRADES
+    except Exception:
+        return
+    by_slug = {p["slug"]: p for p in posts}
+    for slug, up in UPGRADES.items():
+        p = by_slug.get(slug)
+        if not p:
+            continue
+        # Only apply an upgrade once its images are physically present. This
+        # gates each batch on its images being dropped in: an article is
+        # upgraded (hero, FAQ, in-body images, extra sections) the moment its
+        # hero WebP exists on disk, and stays untouched until then. Prevents
+        # shipping broken image references for a batch whose art is not ready.
+        hero = up.get("hero")
+        hero_rel = hero[0] if hero else None
+        if not hero_rel or not os.path.exists(os.path.join(HERE, hero_rel)):
+            continue
+        for key in ("keywords", "hero", "faq", "modified", "standfirst"):
+            if key in up:
+                p[key] = up[key]
+        # Extra same-intent sections: list of body tuples, added before FAQ.
+        for sec in up.get("append_sections", []):
+            p["body"].append(sec)
+        # In-body images: insert the first after the paragraph following the
+        # first H2, the second after the paragraph following the last H2.
+        imgs = up.get("images", [])
+        if imgs:
+            body = p["body"]
+            h2_idx = [i for i, b in enumerate(body) if b[0] == "h2"]
+
+            def after_para(h2_i):
+                j = h2_i + 1
+                while j < len(body) and body[j][0] != "p":
+                    j += 1
+                return (j + 1) if j < len(body) else (h2_i + 1)
+
+            # Spread up to 3 in-body images across the article: after the
+            # first H2, a middle H2, and the last H2 (deduped, in order).
+            points = []
+            if h2_idx:
+                n = len(imgs)
+                picks = [h2_idx[0]]
+                if n >= 3 and len(h2_idx) >= 3:
+                    picks.append(h2_idx[len(h2_idx) // 2])
+                if n >= 2:
+                    picks.append(h2_idx[-1])
+                seen = set()
+                for h in picks:
+                    pos = after_para(h)
+                    if pos not in seen:
+                        points.append(pos)
+                        seen.add(pos)
+            # Insert positioned images from the bottom up so indices stay valid.
+            for img, pos in sorted(zip(imgs, points), key=lambda t: -t[1]):
+                body.insert(pos, img)
+            # Any images beyond the available anchor points go at the end.
+            for img in imgs[len(points):]:
+                body.append(img)
+
+
 if __name__ == "__main__":
     os.makedirs(BLOG_DIR, exist_ok=True)
     posts = collect_posts()
+    apply_upgrades(posts)
     compute_related(posts)
 
     for post in posts:

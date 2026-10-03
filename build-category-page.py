@@ -16,7 +16,7 @@ import json
 HERE = os.path.dirname(os.path.abspath(__file__))
 CAT_DIR = os.path.join(HERE, "categories")
 SITE = "https://www.123miniapps.online"
-VER = "2.8.9"
+VER = "2.9.0"
 
 # id, name, icon, one-line desc, URL slug, and an intro sentence for the hub.
 CATEGORIES = [

@@ -32,9 +32,9 @@
 <meta name="twitter:description" content="How QR codes work and how to make one for free. What they store, why they are so robust, static vs dynamic, and a free in-browser QR code generator.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-08-02">
-<meta property="article:modified_time" content="2026-09-11">
+<meta property="article:modified_time" content="2026-10-03">
 <meta property="article:section" content="Guides">
-<meta property="article:tag" content="qr code generator, how to make a qr code, create qr code free, qr code for url, what is a qr code, generate qr code">
+<meta property="article:tag" content="how qr codes work, how to make a qr code, qr code generator, create a qr code free, how do qr codes work, how are qr codes made, qr code for url wifi text, scan a qr code, static vs dynamic qr code">
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.json">
@@ -48,7 +48,7 @@
 html{background:#0B1120}
 body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
 </style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.9">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.9.0">
 
 <script type="application/ld+json">
 {
@@ -83,7 +83,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "How QR Codes Work and How to Make One",
       "description": "How QR codes work and how to make one for free. What they store, why they are so robust, static vs dynamic, and a free in-browser QR code generator.",
       "datePublished": "2026-08-02",
-      "dateModified": "2026-09-11",
+      "dateModified": "2026-10-03",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -106,9 +106,9 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         "@type": "WebPage",
         "@id": "https://www.123miniapps.online/blog/how-qr-codes-work-and-how-to-make-one.html"
       },
-      "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
-      "wordCount": 1350,
-      "keywords": "qr code generator, how to make a qr code, create qr code free, qr code for url, what is a qr code, generate qr code",
+      "image": "https://www.123miniapps.online/assets/images/blog/how-qr-codes-work-and-how-to-make-one/how-qr-codes-work-and-how-to-make-one-1-hero.webp",
+      "wordCount": 1426,
+      "keywords": "how qr codes work, how to make a qr code, qr code generator, create a qr code free, how do qr codes work, how are qr codes made, qr code for url wifi text, scan a qr code, static vs dynamic qr code",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "isFamilyFriendly": true,
@@ -119,6 +119,51 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           "#quick-answer"
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do QR codes work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A QR code stores data as a grid of black and white squares. The three large corner squares let a camera find and orient the code, and the rest encodes the data with built-in error correction, so a phone can read it quickly even if part is dirty or damaged."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I make a QR code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Choose what the code should contain, such as a web address, then enter it into a QR generator and download the image. Our generator makes a QR code instantly in your browser for a link, plain text and more, with no sign-up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can a QR code store?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most commonly a web link, but also plain text, a phone number, an email, an SMS, wifi network details, and contact cards. The more data you store, the denser the pattern becomes, so short links scan most reliably."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do QR codes expire or cost money?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A basic static QR code never expires and is free; it simply encodes your data directly. Dynamic QR codes, which let you change the destination later and track scans, are a paid feature of some services because they route through their server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are QR codes safe to scan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The code itself is just data, but it can point to a malicious site, so treat an unknown QR code like an unknown link. Most phones show the destination before opening it, so check the address looks right before you continue."
+          }
+        }
+      ]
     }
   ]
 }
@@ -174,14 +219,15 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         <h1>How QR Codes Work and How to Make One</h1>
         <div class="info-panel" id="quick-answer" style="margin-top:var(--space-5);border-left:3px solid var(--accent-primary)">
           <strong class="eyebrow" style="color:var(--accent-primary)">Quick answer</strong>
-          <p class="lead mt-2" style="margin-bottom:0">What a QR code actually stores, why it survives damage, and how to create one that scans reliably.</p>
+          <p class="lead mt-2" style="margin-bottom:0">A QR code is a square barcode that stores data, most often a web link, which a phone camera can read in an instant. Here is how QR codes work and how to make your own for free.</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-08-02 · Updated 2026-09-11 ·
-          1350 words · about 6 minute read
+          By 123MiniApps · Published 2026-08-02 · Updated 2026-10-03 ·
+          1426 words · about 6 minute read
         </p>
       </header>
 
+      <figure style="margin:0 0 var(--space-7)"><img src="../assets/images/blog/how-qr-codes-work-and-how-to-make-one/how-qr-codes-work-and-how-to-make-one-1-hero.webp" alt="A smartphone scanning a crisp QR code with a visible scan beam" width="1280" height="720" fetchpriority="high" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"></figure>
       <div class="prose">
       <p>A QR code is a square grid of black and white cells that stores information a camera can read in an instant, most often a web address, but also text, contact details, Wi-Fi credentials and more. Point a phone at one and it decodes the pattern and acts on it. The <a href="../tools/qr-code-generator.html">QR Code Generator</a> turns any text or link into a scannable code in your browser, and this article explains how QR codes work and how to make one that reliably scans.</p>
 
@@ -190,6 +236,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       <h2 id="what-a-qr-code-actually-stores">What a QR code actually stores</h2>
 
       <p>Despite looking like abstract art, a QR code is a precise two-dimensional encoding of data. The black and white cells, called modules, represent binary ones and zeros arranged in a grid. Special patterns in three corners, the large square "finder" patterns, let a scanner locate and orient the code no matter which way up it is held. The rest of the grid holds the actual data plus error-correction information. When you encode a URL, the characters of that URL are converted into this pattern of modules according to the QR standard.</p>
+
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/how-qr-codes-work-and-how-to-make-one/how-qr-codes-work-and-how-to-make-one-2.webp" alt="A QR code dissolving into streams of data particles" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">A QR code stores data in a grid of modules with built-in error correction.</figcaption></figure>
 
       <h2 id="why-qr-codes-survive-damage">Why QR codes survive damage</h2>
 
@@ -208,6 +256,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       <h2 id="making-a-code-that-scans-reliably">Making a code that scans reliably</h2>
 
       <p>A few practical habits ensure your code works in the real world:</p>
+
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/how-qr-codes-work-and-how-to-make-one/how-qr-codes-work-and-how-to-make-one-3.webp" alt="A QR code surrounded by icons for a link, wifi and a contact card" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">A QR code can hold a link, wifi details, contact information and more.</figcaption></figure>
 
       <ul>
         <li>Keep good contrast, dark modules on a light background. Low-contrast or inverted codes often fail.</li>
@@ -237,11 +287,22 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
 
       <p>Because a QR code hides its destination behind a pattern, it can point somewhere you would not have chosen if you had seen the address written out. Attackers exploit this by pasting their own codes over legitimate ones on parking meters, posters and payment signs, a trick often called quishing. The defence is simple: let your phone show the decoded link before it opens, and read it the way you would read any link, checking the real domain first. Treat a scanned link that asks for a password, a payment or a login exactly as you would treat an unexpected email doing the same, with suspicion. Generating your own codes is completely safe; the caution is only for codes you did not create.</p>
 
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/how-qr-codes-work-and-how-to-make-one/how-qr-codes-work-and-how-to-make-one-4.webp" alt="An extreme close-up of a QR code's corner finder pattern" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">The three corner squares let a camera locate and orient the code instantly.</figcaption></figure>
+
       <p>To sum up: a QR code is a robust two-dimensional grid that encodes data, usually a URL, with built-in error correction that lets it survive damage and even a centred logo. Keep the encoded data short for a clean, scannable code, maintain contrast and the quiet-zone margin, prefer static codes for reliability, and always test before printing. Do that and QR codes become a dependable, instant link between print and screen.</p>
       </div>
     </article>
 
     <div class="ad-slot" hidden></div>
+
+    <section class="section" id="faq">
+      <h2 class="text-2xl mb-4">Frequently asked questions</h2>
+        <div class="info-panel mb-3"><strong class="text-sm">How do QR codes work?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">A QR code stores data as a grid of black and white squares. The three large corner squares let a camera find and orient the code, and the rest encodes the data with built-in error correction, so a phone can read it quickly even if part is dirty or damaged.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">How do I make a QR code?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Choose what the code should contain, such as a web address, then enter it into a QR generator and download the image. Our generator makes a QR code instantly in your browser for a link, plain text and more, with no sign-up.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What can a QR code store?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Most commonly a web link, but also plain text, a phone number, an email, an SMS, wifi network details, and contact cards. The more data you store, the denser the pattern becomes, so short links scan most reliably.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Do QR codes expire or cost money?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">A basic static QR code never expires and is free; it simply encodes your data directly. Dynamic QR codes, which let you change the destination later and track scans, are a paid feature of some services because they route through their server.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Are QR codes safe to scan?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">The code itself is just data, but it can point to a malicious site, so treat an unknown QR code like an unknown link. Most phones show the destination before opening it, so check the address looks right before you continue.</p></div>
+    </section>
 
     <section class="section">
       <h2 class="text-2xl mb-4">Tools mentioned in this article</h2>
@@ -322,20 +383,20 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.8.9"></script>
-<script src="../assets/js/theme-manager.js?v=2.8.9"></script>
-<script src="../assets/data/categories.js?v=2.8.9" defer></script>
-<script src="../assets/data/tools.js?v=2.8.9" defer></script>
-<script src="../assets/data/testimonials.js?v=2.8.9" defer></script>
-<script src="../assets/js/components.js?v=2.8.9" defer></script>
-<script src="../assets/js/tool-utils.js?v=2.8.9" defer></script>
-<script src="../assets/js/search-engine.js?v=2.8.9" defer></script>
-<script src="../assets/js/animations.js?v=2.8.9" defer></script>
-<script src="../assets/js/pwa.js?v=2.8.9" defer></script>
-<script src="../assets/js/analytics.js?v=2.8.9" defer></script>
-<script src="../assets/js/consent.js?v=2.8.9" defer></script>
-<script src="../assets/js/ads.js?v=2.8.9" defer></script>
-<script src="../assets/js/main.js?v=2.8.9" defer></script>
+<script src="../assets/js/config.js?v=2.9.0"></script>
+<script src="../assets/js/theme-manager.js?v=2.9.0"></script>
+<script src="../assets/data/categories.js?v=2.9.0" defer></script>
+<script src="../assets/data/tools.js?v=2.9.0" defer></script>
+<script src="../assets/data/testimonials.js?v=2.9.0" defer></script>
+<script src="../assets/js/components.js?v=2.9.0" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.9.0" defer></script>
+<script src="../assets/js/search-engine.js?v=2.9.0" defer></script>
+<script src="../assets/js/animations.js?v=2.9.0" defer></script>
+<script src="../assets/js/pwa.js?v=2.9.0" defer></script>
+<script src="../assets/js/analytics.js?v=2.9.0" defer></script>
+<script src="../assets/js/consent.js?v=2.9.0" defer></script>
+<script src="../assets/js/ads.js?v=2.9.0" defer></script>
+<script src="../assets/js/main.js?v=2.9.0" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{document.getElementById('copyright-year').textContent=new Date().getFullYear();});</script>
 </body>
 </html>

@@ -32,9 +32,9 @@
 <meta name="twitter:description" content="URL encoding explained: why spaces become %20, which characters must be percent-encoded, and how to encode query parameters safely, with a free online tool.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-08-01">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-10-03">
 <meta property="article:section" content="Guides">
-<meta property="article:tag" content="url encode, url decode, percent encoding, what is %20, encode query string, url encoder decoder online">
+<meta property="article:tag" content="url encoding percent encoding explained, percent encoding, what is %20, url encode online, encode special characters in url, reserved characters url, encodeuricomponent, decode a url, url space encoding">
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.json">
@@ -48,7 +48,7 @@
 html{background:#0B1120}
 body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
 </style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.9">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.9.0">
 
 <script type="application/ld+json">
 {
@@ -83,7 +83,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "URL Encoding Explained: Why Spaces Become %20",
       "description": "URL encoding explained: why spaces become %20, which characters must be percent-encoded, and how to encode query parameters safely, with a free online tool.",
       "datePublished": "2026-08-01",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-10-03",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -106,9 +106,9 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         "@type": "WebPage",
         "@id": "https://www.123miniapps.online/blog/url-encoding-percent-encoding-explained.html"
       },
-      "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
-      "wordCount": 1024,
-      "keywords": "url encode, url decode, percent encoding, what is %20, encode query string, url encoder decoder online",
+      "image": "https://www.123miniapps.online/assets/images/blog/url-encoding-percent-encoding-explained/url-encoding-percent-encoding-explained-1-hero.webp",
+      "wordCount": 1091,
+      "keywords": "url encoding percent encoding explained, percent encoding, what is %20, url encode online, encode special characters in url, reserved characters url, encodeuricomponent, decode a url, url space encoding",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "isFamilyFriendly": true,
@@ -119,6 +119,51 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           "#quick-answer"
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is percent-encoding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Percent-encoding, also called URL encoding, replaces characters that are not safe in a web address with a percent sign followed by two hex digits. It lets URLs carry spaces, symbols and non-English letters without breaking the link's structure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is a space written as %20?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A raw space would end or break a URL, so it is encoded. The space character is number 32, which is 20 in hexadecimal, so it becomes %20. Some parts of a URL use a plus sign for a space instead, but %20 always works."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which characters need to be URL-encoded?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reserved characters that have a special meaning, such as space, question mark, ampersand, hash, slash, plus and percent, must be encoded when used as data rather than as structure. Letters, digits and a few symbols like hyphen and underscore are safe as-is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I encode or decode a URL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paste the text or address into a URL encoder to convert unsafe characters to percent codes, or into a decoder to turn them back. Our tool does both instantly in your browser, which is handy for query strings and API links."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between encodeURI and encodeURIComponent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "encodeURI keeps the overall URL working and leaves structural characters like slash and question mark alone. encodeURIComponent encodes those too, so it is the right choice for a single value you are putting into a query parameter."
+          }
+        }
+      ]
     }
   ]
 }
@@ -177,11 +222,12 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           <p class="lead mt-2" style="margin-bottom:0">What percent-encoding is, which characters need it, and why getting it wrong breaks links and query strings.</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-08-01 · Updated 2026-09-01 ·
-          1024 words · about 5 minute read
+          By 123MiniApps · Published 2026-08-01 · Updated 2026-10-03 ·
+          1091 words · about 5 minute read
         </p>
       </header>
 
+      <figure style="margin:0 0 var(--space-7)"><img src="../assets/images/blog/url-encoding-percent-encoding-explained/url-encoding-percent-encoding-explained-1-hero.webp" alt="A browser address bar where special characters turn into encoded token blocks" width="1280" height="720" fetchpriority="high" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"></figure>
       <div class="prose">
       <p>If you have ever seen <code>%20</code> in a web address where a space should be, you have met URL encoding, also called percent-encoding. URLs are only allowed to contain a limited set of characters, so anything outside that set, spaces, accented letters, many symbols, has to be represented by a percent sign followed by two hexadecimal digits. The <a href="../tools/url-encoder-decoder.html">URL Encoder / Decoder</a> converts text to and from this form in your browser, and this article explains why it exists and how to use it correctly.</p>
 
@@ -190,6 +236,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       <h2 id="why-urls-cannot-contain-just-anything">Why URLs cannot contain just anything</h2>
 
       <p>The URL standard reserves a small alphabet of characters that are always safe, letters, digits, and a handful of symbols like hyphen, underscore, dot and tilde. Everything else falls into two groups: reserved characters that have a special structural meaning (like <code>/</code>, <code>?</code>, <code>#</code>, <code>&</code> and <code>=</code>), and unsafe characters (like spaces and many symbols) that can be mangled in transit. To include any of these as literal data rather than as structure, you must percent-encode them so the browser and server treat them as content, not syntax.</p>
+
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/url-encoding-percent-encoding-explained/url-encoding-percent-encoding-explained-2.webp" alt="A row of special-character chips linked by arrows to encoded chips" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">Unsafe characters are replaced with a percent sign and their code.</figcaption></figure>
 
       <h2 id="how-percent-encoding-works">How percent-encoding works</h2>
 
@@ -204,6 +252,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       <h2 id="encoding-query-parameters-correctly">Encoding query parameters correctly</h2>
 
       <p>The reliable rule when building URLs is to encode each parameter value individually, not the whole URL at once. Encoding the entire URL would wrongly encode the structural characters that are supposed to stay as syntax, the slashes, the question mark, the ampersands between parameters. Instead, take each value, encode it, and assemble the URL from the encoded pieces. This keeps the structure intact while making every value safe:</p>
+
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/url-encoding-percent-encoding-explained/url-encoding-percent-encoding-explained-3.webp" alt="A URL-path object with a gap transforming into an encoded segment" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">A space becomes %20 so the URL stays a single valid string.</figcaption></figure>
 
       <ul>
         <li>Encode the value, not the delimiters.</li>
@@ -221,6 +271,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
 
       <p>One subtlety trips up even experienced developers: different parts of a URL have different rules about which characters are safe. A character that must be encoded in a query-string value might be perfectly fine in the path, and the space-as-plus convention applies only to the query component, not the path. This is why a single blanket "encode everything" approach is wrong, it can encode characters that were meant to stay as structure, or fail to encode ones that needed it in a particular component.</p>
 
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/url-encoding-percent-encoding-explained/url-encoding-percent-encoding-explained-4.webp" alt="A developer monitor showing an encoded query string" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">Encoding keeps special characters from breaking the structure of a link.</figcaption></figure>
+
       <p>The practical defence is to use the right encoding function for the right job. Programming languages typically offer separate functions for encoding a whole URI versus encoding a single component, and the component-level function is the one you want for individual parameter values, because it encodes the reserved characters that would otherwise break the query structure. Build URLs by encoding each value with the component function and then joining them with the literal structural characters, the question mark, ampersands and equals signs, that you deliberately leave unencoded. Following that discipline consistently eliminates the whole family of bugs where a stray ampersand or equals sign in user data silently corrupts a request, and it means your links keep working even when someone searches for something full of symbols.</p>
 
       <p>Whenever a link misbehaves or a search returns the wrong thing, suspect encoding first. Decode the URL to see what was really sent, check for a stray reserved character in a value, and watch for the tell-tale <code>%2520</code> that betrays double-encoding. Nine times out of ten, a URL bug is an encoding bug, and a quick decode reveals it instantly.</p>
@@ -230,6 +282,15 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
     </article>
 
     <div class="ad-slot" hidden></div>
+
+    <section class="section" id="faq">
+      <h2 class="text-2xl mb-4">Frequently asked questions</h2>
+        <div class="info-panel mb-3"><strong class="text-sm">What is percent-encoding?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Percent-encoding, also called URL encoding, replaces characters that are not safe in a web address with a percent sign followed by two hex digits. It lets URLs carry spaces, symbols and non-English letters without breaking the link's structure.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Why is a space written as %20?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">A raw space would end or break a URL, so it is encoded. The space character is number 32, which is 20 in hexadecimal, so it becomes %20. Some parts of a URL use a plus sign for a space instead, but %20 always works.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Which characters need to be URL-encoded?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Reserved characters that have a special meaning, such as space, question mark, ampersand, hash, slash, plus and percent, must be encoded when used as data rather than as structure. Letters, digits and a few symbols like hyphen and underscore are safe as-is.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">How do I encode or decode a URL?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Paste the text or address into a URL encoder to convert unsafe characters to percent codes, or into a decoder to turn them back. Our tool does both instantly in your browser, which is handy for query strings and API links.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What is the difference between encodeURI and encodeURIComponent?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">encodeURI keeps the overall URL working and leaves structural characters like slash and question mark alone. encodeURIComponent encodes those too, so it is the right choice for a single value you are putting into a query parameter.</p></div>
+    </section>
 
     <section class="section">
       <h2 class="text-2xl mb-4">Tools mentioned in this article</h2>
@@ -310,20 +371,20 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.8.9"></script>
-<script src="../assets/js/theme-manager.js?v=2.8.9"></script>
-<script src="../assets/data/categories.js?v=2.8.9" defer></script>
-<script src="../assets/data/tools.js?v=2.8.9" defer></script>
-<script src="../assets/data/testimonials.js?v=2.8.9" defer></script>
-<script src="../assets/js/components.js?v=2.8.9" defer></script>
-<script src="../assets/js/tool-utils.js?v=2.8.9" defer></script>
-<script src="../assets/js/search-engine.js?v=2.8.9" defer></script>
-<script src="../assets/js/animations.js?v=2.8.9" defer></script>
-<script src="../assets/js/pwa.js?v=2.8.9" defer></script>
-<script src="../assets/js/analytics.js?v=2.8.9" defer></script>
-<script src="../assets/js/consent.js?v=2.8.9" defer></script>
-<script src="../assets/js/ads.js?v=2.8.9" defer></script>
-<script src="../assets/js/main.js?v=2.8.9" defer></script>
+<script src="../assets/js/config.js?v=2.9.0"></script>
+<script src="../assets/js/theme-manager.js?v=2.9.0"></script>
+<script src="../assets/data/categories.js?v=2.9.0" defer></script>
+<script src="../assets/data/tools.js?v=2.9.0" defer></script>
+<script src="../assets/data/testimonials.js?v=2.9.0" defer></script>
+<script src="../assets/js/components.js?v=2.9.0" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.9.0" defer></script>
+<script src="../assets/js/search-engine.js?v=2.9.0" defer></script>
+<script src="../assets/js/animations.js?v=2.9.0" defer></script>
+<script src="../assets/js/pwa.js?v=2.9.0" defer></script>
+<script src="../assets/js/analytics.js?v=2.9.0" defer></script>
+<script src="../assets/js/consent.js?v=2.9.0" defer></script>
+<script src="../assets/js/ads.js?v=2.9.0" defer></script>
+<script src="../assets/js/main.js?v=2.9.0" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{document.getElementById('copyright-year').textContent=new Date().getFullYear();});</script>
 </body>
 </html>

@@ -346,6 +346,19 @@ const App = {
  return true;
  },
 
+ /**
+ * Return the visitor to the category grid at the top of the page. Called
+ * when the back button pops a #category-<id> state off the history stack.
+ */
+ resetToTop() {
+ const cats = document.getElementById('categories');
+ if (cats) {
+ cats.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ } else {
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ }
+ },
+
  initCategoryNavigation() {
  const grid = document.getElementById('category-grid');
  if (grid) {
@@ -355,18 +368,31 @@ const App = {
  const id = card.dataset.category;
  if (document.getElementById(`tab-${id}`)) {
  e.preventDefault();
- history.replaceState(null, '', `#category-${id}`);
+ const hash = `#category-${id}`;
+ // pushState (not replaceState) so each category opens a real
+ // history entry; the browser/mobile back button then returns to
+ // the grid instead of leaving or minimising the site.
+ if (location.hash !== hash) {
+ history.pushState({ category: id }, '', hash);
+ }
  this.goToCategory(id);
  }
  });
  }
 
- const fromHash = () => {
+ const applyHash = (isPop) => {
  const m = location.hash.match(/^#category-(.+)$/);
- if (m) this.goToCategory(decodeURIComponent(m[1]));
+ if (m) {
+ this.goToCategory(decodeURIComponent(m[1]));
+ } else if (isPop) {
+ // Back button popped us past the first category: show the grid.
+ this.resetToTop();
+ }
  };
- window.addEventListener('hashchange', fromHash);
- fromHash();
+ // popstate fires on back/forward (covers the hash reverting too).
+ window.addEventListener('popstate', () => applyHash(true));
+ // Honour a #category-<id> hash on first load (e.g. a shared link).
+ applyHash(false);
  },
 
  renderFeaturedTools() {

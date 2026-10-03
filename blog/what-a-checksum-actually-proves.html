@@ -32,9 +32,9 @@
 <meta name="twitter:description" content="Why verifying a download against a published SHA-256 catches corruption but not a compromised server, and what signed hashes add that bare checksums cannot.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-03-11">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-10-03">
 <meta property="article:section" content="Guides">
-<meta property="article:tag" content="what does checksum prove, sha256 verify download, is md5 still safe, checksum vs signature, verify iso download">
+<meta property="article:tag" content="what a checksum actually proves, checksum meaning, file integrity check, verify a download, md5 sha256 checksum, hash comparison, detect file corruption, does a checksum prove authenticity">
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.json">
@@ -48,7 +48,7 @@
 html{background:#0B1120}
 body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
 </style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.9">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.9.0">
 
 <script type="application/ld+json">
 {
@@ -83,7 +83,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "What does a matching checksum actually prove?",
       "description": "Why verifying a download against a published SHA-256 catches corruption but not a compromised server, and what signed hashes add that bare checksums cannot.",
       "datePublished": "2026-03-11",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-10-03",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -106,9 +106,9 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         "@type": "WebPage",
         "@id": "https://www.123miniapps.online/blog/what-a-checksum-actually-proves.html"
       },
-      "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
-      "wordCount": 1055,
-      "keywords": "what does checksum prove, sha256 verify download, is md5 still safe, checksum vs signature, verify iso download",
+      "image": "https://www.123miniapps.online/assets/images/blog/what-a-checksum-actually-proves/what-a-checksum-actually-proves-1-hero.webp",
+      "wordCount": 1127,
+      "keywords": "what a checksum actually proves, checksum meaning, file integrity check, verify a download, md5 sha256 checksum, hash comparison, detect file corruption, does a checksum prove authenticity",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "isFamilyFriendly": true,
@@ -119,6 +119,51 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           "#quick-answer"
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a checksum?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A checksum is a short string of characters produced by running a file through a hash function. The same file always produces the same checksum, and even a tiny change to the file produces a completely different one, which makes it a fingerprint for the data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a checksum actually prove?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It proves integrity: that a file is byte-for-byte identical to the original when the checksums match. If even one bit changed, the checksums differ, so it reliably detects corruption or accidental changes during download or copying."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a matching checksum prove a file is safe or authentic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A checksum only confirms the file matches the reference value you were given. If an attacker replaced both the file and the published checksum, they would still match. For authenticity you need a signature or a checksum from a trusted, separate source."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between MD5 and SHA-256?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both produce a checksum, but MD5 is older and can be deliberately fooled, so it is fine for spotting accidental corruption but not for security. SHA-256 is stronger and is the modern default when the check needs to resist tampering."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I check a file's checksum?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Generate the checksum of your downloaded file and compare it to the value the source published. Our hash tool lets you produce MD5 or SHA-256 in your browser and paste in the expected value to confirm they match."
+          }
+        }
+      ]
     }
   ]
 }
@@ -177,11 +222,12 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           <p class="lead mt-2" style="margin-bottom:0">It reliably catches corruption. It proves considerably less about tampering than most people assume, and the reason is worth understanding.</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-03-11 · Updated 2026-09-01 ·
-          1055 words · about 5 minute read
+          By 123MiniApps · Published 2026-03-11 · Updated 2026-10-03 ·
+          1127 words · about 5 minute read
         </p>
       </header>
 
+      <figure style="margin:0 0 var(--space-7)"><img src="../assets/images/blog/what-a-checksum-actually-proves/what-a-checksum-actually-proves-1-hero.webp" alt="A file linked by a beam of light to a fingerprint pattern and a verification shield" width="1280" height="720" fetchpriority="high" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"></figure>
       <div class="prose">
       <p>You download a Linux ISO. The page lists a SHA-256 checksum. You compute the hash of your download, it matches, and you feel reassured.</p>
 
@@ -190,6 +236,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       <h2 id="what-it-genuinely-proves">What it genuinely proves</h2>
 
       <p>A cryptographic hash maps any input to a fixed-size digest such that the same input always produces the same output, and any change, even a single flipped bit, produces a completely different output.</p>
+
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/what-a-checksum-actually-proves/what-a-checksum-actually-proves-2.webp" alt="Two files, one with a matching fingerprint and check, one mismatching" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">A matching checksum means the file arrived exactly as it left; a mismatch means it changed.</figcaption></figure>
 
       <p>That makes checksums excellent at catching:</p>
 
@@ -240,6 +288,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
 
       <p>Worth being precise about two different properties:</p>
 
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/what-a-checksum-actually-proves/what-a-checksum-actually-proves-3.webp" alt="A laptop with a download arrow and an integrity-check shield" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">Comparing checksums after a download catches corruption before you trust the file.</figcaption></figure>
+
       <ul>
         <li><strong>Collision resistance</strong>: hard to find <em>any</em> two inputs with the same hash. This is what MD5 and SHA-1 have lost.</li>
         <li><strong>Preimage resistance</strong>: hard to find an input producing a <em>specific</em> target hash. MD5 and SHA-1 technically still hold here.</li>
@@ -266,6 +316,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
 
       <p>A matching checksum is powerful but narrow: it proves that the file you have is bit-for-bit identical to the one whose hash you were given. That is exactly what you want for detecting accidental corruption during a download or transfer, because even a single flipped bit produces a completely different hash. But it proves nothing about where that reference hash came from. If an attacker can replace both the file and the published checksum, the two will match perfectly while the file is malicious.</p>
 
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/what-a-checksum-actually-proves/what-a-checksum-actually-proves-4.webp" alt="Glowing data strands arranged into a fingerprint-like pattern" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">A checksum is a fingerprint of the file's exact contents, nothing more.</figcaption></figure>
+
       <p>This is why checksums for security-sensitive downloads are often accompanied by a cryptographic signature, which ties the hash to a verifiable identity, or published over a trusted channel separate from the file itself. It is also why the algorithm matters: older functions like MD5 and SHA-1 can be deliberately fooled into producing collisions and should not be relied on for security, while SHA-256 remains sound. A checksum verifies integrity against accident; it verifies authenticity only when you can trust the source of the hash.</p>
 
       <p>And if a project publishes only a bare MD5 with no signature, that tells you something about how much attention it pays to supply-chain security generally.</p>
@@ -273,6 +325,15 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
     </article>
 
     <div class="ad-slot" hidden></div>
+
+    <section class="section" id="faq">
+      <h2 class="text-2xl mb-4">Frequently asked questions</h2>
+        <div class="info-panel mb-3"><strong class="text-sm">What is a checksum?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">A checksum is a short string of characters produced by running a file through a hash function. The same file always produces the same checksum, and even a tiny change to the file produces a completely different one, which makes it a fingerprint for the data.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What does a checksum actually prove?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">It proves integrity: that a file is byte-for-byte identical to the original when the checksums match. If even one bit changed, the checksums differ, so it reliably detects corruption or accidental changes during download or copying.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Does a matching checksum prove a file is safe or authentic?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">No. A checksum only confirms the file matches the reference value you were given. If an attacker replaced both the file and the published checksum, they would still match. For authenticity you need a signature or a checksum from a trusted, separate source.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What is the difference between MD5 and SHA-256?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Both produce a checksum, but MD5 is older and can be deliberately fooled, so it is fine for spotting accidental corruption but not for security. SHA-256 is stronger and is the modern default when the check needs to resist tampering.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">How do I check a file's checksum?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Generate the checksum of your downloaded file and compare it to the value the source published. Our hash tool lets you produce MD5 or SHA-256 in your browser and paste in the expected value to confirm they match.</p></div>
+    </section>
 
     <section class="section">
       <h2 class="text-2xl mb-4">Tools mentioned in this article</h2>
@@ -352,20 +413,20 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.8.9"></script>
-<script src="../assets/js/theme-manager.js?v=2.8.9"></script>
-<script src="../assets/data/categories.js?v=2.8.9" defer></script>
-<script src="../assets/data/tools.js?v=2.8.9" defer></script>
-<script src="../assets/data/testimonials.js?v=2.8.9" defer></script>
-<script src="../assets/js/components.js?v=2.8.9" defer></script>
-<script src="../assets/js/tool-utils.js?v=2.8.9" defer></script>
-<script src="../assets/js/search-engine.js?v=2.8.9" defer></script>
-<script src="../assets/js/animations.js?v=2.8.9" defer></script>
-<script src="../assets/js/pwa.js?v=2.8.9" defer></script>
-<script src="../assets/js/analytics.js?v=2.8.9" defer></script>
-<script src="../assets/js/consent.js?v=2.8.9" defer></script>
-<script src="../assets/js/ads.js?v=2.8.9" defer></script>
-<script src="../assets/js/main.js?v=2.8.9" defer></script>
+<script src="../assets/js/config.js?v=2.9.0"></script>
+<script src="../assets/js/theme-manager.js?v=2.9.0"></script>
+<script src="../assets/data/categories.js?v=2.9.0" defer></script>
+<script src="../assets/data/tools.js?v=2.9.0" defer></script>
+<script src="../assets/data/testimonials.js?v=2.9.0" defer></script>
+<script src="../assets/js/components.js?v=2.9.0" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.9.0" defer></script>
+<script src="../assets/js/search-engine.js?v=2.9.0" defer></script>
+<script src="../assets/js/animations.js?v=2.9.0" defer></script>
+<script src="../assets/js/pwa.js?v=2.9.0" defer></script>
+<script src="../assets/js/analytics.js?v=2.9.0" defer></script>
+<script src="../assets/js/consent.js?v=2.9.0" defer></script>
+<script src="../assets/js/ads.js?v=2.9.0" defer></script>
+<script src="../assets/js/main.js?v=2.9.0" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{document.getElementById('copyright-year').textContent=new Date().getFullYear();});</script>
 </body>
 </html>

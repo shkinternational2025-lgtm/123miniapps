@@ -32,9 +32,9 @@
 <meta name="twitter:description" content="Your 1TB drive shows as 931GB because manufacturers count in powers of 1000 and Windows counts in powers of 1024. Here is exactly where the difference comes from.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-02-04">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-10-03">
 <meta property="article:section" content="Guides">
-<meta property="article:tag" content="1tb drive 931gb, why is my hard drive smaller, gb vs gib, decimal vs binary storage, missing hard drive space">
+<meta property="article:tag" content="why 1tb drive shows 931gb, why is my 1tb ssd only 931gb, missing storage space, gb vs gib, decimal vs binary bytes, 1000 vs 1024, formatted capacity, real usable drive space">
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.json">
@@ -48,7 +48,7 @@
 html{background:#0B1120}
 body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
 </style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.9">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.9.0">
 
 <script type="application/ld+json">
 {
@@ -83,7 +83,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "Why does my 1TB hard drive only show 931GB?",
       "description": "Your 1TB drive shows as 931GB because manufacturers count in powers of 1000 and Windows counts in powers of 1024. Here is exactly where the difference comes from.",
       "datePublished": "2026-02-04",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-10-03",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -106,9 +106,9 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         "@type": "WebPage",
         "@id": "https://www.123miniapps.online/blog/why-1tb-drive-shows-931gb.html"
       },
-      "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
-      "wordCount": 1034,
-      "keywords": "1tb drive 931gb, why is my hard drive smaller, gb vs gib, decimal vs binary storage, missing hard drive space",
+      "image": "https://www.123miniapps.online/assets/images/blog/why-1tb-drive-shows-931gb/why-1tb-drive-shows-931gb-1-hero.webp",
+      "wordCount": 1108,
+      "keywords": "why 1tb drive shows 931gb, why is my 1tb ssd only 931gb, missing storage space, gb vs gib, decimal vs binary bytes, 1000 vs 1024, formatted capacity, real usable drive space",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "isFamilyFriendly": true,
@@ -119,6 +119,51 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           "#quick-answer"
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does a 1TB drive show only 931GB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the maker counts a terabyte as 1,000,000,000,000 bytes, but your operating system divides by 1,024 at each step. The same bytes work out to about 931 in the computer's units, so nothing is missing; it is just measured differently."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between GB and GiB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A gigabyte (GB) is 1,000,000,000 bytes using the decimal system makers use. A gibibyte (GiB) is 1,073,741,824 bytes using the binary system computers use. Windows labels the binary figure as GB, which causes the confusion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the missing storage space lost or wasted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Every byte you paid for is there. The lower number is the same capacity expressed in binary units, minus a little reserved for the file system. You are not losing space to a fault or to the manufacturer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much real space will I actually get?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As a rough rule, multiply the advertised size by about 0.909 to get the figure your computer will show. So 1TB shows about 931GB, 2TB about 1.82TB, and 500GB about 466GB, before a small amount used for formatting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do computers use 1024 instead of 1000?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Computers work in binary, where capacities fall naturally on powers of two, and 1,024 is two to the tenth power. Historically the industry reused the decimal prefixes kilo, mega and giga for these binary amounts, which is why the two systems disagree."
+          }
+        }
+      ]
     }
   ]
 }
@@ -177,11 +222,12 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           <p class="lead mt-2" style="margin-bottom:0">Nothing is missing and nobody is cheating you. Your drive and your operating system are counting in two different number systems.</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-02-04 · Updated 2026-09-01 ·
-          1034 words · about 5 minute read
+          By 123MiniApps · Published 2026-02-04 · Updated 2026-10-03 ·
+          1108 words · about 5 minute read
         </p>
       </header>
 
+      <figure style="margin:0 0 var(--space-7)"><img src="../assets/images/blog/why-1tb-drive-shows-931gb/why-1tb-drive-shows-931gb-1-hero.webp" alt="An SSD beside a capacity visualization with a subtle missing portion" width="1280" height="720" fetchpriority="high" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"></figure>
       <div class="prose">
       <p>You bought a 1TB drive. You plug it in, open your file manager, and it reports 931GB. Roughly 69GB has apparently evaporated before you have saved a single file. This is the single most common storage question on the internet, and the answer is not what most people assume.</p>
 
@@ -190,6 +236,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       <h2 id="two-definitions-of-a-gigabyte">Two definitions of a gigabyte</h2>
 
       <p>Every other unit prefix in science means a power of ten. A kilometre is 1,000 metres. A kilogram is 1,000 grams. When the SI system defines <em>kilo</em>, it means exactly 1,000.</p>
+
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/why-1tb-drive-shows-931gb/why-1tb-drive-shows-931gb-2.webp" alt="Two stacks of cubes, one decimal and one slightly smaller binary" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">Manufacturers count in 1,000s; your computer counts in 1,024s, which is where the gap comes from.</figcaption></figure>
 
       <p>Computers, however, address memory in powers of two. The closest power of two to 1,000 is 2¹⁰, which is 1,024, near enough that early computer scientists borrowed the SI prefixes and quietly redefined them. A kilobyte became 1,024 bytes, a megabyte 1,024², and a gigabyte 1,024³.</p>
 
@@ -229,6 +277,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
 
       <p>There is a second, smaller effect that people sometimes conflate with this one. Formatting a drive consumes some capacity for the filesystem itself, the allocation tables, journal and metadata that let the operating system find your files. On NTFS this is typically well under 1% of the drive.</p>
 
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/why-1tb-drive-shows-931gb/why-1tb-drive-shows-931gb-3.webp" alt="A drive beside a donut chart of usable space and the difference" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">No space is missing; the same bytes are just measured two different ways.</figcaption></figure>
+
       <p>So a 1TB drive shows roughly 931GB from the counting difference, and then loses a few more gigabytes to formatting. If you are seeing substantially less than 931GB on a nominally empty 1TB drive, that is worth investigating, hidden recovery partitions and system restore allocations are the usual culprits.</p>
 
       <div class="info-panel" style="margin:var(--space-6) 0;border-left:3px solid var(--accent-primary)"><strong class="text-sm">Try it: <a href="../tools/file-size-converter.html">File Size Converter</a></strong><p class="text-sm text-muted mt-2">Enter any size and see it in both conventions side by side, along with the exact byte count and a transfer-time estimate. It runs entirely in your browser.</p></div>
@@ -247,6 +297,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
 
       <p>The gap exists because two different definitions of a "gigabyte" are both in use. Storage manufacturers use the decimal definition, where one gigabyte is exactly 1,000,000,000 bytes, because that is how the metric system defines the giga prefix everywhere else, a kilometre is 1,000 metres, not 1,024. Most operating systems, however, still report capacity using binary units, where what they label a "GB" is really 1,073,741,824 bytes (properly called a gibibyte, or GiB). Your drive holds the number of bytes the manufacturer promised; the operating system simply divides by the larger binary figure, producing a smaller-looking number.</p>
 
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/why-1tb-drive-shows-931gb/why-1tb-drive-shows-931gb-4.webp" alt="A storage device circuit board with subtle capacity motifs" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">The bytes are all there, simply counted in binary units.</figcaption></figure>
+
       <p>Neither side is lying. The drive genuinely stores a trillion bytes for a "1 TB" model. Windows just displays that same trillion bytes as roughly 931 because it divides by 1,024 three times instead of 1,000. Some systems, including macOS in recent versions, switched to the decimal definition specifically to end this confusion, which is why the same drive can show 1,000 GB on a Mac and 931 GB on a Windows PC. The bytes never changed, only the label did.</p>
 
       <p>The courts, in effect, decided the manufacturers were right and the operating systems were the ones being confusing. Two and a half decades later, Windows still has not changed.</p>
@@ -254,6 +306,15 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
     </article>
 
     <div class="ad-slot" hidden></div>
+
+    <section class="section" id="faq">
+      <h2 class="text-2xl mb-4">Frequently asked questions</h2>
+        <div class="info-panel mb-3"><strong class="text-sm">Why does a 1TB drive show only 931GB?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Because the maker counts a terabyte as 1,000,000,000,000 bytes, but your operating system divides by 1,024 at each step. The same bytes work out to about 931 in the computer's units, so nothing is missing; it is just measured differently.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What is the difference between GB and GiB?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">A gigabyte (GB) is 1,000,000,000 bytes using the decimal system makers use. A gibibyte (GiB) is 1,073,741,824 bytes using the binary system computers use. Windows labels the binary figure as GB, which causes the confusion.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Is the missing storage space lost or wasted?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">No. Every byte you paid for is there. The lower number is the same capacity expressed in binary units, minus a little reserved for the file system. You are not losing space to a fault or to the manufacturer.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">How much real space will I actually get?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">As a rough rule, multiply the advertised size by about 0.909 to get the figure your computer will show. So 1TB shows about 931GB, 2TB about 1.82TB, and 500GB about 466GB, before a small amount used for formatting.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Why do computers use 1024 instead of 1000?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Computers work in binary, where capacities fall naturally on powers of two, and 1,024 is two to the tenth power. Historically the industry reused the decimal prefixes kilo, mega and giga for these binary amounts, which is why the two systems disagree.</p></div>
+    </section>
 
     <section class="section">
       <h2 class="text-2xl mb-4">Tools mentioned in this article</h2>
@@ -332,20 +393,20 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.8.9"></script>
-<script src="../assets/js/theme-manager.js?v=2.8.9"></script>
-<script src="../assets/data/categories.js?v=2.8.9" defer></script>
-<script src="../assets/data/tools.js?v=2.8.9" defer></script>
-<script src="../assets/data/testimonials.js?v=2.8.9" defer></script>
-<script src="../assets/js/components.js?v=2.8.9" defer></script>
-<script src="../assets/js/tool-utils.js?v=2.8.9" defer></script>
-<script src="../assets/js/search-engine.js?v=2.8.9" defer></script>
-<script src="../assets/js/animations.js?v=2.8.9" defer></script>
-<script src="../assets/js/pwa.js?v=2.8.9" defer></script>
-<script src="../assets/js/analytics.js?v=2.8.9" defer></script>
-<script src="../assets/js/consent.js?v=2.8.9" defer></script>
-<script src="../assets/js/ads.js?v=2.8.9" defer></script>
-<script src="../assets/js/main.js?v=2.8.9" defer></script>
+<script src="../assets/js/config.js?v=2.9.0"></script>
+<script src="../assets/js/theme-manager.js?v=2.9.0"></script>
+<script src="../assets/data/categories.js?v=2.9.0" defer></script>
+<script src="../assets/data/tools.js?v=2.9.0" defer></script>
+<script src="../assets/data/testimonials.js?v=2.9.0" defer></script>
+<script src="../assets/js/components.js?v=2.9.0" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.9.0" defer></script>
+<script src="../assets/js/search-engine.js?v=2.9.0" defer></script>
+<script src="../assets/js/animations.js?v=2.9.0" defer></script>
+<script src="../assets/js/pwa.js?v=2.9.0" defer></script>
+<script src="../assets/js/analytics.js?v=2.9.0" defer></script>
+<script src="../assets/js/consent.js?v=2.9.0" defer></script>
+<script src="../assets/js/ads.js?v=2.9.0" defer></script>
+<script src="../assets/js/main.js?v=2.9.0" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{document.getElementById('copyright-year').textContent=new Date().getFullYear();});</script>
 </body>
 </html>

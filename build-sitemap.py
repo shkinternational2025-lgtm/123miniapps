@@ -8,6 +8,7 @@
 
 import os
 import glob
+import re
 from datetime import date
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -50,14 +51,37 @@ def site_paths():
     return out
 
 
+IMG_RE = re.compile(r'(?:\.\./)?(assets/images/blog/[^"\'\s]+\.(?:webp|png|jpe?g))')
+
+
+def article_images(rel_path):
+    """Return absolute URLs of in-content images in a built HTML page,
+    deduped and in document order, for Google Images indexing."""
+    if not rel_path.startswith("blog/") or not rel_path.endswith(".html"):
+        return []
+    try:
+        html = open(rel_path, encoding="utf-8").read()
+    except OSError:
+        return []
+    seen, out = set(), []
+    for m in IMG_RE.finditer(html):
+        asset = m.group(1)
+        if asset not in seen:
+            seen.add(asset)
+            out.append(f"{SITE}/{asset}")
+    return out
+
+
 def main():
     os.chdir(HERE)
     paths = site_paths()
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         f"<!-- 123MiniApps.online sitemap.xml (generated {TODAY}) -->",
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'
+        ' xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
     ]
+    img_total = 0
     for p in paths:
         prio, freq = rule(p)
         loc = f"{SITE}/{p}" if p else f"{SITE}/"
@@ -67,12 +91,19 @@ def main():
             f"    <lastmod>{TODAY}</lastmod>",
             f"    <changefreq>{freq}</changefreq>",
             f"    <priority>{prio}</priority>",
-            "  </url>",
         ]
+        for img in article_images(p):
+            lines += [
+                "    <image:image>",
+                f"      <image:loc>{img}</image:loc>",
+                "    </image:image>",
+            ]
+            img_total += 1
+        lines.append("  </url>")
     lines.append("</urlset>")
     with open("sitemap.xml", "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines) + "\n")
-    print(f"sitemap.xml written: {len(paths)} URLs, lastmod {TODAY}")
+    print(f"sitemap.xml written: {len(paths)} URLs, {img_total} images, lastmod {TODAY}")
 
 
 if __name__ == "__main__":

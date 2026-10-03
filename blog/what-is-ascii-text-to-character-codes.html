@@ -32,9 +32,9 @@
 <meta name="twitter:description" content="What ASCII is and how text becomes character codes. The ASCII table, control characters, how Unicode and UTF-8 extended it, and a free text-to-ASCII tool.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-07-25">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-10-03">
 <meta property="article:section" content="Guides">
-<meta property="article:tag" content="text to ascii, ascii converter, character codes, ascii table, what is ascii, convert text to ascii codes">
+<meta property="article:tag" content="what is ascii, ascii text to character codes, ascii table, text to ascii, ascii codes a-z, character to number, ascii vs unicode, ascii to text converter, decimal hex ascii values">
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.json">
@@ -48,7 +48,7 @@
 html{background:#0B1120}
 body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}
 </style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.9">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.9.0">
 
 <script type="application/ld+json">
 {
@@ -83,7 +83,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "What Is ASCII? Converting Text to Character Codes",
       "description": "What ASCII is and how text becomes character codes. The ASCII table, control characters, how Unicode and UTF-8 extended it, and a free text-to-ASCII tool.",
       "datePublished": "2026-07-25",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-10-03",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -106,9 +106,9 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         "@type": "WebPage",
         "@id": "https://www.123miniapps.online/blog/what-is-ascii-text-to-character-codes.html"
       },
-      "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
-      "wordCount": 1049,
-      "keywords": "text to ascii, ascii converter, character codes, ascii table, what is ascii, convert text to ascii codes",
+      "image": "https://www.123miniapps.online/assets/images/blog/what-is-ascii-text-to-character-codes/what-is-ascii-text-to-character-codes-1-hero.webp",
+      "wordCount": 1128,
+      "keywords": "what is ascii, ascii text to character codes, ascii table, text to ascii, ascii codes a-z, character to number, ascii vs unicode, ascii to text converter, decimal hex ascii values",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "isFamilyFriendly": true,
@@ -119,6 +119,51 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           "#quick-answer"
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is ASCII?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ASCII is a character encoding that assigns a number from 0 to 127 to letters, digits, punctuation and control signals. It lets computers store and exchange text as numbers, so an uppercase A is always 65 and a lowercase a is always 97."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I convert text to ASCII codes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Take each character and look up its code: A is 65, B is 66, and so on. A converter does this instantly, turning a word into its list of numbers, and can also show the values in hexadecimal or binary."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between ASCII and Unicode?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ASCII covers 128 characters, enough for basic English. Unicode extends this to cover every writing system, emoji and symbol, while keeping the first 128 codes identical to ASCII, so plain English text is valid in both."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are ASCII codes for A to Z?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Uppercase A to Z are codes 65 to 90, and lowercase a to z are 97 to 122. Digits 0 to 9 are 48 to 57. The 32-code gap between upper and lower case is why flipping one bit changes a letter's case."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I convert ASCII codes back to text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Map each number to its character: 72 is H, 105 is i, and so on. Our ASCII tool converts text to codes and codes back to text in your browser, in decimal, hex or binary, with nothing uploaded."
+          }
+        }
+      ]
     }
   ]
 }
@@ -177,11 +222,12 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           <p class="lead mt-2" style="margin-bottom:0">How computers turn letters into numbers, what ASCII covers, and how Unicode extended it to every language and emoji.</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-07-25 · Updated 2026-09-01 ·
-          1049 words · about 5 minute read
+          By 123MiniApps · Published 2026-07-25 · Updated 2026-10-03 ·
+          1128 words · about 5 minute read
         </p>
       </header>
 
+      <figure style="margin:0 0 var(--space-7)"><img src="../assets/images/blog/what-is-ascii-text-to-character-codes/what-is-ascii-text-to-character-codes-1-hero.webp" alt="Letter forms transforming into number blocks and binary patterns in a grid" width="1280" height="720" fetchpriority="high" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"></figure>
       <div class="prose">
       <p>Computers only store numbers, so every letter you read on a screen is really a number behind the scenes. ASCII is the scheme that first standardised which number stands for which character: capital A is 65, lowercase a is 97, the digit 0 is 48. Converting text to these codes reveals the numeric reality underneath writing, and the <a href="../tools/text-to-ascii.html">Text to ASCII</a> tool does it in your browser. This article explains what ASCII is, what it covers, and how it grew into the Unicode system that handles every language and emoji today.</p>
 
@@ -190,6 +236,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       <h2 id="how-computers-turn-letters-into-numbers">How computers turn letters into numbers</h2>
 
       <p>A computer's memory holds numbers, so to store text it needs an agreed mapping between characters and numbers, a character encoding. ASCII, the American Standard Code for Information Interchange, was that agreement: a table assigning a number from 0 to 127 to each of the English letters, digits, punctuation marks and a set of control codes. Because everyone agreed on the same table, a file written on one machine could be read correctly on another. When you convert text to ASCII, you are simply looking up each character's number in this table.</p>
+
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/what-is-ascii-text-to-character-codes/what-is-ascii-text-to-character-codes-2.webp" alt="A character tile linked by an arrow to a number tile and a binary pattern" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">Each character has a fixed numeric code that computers store instead of the letter.</figcaption></figure>
 
       <h2 id="what-the-ascii-table-contains">What the ASCII table contains</h2>
 
@@ -215,6 +263,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
 
       <p>A code point is an abstract number; UTF-8 is the near-universal way those numbers are turned into bytes for storage and transmission. Its clever design is that ASCII characters take exactly one byte each, so plain English text is byte-for-byte identical to old ASCII, while other characters take two, three or four bytes as needed. This backward compatibility is a big reason UTF-8 won out and now encodes the overwhelming majority of the web. It also explains the earlier puzzle: a character outside the ASCII range occupies several bytes, which is why it can count as more than one unit against certain limits.</p>
 
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/what-is-ascii-text-to-character-codes/what-is-ascii-text-to-character-codes-3.webp" alt="A keyboard key connected by a beam of light to a microchip" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">Pressing a key sends its character code, which software turns back into the letter.</figcaption></figure>
+
       <div class="info-panel" style="margin:var(--space-6) 0;border-left:3px solid var(--accent-primary)"><strong class="text-sm">Try it: <a href="../tools/text-to-ascii.html">Text to ASCII</a></strong><p class="text-sm text-muted mt-2">Convert text to its ASCII or Unicode character codes and back, entirely in your browser, a clear window into how text is really stored.</p></div>
 
       <h2 id="why-character-codes-matter-in-practice">Why character codes matter in practice</h2>
@@ -225,6 +275,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
 
       <p>One of the most practical payoffs of understanding character codes is being able to diagnose "mojibake", the garbled text where a word like café shows up as cafÃ© or a string dissolves into question marks and boxes. This almost always happens because text was written in one encoding and read in another: a file saved as UTF-8, where an accented character occupies several bytes, is misread by software assuming an older single-byte encoding, so each byte is shown as a separate wrong character. Recognising the pattern tells you immediately that the data is fine and only the interpretation is wrong.</p>
 
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/what-is-ascii-text-to-character-codes/what-is-ascii-text-to-character-codes-4.webp" alt="A grid of glowing cells like an encoded character table" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">ASCII assigns every character a fixed number from 0 to 127.</figcaption></figure>
+
       <p>The fix is to make the writer and reader agree on the encoding, and in practice that almost always means using UTF-8 everywhere, in your files, your database, your web page's declared charset, and your API responses. Because UTF-8 is backward-compatible with ASCII, plain English text is unaffected, and everything else is handled correctly as long as both ends agree. When you convert text to its character codes and see exactly which numbers and how many bytes each character occupies, these encoding problems stop being mysterious and become obvious: you can see that an accented letter is multiple bytes, understand why a mismatched reader mangles it, and know that standardising on UTF-8 is the cure. That same byte-level clarity underpins why length limits sometimes count a single emoji as several characters, and why encodings like Base64 and URL-encoding operate on bytes rather than letters. Character codes are the layer beneath all of it.</p>
 
       <p>In summary, ASCII was the original agreement that let computers store English text as numbers, mapping each character to a code from 0 to 127. Unicode extended that idea to every language and emoji while keeping ASCII as its foundation, and UTF-8 stores it all efficiently with ASCII as a one-byte special case. Convert text to its codes once and the hidden numeric layer beneath all writing, and the reason text occasionally garbles or miscounts, becomes clear.</p>
@@ -232,6 +284,15 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
     </article>
 
     <div class="ad-slot" hidden></div>
+
+    <section class="section" id="faq">
+      <h2 class="text-2xl mb-4">Frequently asked questions</h2>
+        <div class="info-panel mb-3"><strong class="text-sm">What is ASCII?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">ASCII is a character encoding that assigns a number from 0 to 127 to letters, digits, punctuation and control signals. It lets computers store and exchange text as numbers, so an uppercase A is always 65 and a lowercase a is always 97.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">How do I convert text to ASCII codes?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Take each character and look up its code: A is 65, B is 66, and so on. A converter does this instantly, turning a word into its list of numbers, and can also show the values in hexadecimal or binary.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What is the difference between ASCII and Unicode?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">ASCII covers 128 characters, enough for basic English. Unicode extends this to cover every writing system, emoji and symbol, while keeping the first 128 codes identical to ASCII, so plain English text is valid in both.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What are ASCII codes for A to Z?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Uppercase A to Z are codes 65 to 90, and lowercase a to z are 97 to 122. Digits 0 to 9 are 48 to 57. The 32-code gap between upper and lower case is why flipping one bit changes a letter's case.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">How do I convert ASCII codes back to text?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Map each number to its character: 72 is H, 105 is i, and so on. Our ASCII tool converts text to codes and codes back to text in your browser, in decimal, hex or binary, with nothing uploaded.</p></div>
+    </section>
 
     <section class="section">
       <h2 class="text-2xl mb-4">Tools mentioned in this article</h2>
@@ -312,20 +373,20 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.8.9"></script>
-<script src="../assets/js/theme-manager.js?v=2.8.9"></script>
-<script src="../assets/data/categories.js?v=2.8.9" defer></script>
-<script src="../assets/data/tools.js?v=2.8.9" defer></script>
-<script src="../assets/data/testimonials.js?v=2.8.9" defer></script>
-<script src="../assets/js/components.js?v=2.8.9" defer></script>
-<script src="../assets/js/tool-utils.js?v=2.8.9" defer></script>
-<script src="../assets/js/search-engine.js?v=2.8.9" defer></script>
-<script src="../assets/js/animations.js?v=2.8.9" defer></script>
-<script src="../assets/js/pwa.js?v=2.8.9" defer></script>
-<script src="../assets/js/analytics.js?v=2.8.9" defer></script>
-<script src="../assets/js/consent.js?v=2.8.9" defer></script>
-<script src="../assets/js/ads.js?v=2.8.9" defer></script>
-<script src="../assets/js/main.js?v=2.8.9" defer></script>
+<script src="../assets/js/config.js?v=2.9.0"></script>
+<script src="../assets/js/theme-manager.js?v=2.9.0"></script>
+<script src="../assets/data/categories.js?v=2.9.0" defer></script>
+<script src="../assets/data/tools.js?v=2.9.0" defer></script>
+<script src="../assets/data/testimonials.js?v=2.9.0" defer></script>
+<script src="../assets/js/components.js?v=2.9.0" defer></script>
+<script src="../assets/js/tool-utils.js?v=2.9.0" defer></script>
+<script src="../assets/js/search-engine.js?v=2.9.0" defer></script>
+<script src="../assets/js/animations.js?v=2.9.0" defer></script>
+<script src="../assets/js/pwa.js?v=2.9.0" defer></script>
+<script src="../assets/js/analytics.js?v=2.9.0" defer></script>
+<script src="../assets/js/consent.js?v=2.9.0" defer></script>
+<script src="../assets/js/ads.js?v=2.9.0" defer></script>
+<script src="../assets/js/main.js?v=2.9.0" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{document.getElementById('copyright-year').textContent=new Date().getFullYear();});</script>
 </body>
 </html>
