@@ -142,6 +142,51 @@ window.ADSTERRA = window.ADSTERRA || {
 		});
 	}
 
+	/* ---- Sticky bottom anchor ad: shows on every screen size. Uses the
+	   320x50 unit so it fits phones and does not duplicate the in-content
+	   banner. Dismissible; stays closed for the browsing session. ---- */
+	function injectAnchorStyles() {
+		if (document.getElementById('ad-anchor-style')) return;
+		var st = document.createElement('style');
+		st.id = 'ad-anchor-style';
+		st.textContent =
+			'body.has-anchor-ad{padding-bottom:66px}' +
+			'.ad-anchor{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;' +
+			'align-items:center;justify-content:center;gap:8px;padding:6px 44px;' +
+			'background:rgba(11,17,32,.94);backdrop-filter:blur(6px);' +
+			'-webkit-backdrop-filter:blur(6px);border-top:1px solid rgba(255,255,255,.08)}' +
+			'.ad-anchor__x{position:absolute;top:50%;right:8px;transform:translateY(-50%);' +
+			'width:28px;height:28px;border:0;border-radius:50%;background:rgba(255,255,255,.14);' +
+			'color:#fff;font-size:18px;line-height:1;cursor:pointer}' +
+			'body.has-anchor-ad .theme-fab,body.has-anchor-ad .back-to-top{' +
+			'bottom:calc(var(--space-8,2rem) + 62px)}' +
+			'@media(max-width:560px){body.has-anchor-ad .theme-fab,' +
+			'body.has-anchor-ad .back-to-top{bottom:calc(var(--space-4,1rem) + 62px)}}';
+		document.head.appendChild(st);
+	}
+	function mountAnchor() {
+		try { if (sessionStorage.getItem('anchorAdClosed') === '1') return; } catch (e) {}
+		if (document.querySelector('.ad-anchor')) return;
+		injectAnchorStyles();
+		var bar = document.createElement('div');
+		bar.className = 'ad-anchor';
+		bar.setAttribute('aria-label', 'Advertisement');
+		bar.appendChild(adFrame(cfg.banners.mobile.w, cfg.banners.mobile.h));
+		var x = document.createElement('button');
+		x.type = 'button';
+		x.className = 'ad-anchor__x';
+		x.setAttribute('aria-label', 'Close ad');
+		x.innerHTML = '&times;';
+		x.addEventListener('click', function () {
+			bar.remove();
+			document.body.classList.remove('has-anchor-ad');
+			try { sessionStorage.setItem('anchorAdClosed', '1'); } catch (e) {}
+		});
+		bar.appendChild(x);
+		document.body.appendChild(bar);
+		document.body.classList.add('has-anchor-ad');
+	}
+
 	var rz;
 	function onResize() { clearTimeout(rz); rz = setTimeout(positionRails, 200); }
 
@@ -160,6 +205,7 @@ window.ADSTERRA = window.ADSTERRA || {
 		ensureToolSlot();
 		fillSlots();
 		positionRails();
+		mountAnchor();
 		window.addEventListener('resize', onResize);
 	}
 
