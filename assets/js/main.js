@@ -232,7 +232,7 @@ const App = {
  renderSearchResult(tool, query) {
  const link = el('a', {
  className: 'search-result',
- attrs: { href: tool.url }
+ attrs: { href: '/' + tool.url }
  });
 
  link.append(
@@ -292,7 +292,7 @@ const App = {
  const suggestions = el('div', { className: 'flex flex-wrap gap-2 justify-center mt-4' });
  this.search.suggestions(4).forEach((tool) => {
  suggestions.append(
- el('a', { className: 'badge', attrs: { href: tool.url }, text: `${tool.icon} ${tool.name}` })
+ el('a', { className: 'badge', attrs: { href: '/' + tool.url }, text: `${tool.icon} ${tool.name}` })
  );
  });
 
