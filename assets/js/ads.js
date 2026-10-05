@@ -142,14 +142,23 @@ window.ADSTERRA = window.ADSTERRA || {
 		});
 	}
 
-	/* ---- Sticky bottom anchor ad: shows on every screen size. Uses the
-	   320x50 unit so it fits phones and does not duplicate the in-content
-	   banner. Dismissible; stays closed for the browsing session. ---- */
-	function injectAnchorStyles() {
-		if (document.getElementById('ad-anchor-style')) return;
+	/* ---- Ad layout CSS. Two placements, chosen by screen width:
+	   - Wide screens (>= 1100px): the content column is narrowed so a gutter
+	     opens on each side, and the 160x600 side rails sit in those gutters.
+	     The bottom anchor is hidden here.
+	   - Narrow screens (< 1100px): content stays full width (no room for
+	     rails), so a dismissible 320x50 bottom anchor shows instead.
+	   Injected once at parse time so the width is set before first paint. ---- */
+	function injectAdStyles() {
+		if (document.getElementById('ad-layout-style')) return;
 		var st = document.createElement('style');
-		st.id = 'ad-anchor-style';
+		st.id = 'ad-layout-style';
 		st.textContent =
+			/* Desktop: cap content width to reserve ~220px each side for a rail
+			   plus breathing room, while staying comfortable on huge monitors. */
+			'@media (min-width:1100px){:root{' +
+			'--container-max:min(1200px,calc(100vw - 440px)) !important;' +
+			'--container-wide:min(1320px,calc(100vw - 440px)) !important}}' +
 			'body.has-anchor-ad{padding-bottom:66px}' +
 			'.ad-anchor{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;' +
 			'align-items:center;justify-content:center;gap:8px;padding:6px 44px;' +
@@ -164,10 +173,16 @@ window.ADSTERRA = window.ADSTERRA || {
 			'body.has-anchor-ad .back-to-top{bottom:calc(var(--space-4,1rem) + 62px)}}';
 		document.head.appendChild(st);
 	}
+	var RAIL_BREAKPOINT = 1100;   // >= this width: side rails. Below: bottom anchor.
+	function hideAnchor() {
+		var bar = document.querySelector('.ad-anchor');
+		if (bar) bar.remove();
+		document.body.classList.remove('has-anchor-ad');
+	}
 	function mountAnchor() {
 		try { if (sessionStorage.getItem('anchorAdClosed') === '1') return; } catch (e) {}
+		if (window.innerWidth >= RAIL_BREAKPOINT) return;   // rails cover wide screens
 		if (document.querySelector('.ad-anchor')) return;
-		injectAnchorStyles();
 		var bar = document.createElement('div');
 		bar.className = 'ad-anchor';
 		bar.setAttribute('aria-label', 'Advertisement');
@@ -178,8 +193,7 @@ window.ADSTERRA = window.ADSTERRA || {
 		x.setAttribute('aria-label', 'Close ad');
 		x.innerHTML = '&times;';
 		x.addEventListener('click', function () {
-			bar.remove();
-			document.body.classList.remove('has-anchor-ad');
+			hideAnchor();
 			try { sessionStorage.setItem('anchorAdClosed', '1'); } catch (e) {}
 		});
 		bar.appendChild(x);
@@ -187,8 +201,15 @@ window.ADSTERRA = window.ADSTERRA || {
 		document.body.classList.add('has-anchor-ad');
 	}
 
+	/* Show rails on wide screens, the bottom anchor on narrow ones. */
+	function syncAds() {
+		positionRails();
+		if (window.innerWidth >= RAIL_BREAKPOINT) hideAnchor();
+		else mountAnchor();
+	}
+
 	var rz;
-	function onResize() { clearTimeout(rz); rz = setTimeout(positionRails, 200); }
+	function onResize() { clearTimeout(rz); rz = setTimeout(syncAds, 200); }
 
 	function start() {
 		if (started) return;
@@ -204,8 +225,7 @@ window.ADSTERRA = window.ADSTERRA || {
 
 		ensureToolSlot();
 		fillSlots();
-		positionRails();
-		mountAnchor();
+		syncAds();
 		window.addEventListener('resize', onResize);
 	}
 
@@ -218,6 +238,8 @@ window.ADSTERRA = window.ADSTERRA || {
 	document.addEventListener('consentchange', function (e) {
 		if (e.detail && e.detail.value === 'accepted') start();
 	});
+
+	injectAdStyles();   // set content width before first paint (minimises reflow)
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', maybeStart, { once: true });
