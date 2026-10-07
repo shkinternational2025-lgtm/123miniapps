@@ -32,9 +32,9 @@
 <meta name="twitter:description" content="HTTP status codes explained: what the 2xx, 3xx, 4xx and 5xx classes mean, and the specific codes like 301, 404 and 500 you meet most, with a quick reference tool.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-07-25">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-10-08">
 <meta property="article:section" content="Guides">
-<meta property="article:tag" content="http status codes, what does 404 mean, 301 vs 302 redirect, 500 error meaning, http response codes list, status code reference">
+<meta property="article:tag" content="http status codes, http status codes explained, 404 error, 301 redirect, 500 error, what does 404 mean, status code list, 2xx 3xx 4xx 5xx, http response codes, common status codes">
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.json">
@@ -83,7 +83,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "HTTP Status Codes Explained: What 404, 301 and 500 Really Mean",
       "description": "HTTP status codes explained: what the 2xx, 3xx, 4xx and 5xx classes mean, and the specific codes like 301, 404 and 500 you meet most, with a quick reference tool.",
       "datePublished": "2026-07-25",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-10-08",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -108,7 +108,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       },
       "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
       "wordCount": 1049,
-      "keywords": "http status codes, what does 404 mean, 301 vs 302 redirect, 500 error meaning, http response codes list, status code reference",
+      "keywords": "http status codes, http status codes explained, 404 error, 301 redirect, 500 error, what does 404 mean, status code list, 2xx 3xx 4xx 5xx, http response codes, common status codes",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "isFamilyFriendly": true,
@@ -119,6 +119,43 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           "#quick-answer"
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does a 404 status code mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The server was reached but could not find the requested page or resource. The URL may be wrong or the page may have been removed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a 301 and a 302 redirect?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 301 is a permanent redirect that passes ranking signals to the new URL, while a 302 is temporary and tells browsers the original may return."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a 500 error mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An internal server error: something went wrong on the server side while handling the request, not with your browser or the URL."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the status code families?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1xx informational, 2xx success, 3xx redirection, 4xx client errors, and 5xx server errors."
+          }
+        }
+      ]
     }
   ]
 }
@@ -178,10 +215,10 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         <h1>HTTP Status Codes Explained: What 404, 301 and 500 Really Mean</h1>
         <div class="info-panel" id="quick-answer" style="margin-top:var(--space-5);border-left:3px solid var(--accent-primary)">
           <strong class="eyebrow" style="color:var(--accent-primary)">Quick answer</strong>
-          <p class="lead mt-2" style="margin-bottom:0">How the five classes of status code work, the ones you will actually meet, and what each tells you about a request.</p>
+          <p class="lead mt-2" style="margin-bottom:0">HTTP status codes are three-digit numbers a server returns with every response: 2xx means success, 3xx means redirect, 4xx means the request was wrong (like 404 not found), and 5xx means the server failed (like 500 internal error).</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-07-25 · Updated 2026-09-01 ·
+          By 123MiniApps · Published 2026-07-25 · Updated 2026-10-08 ·
           1049 words · about 5 minute read
         </p>
       </header>
@@ -248,6 +285,14 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
     </article>
 
     <div class="ad-slot" hidden></div>
+
+    <section class="section" id="faq">
+      <h2 class="text-2xl mb-4">Frequently asked questions</h2>
+        <div class="info-panel mb-3"><strong class="text-sm">What does a 404 status code mean?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">The server was reached but could not find the requested page or resource. The URL may be wrong or the page may have been removed.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What is the difference between a 301 and a 302 redirect?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">A 301 is a permanent redirect that passes ranking signals to the new URL, while a 302 is temporary and tells browsers the original may return.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What does a 500 error mean?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">An internal server error: something went wrong on the server side while handling the request, not with your browser or the URL.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What are the status code families?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">1xx informational, 2xx success, 3xx redirection, 4xx client errors, and 5xx server errors.</p></div>
+    </section>
 
     <section class="section">
       <h2 class="text-2xl mb-4">Tools mentioned in this article</h2>

@@ -32,9 +32,9 @@
 <meta name="twitter:description" content="How CSS Grid works and why it transformed web layout. Rows, columns, tracks and areas explained, how it handles responsive design, and a free grid generator.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-07-27">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-10-08">
 <meta property="article:section" content="Guides">
-<meta property="article:tag" content="css grid generator, css grid layout, grid template, css grid tutorial, how css grid works, grid vs flexbox">
+<meta property="article:tag" content="css grid, css grid explained, css grid layout, grid template columns, css grid tutorial, grid vs flexbox, responsive grid css, grid areas, fr unit css grid, modern css layout">
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.json">
@@ -83,7 +83,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "CSS Grid Explained: Building Layouts the Modern Way",
       "description": "How CSS Grid works and why it transformed web layout. Rows, columns, tracks and areas explained, how it handles responsive design, and a free grid generator.",
       "datePublished": "2026-07-27",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-10-08",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -108,7 +108,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       },
       "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
       "wordCount": 1047,
-      "keywords": "css grid generator, css grid layout, grid template, css grid tutorial, how css grid works, grid vs flexbox",
+      "keywords": "css grid, css grid explained, css grid layout, grid template columns, css grid tutorial, grid vs flexbox, responsive grid css, grid areas, fr unit css grid, modern css layout",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "isFamilyFriendly": true,
@@ -119,6 +119,43 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           "#quick-answer"
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is CSS Grid?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A native CSS layout system for arranging elements in rows and columns at the same time, built for two-dimensional layouts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Grid and Flexbox?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flexbox lays items out in one direction, a row or a column, while Grid handles both rows and columns together, making it better for whole-page layouts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the fr unit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A flexible fraction unit that splits available space proportionally, so columns can share leftover space without fixed pixel widths."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is CSS Grid responsive?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. With features like minmax, auto-fit and media queries, a grid can rearrange itself cleanly from desktop to mobile."
+          }
+        }
+      ]
     }
   ]
 }
@@ -178,10 +215,10 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         <h1>CSS Grid Explained: Building Layouts the Modern Way</h1>
         <div class="info-panel" id="quick-answer" style="margin-top:var(--space-5);border-left:3px solid var(--accent-primary)">
           <strong class="eyebrow" style="color:var(--accent-primary)">Quick answer</strong>
-          <p class="lead mt-2" style="margin-bottom:0">What makes Grid different from older layout methods, the core concepts, and how it makes responsive layouts simple.</p>
+          <p class="lead mt-2" style="margin-bottom:0">CSS Grid is a two-dimensional layout system that lets you place elements into rows and columns you define, so you can build complex, responsive page layouts with far less code than older float or positioning tricks.</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-07-27 · Updated 2026-09-01 ·
+          By 123MiniApps · Published 2026-07-27 · Updated 2026-10-08 ·
           1047 words · about 5 minute read
         </p>
       </header>
@@ -237,6 +274,14 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
     </article>
 
     <div class="ad-slot" hidden></div>
+
+    <section class="section" id="faq">
+      <h2 class="text-2xl mb-4">Frequently asked questions</h2>
+        <div class="info-panel mb-3"><strong class="text-sm">What is CSS Grid?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">A native CSS layout system for arranging elements in rows and columns at the same time, built for two-dimensional layouts.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What is the difference between Grid and Flexbox?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Flexbox lays items out in one direction, a row or a column, while Grid handles both rows and columns together, making it better for whole-page layouts.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What is the fr unit?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">A flexible fraction unit that splits available space proportionally, so columns can share leftover space without fixed pixel widths.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Is CSS Grid responsive?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Yes. With features like minmax, auto-fit and media queries, a grid can rearrange itself cleanly from desktop to mobile.</p></div>
+    </section>
 
     <section class="section">
       <h2 class="text-2xl mb-4">Tools mentioned in this article</h2>

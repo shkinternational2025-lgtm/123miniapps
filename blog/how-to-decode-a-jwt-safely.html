@@ -32,9 +32,9 @@
 <meta name="twitter:description" content="How to decode a JWT and read its claims. The header, payload and signature explained, why a JWT is not encrypted, and a safe in-browser decoder.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-07-31">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-10-08">
 <meta property="article:section" content="Guides">
-<meta property="article:tag" content="decode jwt, jwt decoder, what is inside a jwt, json web token structure, read jwt claims, jwt decode online">
+<meta property="article:tag" content="how to decode a jwt, jwt decoder, json web token, decode jwt safely, jwt structure, jwt header payload signature, is it safe to decode jwt online, jwt explained, jwt security, verify jwt signature">
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.json">
@@ -83,7 +83,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "How to Decode a JWT (and Why You Should Never Paste One Online)",
       "description": "How to decode a JWT and read its claims. The header, payload and signature explained, why a JWT is not encrypted, and a safe in-browser decoder.",
       "datePublished": "2026-07-31",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-10-08",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -108,7 +108,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       },
       "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
       "wordCount": 1036,
-      "keywords": "decode jwt, jwt decoder, what is inside a jwt, json web token structure, read jwt claims, jwt decode online",
+      "keywords": "how to decode a jwt, jwt decoder, json web token, decode jwt safely, jwt structure, jwt header payload signature, is it safe to decode jwt online, jwt explained, jwt security, verify jwt signature",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "isFamilyFriendly": true,
@@ -119,6 +119,43 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           "#quick-answer"
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are the three parts of a JWT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A header, a payload and a signature, separated by dots. The signature is what proves the token has not been tampered with."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a JWT encrypted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. By default it is only Base64-encoded, so the header and payload can be read by anyone who has the token; the signature provides integrity, not secrecy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it safe to decode a JWT online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Avoid pasting real tokens into unknown websites, because a valid token can grant access to an account. Decode them locally in your browser instead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the signature for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It lets the server verify the token was issued by it and has not been altered, using a secret or key that only the server holds."
+          }
+        }
+      ]
     }
   ]
 }
@@ -178,10 +215,10 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         <h1>How to Decode a JWT (and Why You Should Never Paste One Online)</h1>
         <div class="info-panel" id="quick-answer" style="margin-top:var(--space-5);border-left:3px solid var(--accent-primary)">
           <strong class="eyebrow" style="color:var(--accent-primary)">Quick answer</strong>
-          <p class="lead mt-2" style="margin-bottom:0">The three parts of a JSON Web Token, what the claims mean, and why the tool you use to decode one matters for security.</p>
+          <p class="lead mt-2" style="margin-bottom:0">A JWT is made of three parts separated by dots (header, payload and signature); the first two are only Base64-encoded, not encrypted, so anyone can read them, which is exactly why you should decode tokens locally and never paste a real token into a random website.</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-07-31 · Updated 2026-09-01 ·
+          By 123MiniApps · Published 2026-07-31 · Updated 2026-10-08 ·
           1036 words · about 5 minute read
         </p>
       </header>
@@ -236,6 +273,14 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
     </article>
 
     <div class="ad-slot" hidden></div>
+
+    <section class="section" id="faq">
+      <h2 class="text-2xl mb-4">Frequently asked questions</h2>
+        <div class="info-panel mb-3"><strong class="text-sm">What are the three parts of a JWT?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">A header, a payload and a signature, separated by dots. The signature is what proves the token has not been tampered with.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Is a JWT encrypted?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">No. By default it is only Base64-encoded, so the header and payload can be read by anyone who has the token; the signature provides integrity, not secrecy.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Is it safe to decode a JWT online?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Avoid pasting real tokens into unknown websites, because a valid token can grant access to an account. Decode them locally in your browser instead.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What is the signature for?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">It lets the server verify the token was issued by it and has not been altered, using a secret or key that only the server holds.</p></div>
+    </section>
 
     <section class="section">
       <h2 class="text-2xl mb-4">Tools mentioned in this article</h2>

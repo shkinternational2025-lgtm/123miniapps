@@ -644,30 +644,35 @@ def apply_upgrades(posts):
     and primary content stay put; we only add. Silent no-op if the file is
     absent.
     """
-    try:
-        from blog_upgrades import UPGRADES
-    except Exception:
+    UPGRADES = {}
+    for _modname in ("blog_upgrades", "blog_upgrades_batch3"):
+        try:
+            _mod = __import__(_modname)
+            UPGRADES.update(getattr(_mod, "UPGRADES", {}))
+        except Exception:
+            pass
+    if not UPGRADES:
         return
     by_slug = {p["slug"]: p for p in posts}
     for slug, up in UPGRADES.items():
         p = by_slug.get(slug)
         if not p:
             continue
-        # Only apply an upgrade once its images are physically present. This
-        # gates each batch on its images being dropped in: an article is
-        # upgraded (hero, FAQ, in-body images, extra sections) the moment its
-        # hero WebP exists on disk, and stays untouched until then. Prevents
-        # shipping broken image references for a batch whose art is not ready.
-        hero = up.get("hero")
-        hero_rel = hero[0] if hero else None
-        if not hero_rel or not os.path.exists(os.path.join(HERE, hero_rel)):
-            continue
-        for key in ("keywords", "hero", "faq", "modified", "standfirst"):
+        # Text-level SEO / AEO (expanded keywords, FAQ + FAQPage schema, refined
+        # quick-answer) applies immediately so ranking signals never wait on art.
+        for key in ("keywords", "faq", "modified", "standfirst"):
             if key in up:
                 p[key] = up[key]
         # Extra same-intent sections: list of body tuples, added before FAQ.
         for sec in up.get("append_sections", []):
             p["body"].append(sec)
+        # Images (hero + in-body) stay gated on the hero WebP existing on disk,
+        # so a batch is text-complete now and lights up with art when dropped in.
+        hero = up.get("hero")
+        hero_rel = hero[0] if hero else None
+        if not hero_rel or not os.path.exists(os.path.join(HERE, hero_rel)):
+            continue
+        p["hero"] = up["hero"]
         # In-body images: insert the first after the paragraph following the
         # first H2, the second after the paragraph following the last H2.
         imgs = up.get("images", [])

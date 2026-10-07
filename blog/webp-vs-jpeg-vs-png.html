@@ -32,9 +32,9 @@
 <meta name="twitter:description" content="When to use WebP, JPEG, PNG, AVIF and SVG, with the compression trade-offs explained and the resizing mistake that costs more than format choice.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-02-18">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-10-08">
 <meta property="article:section" content="Guides">
-<meta property="article:tag" content="webp vs jpeg, png vs jpg which is better, best image format for web, avif vs webp, should i use webp">
+<meta property="article:tag" content="webp vs jpeg vs png, best image format, webp vs png, jpeg vs png, when to use webp, image format comparison, lossy vs lossless, transparent image format, which image format for web, optimize images for web">
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.json">
@@ -83,7 +83,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "WebP, JPEG or PNG: which should you actually use?",
       "description": "When to use WebP, JPEG, PNG, AVIF and SVG, with the compression trade-offs explained and the resizing mistake that costs more than format choice.",
       "datePublished": "2026-02-18",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-10-08",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -108,7 +108,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       },
       "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
       "wordCount": 1024,
-      "keywords": "webp vs jpeg, png vs jpg which is better, best image format for web, avif vs webp, should i use webp",
+      "keywords": "webp vs jpeg vs png, best image format, webp vs png, jpeg vs png, when to use webp, image format comparison, lossy vs lossless, transparent image format, which image format for web, optimize images for web",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "isFamilyFriendly": true,
@@ -119,6 +119,43 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           "#quick-answer"
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which image format should I use for the web?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WebP is the best default for most web images. Fall back to JPEG for photos or PNG for transparency where WebP is not supported."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between lossy and lossless?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lossy formats like JPEG discard some detail to shrink the file, while lossless formats like PNG keep every pixel but produce larger files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which formats support transparency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PNG and WebP support transparent backgrounds. JPEG does not."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is WebP smaller than JPEG and PNG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It uses more advanced compression, so it typically produces noticeably smaller files at the same visual quality."
+          }
+        }
+      ]
     }
   ]
 }
@@ -178,10 +215,10 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         <h1>WebP, JPEG or PNG: which should you actually use?</h1>
         <div class="info-panel" id="quick-answer" style="margin-top:var(--space-5);border-left:3px solid var(--accent-primary)">
           <strong class="eyebrow" style="color:var(--accent-primary)">Quick answer</strong>
-          <p class="lead mt-2" style="margin-bottom:0">A practical decision guide, plus the two mistakes that waste more bandwidth than choosing the wrong format ever will.</p>
+          <p class="lead mt-2" style="margin-bottom:0">Use JPEG for photographs where small size matters, PNG when you need transparency or sharp graphics and text, and WebP as the modern all-rounder that usually gives smaller files than both at similar quality, with support for transparency and animation.</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-02-18 · Updated 2026-09-01 ·
+          By 123MiniApps · Published 2026-02-18 · Updated 2026-10-08 ·
           1024 words · about 5 minute read
         </p>
       </header>
@@ -271,6 +308,14 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
     </article>
 
     <div class="ad-slot" hidden></div>
+
+    <section class="section" id="faq">
+      <h2 class="text-2xl mb-4">Frequently asked questions</h2>
+        <div class="info-panel mb-3"><strong class="text-sm">Which image format should I use for the web?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">WebP is the best default for most web images. Fall back to JPEG for photos or PNG for transparency where WebP is not supported.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What is the difference between lossy and lossless?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Lossy formats like JPEG discard some detail to shrink the file, while lossless formats like PNG keep every pixel but produce larger files.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Which formats support transparency?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">PNG and WebP support transparent backgrounds. JPEG does not.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Why is WebP smaller than JPEG and PNG?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">It uses more advanced compression, so it typically produces noticeably smaller files at the same visual quality.</p></div>
+    </section>
 
     <section class="section">
       <h2 class="text-2xl mb-4">Tools mentioned in this article</h2>

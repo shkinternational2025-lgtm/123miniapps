@@ -32,9 +32,9 @@
 <meta name="twitter:description" content="How time zones work and how to convert times across the world. UTC, offsets, daylight saving pitfalls and scheduling across zones, with a free converter.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-07-26">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-10-08">
 <meta property="article:section" content="Guides">
-<meta property="article:tag" content="time zone converter, convert time zones, utc to local time, what time is it in, time difference calculator, schedule across time zones">
+<meta property="article:tag" content="time zones explained, how time zones work, converting time zones, utc offset, gmt vs utc, time zone converter, daylight saving time, world time zones, schedule across time zones, time difference between countries">
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.json">
@@ -83,7 +83,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "Time Zones Explained: Converting Times Across the World",
       "description": "How time zones work and how to convert times across the world. UTC, offsets, daylight saving pitfalls and scheduling across zones, with a free converter.",
       "datePublished": "2026-07-26",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-10-08",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -108,7 +108,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       },
       "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
       "wordCount": 992,
-      "keywords": "time zone converter, convert time zones, utc to local time, what time is it in, time difference calculator, schedule across time zones",
+      "keywords": "time zones explained, how time zones work, converting time zones, utc offset, gmt vs utc, time zone converter, daylight saving time, world time zones, schedule across time zones, time difference between countries",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "isFamilyFriendly": true,
@@ -119,6 +119,43 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           "#quick-answer"
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do time zones work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each zone sets its local time a fixed offset from UTC, roughly following lines of longitude, so noon in one zone is a different clock time elsewhere."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I convert a time between zones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Find each zone's UTC offset and apply the difference, adding hours when moving east and subtracting when moving west."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between GMT and UTC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They are almost the same reference time. UTC is the modern, precise standard, while GMT is the older term still used casually."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does daylight saving time affect conversions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some regions move their clocks forward an hour in summer, which temporarily changes their offset, so always check whether DST is active on the date."
+          }
+        }
+      ]
     }
   ]
 }
@@ -178,10 +215,10 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         <h1>Time Zones Explained: Converting Times Across the World</h1>
         <div class="info-panel" id="quick-answer" style="margin-top:var(--space-5);border-left:3px solid var(--accent-primary)">
           <strong class="eyebrow" style="color:var(--accent-primary)">Quick answer</strong>
-          <p class="lead mt-2" style="margin-bottom:0">How time zones work, why UTC is the anchor, and how to convert a time across the world without getting caught by daylight saving.</p>
+          <p class="lead mt-2" style="margin-bottom:0">Time zones divide the world into regions that set their clocks a fixed number of hours ahead of or behind UTC, so converting a time means adding or subtracting the difference between the two zones' offsets, with daylight saving shifting some zones by an hour part of the year.</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-07-26 · Updated 2026-09-01 ·
+          By 123MiniApps · Published 2026-07-26 · Updated 2026-10-08 ·
           992 words · about 4 minute read
         </p>
       </header>
@@ -233,6 +270,14 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
     </article>
 
     <div class="ad-slot" hidden></div>
+
+    <section class="section" id="faq">
+      <h2 class="text-2xl mb-4">Frequently asked questions</h2>
+        <div class="info-panel mb-3"><strong class="text-sm">How do time zones work?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Each zone sets its local time a fixed offset from UTC, roughly following lines of longitude, so noon in one zone is a different clock time elsewhere.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">How do I convert a time between zones?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Find each zone's UTC offset and apply the difference, adding hours when moving east and subtracting when moving west.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What is the difference between GMT and UTC?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">They are almost the same reference time. UTC is the modern, precise standard, while GMT is the older term still used casually.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">How does daylight saving time affect conversions?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Some regions move their clocks forward an hour in summer, which temporarily changes their offset, so always check whether DST is active on the date.</p></div>
+    </section>
 
     <section class="section">
       <h2 class="text-2xl mb-4">Tools mentioned in this article</h2>
