@@ -30,6 +30,19 @@ MOD = "2026-10-03"
 
 UPGRADES = {
 
+ # ===================== PREMIUM: SaaS metrics =====================
+ # Gated on its hero WebP, like every batch entry. Drop 4 images into
+ # assets/images/blog/saas-metrics-explained-complete-guide/ and they appear.
+ "saas-metrics-explained-complete-guide": {
+  "hero": _hero("saas-metrics-explained-complete-guide", "A SaaS metrics dashboard showing recurring revenue, churn and retention trends"),
+  "images": _imgs("saas-metrics-explained-complete-guide", [
+    (2, "The four movements of monthly recurring revenue: new, expansion, contraction and churn", "Every month MRR is pushed up by new and expansion revenue and pulled down by contraction and churn."),
+    (3, "Net revenue retention compounding an existing customer base above 100 percent", "Retention above 100 percent is the compounding engine: the base grows without a single new customer."),
+    (4, "Customer lifetime value weighed against acquisition cost on a balance scale", "Healthy growth means the value a customer returns clearly outweighs what it cost to win them."),
+  ]),
+ },
+
+
  # ========================= BATCH 1 =========================
 
  "does-bionic-reading-work": {

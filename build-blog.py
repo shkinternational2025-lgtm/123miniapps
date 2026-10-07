@@ -29,6 +29,7 @@ from datetime import date
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BLOG_DIR = os.path.join(HERE, "blog")
+PAGES_DIR = os.path.join(HERE, "pages")
 SITE = "https://www.123miniapps.online"
 
 # Freshness signal: articles were reviewed/updated on this date. Bump when the
@@ -44,6 +45,8 @@ NAV = """  <div class="container nav__inner">
       <a class="nav__link" href="{root}index.html">Home</a>
       <a class="nav__link" href="{root}index.html#all-tools-section">All Tools</a>
       <a class="nav__link" href="{root}blog/index.html">Blog</a>
+      <a class="nav__link" href="{root}pages/insights.html">Insights</a>
+      <a class="nav__link" href="{root}pages/services.html">Services</a>
       <a class="nav__link" href="{root}pages/about.html">About</a>
     </nav>
     <div class="nav__actions">
@@ -59,6 +62,8 @@ NAV = """  <div class="container nav__inner">
     <a class="nav__link" href="{root}index.html">Home</a>
     <a class="nav__link" href="{root}index.html#all-tools-section">All Tools</a>
     <a class="nav__link" href="{root}blog/index.html">Blog</a>
+    <a class="nav__link" href="{root}pages/insights.html">Insights</a>
+    <a class="nav__link" href="{root}pages/services.html">Services</a>
     <a class="nav__link" href="{root}pages/about.html">About</a>
   </nav>"""
 
@@ -608,6 +613,7 @@ POST_MODULES = [
     "blog_posts_batch2",
     "blog_posts_batch3",
     "blog_posts_batch4",
+    "blog_posts_ai",        # flagship AI / Insights pillar guides
     "blog_posts_premium",   # premium-app long-form guides
 ]
 
@@ -698,6 +704,109 @@ def apply_upgrades(posts):
                 body.append(img)
 
 
+def build_insights(posts):
+    """Insights landing page (pages/insights.html): a curated showcase of the
+    premium, long-form guides (posts flagged premium=True). The articles
+    themselves live under /blog/ and keep their URLs; this page is the
+    front door to them from the top nav."""
+    premium = [p for p in posts if p.get("premium")]
+    # Newest first.
+    premium = sorted(premium, key=lambda p: p.get("published", ""), reverse=True)
+    canonical = f"{SITE}/pages/insights.html"
+
+    schema = json.dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "CollectionPage",
+                "@id": canonical + "#insights",
+                "name": "Insights: In-depth guides",
+                "description": "Premium long-form guides on AI, automation, business "
+                               "and the tools that run modern work.",
+                "url": canonical,
+                "isPartOf": {"@type": "WebSite", "name": "123MiniApps", "url": SITE + "/"},
+                "hasPart": [
+                    {
+                        "@type": "BlogPosting",
+                        "headline": p["headline"],
+                        "description": p["description"],
+                        "datePublished": p["published"],
+                        "url": f"{SITE}/blog/{p['slug']}.html",
+                    }
+                    for p in premium
+                ],
+            }
+        ],
+    }, indent=2, ensure_ascii=False)
+
+    head = HEAD.format(
+        file="pages/insights.html",
+        title="Insights: In-depth AI & Business Guides | 123MiniApps",
+        description="Premium long-form guides on AI agents, automation, SaaS metrics "
+                    "and the thinking behind modern tools. Researched, practical, and free to read.",
+        canonical=canonical,
+        og_type="website",
+        site=SITE,
+        root="../",
+        schema=schema,
+        nav=NAV.format(root="../"),
+        extra_meta="",
+    )
+
+    if premium:
+        cards = []
+        for p in premium:
+            words = word_count(p["body"])
+            cards.append(f"""        <article class="tool-card">
+          <a class="tool-card__overlay-link" href="../blog/{p['slug']}.html" aria-label="Read {p['nav_title']}"></a>
+          <div class="tool-card__top">
+            <span class="tool-card__icon" aria-hidden="true">{p['icon']}</span>
+            <span class="badge badge--muted">{max(1, round(words / 225))} min read</span>
+          </div>
+          <h2 class="tool-card__title">{p['headline']}</h2>
+          <p class="tool-card__desc">{p['standfirst']}</p>
+          <div class="tool-card__meta">
+            <span>{p['published']}</span>
+            <span class="tool-card__link"><span>Read the guide</span></span>
+          </div>
+        </article>""")
+        grid = f"""    <div class="grid-auto grid-auto--lg">
+{chr(10).join(cards)}
+    </div>"""
+    else:
+        grid = '    <p class="text-muted">New in-depth guides are on the way. Check back soon.</p>'
+
+    body = f"""
+<main class="tool-page" id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Insights</span>
+    </nav>
+
+    <div class="section__header">
+      <span class="eyebrow">Insights</span>
+      <h1>In-depth guides</h1>
+      <p>
+        Longer, researched guides on AI, automation and the ideas behind the tools.
+        Where the blog answers a quick question, these go deep: the full picture,
+        the trade-offs, and how to actually put it to work.
+      </p>
+    </div>
+
+{grid}
+
+    <p class="mt-12 text-center"><a href="../blog/index.html">Browse all articles &rarr;</a></p>
+
+  </div>
+</main>
+
+"""
+    return head + body + CHROME_TAIL.format(root="../")
+
+
 if __name__ == "__main__":
     os.makedirs(BLOG_DIR, exist_ok=True)
     posts = collect_posts()
@@ -712,6 +821,11 @@ if __name__ == "__main__":
 
     with open(os.path.join(BLOG_DIR, "index.html"), "w", encoding="utf-8") as fh:
         fh.write(build_index(posts))
+
+    os.makedirs(PAGES_DIR, exist_ok=True)
+    with open(os.path.join(PAGES_DIR, "insights.html"), "w", encoding="utf-8") as fh:
+        fh.write(build_insights(posts))
+    print(f"  pages/insights.html  ({sum(1 for p in posts if p.get('premium'))} premium guides)")
 
     total = sum(word_count(p["body"]) for p in posts)
     print(f"\n  {len(posts)} articles + index, {total:,} words total")

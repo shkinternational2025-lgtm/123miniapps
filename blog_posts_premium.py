@@ -10,6 +10,8 @@
 POSTS = [
  {
  "slug": "saas-metrics-explained-complete-guide",
+ "premium": True,
+ "section": "Business & SaaS",
  "icon": "\U0001F4C8",
  "nav_title": "SaaS metrics explained",
  "headline": "SaaS Metrics Explained: MRR, ARR, Churn, NRR, LTV:CAC, Payback and the Rule of 40",

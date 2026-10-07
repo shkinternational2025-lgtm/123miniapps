@@ -175,6 +175,8 @@ body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,san
       <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
       <a class="nav__link" href="../index.html#categories">Categories</a>
       <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/insights.html">Insights</a>
+      <a class="nav__link" href="../pages/services.html">Services</a>
       <a class="nav__link" href="../pages/about.html">About</a>
     </nav>
     <div class="nav__actions">
@@ -191,6 +193,8 @@ body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,san
     <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
     <a class="nav__link" href="../index.html#categories">Categories</a>
     <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/insights.html">Insights</a>
+    <a class="nav__link" href="../pages/services.html">Services</a>
     <a class="nav__link" href="../pages/about.html">About</a>
   </nav>
 </header>

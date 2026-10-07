@@ -32,9 +32,9 @@
 <meta name="twitter:description" content="How CSS box-shadow works: what the offset, blur, spread and color values do, how shadows signal elevation, and how to make them look natural. Free generator.">
 <meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
 <meta property="article:published_time" content="2026-07-30">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-10-03">
 <meta property="article:section" content="Guides">
-<meta property="article:tag" content="box shadow generator, css box shadow, drop shadow css, box shadow examples, css shadow, shadow generator">
+<meta property="article:tag" content="css box-shadow explained, box-shadow property, css drop shadow, box-shadow offset blur spread, inset box shadow, multiple box shadows, css shadow generator, soft shadow css, card shadow css">
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.json">
@@ -83,7 +83,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       "headline": "CSS Box Shadow Explained: Adding Depth and Elevation",
       "description": "How CSS box-shadow works: what the offset, blur, spread and color values do, how shadows signal elevation, and how to make them look natural. Free generator.",
       "datePublished": "2026-07-30",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-10-03",
       "author": {
         "@type": "Organization",
         "name": "123MiniApps",
@@ -106,9 +106,9 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         "@type": "WebPage",
         "@id": "https://www.123miniapps.online/blog/css-box-shadow-explained.html"
       },
-      "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
-      "wordCount": 1058,
-      "keywords": "box shadow generator, css box shadow, drop shadow css, box shadow examples, css shadow, shadow generator",
+      "image": "https://www.123miniapps.online/assets/images/blog/css-box-shadow-explained/css-box-shadow-explained-1-hero.webp",
+      "wordCount": 1133,
+      "keywords": "css box-shadow explained, box-shadow property, css drop shadow, box-shadow offset blur spread, inset box shadow, multiple box shadows, css shadow generator, soft shadow css, card shadow css",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "isFamilyFriendly": true,
@@ -119,6 +119,51 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           "#quick-answer"
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does the CSS box-shadow property do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "box-shadow draws a shadow around an element's box. You control the horizontal and vertical offset, the blur radius, an optional spread, and the colour, which together make an element look raised, pressed, or softly floating above the page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do the box-shadow values mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The order is horizontal offset, vertical offset, blur radius, spread radius, then colour. Offsets move the shadow, a larger blur makes it softer, spread grows or shrinks it, and the colour, usually a low-opacity black, sets how strong it looks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I make a soft, natural shadow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use small offsets, a generous blur, a slightly negative or zero spread, and a low-opacity colour such as rgba(0,0,0,0.1). Hard, dark, offset shadows look dated; soft diffuse ones look modern and premium."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is an inset box-shadow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Adding the keyword inset draws the shadow inside the element instead of outside, which makes a box look pressed in or recessed. It is useful for input fields, pressed buttons and subtle inner depth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I add more than one shadow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Separate several shadows with commas and they stack from front to back. Layering a tight, darker shadow with a wider, lighter one is a common trick for realistic, polished depth."
+          }
+        }
+      ]
     }
   ]
 }
@@ -139,6 +184,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       <a class="nav__link" href="../index.html">Home</a>
       <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
       <a class="nav__link" href="../blog/index.html">Blog</a>
+      <a class="nav__link" href="../pages/insights.html">Insights</a>
+      <a class="nav__link" href="../pages/services.html">Services</a>
       <a class="nav__link" href="../pages/about.html">About</a>
     </nav>
     <div class="nav__actions">
@@ -154,6 +201,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
     <a class="nav__link" href="../index.html">Home</a>
     <a class="nav__link" href="../index.html#all-tools-section">All Tools</a>
     <a class="nav__link" href="../blog/index.html">Blog</a>
+    <a class="nav__link" href="../pages/insights.html">Insights</a>
+    <a class="nav__link" href="../pages/services.html">Services</a>
     <a class="nav__link" href="../pages/about.html">About</a>
   </nav>
 </header>
@@ -177,11 +226,12 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
           <p class="lead mt-2" style="margin-bottom:0">What each box-shadow value does, how shadows create a sense of depth, and how to make them look natural.</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published 2026-07-30 · Updated 2026-09-01 ·
-          1058 words · about 5 minute read
+          By 123MiniApps · Published 2026-07-30 · Updated 2026-10-03 ·
+          1133 words · about 5 minute read
         </p>
       </header>
 
+      <figure style="margin:0 0 var(--space-7)"><img src="../assets/images/blog/css-box-shadow-explained/css-box-shadow-explained-1-hero.webp" alt="A card floating above a surface with a soft realistic shadow" width="1280" height="720" fetchpriority="high" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"></figure>
       <div class="prose">
       <p>A box shadow is the soft (or sharp) shadow cast behind an element, and in web design it does far more than decoration, it creates a sense of depth, signalling that a card, button or menu sits above the surface beneath it. CSS gives you precise control over shadows through a handful of values, and understanding them is the difference between shadows that look natural and ones that look wrong. The <a href="../tools/box-shadow-generator.html">Box Shadow Generator</a> lets you build one visually and copy the CSS, and this article explains how box shadows work.</p>
 
@@ -190,6 +240,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       <h2 id="the-values-that-define-a-shadow">The values that define a shadow</h2>
 
       <p>A CSS box shadow is built from several values, each controlling one aspect:</p>
+
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/css-box-shadow-explained/css-box-shadow-explained-2.webp" alt="Several cards with different shadow depths and blur amounts" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">Changing offset, blur and spread turns a flat box into one that feels lifted off the page.</figcaption></figure>
 
       <ul>
         <li><strong>Horizontal offset</strong>: how far the shadow shifts left or right.</li>
@@ -216,6 +268,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
 
       <p>Shadows rarely appear alone; they work together with other surface properties, especially rounded corners. A card typically has both a <a href="../tools/border-radius-generator.html">border radius</a> softening its corners and a box shadow lifting it off the page, and the two combine to make it feel like a physical, tactile object. The shadow follows the rounded shape automatically, so the effect stays consistent. Getting both right, gentle rounding and a soft shadow, is much of what makes modern card-based interfaces feel polished.</p>
 
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/css-box-shadow-explained/css-box-shadow-explained-3.webp" alt="A shadow shown with its offset, blur and spread highlighted by light" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">box-shadow takes an x and y offset, a blur radius, a spread, and a colour.</figcaption></figure>
+
       <div class="info-panel" style="margin:var(--space-6) 0;border-left:3px solid var(--accent-primary)"><strong class="text-sm">Try it: <a href="../tools/box-shadow-generator.html">Box Shadow Generator</a></strong><p class="text-sm text-muted mt-2">Build CSS box shadows visually, offset, blur, spread, color and inset, and copy the code, entirely in your browser.</p></div>
 
       <h2 id="shadows-in-modern-ui-effects">Shadows in modern UI effects</h2>
@@ -226,6 +280,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
 
       <p>The single most effective technique for shadows that look genuinely three-dimensional is to use more than one at a time. Real objects do not cast a single uniform shadow; they cast a tight, darker shadow close to where they meet the surface and a larger, softer, fainter shadow spreading further out. You can reproduce this in CSS by stacking two or more shadows on the same element, a small, slightly darker one with little blur for the contact edge, plus a larger, lighter, heavily blurred one for the ambient spread. The combination reads as far more natural than any single shadow, however carefully tuned.</p>
 
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/css-box-shadow-explained/css-box-shadow-explained-4.webp" alt="A UI button with a subtle elevated shadow, close up" width="1280" height="720" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">Soft, low-contrast shadows look the most natural and premium.</figcaption></figure>
+
       <p>This layered approach is the secret behind the elevation systems used in polished design languages, where each 'height' level is defined by a specific recipe of stacked shadows. A card resting just off the page uses a subtle two-layer shadow; a modal floating well above everything uses a deeper, more diffuse stack. Because the layers scale together, moving an element 'higher', on hover, say, is a matter of swapping to a taller shadow recipe, and the transition feels like the object genuinely lifting. The other quiet detail that sells realism is colour: pure black shadows can look heavy and muddy, so tinting the shadow slightly toward the background colour, or using a colour derived from the element itself, often reads as more natural. Master the layered, softly-tinted shadow and you have the core technique behind almost every interface that feels tactile and dimensional rather than flat.</p>
 
       <p>In summary, a CSS box shadow is defined by horizontal and vertical offset, blur, spread, color and an optional inset, and together these let you place an element convincingly above the surface. Shadows create depth by imitating real light, so keep the light direction consistent, favour soft and subtle over hard and dark, drop the shadow downward, and vary its size to signal how elevated something is. Combined with rounded corners and used consistently, well-crafted shadows are one of the simplest ways to make an interface feel layered, tactile and professional.</p>
@@ -233,6 +289,15 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
     </article>
 
     <div class="ad-slot" hidden></div>
+
+    <section class="section" id="faq">
+      <h2 class="text-2xl mb-4">Frequently asked questions</h2>
+        <div class="info-panel mb-3"><strong class="text-sm">What does the CSS box-shadow property do?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">box-shadow draws a shadow around an element's box. You control the horizontal and vertical offset, the blur radius, an optional spread, and the colour, which together make an element look raised, pressed, or softly floating above the page.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What do the box-shadow values mean?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">The order is horizontal offset, vertical offset, blur radius, spread radius, then colour. Offsets move the shadow, a larger blur makes it softer, spread grows or shrinks it, and the colour, usually a low-opacity black, sets how strong it looks.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">How do I make a soft, natural shadow?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Use small offsets, a generous blur, a slightly negative or zero spread, and a low-opacity colour such as rgba(0,0,0,0.1). Hard, dark, offset shadows look dated; soft diffuse ones look modern and premium.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">What is an inset box-shadow?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Adding the keyword inset draws the shadow inside the element instead of outside, which makes a box look pressed in or recessed. It is useful for input fields, pressed buttons and subtle inner depth.</p></div>
+        <div class="info-panel mb-3"><strong class="text-sm">Can I add more than one shadow?</strong><p class="text-sm text-muted mt-2" style="margin-bottom:0">Yes. Separate several shadows with commas and they stack from front to back. Layering a tight, darker shadow with a wider, lighter one is a common trick for realistic, polished depth.</p></div>
+    </section>
 
     <section class="section">
       <h2 class="text-2xl mb-4">Tools mentioned in this article</h2>
@@ -249,9 +314,9 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
     <section class="section">
       <h2 class="text-2xl mb-4">Continue reading</h2>
       <div class="grid-auto grid-auto--lg">
+        <a class="tool-card" href="ai-agents-2026-guide.html"><h3 class="tool-card__title">AI agents in 2026</h3><span class="tool-card__link"><span>Read the guide</span></span></a>
         <a class="tool-card" href="apply-photo-filters-in-your-browser.html"><h3 class="tool-card__title">Apply photo filters</h3><span class="tool-card__link"><span>Read the guide</span></span></a>
         <a class="tool-card" href="aspect-ratio-explained-16-9-4-3.html"><h3 class="tool-card__title">Aspect ratio explained</h3><span class="tool-card__link"><span>Read the guide</span></span></a>
-        <a class="tool-card" href="barcodes-explained-how-to-generate-one.html"><h3 class="tool-card__title">Barcodes explained</h3><span class="tool-card__link"><span>Read the guide</span></span></a>
       </div>
     </section>
 

@@ -25,3 +25,7 @@ _b4c*.json
 
 # Node dependencies - never commit to the public site repo
 node_modules/
+
+# Symlinked deps + local helpers (added by Claude)
+node_modules
+_indexing/

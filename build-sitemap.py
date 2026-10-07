@@ -20,8 +20,10 @@ EXCLUDE = {
     "offline.html",
     "theme-debug.html",
     "tools/_template.html",
+    "yandex_09607beaf7a1dd2b.html",   # search-engine verification token, not content
 }
-EXCLUDE_DIRS = ("admin/",)
+# Non-content trees: the Adsterra ad iframes under assets/, build deps, and admin.
+EXCLUDE_DIRS = ("admin/", "assets/", "node_modules/", "test/")
 
 
 def rule(path):
