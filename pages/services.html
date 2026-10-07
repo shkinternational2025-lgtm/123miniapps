@@ -26,42 +26,57 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <style>html{background:#0B1120}body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}</style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.9.3">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.9.4">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What does SHK International build?","acceptedAnswer":{"@type":"Answer","text":"AI-powered websites and web apps, custom browser tools and full tool websites, self-hosted n8n automations, small bots and AI assistants, digital products, SEO article writing, VPS setup and hosting, and original AI music production."}},
+    {"@type":"Question","name":"How much does a project cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on the scope. Tell me what you need and I will reply with a clear, fixed plan and an honest quote before any work starts, so there are no surprises."}},
+    {"@type":"Question","name":"How long does a typical project take?","acceptedAnswer":{"@type":"Answer","text":"A landing page or a single tool is usually a few days. A full multi-page site, an automation, or a bot is typically one to three weeks depending on complexity. I share a timeline with the plan."}},
+    {"@type":"Question","name":"Do I own the work and the code?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything I build is yours to keep, host and change. I hand over the files and, where relevant, set it up on your own server or hosting."}},
+    {"@type":"Question","name":"Can you work with my existing website or tools?","acceptedAnswer":{"@type":"Answer","text":"Yes. I can extend, fix or redesign an existing site, connect your current apps with automations, or add new tools and pages to what you already run."}},
+    {"@type":"Question","name":"Can I get original AI music for my project?","acceptedAnswer":{"@type":"Answer","text":"Yes. I produce original, release-ready AI music for brands, videos and catalogues, the same production I use for my own Synthetic Polyglot releases. Get in touch with what you need."}}
+  ]
+}
+</script>
 <style>
 /* Services page - scoped styles, all built on the site's design tokens */
 .svc-hero{padding:var(--space-6) 0 var(--space-10)}
 .svc-eyebrow{display:inline-block;font:700 12px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-primary);margin-bottom:var(--space-4)}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-5);margin:var(--space-8) 0}
-.svc-card{background:var(--bg-secondary,#111a2e);border:1px solid var(--border-color,rgba(255,255,255,.08));border-radius:var(--radius-lg,16px);padding:var(--space-6);transition:transform .2s ease,border-color .2s ease}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-5);margin:var(--space-8) 0}
+@media(max-width:1024px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.svc-grid{grid-template-columns:1fr}}
+.svc-card{background:var(--bg-card,#161f36);border:1px solid var(--border-color,rgba(255,255,255,.08));border-radius:var(--radius-lg,16px);padding:var(--space-6);transition:transform .2s ease,border-color .2s ease}
 .svc-card:hover{transform:translateY(-3px);border-color:var(--accent-primary)}
 .svc-card__icon{font-size:26px;line-height:1;margin-bottom:var(--space-3)}
 .svc-card h3{margin:0 0 var(--space-2);font-size:1.05rem}
 .svc-card p{margin:0;color:var(--text-muted,rgba(255,255,255,.66));font-size:.93rem;line-height:1.55}
 .svc-section{padding:var(--space-10) 0;border-top:1px solid var(--border-color,rgba(255,255,255,.08))}
-.svc-music{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-8);align-items:center}
-@media(max-width:820px){.svc-music{grid-template-columns:1fr}}
-.svc-platforms{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-5)}
-.svc-platform{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--bg-tertiary,rgba(255,255,255,.06));border:1px solid var(--border-color,rgba(255,255,255,.1));color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s ease,border-color .2s ease}
+.svc-music{max-width:1040px;margin-inline:auto;display:flex;flex-direction:column;gap:var(--space-5)}
+.svc-platforms{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-4)}
+.svc-platform{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--bg-surface,rgba(255,255,255,.06));border:1px solid var(--border-color,rgba(255,255,255,.1));color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s ease,border-color .2s ease}
 .svc-platform:hover{background:rgba(255,255,255,.12);border-color:var(--accent-primary)}
-.svc-ytcard{display:block;text-decoration:none;position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--radius-lg,16px);overflow:hidden;border:1px solid var(--border-color,rgba(255,255,255,.1));background:linear-gradient(135deg,rgba(124,92,255,.22),rgba(0,194,255,.12)),#0B1120;transition:transform .2s ease,border-color .2s ease}
-.svc-ytcard:hover{transform:translateY(-3px);border-color:var(--accent-primary)}
-.svc-ytcard__inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:var(--space-6)}
-.svc-ytcard__play{width:64px;height:64px;border-radius:50%;background:#FF0000;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(255,0,0,.35)}
-.svc-ytcard__play svg{width:28px;height:28px;margin-left:3px;fill:#fff}
-.svc-ytcard__name{font-weight:800;font-size:1.15rem;color:#fff}
-.svc-ytcard__sub{font-size:.85rem;color:rgba(255,255,255,.75)}
 .svc-cta{text-align:center;background:linear-gradient(135deg,rgba(124,92,255,.14),rgba(0,194,255,.08));border:1px solid var(--border-color,rgba(255,255,255,.1));border-radius:var(--radius-lg,16px);padding:var(--space-10) var(--space-6);margin:var(--space-10) 0}
 .svc-contact{display:flex;flex-wrap:wrap;gap:var(--space-4);justify-content:center;margin-top:var(--space-5)}
 .svc-stat-row{display:flex;flex-wrap:wrap;gap:var(--space-8);margin:var(--space-6) 0}
 .svc-stat b{display:block;font-size:1.8rem;font-weight:800;color:var(--accent-primary);line-height:1}
 .svc-stat span{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted,rgba(255,255,255,.6))}
-.svc-release{margin-top:22px;padding:16px 18px;border:1px solid var(--border-color,rgba(255,255,255,.1));border-radius:var(--radius-lg,16px);background:var(--bg-tertiary,rgba(255,255,255,.04))}
+.svc-release{padding:18px 20px;border:1px solid var(--border-color,rgba(255,255,255,.1));border-radius:var(--radius-lg,16px);background:var(--bg-surface,rgba(255,255,255,.04))}
 .svc-release__label{font:700 11px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-primary)}
-.svc-release__title{margin:6px 0 12px;font-size:1.05rem;font-weight:700}
-.svc-follow__label{display:block;font:700 11px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted,rgba(255,255,255,.6));margin:24px 0 10px}
+.svc-release__title{margin:6px 0 2px;font-size:1.15rem;font-weight:700}
+.svc-follow__label{display:block;font:700 11px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted,rgba(255,255,255,.6));margin:8px 0 10px}
 .svc-follow{display:flex;flex-wrap:wrap;gap:10px}
 .svc-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--radius-lg,16px);overflow:hidden;border:1px solid var(--border-color,rgba(255,255,255,.1));background:#000}
 .svc-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.svc-faq{max-width:900px;margin:var(--space-6) auto 0;display:flex;flex-direction:column;gap:12px}
+.svc-faq__item{border:1px solid var(--border-color,rgba(255,255,255,.1));border-radius:var(--radius-md,14px);padding:16px 20px;background:var(--bg-surface,rgba(255,255,255,.03))}
+.svc-faq__item summary{cursor:pointer;font-weight:700;font-size:1rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.svc-faq__item summary::-webkit-details-marker{display:none}
+.svc-faq__item summary::after{content:'+';color:var(--accent-primary);font-weight:700}
+.svc-faq__item[open] summary::after{content:'\2013'}
+.svc-faq__item p{margin:12px 0 0;color:var(--text-muted,rgba(255,255,255,.7));font-size:.95rem;line-height:1.6}
 </style>
 </head>
 <body>
@@ -103,7 +118,7 @@
 </header>
 
 <main class="tool-page" id="main">
-  <div class="container container--narrow">
+  <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="../index.html">Home</a>
       <span aria-hidden="true">/</span>
@@ -151,38 +166,50 @@
       <h2 id="svc-music-h">Music: Synthetic Polyglot</h2>
       <p class="text-muted">Alongside the software, I produce and release original music under the artist name Synthetic Polyglot.</p>
       <div class="svc-music">
-        <div>
-          <p><strong>86 songs live</strong> across Spotify, Apple Music, YouTube Music, Deezer, Tidal and 150+ platforms worldwide, distributed through Ditto Music. The same AI-driven production I use for my own catalogue is available to you as a service: original, release-ready tracks for your brand, videos or label.</p>
+        <p><strong>86 songs live</strong> across Spotify, Apple Music, YouTube Music, Deezer, Tidal and 150+ platforms worldwide, distributed through Ditto Music. The same AI-driven production I use for my own catalogue is available to you as a service: original, release-ready tracks for your brand, videos or label.</p>
 
-          <div class="svc-release">
-            <span class="svc-release__label">Latest release</span>
-            <p class="svc-release__title">Yalla Habibi &mdash; Club Festival Arabic EDM House</p>
-            <div class="svc-platforms" aria-label="Stream Yalla Habibi">
-              <a class="svc-platform" href="https://ditto.fm/yalla-habibi-club-festival-arabic-edm-house" target="_blank" rel="noopener">&#127925; All platforms</a>
-              <a class="svc-platform" href="https://open.spotify.com/album/4aAeyC2yyxASS7LJA32eIC" target="_blank" rel="noopener">Spotify</a>
-              <a class="svc-platform" href="https://music.youtube.com/playlist?list=OLAK5uy_lSWxXbiyWQt6iBo5TAjkRygPZmI2SAq_k" target="_blank" rel="noopener">YouTube Music</a>
-              <a class="svc-platform" href="https://www.deezer.com/us/album/904360832" target="_blank" rel="noopener">Deezer</a>
-              <a class="svc-platform" href="https://tidal.com/album/492556111" target="_blank" rel="noopener">Tidal</a>
-              <a class="svc-platform" href="https://soundcloud.com/mubasherhussain/yalla-habibi" target="_blank" rel="noopener">SoundCloud</a>
-              <a class="svc-platform" href="https://www.kkbox.com/tw/tc/album/SoMIV2w9FOcHeM0JAo" target="_blank" rel="noopener">KKBOX</a>
-            </div>
+        <div class="svc-release">
+          <span class="svc-release__label">Latest release</span>
+          <p class="svc-release__title">Yalla Habibi &mdash; Club Festival Arabic EDM House</p>
+          <div class="svc-platforms" aria-label="Stream Yalla Habibi">
+            <a class="svc-platform" href="https://ditto.fm/yalla-habibi-club-festival-arabic-edm-house" target="_blank" rel="noopener">&#127925; All platforms</a>
+            <a class="svc-platform" href="https://open.spotify.com/album/4aAeyC2yyxASS7LJA32eIC" target="_blank" rel="noopener">Spotify</a>
+            <a class="svc-platform" href="https://music.youtube.com/playlist?list=OLAK5uy_lSWxXbiyWQt6iBo5TAjkRygPZmI2SAq_k" target="_blank" rel="noopener">YouTube Music</a>
+            <a class="svc-platform" href="https://www.deezer.com/us/album/904360832" target="_blank" rel="noopener">Deezer</a>
+            <a class="svc-platform" href="https://tidal.com/album/492556111" target="_blank" rel="noopener">Tidal</a>
+            <a class="svc-platform" href="https://soundcloud.com/mubasherhussain/yalla-habibi" target="_blank" rel="noopener">SoundCloud</a>
+            <a class="svc-platform" href="https://www.kkbox.com/tw/tc/album/SoMIV2w9FOcHeM0JAo" target="_blank" rel="noopener">KKBOX</a>
           </div>
+        </div>
 
+        <div class="svc-embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/PIx-9w5HjQU" title="Synthetic Polyglot on YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <div>
           <span class="svc-follow__label">Follow Synthetic Polyglot</span>
           <div class="svc-follow" aria-label="Follow Synthetic Polyglot">
             <a class="svc-platform" href="https://www.instagram.com/syntheticpolyglot" target="_blank" rel="noopener">Instagram</a>
             <a class="svc-platform" href="https://www.tiktok.com/@synthetic.polyglot" target="_blank" rel="noopener">TikTok</a>
             <a class="svc-platform" href="https://www.youtube.com/channel/UCizFM2mcFTETmgA9bL89E3g" target="_blank" rel="noopener">YouTube</a>
-            <a class="svc-platform" href="https://www.facebook.com/Synthetic%20Polyglot" target="_blank" rel="noopener">Facebook</a>
+            <a class="svc-platform" href="https://www.facebook.com/SyntheticPolyglot" target="_blank" rel="noopener">Facebook</a>
             <a class="svc-platform" href="https://twitter.com/Spolyglot2026" target="_blank" rel="noopener">X</a>
           </div>
-
-          <p class="text-sm text-muted mt-3">Want original AI music for your project? <a href="mailto:shkinternational2025@gmail.com?subject=AI%20music%20production">Get in touch</a>.</p>
         </div>
 
-        <div class="svc-embed">
-          <iframe src="https://www.youtube-nocookie.com/embed/JWhLmliG4AQ?list=OLAK5uy_lSWxXbiyWQt6iBo5TAjkRygPZmI2SAq_k" title="Yalla Habibi by Synthetic Polyglot" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+        <p class="text-sm text-muted">Want original AI music for your project? <a href="mailto:shkinternational2025@gmail.com?subject=AI%20music%20production">Get in touch</a>.</p>
+      </div>
+    </section>
+
+    <section class="svc-section" aria-labelledby="svc-faq-h">
+      <h2 id="svc-faq-h">Frequently asked questions</h2>
+      <div class="svc-faq">
+        <details class="svc-faq__item"><summary>What does SHK International build?</summary><p>AI-powered websites and web apps, custom browser tools and full tool websites, self-hosted n8n automations, small bots and AI assistants, digital products, SEO article writing, VPS setup and hosting, and original AI music production.</p></details>
+        <details class="svc-faq__item"><summary>How much does a project cost?</summary><p>It depends on the scope. Tell me what you need and I will reply with a clear, fixed plan and an honest quote before any work starts, so there are no surprises.</p></details>
+        <details class="svc-faq__item"><summary>How long does a typical project take?</summary><p>A landing page or a single tool is usually a few days. A full multi-page site, an automation, or a bot is typically one to three weeks depending on complexity. I share a timeline with the plan.</p></details>
+        <details class="svc-faq__item"><summary>Do I own the work and the code?</summary><p>Yes. Everything I build is yours to keep, host and change. I hand over the files and, where relevant, set it up on your own server or hosting.</p></details>
+        <details class="svc-faq__item"><summary>Can you work with my existing website or tools?</summary><p>Yes. I can extend, fix or redesign an existing site, connect your current apps with automations, or add new tools and pages to what you already run.</p></details>
+        <details class="svc-faq__item"><summary>Can I get original AI music for my project?</summary><p>Yes. I produce original, release-ready AI music for brands, videos and catalogues, the same production I use for my own Synthetic Polyglot releases. Get in touch with what you need.</p></details>
       </div>
     </section>
 
@@ -200,6 +227,7 @@
 
 <footer class="footer">
   <div class="container">
+    <div class="footer__social footer__social--center" aria-label="Follow Synthetic Polyglot"><a class="footer__social-btn" href="https://ditto.fm/yalla-habibi-club-festival-arabic-edm-house" target="_blank" rel="noopener" title="Listen to the music" aria-label="Music"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 18a3 3 0 1 1-2-2.83V4l11-2v11.17A3 3 0 1 1 16 10.3V5.4L9 6.8z"/></svg></a><a class="footer__social-btn" href="https://www.instagram.com/syntheticpolyglot" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a class="footer__social-btn" href="https://www.tiktok.com/@synthetic.polyglot" target="_blank" rel="noopener" title="TikTok" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.4 2.2 1.7 3.7 3.9 4v2.9c-1.4.1-2.7-.3-3.9-1v5.8a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3a2.8 2.8 0 1 0 2 2.7V3z"/></svg></a><a class="footer__social-btn" href="https://www.youtube.com/channel/UCizFM2mcFTETmgA9bL89E3g" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zM10 15V9l5 3z"/></svg></a><a class="footer__social-btn" href="https://www.facebook.com/SyntheticPolyglot" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V5.3h-3c-2.2 0-3.8 1.7-3.8 3.9V11H7.3v3.7h2.9V22h3.8v-7.3h2.9l.6-3.7h-3.5V9.4c0-.3.2-.4.5-.4z"/></svg></a><a class="footer__social-btn" href="https://twitter.com/Spolyglot2026" target="_blank" rel="noopener" title="X" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3l-6.6 7.6L22 21h-6.1l-4.3-5.6L6.5 21h-3l7.1-8.1L2 3h6.2l3.9 5.1zM16.4 19.2h1.7L7.7 4.7H5.9z"/></svg></a></div>
     <div class="footer__bottom">
       <p>&copy; <span id="copyright-year">2026</span> 123MiniApps.online</p>
       <p>
@@ -248,18 +276,19 @@
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.9.3"></script>
-<script src="../assets/js/theme-manager.js?v=2.9.3"></script>
-<script src="../assets/data/categories.js?v=2.9.3" defer></script>
-<script src="../assets/data/tools.js?v=2.9.3" defer></script>
-<script src="../assets/data/testimonials.js?v=2.9.3" defer></script>
-<script src="../assets/js/components.js?v=2.9.3" defer></script>
-<script src="../assets/js/search-engine.js?v=2.9.3" defer></script>
-<script src="../assets/js/animations.js?v=2.9.3" defer></script>
-<script src="../assets/js/pwa.js?v=2.9.3" defer></script>
-<script src="../assets/js/analytics.js?v=2.9.3" defer></script>
-<script src="../assets/js/consent.js?v=2.9.3" defer></script>
-<script src="../assets/js/main.js?v=2.9.3" defer></script>
+<script src="../assets/js/config.js?v=2.9.4"></script>
+<script src="../assets/js/theme-manager.js?v=2.9.4"></script>
+<script src="../assets/data/categories.js?v=2.9.4" defer></script>
+<script src="../assets/data/tools.js?v=2.9.4" defer></script>
+<script src="../assets/data/testimonials.js?v=2.9.4" defer></script>
+<script src="../assets/js/components.js?v=2.9.4" defer></script>
+<script src="../assets/js/search-engine.js?v=2.9.4" defer></script>
+<script src="../assets/js/animations.js?v=2.9.4" defer></script>
+<script src="../assets/js/pwa.js?v=2.9.4" defer></script>
+<script src="../assets/js/analytics.js?v=2.9.4" defer></script>
+<script src="../assets/js/consent.js?v=2.9.4" defer></script>
+<script src="../assets/js/ads.js?v=2.9.4" defer></script>
+<script src="../assets/js/main.js?v=2.9.4" defer></script>
 
 <script defer>document.addEventListener('DOMContentLoaded',()=>{document.getElementById('copyright-year').textContent=new Date().getFullYear();});</script>
 </body>

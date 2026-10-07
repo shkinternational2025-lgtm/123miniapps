@@ -2,44 +2,27 @@
  123MiniApps.online, Ad loader (Adsterra)
  File: assets/js/ads.js
 
- Your 4 Adsterra banner units are wired in below. Each banner is loaded
- inside its own same-origin iframe (assets/ads/<size>.html) so their
- internal 'atOptions' variables never clash - that is what lets several
- sizes appear on one page.
+ Four Adsterra banner units, each in its own same-origin iframe
+ (assets/ads/<size>.html) so their internal 'atOptions' never clash.
 
- Placement (kept moderate on purpose - a clean, fast site keeps visitors
- and rankings, which is what actually grows ad income):
-   - In-content banner: fills every <div class="ad-slot"> already built
-     into the blog, homepage and (via JS) each tool page.
-       * desktop  -> 728x90 leaderboard
-       * mobile   -> 300x250 rectangle
-   - Side rails: 160x600 skyscrapers in the left and right page gutters,
-     shown ONLY when the screen is wide enough that they cannot overlap
-     the content, and hidden on laptops/tablets/phones.
-
- Privacy: these are third-party ad scripts that may set cookies. Your
- Privacy and Cookie pages already mention advertising. consentMode
- 'notice' loads ads immediately (the cookie notice is informational);
- 'gate' waits for the visitor to Accept; 'off' loads with no notice.
-
- To turn ads OFF again, set enabled:false below.
+ Layout model (desktop >= 1280px):
+   - The page content is capped so a fixed gutter (~212px) opens on each
+     side. The 160x600 side rails sit in those gutters, hugging the content
+     edge, so there is no large empty band. Content stays as wide as the
+     viewport allows, up to a sensible max.
+   - Below 1280px there is no room for rails, so a dismissible 320x50
+     bottom anchor is shown instead.
  ============================================ */
 
 window.ADSTERRA = window.ADSTERRA || {
 	enabled: true,
 	consentMode: 'notice',
-
-	// Your Adsterra banner ad-unit keys (safe to be public - they live in
-	// the page anyway). Each maps to assets/ads/<width>x<height>.html.
 	banners: {
 		rect:   { key: '6d10ec0ef7be1d968a2e737f196dbff5', w: 300, h: 250 },
 		leader: { key: '82b78bed10155579891e560d7441980f', w: 728, h: 90  },
 		mobile: { key: '5fc1d78bcad974346f79cd94f79ad801', w: 320, h: 50  },
 		rail:   { key: 'a8a801176b8daa16b1bf43b4846af37e', w: 160, h: 600 }
 	},
-
-	// Optional: a site-wide Social Bar / Popunder script SRC. Left empty on
-	// purpose (those formats are intrusive; add later once traffic grows).
 	siteScriptUrl: ''
 };
 
@@ -47,21 +30,24 @@ window.ADSTERRA = window.ADSTERRA || {
 	var cfg = window.ADSTERRA || {};
 	if (!cfg.enabled) return;
 
-	// Never show ads on legal / system pages (thin pages; also keeps the
-	// door open for stricter networks like AdSense later).
+	// System / thin pages never show ads. Inside /pages/ only the two
+	// content pages (services, insights) run ads; legal/about/contact do not.
 	var path = (location.pathname || '').toLowerCase();
-	if (path.indexOf('/pages/') !== -1 ||
-		/\/(404|offline|theme-debug)\.html$/.test(path)) return;
+	if (/\/(404|offline|theme-debug)\.html$/.test(path)) return;
+	if (path.indexOf('/pages/') !== -1 &&
+		!/\/pages\/(services|insights)\.html$/.test(path)) return;
 
-	var ADS_BASE = '/assets/ads/';          // same-origin ad documents
-	var RAIL_MIN_GUTTER = 176;              // px of side space needed to show a 160 rail
+	var ADS_BASE = '/assets/ads/';
+	var RAIL = 160, RAIL_H = 600;
+	var GAP = 24;              // space between a rail and the content column
+	var MIN_EDGE = 8;          // smallest margin from a rail to the screen edge
+	var RAIL_BREAKPOINT = 1280;// >= this width: side rails. Below: bottom anchor.
 	var started = false;
 
 	function isDesktop() {
 		return (window.innerWidth || document.documentElement.clientWidth) >= 760;
 	}
 
-	/* Build a same-origin iframe that shows one Adsterra banner size. */
 	function adFrame(w, h, extraStyle) {
 		var f = document.createElement('iframe');
 		f.src = ADS_BASE + w + 'x' + h + '.html';
@@ -76,8 +62,6 @@ window.ADSTERRA = window.ADSTERRA || {
 		return f;
 	}
 
-	/* A small, unobtrusive "Advertisement" label (good practice + some
-	   networks require ads to be labelled). */
 	function label() {
 		var s = document.createElement('span');
 		s.textContent = 'Advertisement';
@@ -101,11 +85,10 @@ window.ADSTERRA = window.ADSTERRA || {
 		});
 	}
 
-	/* ---- Tool pages have no .ad-slot in their HTML: add one before
-	   the "Related tools" section so the tool itself stays at the top. ---- */
+	/* ---- Tool pages have no .ad-slot: add one before "Related tools" ---- */
 	function ensureToolSlot() {
 		if (!document.querySelector('main.tool-page')) return;
-		if (document.querySelector('.ad-slot')) return;      // already has one
+		if (document.querySelector('.ad-slot')) return;
 		var relStrip = document.getElementById('related');
 		var host = relStrip ? relStrip.closest('.section') : null;
 		var container = document.querySelector('main.tool-page .container');
@@ -116,49 +99,67 @@ window.ADSTERRA = window.ADSTERRA || {
 		else container.appendChild(slot);
 	}
 
-	/* ---- Side rails (160x600), only where they fit without overlapping ---- */
+	/* ---- Find the real content column (never the nav/footer) ---- */
+	function contentCol() {
+		var c = document.querySelector('main .container');
+		if (c) return c;
+		var all = [].slice.call(document.querySelectorAll('.container'));
+		for (var i = 0; i < all.length; i++) {
+			if (!all[i].closest('header, nav, footer')) return all[i];
+		}
+		return document.querySelector('.container');
+	}
+
+	/* ---- Side rails (160x600), hugging the content edges ---- */
 	var railLeft, railRight;
 	function makeRail(side) {
 		var d = document.createElement('div');
 		d.className = 'ad-rail ad-rail--' + side;
-		d.style.cssText = 'position:fixed;top:110px;z-index:40;' + side + ':8px;' +
-			'width:160px;height:600px;display:none';
+		d.style.cssText = 'position:fixed;top:110px;z-index:40;width:' + RAIL + 'px;height:' + RAIL_H + 'px;display:none';
 		d.appendChild(adFrame(cfg.banners.rail.w, cfg.banners.rail.h));
 		document.body.appendChild(d);
 		return d;
 	}
 	function positionRails() {
+		var vw = document.documentElement.clientWidth || window.innerWidth;
+		if (vw < RAIL_BREAKPOINT) {
+			if (railLeft) { railLeft.style.display = 'none'; railRight.style.display = 'none'; }
+			return;
+		}
 		if (!railLeft) { railLeft = makeRail('left'); railRight = makeRail('right'); }
-		// Measure the real content column so rails never sit over the text.
-		var col = document.querySelector('main .container') || document.querySelector('.container');
-		var gutter = col ? col.getBoundingClientRect().left : 0;
-		var show = gutter >= RAIL_MIN_GUTTER;
-		[railLeft, railRight].forEach(function (r) {
-			r.style.display = show ? 'block' : 'none';
-			if (show) {
-				var edge = Math.max(8, (gutter - 160) / 2);   // centre the rail in the gutter
-				r.style[r.classList.contains('ad-rail--left') ? 'left' : 'right'] = edge + 'px';
-			}
-		});
+		var col = contentCol();
+		var rect = col ? col.getBoundingClientRect() : null;
+		var leftGutter = rect ? rect.left : 0;
+		var rightGutter = rect ? (vw - rect.right) : 0;
+		var need = RAIL + GAP + MIN_EDGE;
+		var show = rect && leftGutter >= need && rightGutter >= need;
+		if (!show) {
+			railLeft.style.display = 'none';
+			railRight.style.display = 'none';
+			return;
+		}
+		railLeft.style.display = 'block';
+		railRight.style.display = 'block';
+		// Hug the content: rail sits GAP px from the content edge.
+		railLeft.style.right = 'auto';
+		railLeft.style.left = Math.max(MIN_EDGE, rect.left - GAP - RAIL) + 'px';
+		railRight.style.left = 'auto';
+		railRight.style.right = Math.max(MIN_EDGE, (vw - rect.right) - GAP - RAIL) + 'px';
 	}
 
-	/* ---- Ad layout CSS. Two placements, chosen by screen width:
-	   - Wide screens (>= 1100px): the content column is narrowed so a gutter
-	     opens on each side, and the 160x600 side rails sit in those gutters.
-	     The bottom anchor is hidden here.
-	   - Narrow screens (< 1100px): content stays full width (no room for
-	     rails), so a dismissible 320x50 bottom anchor shows instead.
-	   Injected once at parse time so the width is set before first paint. ---- */
+	/* ---- Ad layout CSS: cap content so the rail gutters exist, and keep the
+	   content as wide as the viewport allows. Injected at parse time so the
+	   width is set before first paint (minimises reflow). ---- */
 	function injectAdStyles() {
 		if (document.getElementById('ad-layout-style')) return;
 		var st = document.createElement('style');
 		st.id = 'ad-layout-style';
+		// 424 = 2 x (rail 160 + gap 24 + edge 28). Leaves ~212px gutter each side.
 		st.textContent =
-			/* Desktop: cap content width to reserve ~220px each side for a rail
-			   plus breathing room, while staying comfortable on huge monitors. */
-			'@media (min-width:1100px){:root{' +
-			'--container-max:min(1200px,calc(100vw - 440px)) !important;' +
-			'--container-wide:min(1320px,calc(100vw - 440px)) !important}}' +
+			'@media (min-width:1280px){' +
+			':root{--container-max:min(1600px,calc(100vw - 424px)) !important;' +
+			'--container-wide:min(1600px,calc(100vw - 424px)) !important}' +
+			'.container--narrow{max-width:min(1500px,calc(100vw - 424px)) !important}}' +
 			'body.has-anchor-ad{padding-bottom:66px}' +
 			'.ad-anchor{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;' +
 			'align-items:center;justify-content:center;gap:8px;padding:6px 44px;' +
@@ -173,7 +174,7 @@ window.ADSTERRA = window.ADSTERRA || {
 			'body.has-anchor-ad .back-to-top{bottom:calc(var(--space-4,1rem) + 62px)}}';
 		document.head.appendChild(st);
 	}
-	var RAIL_BREAKPOINT = 1100;   // >= this width: side rails. Below: bottom anchor.
+
 	function hideAnchor() {
 		var bar = document.querySelector('.ad-anchor');
 		if (bar) bar.remove();
@@ -181,7 +182,7 @@ window.ADSTERRA = window.ADSTERRA || {
 	}
 	function mountAnchor() {
 		try { if (sessionStorage.getItem('anchorAdClosed') === '1') return; } catch (e) {}
-		if (window.innerWidth >= RAIL_BREAKPOINT) return;   // rails cover wide screens
+		if (window.innerWidth >= RAIL_BREAKPOINT) return;
 		if (document.querySelector('.ad-anchor')) return;
 		var bar = document.createElement('div');
 		bar.className = 'ad-anchor';
@@ -201,7 +202,6 @@ window.ADSTERRA = window.ADSTERRA || {
 		document.body.classList.add('has-anchor-ad');
 	}
 
-	/* Show rails on wide screens, the bottom anchor on narrow ones. */
 	function syncAds() {
 		positionRails();
 		if (window.innerWidth >= RAIL_BREAKPOINT) hideAnchor();
@@ -209,12 +209,11 @@ window.ADSTERRA = window.ADSTERRA || {
 	}
 
 	var rz;
-	function onResize() { clearTimeout(rz); rz = setTimeout(syncAds, 200); }
+	function onResize() { clearTimeout(rz); rz = setTimeout(syncAds, 150); }
 
 	function start() {
 		if (started) return;
 		started = true;
-
 		if ((cfg.siteScriptUrl || '').trim()) {
 			var s = document.createElement('script');
 			var u = cfg.siteScriptUrl.trim();
@@ -222,11 +221,11 @@ window.ADSTERRA = window.ADSTERRA || {
 			s.async = true; s.setAttribute('data-cfasync', 'false');
 			document.body.appendChild(s);
 		}
-
 		ensureToolSlot();
 		fillSlots();
 		syncAds();
 		window.addEventListener('resize', onResize);
+		window.addEventListener('load', syncAds);
 	}
 
 	function maybeStart() {
@@ -239,7 +238,7 @@ window.ADSTERRA = window.ADSTERRA || {
 		if (e.detail && e.detail.value === 'accepted') start();
 	});
 
-	injectAdStyles();   // set content width before first paint (minimises reflow)
+	injectAdStyles();
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', maybeStart, { once: true });

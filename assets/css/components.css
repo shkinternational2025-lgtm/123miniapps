@@ -1505,6 +1505,16 @@
  margin-top: var(--space-6);
 }
 
+.footer__social--center {
+ justify-content: center;
+ flex-wrap: wrap;
+ margin-top: 0;
+ padding-block: var(--space-6);
+ border-top: 1px solid var(--border-color);
+}
+
+.footer__social-btn svg { width: 18px; height: 18px; }
+
 .footer__social-btn {
  display: grid;
  place-items: center;
