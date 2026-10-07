@@ -159,7 +159,10 @@ window.ADSTERRA = window.ADSTERRA || {
 			'@media (min-width:1280px){' +
 			':root{--container-max:min(1600px,calc(100vw - 424px)) !important;' +
 			'--container-wide:min(1600px,calc(100vw - 424px)) !important}' +
-			'.container--narrow{max-width:min(1500px,calc(100vw - 424px)) !important}}' +
+			'.container--narrow{max-width:min(1100px,calc(100vw - 424px)) !important}' +
+			'main.tool-page .prose{max-width:none}' +
+			'main.tool-page article figure{text-align:center}' +
+			'main.tool-page article figure img{margin-inline:auto}}' +
 			'body.has-anchor-ad{padding-bottom:66px}' +
 			'.ad-anchor{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;' +
 			'align-items:center;justify-content:center;gap:8px;padding:6px 44px;' +
