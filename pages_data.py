@@ -21,9 +21,9 @@ JSON_FORMATTER = {
  "category_name": "Developer Tools",
  "schema_category": "DeveloperApplication",
  "purpose": "Beautify, minify and validate JSON with precise error locations.",
- "title": "JSON Formatter & Validator: Pretty Print JSON Online | 123MiniApps",
+ "title": "JSON Formatter & Validator: Pretty Print JSON Online",
  "og_title": "JSON Formatter & Validator | 123MiniApps",
- "description": "Beautify, minify and validate JSON in your browser. Get the exact line and column of any syntax error. Nothing is uploaded, parsing happens entirely on your device.",
+ "description": "Beautify, minify and validate JSON in your browser, with the exact line and column of any syntax error. Nothing is uploaded; parsing runs on your device.",
  "tagline": "Beautify, minify and validate JSON, with the exact line and column of any error.",
  "workspace": """ <section class="workspace" aria-label="JSON formatter">
  <div class="field">
@@ -304,7 +304,7 @@ BASE64 = {
  "category_name": "Developer Tools",
  "schema_category": "DeveloperApplication",
  "purpose": "Encode text to Base64 and decode it back, with full Unicode support.",
- "title": "Base64 Encoder & Decoder: Unicode Safe, Runs Locally | 123MiniApps",
+ "title": "Base64 Encoder & Decoder: Unicode Safe, Runs Locally",
  "og_title": "Base64 Encoder & Decoder | 123MiniApps",
  "description": "Encode text to Base64 or decode it back, with full Unicode and emoji support plus a URL-safe variant. Runs entirely in your browser, nothing is uploaded.",
  "tagline": "Encode and decode Base64 with full Unicode support, including emoji, which naive encoders break on.",
@@ -564,7 +564,7 @@ COLOR_PICKER = {
  "purpose": "Pick a color and get HEX, RGB, HSL plus tint and shade ramps.",
  "title": "Color Picker: HEX, RGB, HSL and Contrast Checker | 123MiniApps",
  "og_title": "Color Picker, HEX, RGB, HSL | 123MiniApps",
- "description": "Pick any color and get HEX, RGB, HSL and HSV values, a full tint and shade ramp, and WCAG contrast ratios against black and white. Runs entirely in your browser.",
+ "description": "Pick any color and get HEX, RGB, HSL and HSV values, tint and shade ramps, and WCAG contrast ratios against black and white. Runs in your browser.",
  "tagline": "Pick a color, get every format, and see how it performs against WCAG contrast thresholds.",
  "workspace": """ <section class="workspace" aria-label="Color picker">
  <div class="workspace__row">
@@ -886,7 +886,7 @@ QR_CODE = {
  "category_name": "Generators",
  "schema_category": "UtilitiesApplication",
  "purpose": "Generate QR codes for links, text, Wi-Fi and contact cards.",
- "title": "QR Code Generator: Links, Wi-Fi and vCards, PNG & SVG | 123MiniApps",
+ "title": "QR Code Generator: Links, Wi-Fi and vCards, PNG & SVG",
  "og_title": "QR Code Generator, PNG & SVG | 123MiniApps",
  "description": "Generate QR codes for URLs, text, Wi-Fi or contact cards. Four error-correction levels, custom colors, PNG and SVG download. Encoded locally.",
  "tagline": "Turn a link, Wi-Fi password or contact card into a QR code, encoded locally, never uploaded.",

@@ -27,6 +27,23 @@ import re
 import json
 from datetime import date
 
+# Author (E-E-A-T): every article is bylined to a real person with a profile page
+AUTHOR_NAME = "Mubasher Hussain"
+AUTHOR_URL = "https://www.123miniapps.online/pages/mubasher-hussain.html"
+AUTHOR_SCHEMA = {
+    "@type": "Person",
+    "@id": AUTHOR_URL + "#person",
+    "name": AUTHOR_NAME,
+    "url": AUTHOR_URL,
+    "jobTitle": "Founder and developer of 123MiniApps",
+    "worksFor": {"@type": "Organization", "name": "SHK International"},
+}
+DEFAULT_OG = "https://www.123miniapps.online/assets/images/social/og-image.png"
+
+# Live tool count: every tools/*.html except templates (so text never goes stale)
+TOOL_COUNT = len([f for f in os.listdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
+                  if f.endswith(".html") and not f.startswith("_")])
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 BLOG_DIR = os.path.join(HERE, "blog")
 PAGES_DIR = os.path.join(HERE, "pages")
@@ -121,20 +138,20 @@ CHROME_TAIL = """<footer class="footer">
   </div>
 </div>
 
-<script src="{root}assets/js/config.js?v=2.9.0"></script>
-<script src="{root}assets/js/theme-manager.js?v=2.9.0"></script>
-<script src="{root}assets/data/categories.js?v=2.9.0" defer></script>
-<script src="{root}assets/data/tools.js?v=2.9.0" defer></script>
-<script src="{root}assets/data/testimonials.js?v=2.9.0" defer></script>
-<script src="{root}assets/js/components.js?v=2.9.0" defer></script>
-<script src="{root}assets/js/tool-utils.js?v=2.9.0" defer></script>
-<script src="{root}assets/js/search-engine.js?v=2.9.0" defer></script>
-<script src="{root}assets/js/animations.js?v=2.9.0" defer></script>
-<script src="{root}assets/js/pwa.js?v=2.9.0" defer></script>
-<script src="{root}assets/js/analytics.js?v=2.9.0" defer></script>
-<script src="{root}assets/js/consent.js?v=2.9.0" defer></script>
-<script src="{root}assets/js/ads.js?v=2.9.0" defer></script>
-<script src="{root}assets/js/main.js?v=2.9.0" defer></script>
+<script src="{root}assets/js/config.js?v=2.9.9"></script>
+<script src="{root}assets/js/theme-manager.js?v=2.9.9"></script>
+<script src="{root}assets/data/categories.js?v=2.9.9" defer></script>
+<script src="{root}assets/data/tools.js?v=2.9.9" defer></script>
+<script src="{root}assets/data/testimonials.js?v=2.9.9" defer></script>
+<script src="{root}assets/js/components.js?v=2.9.9" defer></script>
+<script src="{root}assets/js/tool-utils.js?v=2.9.9" defer></script>
+<script src="{root}assets/js/search-engine.js?v=2.9.9" defer></script>
+<script src="{root}assets/js/animations.js?v=2.9.9" defer></script>
+<script src="{root}assets/js/pwa.js?v=2.9.9" defer></script>
+<script src="{root}assets/js/analytics.js?v=2.9.9" defer></script>
+<script src="{root}assets/js/consent.js?v=2.9.9" defer></script>
+<script src="{root}assets/js/ads.js?v=2.9.9" defer></script>
+<script src="{root}assets/js/main.js?v=2.9.9" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{{document.getElementById('copyright-year').textContent=new Date().getFullYear();}});</script>
 </body>
 </html>
@@ -159,7 +176,7 @@ HEAD = """<!DOCTYPE html>
 <title>{title}</title>
 <meta name="description" content="{description}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="author" content="123MiniApps">
+<meta name="author" content="{author}">
 <link rel="canonical" href="{canonical}">
 
 <meta property="og:type" content="{og_type}">
@@ -167,12 +184,12 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{site}/assets/images/social/og-image.png">
+<meta property="og:image" content="{og_image}">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{description}">
-<meta name="twitter:image" content="{site}/assets/images/social/og-image.png">
+<meta name="twitter:image" content="{og_image}">
 {extra_meta}
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="{root}assets/images/logo.svg" type="image/svg+xml">
@@ -187,7 +204,7 @@ HEAD = """<!DOCTYPE html>
 html{{background:#0B1120}}
 body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}}
 </style>
-<link rel="stylesheet" href="{root}assets/css/main.min.css?v=2.9.0">
+<link rel="stylesheet" href="{root}assets/css/main.min.css?v=2.9.9">
 
 <script type="application/ld+json">
 {schema}
@@ -293,20 +310,49 @@ def word_count(blocks):
     return len(" ".join(text).split())
 
 
+# Hand-picked sibling links: articles that cover neighbouring search intents
+# always link to each other first, so Google sees one owner per query and
+# readers can jump to the right page (avoids keyword cannibalisation).
+RELATED_PINS = {
+    "webp-vs-jpeg-vs-png": ["convert-between-image-formats-png-jpg-webp", "compress-images-without-losing-quality"],
+    "convert-between-image-formats-png-jpg-webp": ["webp-vs-jpeg-vs-png", "compress-images-without-losing-quality"],
+    "how-long-should-a-password-be": ["how-password-strength-is-measured", "why-password-rules-are-so-frustrating"],
+    "how-password-strength-is-measured": ["how-long-should-a-password-be", "why-password-rules-are-so-frustrating"],
+    "why-password-rules-are-so-frustrating": ["how-long-should-a-password-be", "how-password-strength-is-measured"],
+    "how-to-convert-csv-to-json": ["how-to-convert-json-to-csv", "why-is-my-json-invalid"],
+    "how-to-convert-json-to-csv": ["how-to-convert-csv-to-json", "why-is-my-json-invalid"],
+}
+
+_STOP = set("a an and are as at be by can do does for from how i in is it its my of on or the to vs what when where which why with you your free online tool tools explained guide 123miniapps".split())
+
+
+def _terms(p):
+    text = " ".join(p.get("keywords", [])) + " " + p.get("title", "") + " " + p.get("nav_title", "")
+    return {w for w in re.findall(r"[a-z0-9]+", text.lower()) if w not in _STOP and len(w) > 2}
+
+
 def compute_related(posts, n=3):
-    """Attach up to n related articles to each post, by keyword overlap.
-    Deepens the internal link graph (good for SEO and time-on-site)."""
+    """Attach n related articles to each post.
+    Score = shared related tools (strong signal) + shared meaningful words in
+    keywords/titles + same section. Pinned siblings come first. Deepens the
+    internal link graph instead of linking every article to the same three."""
+    by_slug = {p["slug"]: p for p in posts}
+    terms = {p["slug"]: _terms(p) for p in posts}
+    tools = {p["slug"]: {t[0] for t in p.get("related_tools", [])} for p in posts}
     for p in posts:
-        pk = set(p.get("keywords", []))
+        picks = [s for s in RELATED_PINS.get(p["slug"], []) if s in by_slug and s != p["slug"]]
         scored = []
         for other in posts:
-            if other["slug"] == p["slug"]:
+            if other["slug"] == p["slug"] or other["slug"] in picks:
                 continue
-            overlap = len(pk & set(other.get("keywords", [])))
-            scored.append((overlap, other))
-        # Highest overlap first; stable fallback keeps output deterministic.
-        scored.sort(key=lambda t: (-t[0], t[1]["slug"]))
-        p["_related"] = [(o["slug"], o["nav_title"]) for _, o in scored[:n]]
+            score = 4 * len(tools[p["slug"]] & tools[other["slug"]])
+            score += len(terms[p["slug"]] & terms[other["slug"]])
+            if p.get("section") and p.get("section") == other.get("section"):
+                score += 1
+            scored.append((score, other["slug"]))
+        scored.sort(key=lambda t: (-t[0], t[1]))
+        picks += [s for _, s in scored[: max(0, n - len(picks))]]
+        p["_related"] = [(s, by_slug[s]["nav_title"]) for s in picks[:n]]
 
 
 def build_article(post):
@@ -317,7 +363,9 @@ def build_article(post):
     # Hero image (optional): ("assets/images/blog/<slug>/<slug>-1-hero.webp", "alt text").
     # Used as the article's schema/OG image when present; otherwise the site OG image.
     hero = post.get("hero")
-    hero_img_url = (SITE + "/" + hero[0]) if hero else (SITE + "/assets/images/social/og-image.png")
+    _root = os.path.dirname(os.path.abspath(__file__))
+    has_hero = bool(hero) and os.path.isfile(os.path.join(_root, hero[0]))
+    hero_img_url = (SITE + "/" + hero[0]) if has_hero else DEFAULT_OG
 
     graph = [
         {
@@ -335,12 +383,7 @@ def build_article(post):
             "description": post["description"],
             "datePublished": post["published"],
             "dateModified": modified,
-            "author": {
-                "@type": "Organization",
-                "name": "123MiniApps",
-                "url": SITE + "/",
-                "logo": {"@type": "ImageObject", "url": SITE + "/assets/images/logo.svg"},
-            },
+            "author": AUTHOR_SCHEMA,
             "publisher": {
                 "@type": "Organization",
                 "name": "123MiniApps",
@@ -390,7 +433,10 @@ def build_article(post):
         f'<meta property="article:published_time" content="{post["published"]}">\n'
         f'<meta property="article:modified_time" content="{modified}">\n'
         f'<meta property="article:section" content="{post.get("section", "Guides")}">\n'
-        f'<meta property="article:tag" content="{", ".join(post["keywords"])}">'
+        f'<meta property="article:tag" content="{", ".join(post["keywords"])}">\n'
+        f'<meta property="article:author" content="{AUTHOR_URL}">'
+        + ('\n<meta property="og:image:width" content="1280">\n<meta property="og:image:height" content="720">\n'
+           f'<meta property="og:image:alt" content="{hero[1]}">' if has_hero else '')
     )
 
     head = HEAD.format(
@@ -399,6 +445,8 @@ def build_article(post):
         description=post["description"],
         canonical=canonical,
         og_type="article",
+        og_image=hero_img_url,
+        author=AUTHOR_NAME,
         site=SITE,
         root="../",
         schema=schema,
@@ -473,7 +521,7 @@ def build_article(post):
           <p class="lead mt-2" style="margin-bottom:0">{post['standfirst']}</p>
         </div>
         <p class="text-sm text-muted mt-4">
-          By 123MiniApps · Published {post['published']} · Updated {modified} ·
+          By <a href="../pages/mubasher-hussain.html" rel="author">{AUTHOR_NAME}</a> · Published {post['published']} · Updated {modified} ·
           {words} words · about {max(1, round(words / 225))} minute read
         </p>
       </header>
@@ -494,7 +542,7 @@ def build_article(post):
       </div>
     </section>
 {read_more}
-    <p class="mt-8"><a href="index.html">← More articles</a> · <a href="../index.html">Browse all 116 tools</a></p>
+    <p class="mt-8"><a href="index.html">← More articles</a> · <a href="../index.html">Browse all {TOOL_COUNT} tools</a></p>
 
   </div>
 </main>
@@ -532,6 +580,8 @@ def build_index(posts):
     }, indent=2, ensure_ascii=False)
 
     head = HEAD.format(
+        og_image=DEFAULT_OG,
+        author="123MiniApps",
         file="blog/index.html",
         title="Blog: Practical Explanations | 123MiniApps",
         description="Clear answers to the questions behind our tools: why a 1TB drive shows 931GB, "
@@ -585,7 +635,7 @@ def build_index(posts):
 {chr(10).join(cards)}
     </div>
 
-    <p class="mt-12 text-center"><a href="../index.html">Browse all 116 tools →</a></p>
+    <p class="mt-12 text-center"><a href="../index.html">Browse all {TOOL_COUNT} tools →</a></p>
 
   </div>
 </main>
@@ -746,6 +796,8 @@ def build_insights(posts):
     }, indent=2, ensure_ascii=False)
 
     head = HEAD.format(
+        og_image=DEFAULT_OG,
+        author="123MiniApps",
         file="pages/insights.html",
         title="Insights: In-depth AI & Business Guides | 123MiniApps",
         description="Premium long-form guides on AI agents, automation, SaaS metrics "

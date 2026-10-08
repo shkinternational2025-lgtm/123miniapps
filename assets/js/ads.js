@@ -15,7 +15,10 @@
  ============================================ */
 
 window.ADSTERRA = window.ADSTERRA || {
-	enabled: true,
+	// PAUSED (Oct 2026) while Google AdSense re-reviews the site.
+	// All ad slots, keys and the page layout stay in place as placeholders,
+	// so resuming is one change: set enabled back to true and deploy.
+	enabled: false,
 	consentMode: 'notice',
 	banners: {
 		rect:   { key: '6d10ec0ef7be1d968a2e737f196dbff5', w: 300, h: 250 },
@@ -28,7 +31,6 @@ window.ADSTERRA = window.ADSTERRA || {
 
 (function () {
 	var cfg = window.ADSTERRA || {};
-	if (!cfg.enabled) return;
 
 	// System / thin pages never show ads. Inside /pages/ only the two
 	// content pages (services, insights) run ads; legal/about/contact do not.
@@ -215,7 +217,7 @@ window.ADSTERRA = window.ADSTERRA || {
 	function onResize() { clearTimeout(rz); rz = setTimeout(syncAds, 150); }
 
 	function start() {
-		if (started) return;
+		if (started || !cfg.enabled) return;
 		started = true;
 		if ((cfg.siteScriptUrl || '').trim()) {
 			var s = document.createElement('script');
@@ -241,7 +243,12 @@ window.ADSTERRA = window.ADSTERRA || {
 		if (e.detail && e.detail.value === 'accepted') start();
 	});
 
+	// Layout (wide content, 1100px articles) applies whether or not ads run,
+	// so pausing ads never changes how the pages look.
 	injectAdStyles();
+
+	// Paused: keep the layout and the hidden .ad-slot placeholders, load no ads.
+	if (!cfg.enabled) return;
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', maybeStart, { once: true });

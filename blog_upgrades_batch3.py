@@ -203,7 +203,7 @@ UPGRADES = {
 
  "how-long-should-a-password-be": {
   "modified": MOD,
-  "keywords": ["how long should a password be", "password length", "strong password", "password security", "minimum password length", "passphrase", "password entropy", "how long to crack a password", "secure password tips", "password best practices"],
+  "keywords": ["how long should a password be", "password length", "strong password", "password security", "minimum password length", "passphrase", "passphrase length", "how long to crack a password", "secure password tips", "password best practices"],
   "standfirst": "Length matters more than complexity: aim for at least 12 to 16 characters, and a passphrase of several random words is both stronger and easier to remember than a short string of symbols, because each extra character multiplies the number of guesses an attacker needs.",
   "hero": _hero("how-long-should-a-password-be", "A longer password forming a stronger lock"),
   "images": _imgs("how-long-should-a-password-be", [

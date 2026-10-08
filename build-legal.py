@@ -46,7 +46,7 @@ SHELL = """<!DOCTYPE html>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <style>html{{background:#0B1120}}body{{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans-serif}}</style>
-<link rel="stylesheet" href="../assets/css/main.min.css?v=2.8.6">
+<link rel="stylesheet" href="../assets/css/main.min.css?v=2.9.9">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -161,19 +161,19 @@ SHELL = """<!DOCTYPE html>
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=2.8.6"></script>
-<script src="../assets/js/theme-manager.js?v=2.8.6"></script>
-<script src="../assets/data/categories.js?v=2.8.6" defer></script>
-<script src="../assets/data/tools.js?v=2.8.6" defer></script>
-<script src="../assets/data/testimonials.js?v=2.8.6" defer></script>
-<script src="../assets/js/components.js?v=2.8.6" defer></script>
-<script src="../assets/js/search-engine.js?v=2.8.6" defer></script>
-<script src="../assets/js/animations.js?v=2.8.6" defer></script>
-<script src="../assets/js/pwa.js?v=2.8.6" defer></script>
-<script src="../assets/js/analytics.js?v=2.8.6" defer></script>
-<script src="../assets/js/consent.js?v=2.8.6" defer></script>
-<script src="../assets/js/ads.js?v=2.8.6" defer></script>
-<script src="../assets/js/main.js?v=2.8.6" defer></script>
+<script src="../assets/js/config.js?v=2.9.9"></script>
+<script src="../assets/js/theme-manager.js?v=2.9.9"></script>
+<script src="../assets/data/categories.js?v=2.9.9" defer></script>
+<script src="../assets/data/tools.js?v=2.9.9" defer></script>
+<script src="../assets/data/testimonials.js?v=2.9.9" defer></script>
+<script src="../assets/js/components.js?v=2.9.9" defer></script>
+<script src="../assets/js/search-engine.js?v=2.9.9" defer></script>
+<script src="../assets/js/animations.js?v=2.9.9" defer></script>
+<script src="../assets/js/pwa.js?v=2.9.9" defer></script>
+<script src="../assets/js/analytics.js?v=2.9.9" defer></script>
+<script src="../assets/js/consent.js?v=2.9.9" defer></script>
+<script src="../assets/js/ads.js?v=2.9.9" defer></script>
+<script src="../assets/js/main.js?v=2.9.9" defer></script>
 <script defer>document.addEventListener('DOMContentLoaded',()=>{{document.getElementById('copyright-year').textContent=new Date().getFullYear();}});</script>
 </body>
 </html>
@@ -184,7 +184,7 @@ PAGES = [
         "slug": "disclaimer",
         "purpose": "General disclaimer of warranties and liability.",
         "title": "Disclaimer",
-        "description": "Disclaimer for 123MiniApps: the free browser-based tools are provided as-is, for general use, with no warranty of accuracy or fitness for professional, legal, medical or financial decisions.",
+        "description": "Disclaimer for 123MiniApps: free browser tools provided as-is, with no warranty of accuracy for professional, legal, medical or financial decisions.",
         "lead": "The tools on this site are provided free, as-is, for general use. Read this before relying on any result for something that matters.",
         "body": """
       <h2>1. General information only</h2>
@@ -244,7 +244,7 @@ PAGES = [
         "slug": "cookies",
         "purpose": "Cookie and local-storage policy.",
         "title": "Cookie Policy",
-        "description": "Cookie policy for 123MiniApps: the local-storage preferences the tools use, plus the Google Analytics and advertising cookies the site sets, and how to control them.",
+        "description": "Cookie policy for 123MiniApps: the local-storage preferences the tools use, the analytics and advertising cookies the site sets, and how to control them.",
         "lead": "The tools themselves set no tracking cookies - they run in your browser and store only a few preferences locally. The site does use Google Analytics and shows ads, which set cookies. Here is exactly what is stored and why.",
         "body": """
       <h2>1. What a cookie is</h2>

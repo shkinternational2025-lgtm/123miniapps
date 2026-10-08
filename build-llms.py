@@ -14,6 +14,11 @@
 import re
 import json
 import glob
+
+import os
+# Live tool count: every tools/*.html except templates (so text never goes stale)
+TOOL_COUNT = len([f for f in os.listdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
+                  if f.endswith(".html") and not f.startswith("_")])
 import os
 
 BASE = "https://www.123miniapps.online"
@@ -91,7 +96,7 @@ def build():
     lines = []
     lines.append("# 123MiniApps")
     lines.append("")
-    lines.append("> 116 free browser-based mini tools for text, images, developers "
+    lines.append(f"> {TOOL_COUNT} free browser-based mini tools for text, images, developers "
                  "and designers. Every tool runs entirely as JavaScript in the "
                  "user's browser tab: nothing is uploaded, there is no backend, "
                  "no account is required, and data never leaves the device.")

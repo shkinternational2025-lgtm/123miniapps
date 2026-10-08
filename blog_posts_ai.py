@@ -16,7 +16,7 @@ POSTS = [
  "section": "Artificial Intelligence",
  "nav_title": "AI agents in 2026",
  "headline": "AI Agents in 2026: How Always-On AI Is Changing Work and Automation",
- "title": "AI Agents in 2026: How Always-On AI Is Changing Work | 123MiniApps",
+ "title": "AI Agents in 2026: How Always-On AI Is Changing Work",
  "standfirst": "An AI agent takes a goal, breaks it into steps, uses tools, checks its own progress, and keeps working until the job is done or it hits a boundary that needs a human. In 2026 the shift is from AI that answers to AI that acts, and the businesses that win treat agents as something to engineer carefully, not switch on and walk away from.",
  "description": "How AI agents work in 2026, how they differ from chatbots, real business use cases, security risks, browser agents, and how to adopt agentic AI safely.",
  "published": "2026-10-06",

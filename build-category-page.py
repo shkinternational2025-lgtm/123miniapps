@@ -13,10 +13,14 @@ import os
 import re
 import json
 
+# Live tool count: every tools/*.html except templates (so text never goes stale)
+TOOL_COUNT = len([f for f in os.listdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
+                  if f.endswith(".html") and not f.startswith("_")])
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 CAT_DIR = os.path.join(HERE, "categories")
 SITE = "https://www.123miniapps.online"
-VER = "2.9.0"
+VER = "2.9.9"
 
 # id, name, icon, one-line desc, URL slug, and an intro sentence for the hub.
 CATEGORIES = [
@@ -67,7 +71,7 @@ CATEGORIES = [
     ("premium", "Premium Applications", "\U0001F48E",
      "Professional-grade business apps with full reports and one-click PDF export.",
      "premium-applications",
-     "Premium browser apps for founders and operators: full professional reports with formulas, charts, benchmarks and one-click PDF export. Everything runs in your browser, nothing uploaded."),
+     "Premium browser apps for founders and operators: professional reports with formulas, charts, benchmarks and one-click PDF export. Nothing is uploaded."),
 ]
 
 
@@ -356,7 +360,7 @@ def build_page(cat, tools_in_cat, all_cats):
       </div>
     </section>
 
-    <p class="mt-8"><a href="../index.html">&larr; Back to all 116 tools</a> &middot; <a href="../blog/index.html">Read the guides</a></p>
+    <p class="mt-8"><a href="../index.html">&larr; Back to all {TOOL_COUNT} tools</a> &middot; <a href="../blog/index.html">Read the guides</a></p>
 
   </div>
 </main>

@@ -74,7 +74,7 @@ The foundation was already strong. The site is fast, private, and technically cl
 
 ## 4. Recommended upgrades before / at launch
 
-**Server (apply `nginx-123miniapps.conf` — included in this folder):**
+**Server (the live config is `deploy/nginx.conf`; the old standalone file is archived in `deploy/`):**
 - HTTP→HTTPS redirect + non-www→www redirect (your canonical is `www`).
 - Security headers: HSTS, CSP, X-Content-Type-Options, X-Frame-Options, Referrer-Policy,
   Permissions-Policy. (The config ships a CSP for ads-off and a ready-to-swap CSP for ads-on.)

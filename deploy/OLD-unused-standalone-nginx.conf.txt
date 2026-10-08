@@ -1,3 +1,5 @@
+# ARCHIVED - NOT USED. The live server uses deploy/nginx.conf (nginx container behind Traefik).
+# This old standalone config has a strict CSP that would block Adsterra, GA4 and YouTube. Do not deploy it.
 # ============================================================
 # 123MiniApps.online — production Nginx server config
 # Place at: /etc/nginx/sites-available/123miniapps.online

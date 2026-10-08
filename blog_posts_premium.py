@@ -15,7 +15,7 @@ POSTS = [
  "icon": "\U0001F4C8",
  "nav_title": "SaaS metrics explained",
  "headline": "SaaS Metrics Explained: MRR, ARR, Churn, NRR, LTV:CAC, Payback and the Rule of 40",
- "title": "SaaS Metrics Explained: MRR, Churn, NRR, LTV:CAC & Rule of 40 | 123MiniApps",
+ "title": "SaaS Metrics Explained: MRR, Churn, NRR, LTV:CAC & Rule of 40",
  "standfirst": "A complete, plain-English guide to the recurring-revenue metrics that decide whether a SaaS business is healthy, with the formulas, the benchmarks, and the traps to avoid.",
  "description": "The complete guide to SaaS metrics: MRR, ARR, churn, NRR, LTV, CAC, LTV:CAC, payback and the Rule of 40, with formulas, benchmarks and a free analyzer.",
  "published": "2026-09-21",
