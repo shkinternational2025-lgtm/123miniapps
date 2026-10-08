@@ -279,13 +279,14 @@ def render_body(markdownish):
             # assets/images/blog/<slug>/<slug>-2.webp ; served from /blog/ via ../
             src, alt = block[1], block[2]
             cap = block[3] if len(block) > 3 else ""
+            iw, ih = (block[4] if len(block) > 4 and block[4] else (1280, 720))
             figcap = (
                 f'<figcaption class="text-sm text-muted mt-2" style="text-align:center">{cap}</figcaption>'
                 if cap else ""
             )
             html.append(
                 f'      <figure style="margin:var(--space-6) 0;text-align:center">'
-                f'<img src="../{src}" alt="{alt}" width="1280" height="720" loading="lazy" decoding="async" '
+                f'<img src="../{src}" alt="{alt}" width="{iw}" height="{ih}" loading="lazy" decoding="async" '
                 f'style="max-width:100%;height:auto;border-radius:var(--radius-lg)">{figcap}</figure>'
             )
     return "\n\n".join(html)
@@ -365,7 +366,8 @@ def build_article(post):
     hero = post.get("hero")
     _root = os.path.dirname(os.path.abspath(__file__))
     has_hero = bool(hero) and os.path.isfile(os.path.join(_root, hero[0]))
-    hero_img_url = (SITE + "/" + hero[0]) if has_hero else DEFAULT_OG
+    shot = post.get("_toolshot")  # (rel_path, alt, (w, h)) - real screenshot of the tool
+    hero_img_url = (SITE + "/" + hero[0]) if has_hero else (SITE + "/" + shot[0] if shot else DEFAULT_OG)
 
     graph = [
         {
@@ -436,7 +438,9 @@ def build_article(post):
         f'<meta property="article:tag" content="{", ".join(post["keywords"])}">\n'
         f'<meta property="article:author" content="{AUTHOR_URL}">'
         + ('\n<meta property="og:image:width" content="1280">\n<meta property="og:image:height" content="720">\n'
-           f'<meta property="og:image:alt" content="{hero[1]}">' if has_hero else '')
+           f'<meta property="og:image:alt" content="{hero[1]}">' if has_hero else
+           (f'\n<meta property="og:image:width" content="{shot[2][0]}">\n<meta property="og:image:height" content="{shot[2][1]}">\n'
+            f'<meta property="og:image:alt" content="{shot[1]}">' if shot else ''))
     )
 
     head = HEAD.format(
@@ -478,7 +482,7 @@ def build_article(post):
 """
 
     hero_html = ""
-    if hero:
+    if has_hero:
         hero_html = (
             f'\n      <figure style="margin:0 0 var(--space-7)">'
             f'<img src="../{hero[0]}" alt="{hero[1]}" width="1280" height="720" '
@@ -760,6 +764,39 @@ def apply_upgrades(posts):
                 body.append(img)
 
 
+def add_tool_shots(posts):
+    """Real screenshots of each article's tool, captured from the live tool
+    with an example input (assets/images/blog/<slug>/<slug>-tool.webp).
+    Inserted as a "see it in action" figure after the first section, so every
+    guide shows the actual tool it explains (original, first-hand imagery)."""
+    try:
+        from PIL import Image
+    except Exception:
+        Image = None
+    for p in posts:
+        rel = f"assets/images/blog/{p['slug']}/{p['slug']}-tool.webp"
+        path = os.path.join(HERE, rel)
+        if not os.path.exists(path) or not p.get("related_tools"):
+            continue
+        name = {"webp-vs-jpeg-vs-png": "Image Format Converter"}.get(p["slug"], p["related_tools"][0][1])
+        dims = (1200, 900)
+        if Image:
+            try:
+                with Image.open(path) as im:
+                    dims = im.size
+            except Exception:
+                pass
+        alt = f"Screenshot of the {name} on 123MiniApps showing an example result"
+        cap = f"The {name} running in the browser with an example input. Real screenshot from this site; nothing is uploaded."
+        p["_toolshot"] = (rel, alt, dims)
+        body = p["body"]
+        if any(b[0] == "img" and b[1] == rel for b in body):
+            continue
+        h2_idx = [i for i, b in enumerate(body) if b[0] == "h2"]
+        pos = h2_idx[1] if len(h2_idx) > 1 else len(body)
+        body.insert(pos, ("img", rel, alt, cap, dims))
+
+
 def build_insights(posts):
     """Insights landing page (pages/insights.html): a curated showcase of the
     premium, long-form guides (posts flagged premium=True). The articles
@@ -869,6 +906,7 @@ if __name__ == "__main__":
     os.makedirs(BLOG_DIR, exist_ok=True)
     posts = collect_posts()
     apply_upgrades(posts)
+    add_tool_shots(posts)
     compute_related(posts)
 
     for post in posts:

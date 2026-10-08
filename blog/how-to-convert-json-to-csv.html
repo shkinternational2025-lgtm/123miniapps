@@ -25,17 +25,20 @@
 <meta property="og:title" content="How to Convert JSON to CSV: Flatten and Escape | 123MiniApps">
 <meta property="og:description" content="How to convert JSON to CSV: how an array of objects becomes rows and columns, how nested fields flatten into dot-notation columns, with a free converter.">
 <meta property="og:url" content="https://www.123miniapps.online/blog/how-to-convert-json-to-csv.html">
-<meta property="og:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta property="og:image" content="https://www.123miniapps.online/assets/images/blog/how-to-convert-json-to-csv/how-to-convert-json-to-csv-tool.webp">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="How to Convert JSON to CSV: Flatten and Escape | 123MiniApps">
 <meta name="twitter:description" content="How to convert JSON to CSV: how an array of objects becomes rows and columns, how nested fields flatten into dot-notation columns, with a free converter.">
-<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/social/og-image.png">
+<meta name="twitter:image" content="https://www.123miniapps.online/assets/images/blog/how-to-convert-json-to-csv/how-to-convert-json-to-csv-tool.webp">
 <meta property="article:published_time" content="2026-09-10">
 <meta property="article:modified_time" content="2026-09-01">
 <meta property="article:section" content="Guides">
 <meta property="article:tag" content="json to csv, convert json to csv, json csv converter, flatten json, json array to csv, export json to excel, csv escaping">
 <meta property="article:author" content="https://www.123miniapps.online/pages/mubasher-hussain.html">
+<meta property="og:image:width" content="1185">
+<meta property="og:image:height" content="993">
+<meta property="og:image:alt" content="Screenshot of the JSON to CSV on 123MiniApps showing an example result">
 <meta name="theme-color" content="#0B1120">
 <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="../manifest.json">
@@ -109,8 +112,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         "@type": "WebPage",
         "@id": "https://www.123miniapps.online/blog/how-to-convert-json-to-csv.html"
       },
-      "image": "https://www.123miniapps.online/assets/images/social/og-image.png",
-      "wordCount": 1115,
+      "image": "https://www.123miniapps.online/assets/images/blog/how-to-convert-json-to-csv/how-to-convert-json-to-csv-tool.webp",
+      "wordCount": 1148,
       "keywords": "json to csv, convert json to csv, json csv converter, flatten json, json array to csv, export json to excel, csv escaping",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -185,7 +188,7 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
         </div>
         <p class="text-sm text-muted mt-4">
           By <a href="../pages/mubasher-hussain.html" rel="author">Mubasher Hussain</a> · Published 2026-09-10 · Updated 2026-09-01 ·
-          1115 words · about 5 minute read
+          1148 words · about 5 minute read
         </p>
       </header>
 
@@ -197,6 +200,8 @@ body{margin:0;background:#0B1120;color:#fff;font-family:Inter,-apple-system,sans
       <p>JSON is a tree. An object can contain other objects, arrays can hold objects, and the nesting can go as deep as you like, which is what makes it good for representing rich, structured data. CSV is the opposite: a flat grid of rows and columns with nothing deeper than a single cell. There is no nesting, no hierarchy, just a table. Converting from a tree to a grid therefore always involves a decision about how to flatten the tree so it fits into rows and columns without losing the parts you care about.</p>
 
       <p>The natural unit for a CSV row is one record, and in JSON a record is an object. That is why a converter expects a top-level array of objects: each object in the array becomes one row, and the fields inside each object become the columns. If your JSON is a single object rather than an array, wrapping it in square brackets turns it into an array of one, which is all the converter needs.</p>
+
+      <figure style="margin:var(--space-6) 0;text-align:center"><img src="../assets/images/blog/how-to-convert-json-to-csv/how-to-convert-json-to-csv-tool.webp" alt="Screenshot of the JSON to CSV on 123MiniApps showing an example result" width="1185" height="993" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:var(--radius-lg)"><figcaption class="text-sm text-muted mt-2" style="text-align:center">The JSON to CSV running in the browser with an example input. Real screenshot from this site; nothing is uploaded.</figcaption></figure>
 
       <h2 id="every-key-becomes-a-column">Every key becomes a column</h2>
 

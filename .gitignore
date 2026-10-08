@@ -29,3 +29,4 @@ node_modules/
 # Symlinked deps + local helpers (added by Claude)
 node_modules
 _indexing/
+_to_delete/
